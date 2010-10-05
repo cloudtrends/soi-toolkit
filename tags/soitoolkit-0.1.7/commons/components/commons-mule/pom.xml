@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+        <groupId>org.soitoolkit</groupId>
+		<artifactId>soitoolkit</artifactId>
+		<version>0.1.7</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.soitoolkit.commons.components</groupId>
+	<artifactId>soitoolkit-commons-mule</artifactId>
+	<name>soitoolkit-commons-mule</name>
+	<url>http://soi-toolkit.org</url>
+
+	<dependencies>
+    <!-- The SOI-toolkit default Mule-version with dependencies -->
+    <dependency>
+      <groupId>org.soitoolkit.commons.poms.mule-dependencies</groupId>
+      <artifactId>soitoolkit-mule-dependencies-2.2.5</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+      <scope>provided</scope>      
+    </dependency>
+  
+		<!-- For the MonitorRestService -->
+		<dependency>
+            <groupId>org.soitoolkit.commons.components</groupId>
+			<artifactId>soitoolkit-commons-schemas</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Logging using the slf4j api on top of log4j 1.2 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.6</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.6</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+
+			<exclusions>
+				<!--
+					Can't find these dependencies and from what I know we don't need
+					them so let's exclude them for now...
+				-->
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+
+			</exclusions>
+		</dependency>
+
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.5</version>
+			<!--
+				Needs to be in the compile scope since commons-mule contains a base
+				class, AbstractTestCase, that depends on this module
+			-->
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+</project>
