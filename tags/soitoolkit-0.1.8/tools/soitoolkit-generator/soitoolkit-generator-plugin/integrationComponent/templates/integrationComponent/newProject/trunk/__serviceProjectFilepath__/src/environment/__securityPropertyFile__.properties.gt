@@ -1,0 +1,7 @@
+# TODO: Add security related properties here...
+<% if (sftp) { %>
+# Properties for the default sftp-connector
+# TODO: Update to reflect your settings
+SOITOOLKIT_SFTP_IDENTITYFILE=${defaultSftpIdentityFile}
+SOITOOLKIT_SFTP_IDENTITYFILE_PASSPHRASE=${defaultSftpIdentityPassphrase}
+<% } %>  
