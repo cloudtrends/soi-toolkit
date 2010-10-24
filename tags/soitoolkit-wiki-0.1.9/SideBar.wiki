@@ -1,0 +1,40 @@
+#summary Side bar
+
+==Tutorials==
+====Creating a====
+ * [TutorialCreateIntegrationComponent Integration Component]
+ * [TutorialCreateJmsToJmsService JMS to JMS service]
+ * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
+ * [TutorialCreateServiceDescriptionComponent Service Description Component]
+
+====Other tutorials====
+ * [TutorialCustomizations Customizations (TBS)]
+ * [TutorialDeploy Deploy (TBS)]
+
+==Other documents===
+ * [InstallationGuide Installation Guide]
+ * [Overview Overview (TBS)]
+ * [Architecture Architecture (TBS)]
+ * [PatternCatalog Pattern Catalog (TBS)]
+ * [ReleaseNotes Release Notes]
+ * [Roadmap Roadmap (TBS)]
+
+==Collaboration==
+ * [http://groups.google.com/group/soi-toolkit-user soi-toolkit-user]
+ * [http://groups.google.com/group/soi-toolkit-dev soi-toolkit-dev]
+ * [http://groups.google.com/group/soi-toolkit-scm soi-toolkit-scm]
+
+==Downloads==
+ * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Eclipse Update Site]
+ * [http://repo2.maven.org/maven2/org/soitoolkit/commons/  Central Repository]
+ * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/org/soitoolkit/ Snapshot Repository]
+ * [http://code.google.com/p/soi-toolkit/source/browse/#svn/trunk/refapps Ref Apps (TBS)]
+<wiki:comment>
+[https://oss.sonatype.org/content/repositories/snapshots/org/soitoolkit/commons/ Snapshot Repository]
+</wiki:comment>
+
+
+==soi-toolkit developers==
+ * [DeveloperGuidelines Developer Guidelines]
+ * [https://soi-toolkit.ci.cloudbees.com/ Hudson@CloudBees]
+ * [https://www.google.com/analytics/reporting/?id=37696735 Google Analytics]
