@@ -1,0 +1,14 @@
+#summary One-sentence summary of this page.
+
+= !!!UNDER CONSTRUCTION!!! =
+
+*Content*
+<wiki:toc max_depth="2" />
+
+= Introduction =
+
+...
+
+= Customize files and folders created by the generators =
+= Specify your own parent pom =
+= Specify your own dependencies for Mule usage =

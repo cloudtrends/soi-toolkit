@@ -1,0 +1,344 @@
+#summary Guidelines for developers of the soi-toolkit
+#labels Phase-Implementation
+
+*Content*
+
+<wiki:toc max_depth="2" />
+
+= Introduction =
+
+Guidelines for developers of the soi-toolkit...
+
+
+<wiki:comment>
+soi-toolkit is based on the following components:
+|| *Name* || *Svn-path* || *Description* ||
+|| commons-schemas || trunk/commons/components/commons-schemas || TBS ||
+|| commons-log || trunk/commons/components/commons-log || TBS ||
+|| commons-mule || trunk/commons/components/commons-mule || TBS ||
+|| default-parent || trunk/commons/poms/default-parent || TBS ||
+|| assembly-descriptors || trunk/commons/poms/assembly-descriptors || TBS ||
+|| soitoolkit-generator-plugin || trunk/tools/soitoolkit-generator || TBS ||
+
+All components in soi-toolkit has one and the same release cycle (i.e. cm scope) and are released together as described below.
+</wiki:comment>
+
+= Initial setup of development environment=
+
+As a base setup the development environment according to the [InstallationGuide installation guide] for soi-toolkit users.
+
+== Setup of source code analysis eclipse plugins ==
+
+It is recommended that developers of soi-toolkit have corresponding eclipse plugins to the source code analysis that are performed by the continuos integration server, Hudson.
+
+ * Install *PMD* from the Eclipse update site  http://pmd.sourceforge.net/eclipse
+ * Install *findbugs* from the Eclipse update site http://findbugs.cs.umd.edu/eclipse
+ * Install *checkstyle* from the Eclipse update site http://eclipse-cs.sourceforge.net/update
+ * Install *eclemma* from the Eclipse update site http://update.eclemma.org
+
+== Setup for Mule ==
+
+TBS: Ways to get Mule 2.2.x > 2.2.1 in your local maven repo...
+
+== Setup for generator-plugin ==
+
+ * on mac for 32bit Eclipse specify -d32 om launch command...
+
+ * jvm minimum paramenters on launch command
+
+ * specify your environment in the propertyfile, {{{src/soi_toolkit_generator_plugin_default_preferences.properties}}}
+
+ * how to create pki keys for sftp
+
+== Setup for Sonatype OSS Maven Repository ==
+
+The soi-toolkit uses Sonatype OSS Maven Repository to release artifacts to the Maven central repository, see https://docs.sonatype.org/display/repository/sonatype+oss+maven+repository+usage+guide for details.
+
+Added to the setup of the development environment required for a user of soi-toolkit a developer must perform the following setup steps to be able to perform releases of soi-toolkit:
+
+ # Create an JIRA account at Sonatype, https://issues.sonatype.org/
+{{{
+firefox https://issues.sonatype.org/
+}}}
+ # Add the following servers to the maven settings.xml - file:
+{{{
+  <servers>
+    <server>
+      <id>sonatype-nexus-snapshots</id>
+      <username>your-jira-id</username>
+      <password>your-jira-pwd</password>
+    </server>
+    <server>
+      <id>sonatype-nexus-staging</id>
+      <username>your-jira-id</username>
+      <password>your-jira-pwd</password>
+    </server>
+  </servers>
+}}}
+ # Install pgp, create key-pair and distribute public key.
+ See http://www.sonatype.com/people/2010/01/how-to-generate-pgp-signatures-with-maven/ for details.
+  * Install pgp
+  If you are a Mac user and have macports installed (you really should!) then simply install pgp with the command:
+{{{
+sudo port install gnupg
+}}}
+  * Create key-pair
+{{{
+gpg --gen-key
+}}}
+  * List keys
+{{{
+gpg --list-keys
+gpg --list-secret-keys
+}}}
+  * Distribute public key
+{{{
+gpg --keyserver hkp://pgp.mit.edu --send-keys nnnnnnnn
+}}}
+ 
+= Running tests =
+
+== Maven based tests ==
+
+{{{
+cd .../trunk
+mvn clean install
+}}}
+
+*Note:* {{{mvn clean test}}} is actually sufficient but since the generator tests (see below) need the latest binaries in the local maven repository to run successfully {{{mvn clean install}}} is required anyhow.
+
+== Generator tests ==
+
+The generator is for now both tested and built manually using the built in support in Eclipse for building Eclipse-plugins.
+
+Use Eclipse to run all tests in the project {{{soitoolkit-generator-plugin}}}.
+
+=Continuous Integration=
+The soi-toolkit project uses Hudson as its continuous integration server. 
+Builds are performed after every commit to subversion and snapshots are published on a daily basis.
+For the moment Hudson runs on a developer PC but it will be moved to a build-server soon...
+
+= Publish snapshots =
+
+To manually publish a snapshot of soi-toolkit do:
+{{{
+mvn clean deploy
+}}}
+
+Snapshot artifacts are deployed to the repository https://oss.sonatype.org/content/repositories/snapshots/org/soitoolkit
+
+= Release handling =
+
+To release a new version of soi-toolkit we use mavens release-plugin.
+
+*NOTE*: Do not use mobile internet during {{{mvn release:perform}}} or {{{mvn deploy}}} commands since your IP adress might change during a lengthy deploy operation and sonatypes maven repositories will get very confused by that typ of upload and you will not be able to get your artifacts transferred into the staging repository...
+
+Perform the following steps:
+
+ * Go to the components trunk-folder
+{{{
+cd .../trunk
+}}}
+
+ * Check that the code is in synch
+  * Check for updates:
+{{{
+svn update
+}}}
+
+  * Run tests
+{{{
+mvn clean test
+}}}
+
+ * Manually update the soi-toolkit version to the release version in {{{commons/poms/default-parent/pom.xml}}}. 
+ E.g. change:
+ {{{
+ <soitoolkit.version>0.1.2-SNAPSHOT</soitoolkit.version>
+ }}}
+ To:
+ {{{
+ <soitoolkit.version>0.1.2</soitoolkit.version>
+ }}}
+
+ NOTE: DO NOT CHANGE THE FOLLOWING LINE, JUST THE LINE ABOVE!!!
+ {{{
+  <version>0.1.2-SNAPSHOT</version>
+ }}}
+
+ NOTE: Same for:
+  * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml}}} 
+  * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml}}} 
+  * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
+  * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
+  * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}}
+  * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xml}}} 
+ 
+ * Revert any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
+ Note: Save them in some safe place so that you easily can re-apply them after the release is done!
+
+ * Review build command constant in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/util/SystemUtil.java}}}, e.g. remove "-o" if it is used during development to speed up tests...
+
+ * Review build command in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/createcomponent/CreateComponentWizard.java}}}, e.g. remove "-o" if it is used during development to speed up tests...
+
+ * Check versions of dependencies and parent pom, replace any SNAPSHOT-versions with stable ones. 
+{{{
+mate pom.xml
+}}}
+
+ * Commit changes
+{{{
+svn commit
+}}}
+
+ * Perform a dryrun to verify that everything is ok, i.e. a release build will be successful and not fail in the middle leaving the release build in an inconsistent state. *Note:* Version numbers shall follow the format defined below.
+{{{
+mvn release:clean release:prepare -DdryRun=true -Darguments=-Dgpg.passphrase=nnn
+}}}
+
+ * Fix any problems identified by the dryrun then perform a prepare-step to create the tag in svn
+{{{
+mvn release:clean release:prepare -Darguments=-Dgpg.passphrase=nnn
+}}}
+
+ * Deploy to Sonatypes staging repository
+{{{
+mvn release:perform
+}}}
+
+ * Deploy other mule-version-dependency files to staging repository
+ {{{
+ cd ../tags
+ svn update
+ cd soitoolkit-n.n.n
+ mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
+ cd ../../trunk
+ }}}
+
+ * Go to Sonatypes staging repository and release it to synch with maven central repo
+  * Go to: https://oss.sonatype.org
+  * Login to the Nexus UI.
+  * Go to Staging Repositories page.
+  * Select a staging repository.
+  * Select the soi-toolkit release
+  * Click the Close button.
+
+ * Validate against the staging repo https://oss.sonatype.org/content/repositories/staging/org/soitoolkit/
+  * NOTE: Can't we simply add the repo below *temporary* to the settings-file, then everything should run without problem during validation (junit tests first, thenmanuel tests...)???
+  * Refresh the generator plugin project in eclipse to get the updated version-numbers from above into the eclipse-project
+  * Re-apply any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
+  * Start a runtime eclipse workbench and run the new version of the generator plugin to create an integration component and service description component.
+   * The creation of these components will fail, since the new version is not yet available in the central maven repo.
+   * Add the staging-repo to the components pom.xml files:
+ {{{
+	<repositories> 
+		<repository> 
+			<id>sonatype-nexus-staging</id> 
+			<name>Sonatype Nexus Staging</name> 
+			<url>https://oss.sonatype.org/content/repositories/staging</url> 
+			<releases> 
+				<enabled>true</enabled> 
+			</releases> 
+			<snapshots> 
+				<enabled>false</enabled> 
+			</snapshots> 
+		</repository> 
+	</repositories> 
+}}}
+   * Build the components manually {{{mvn install eclipse:m2eclipse}}}
+   * Import the components manually into the runtime eclipse workbench
+   * Try out the new components, e.g. create som services in the integration component and run their integration tests
+  * TBS: How to add the generator unit tests manually against the pre-released new version (how to control the soi-toolkit version that the generated code use, is it pointing to the new version already?)
+
+ * If errors then Click on the Drop button and correct error and redo the process...
+ If something is wrong you can fix it on the release-tag in svn and perform av redeploy to the staging repo from the tag-folder using:
+{{{
+ mvn deploy -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
+}}}
+
+ NOTE: Don't forget to apply the relevant changes to trunk as well...
+
+ * Release the eclipse plugin as described below
+
+ * Publish to central repo
+  * If ok go back to the Sonatype staing repository web-app
+  * Select the soi-toolkit release again and click on the Release button.
+  * Artifacts should now be synched with central repo on a hourly bases... 
+
+ * Manually update the soi-toolkit version to snapshot of the next release version in {{{commons/poms/default-parent/pom.xml}}}. 
+ E.g. change:
+{{{
+<soitoolkit.version>0.1.2</soitoolkit.version>
+}}}
+ To:
+{{{
+<soitoolkit.version>0.1.3-SNAPSHOT</soitoolkit.version>
+}}}
+ NOTE: Same for:
+  * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml}}} 
+  * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml}}} 
+  * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
+  * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
+  * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}} (*two places*)
+  * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xml}}} 
+
+ * Re-apply (if not already done during the verification) any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
+
+ * Review build command constant in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/util/SystemUtil.java}}}, e.g. add back "-o" if it is used during development to speed up tests...
+
+ * Review build command in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/createcomponent/CreateComponentWizard.java}}}, e.g. add back "-o" if it is used during development to speed up tests...
+
+
+ * Perform a local build to get the new snapshot-versions of the parent pom installed in your local repository
+{{{
+mvn clean install
+mvn clean install -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml 
+mvn clean install -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml 
+}}}
+
+ * Refresh the soitoolkit-projects in Eclipse, update their maven snapshot dependencies and verify that no build/compile problem exists
+
+ * Commit the changes
+{{{
+svn commit -m "Start work on version n.n.n"
+}}}
+
+== Handling other mule version deps ==
+
+mvn clean install -f commons/poms/mule-dependencies/mule-dependencies-2.2.1/pom.xml 
+
+== Releasing the eclipse plugin ==
+Is currently done manually :-(
+
+ * temporary remove the plugin, feature and update project from the eclipse workspace
+
+ * import the plugin, feature and update projects from the new tag
+
+ * Verify/update version numbers
+  * DefaultModelImpl.java
+  * plugin/MANIFEST.MF
+  * feature/feature.xml
+  * update/site.xml
+  * Commit any changed files
+
+ * Ensure that {{{soi_toolkit_generator_plugin_default_preferences.properties}}} is reverted to the checked-in version, i.e. no developer specific settings here!
+ * Ensure that the update-project is fully reverted, i.e. no runtime files exists in the project
+ * Perform a "build all" in the update-project (click on the "Build All" button
+ * Copy updated runtime files from the update project to svn/eclipse-update-site
+   NOTE: Do not copy folders, then .svn files will be removed from eclipse-update-site folders!!!
+ * Commit changes in svn/eclipse-update-site
+ * Revert the update project to get rid of the runtime files
+
+ * remove the plugin, feature and update projects from the new tag in the eclipse workspace
+ * import plugin, feature and update project from trunk back into the eclipse workspace
+
+
+= Naming Conventions =
+
+Version numbers:
+ * {{{n.n.n}}} for releases
+ * {{{soitoolkit-n.n.n}}} for svn tags of releases
+ * {{{n.n.n-SNAPSHOT}}} for unreleased snapshots used during development

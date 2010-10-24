@@ -1,0 +1,330 @@
+#summary Installation Guide for users of soi-toolkit.
+
+*Content*
+<wiki:toc max_depth="3" />
+
+= Introduction =
+
+To get started with soi-toolkit and Mule ESB you only need to install Java SE, Eclipse, Maven and the soi-toolkit Eclipse plugin. See section [#Required_installations Required installations] for instructions.
+
+For not so experienced Maven users it is also strongly recommended to install the Maven Eclipse plugin for a very simple and transparent integration with Maven inside Eclipse, see section [#Recommended_installations  Recommended installations].
+
+We also recommend using the Subversive Eclipse plugin for a smooth integration with Subversion (if used) inside Eclipse, see section [#Recommended_installations  Recommended installations].
+
+Depending on your needs you also might want to install some optional tools in your development environment such as ActiveMQ, test tool for Web Services, soapUI, or setting up PKI - keys for usage with the SFTP transport. See section [#Optional_installation Optional installations] for instructions on how to install and configure optional tools.
+
+The installation guides below assumes your on a 32 bit Microsoft Windows PC.
+
+The following versions (or newer) are recommended:
+|| *Tool* || *Version* ||
+||Java SE||6 Update 21||
+||Eclipse EE||3.6.1 (Helios)||
+||Maven||2.2.1||
+||Soi-toolkit plugin for Eclipse||0.1.9||
+||Maven plugin for Eclipse||0.10.0||
+||Subversive plugin for Subversion||0.7.9||
+||Subversive SVN Connectors||2.2.2||
+||ActiveMQ||5.2.0||
+*Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
+
+==Required installations==
+
+
+===Java SE===
+Install Java SE according to the following instructions:
+
+ * Download JDK for Java SE from http://java.sun.com/javase/downloads/widget/jdk6.jsp
+ A file named {{{jdk-6u21-windows-i586.exe}}} is downloaded to your PC.
+
+ * Execute the downloaded installation program and use default values for the installation of both the JDK and the JRE.
+
+ * Create an environment variable, JAVA_HOME, in Windows that points to the installation directory. 
+ E.g. {{{JAVA_HOME=C:\Program Files\Java\jdk1.6.0_21}}}
+
+ * Add the bin-folder of the JDK to the Windows PATH-environment variable.
+ E.g. {{{PATH=...;C:\Program Files\Java\jdk1.6.0_21\bin}}}
+
+ * Verify the installation in a command window with the commands {{{java –version}}},  {{{javac –version}}} och {{{set JAVA_HOME}}}. The result should be similar to: 
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/JavaSeVerifyInstallation.png
+
+ * For full installation instructions see [http://www.oracle.com/technetwork/java/javase/documentation/install-windows-152927.html Microsoft Windows Installation (32-bit)]
+
+===Eclipse===
+
+Install Eclipse according to the following instructions:
+
+ * Download  {{{Eclipse IDE for Java EE Developers}}} from http://eclipse.org/downloads/.
+ A file named {{{eclipse-jee-helios-SR1-win32.zip}}} is downloaded to your computer.
+
+ * Unzip the zip file to the desired installation folder, eg C:\opt.
+
+ * Create a shortcut to the file {{{eclipse.exe}}} (eg {{{C:\opt\eclipse\eclipse.exe}}}) in the installation folder to the desktop.
+
+ * Verify the installation, start Eclipse through the desktop shortcut.
+ Enter the desired workspace folder where requested and click on the "Workbench" icon (top right) when the welcome screen is presented. The the Eclipse workbench should be displayed and look like:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/EclipseVerifyInstallation.png
+
+===Maven===
+
+Install Maven according to the following instructions:
+
+ * Download Maven from http://maven.apache.org/download.html
+ Download the file named {{{apache-maven-2.2.1-bin.zip}}} to your computer.
+
+ * Unzip the zip file to the desired installation folder, eg {{{C:\opt}}}.
+
+ * Create an environment variable, {{{M2_HOME}}}, in Windows pointing out the installation.
+ For example: {{{M2_HOME=C:\opt\apache-maven-2.2.1}}}
+
+ * Add Maven's bin folder to the Windows {{{PATH}}} variable.
+ For example: {{{PATH=...;C:\opt\apache-maven-2.2.1\bin}}}
+
+ * Verifying the installation of a command window with the command {{{mvn -v}}},
+ it should produce a result like:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MavenVerifyInstallation.png
+
+ * For full installation instructions see http://maven.apache.org/download.html # Installation
+
+===Soi-toolkit Eclipse plugin===
+
+ * Select in the Eclipse menu "Help --> Install New Software..."
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation1.png
+
+ * Click on the "Add..." button to add the soi-toolkit update site
+  * Enter "Soi-toolkit update site" in the name-field
+  * Enter "http://soi-toolkit.googlecode.com/svn/eclipse-update-site/" in the location field
+  * Click on the "Ok" button
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation2.png
+
+ * Allow Eclipse to process the update site
+
+ * Expand the available selection "soi-toolkit generator" and select the "soi-toolkit generator feature"
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation3.png
+
+ * Click on the "Next >" button
+ * Click on the "Next >" button again
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation4.png
+
+ * Accept the terms of the license agreement and press the "Finish" button
+  * The plugin is now downloaded and installed.
+
+ * Click on the "Ok" button when asked to accept unsigned content
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation5.png
+
+ * Click on the "Restart Now" button when asked to restart Eclipse
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation6.png
+
+ * Configure the plugin by open Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
+  * Specify the folder where you have Maven installed in the field "Maven home folder"
+  * Specify the default folder where the generator should create files in the field "Default root folder"
+  * You can leave the rest of the fields as they are.
+  * Click on the "OK" button to conclude the configuration.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation7.png
+
+==Recommended installations==
+
+===Maven Eclipse plugin===
+
+Install the Maven plugin for Eclipse according to the following instructions:
+
+ * The installation is performed using the Eclipse "Update Site"-mechanism.
+ The Update Site is: http://m2eclipse.sonatype.org/sites/m2e.
+ 
+ For full installation instructions see http://m2eclipse.sonatype.org/installing-m2eclipse.html.
+
+ Notes:
+  * If the installation asks for approval of certificates, so be sure to select the available certificate before the next step in the installation.
+  * Restart the workspace when so requested.
+
+ * To avoid the error message {{{"The Maven Integration requires that Eclipse be running in a JDK, because a number of Maven core plugins are using jars from the JDK. (...)"}}} follow the instructions on the following page [http://tech.karolzielinski.com/m2eclipse-eclipse-is-running-in-a-jre-but-a-jdk-is-required Eclipse is running in a JRE, but a JDK is required]
+
+===Subversive Eclipse plugin===
+
+If you already use Subversion as your source control system the Subversive Eclipse plugin can help you to bring  Subversion client functionality into Eclipse.
+
+The Subversive plugin is, due to license restrictions, divided into two separate installations, one for the Subversive plugin itself and one separate installation of the SVN connectors.
+
+==== Version check ====
+To be able to install the SVN connector part you need to know what version of subversion you use.
+Open a command window and enter the command {{{svn --version --quiet}}}.
+The command will return something like {{{1.6.5}}}
+
+==== Install the plugin ====
+ * The installation of the Eclipse plugin is performed using the Eclipse "Update Site"-mechanism.
+ The Update Site is a part of Helios Update Site. 
+ * Select the Eclipse menu "Help --> Install New Software... 
+ * In the field "Work with:" select the predefined update site "Helios - http://download.eclipse.org/releases/helios"
+ * In the list below of available features expand the node "Collaboration" 
+ * Select:
+  * Subversive SVN Team Provider (mandatory)
+  * Subversive SVN JDT Ignore Extension (optional)
+  * Subversive Revision Graph (optional)
+ * Progress through the wizard as normal, approving licences and so on...
+
+==== Install the SVN connector ====
+
+ * The installation of the SVN Connectors is performed automatically on the first usage of svn-functionality in Eclipse after the installation of the plugin.
+  * A dialog named "Subversive SVN Connectors" dialog will popup. 
+  * Select appropriate svn connectors, e.g. "SVN Kit 1.3.2" if you have SVN 1.6.x installed in your environment and want to use a pure Java connector
+  (verify with you svn version check as described above).
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SvnConnectors.png
+
+==Optional installation==
+
+===Installing Apache ActiveMQ===
+If you want to be able to perform manuel tests on your PC where JMS is involved it could be a good idea to run these tests with a external JMS provider, i.e. not a JMS provider that is embedded in Mule (as it is when you run unit tests).
+
+Follow these instructions to install ActiveMQ locally on your PC:
+
+ * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2F5.2.0%2Fapache-activemq-5.2.0-bin.zip
+
+ * Unzip to some folder, e.g. {{{C:\opt}}}
+
+ * Go to the folder {{{C:\opt\apache-activemq-5.3.2\bin\win32}}} and execute the file {{{InstallService.bat}}}.
+
+ Active MQ is now registered as a windows service and can be started automatically when the PC is started.
+ Verify that ActiveMQ is running after the installation and start its windows service if not by:
+
+ Open the url http://localhost:8161/admin/index.jsp in a web browser.
+
+ A page like the following should now be displayed:
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallation.png
+
+===Setup of public key cryptography for the SFTP transport===
+
+When using the SFTP transport it is strongly recommended to not use traditional username/passwords but instead use public key cryptography. See http://en.wikipedia.org/wiki/Public-key_cryptography for background information.
+
+The instruction below is based on DSA keys but RSA keys can be used as well.
+
+ * *Verify proper security settings on files and folders*
+ Ssh is quit picky on security settings (not unexpected :-) so before trying to create keys verify the following permission settings:
+  * home folder: 711
+  * folder .ssh: 700
+  * file authorized_keys, authorized_keys2: 600
+  * private keys (id_dsa,id_rsa): 600
+  * public keys (id_dsa.pub,id_rsa.pub): 644
+  * Use the chmod command to correct if any of the files or folders are too open, e.g.
+{{{
+chmod 700 .ssh
+}}}
+
+ * *Create a pair of private and public keys*
+
+  Execute the command {{{ssh-keygen -t dsa}}}, accept default filename and enter a proper passphrase of your selection.
+
+  The files {{{id_dsa}}} and {{{id_dsa.pub}}} are now created in your .ssh - folder.
+
+  NOTE: Never give away your private key {{{id_dsa}}}, only share the public one {{{id_dsa.pub}}}!
+{{{
+MagnusMac-2:~ magnuslarsson$ ssh-keygen -t dsa
+Generating public/private dsa key pair.
+Enter file in which to save the key (/Users/magnuslarsson/.ssh/id_dsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/magnuslarsson/.ssh/id_dsa.
+Your public key has been saved in /Users/magnuslarsson/.ssh/id_dsa.pub.
+The key fingerprint is:
+31:de:60:62:de:d0:44:b6:90:b6:b9:60:82:aa:d1:da magnuslarsson@MagnusMac-2.local
+
+MagnusMac-2:~ magnuslarsson$ ls /Users/magnuslarsson/.ssh/id_dsa
+/Users/magnuslarsson/.ssh/id_dsa
+
+MagnusMac-2:~ magnuslarsson$ ls /Users/magnuslarsson/.ssh/id_dsa.pub
+/Users/magnuslarsson/.ssh/id_dsa.pub
+}}} 
+
+
+ * *Copy and activate public key to remote sftp-machines*
+ To be able to authenticate yourself using your private key you must copy your public key to the accounts on the remote machines that you want to be able to use.
+ Typically you have to copy the public file using the accounts username and password as:
+ {{{
+MagnusMac-2:~ magnuslarsson$ scp ~/.ssh/id_dsa.pub user@sftpHost:
+user@sftpHost's password:
+id_dsa.pub                                                        100%  606     0.6KB/s   00:00
+ }}}
+ Now have to activate the public key by adding it to a list of known public keys.
+ This is typically done by logging in to the remote machine and perform the activation by appending the public key to the file {{{~/.ssh/authorized_keys2}}}
+ The commands below also create the {{{.ssh}}} folder, assigns correct permissions if not already existing, the same for the {{{~/.ssh/authorized_keys2}}} - file and finally it deletes the public key that no longer is of use.
+ {{{
+MagnusMac-2:~ magnuslarsson$ ssh user@sftpHost
+user@sftpHost's password:
+sftpHost:~ user$ mkdir ~/.ssh
+sftpHost:~ user$ chmod 700 ~/.ssh
+sftpHost:~ user$ cat id_dsa.pub >> ~/.ssh/authorized_keys2
+sftpHost:~ user$ chmod 600 ~/.ssh/authorized_keys2
+sftpHost:~ user$ rm id_dsa.pub
+sftpHost:~ user$ exit
+logout
+Connection to localhost closed.
+MagnusMac-2:~ magnuslarsson$ 
+ }}}
+
+
+ * *Validate setup*
+ It should now be possible to login and start a sftp session to the remote sftp server without specifying any username.
+ In the example below we use account {{{muletest1}}} on sftp-server {{{localhost}}}:
+ {{{
+MagnusMac-2:.ssh magnuslarsson$ ssh muletest1@localhost
+Enter passphrase:
+Last login: Mon Oct 11 10:55:25 2010 from localhost
+MagnusMac-2:~ muletest1$ pwd  
+/Users/muletest1
+MagnusMac-2:~ muletest1$ exit
+logout
+Connection to localhost closed.
+MagnusMac-2:.ssh magnuslarsson$ 
+
+MagnusMac-2:.ssh magnuslarsson$ sftp muletest1@localhost
+Enter passphrase:
+Connecting to localhost...
+sftp> pwd
+Remote working directory: /Users/muletest1
+sftp> bye
+MagnusMac-2:.ssh magnuslarsson$ 
+ }}}
+
+
+ * *Configure default sfpt-settings in soi-toolkit source code generator*
+ To simplify setup of sftp-configuration in your development environment the soi-toolkit source code generator allows you to specify your favorite sftp-server, your private key location and your passphrase so you don't have to specify it over and over again while you create new sftp-based services and integrations.
+  * Open Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
+  * Specify the root folder of the sftp server you will use most frequently during development
+  E.g. {{{muletest1@localhost/~/sftp}}}
+  * Specify the name of your private key
+  E.g. {{{/Users/magnuslarsson/.ssh/id_dsa}}} 
+  * Specify your passphrase for the private key.
+  * Click on the "OK" button to conclude the configuration.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation8.png
+
+
+==Updates==
+
+===Updating the Soi-toolkit Eclipse plugin===
+
+To update the Soi-toolkit Eclipse plugin do the following:
+
+ * First write down the preference-setting you have for the existing version of the Soi-toolkit Eclipse plugin, you will have to reenter them after the upgrade
+  * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
+ * Select the Eclipse menu "Help --> Check for Updates"
+ * If any update is available a dialog like the following will be displayed:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitUpdate1.png
+
+ * Click on the "Deselcet All" button and select only the "soi-toolkit generator feature" 
+ * Click on the "Next >" button twice
+ * Accept the terms of the license agreement and press the "Finish" button
+  * The plugin is now downloaded and installed.
+ * Click on the "Ok" button when asked to accept unsigned content
+ * Click on the "Restart Now" button when asked to restart Eclipse
+ * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
