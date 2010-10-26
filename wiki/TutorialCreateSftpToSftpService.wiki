@@ -69,6 +69,9 @@ MYSAMPLESFTPSERVICE_RECEIVER_SFTP_ADDRESS=muletest1@localhost/~/sftp/mysamplesft
 MYSAMPLESFTPSERVICE_ARCHIVE_FOLDER=/Users/magnuslarsson/archive
 MYSAMPLESFTPSERVICE_ARCHIVE_RESTART_POLLING_MS=1000
  }}}
+*NOTE:* Under Windows the archive folder path must be configured with forward-slashes like:
+MYSAMPLESFTPSERVICE_ARCHIVE_FOLDER=C:/tmp/soitksftp/archive/mysamplesftpservice
+
   * The configuration file {{{mySample-security.properties}}} contains since the creation fo the integration component the properties:
  {{{
 # Properties for the default sftp-connector
