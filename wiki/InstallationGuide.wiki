@@ -211,7 +211,7 @@ When using the SFTP transport it is strongly recommended to not use traditional 
 The instruction below is based on DSA keys but RSA keys can be used as well.
 
  * *Verify proper security settings on files and folders*
- Ssh is quit picky on security settings (not unexpected :-) so before trying to create keys verify the following permission settings:
+ Ssh is quite picky on security settings (not unexpected :-) so before trying to create keys verify the following permission settings:
   * home folder: 711
   * folder .ssh: 700
   * file authorized_keys, authorized_keys2: 600
@@ -256,7 +256,7 @@ MagnusMac-2:~ magnuslarsson$ scp ~/.ssh/id_dsa.pub user@sftpHost:
 user@sftpHost's password:
 id_dsa.pub                                                        100%  606     0.6KB/s   00:00
  }}}
- Now have to activate the public key by adding it to a list of known public keys.
+ Now you have to activate the public key by adding it to a list of known public keys.
  This is typically done by logging in to the remote machine and perform the activation by appending the public key to the file {{{~/.ssh/authorized_keys2}}}
  The commands below also create the {{{.ssh}}} folder, assigns correct permissions if not already existing, the same for the {{{~/.ssh/authorized_keys2}}} - file and finally it deletes the public key that no longer is of use.
  {{{
