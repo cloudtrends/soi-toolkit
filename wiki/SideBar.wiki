@@ -27,10 +27,10 @@
 ==Downloads==
  * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Eclipse Update Site]
  * [http://repo2.maven.org/maven2/org/soitoolkit/commons/  Central Repository]
- * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/org/soitoolkit/ Snapshot Repository]
+ * [http://oss.sonatype.org/content/repositories/snapshots/org/soitoolkit/commons/ Snapshot Repository]
  * [http://code.google.com/p/soi-toolkit/source/browse/#svn/trunk/refapps Ref Apps (TBS)]
 <wiki:comment>
-[https://oss.sonatype.org/content/repositories/snapshots/org/soitoolkit/commons/ Snapshot Repository]
+ * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/org/soitoolkit/ Snapshot Repository]
 </wiki:comment>
 
 
