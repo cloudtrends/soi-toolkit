@@ -1,0 +1,19 @@
+#summary User Guidelines for users of soi-toolkit.
+
+*Content*
+<wiki:toc max_depth="3" />
+
+= Introduction =
+
+This section contains detailes not covered by the tutorials.
+
+== Building against a snapshot release of soi-toolkit ==
+
+Sometimes you might need the latest but not yet released enhancements of soi-toolkit.
+Either you download the lastest source from soi-toolkit svn or you build against a snapshot-release of soi-toolkit.
+
+To use a snapshot-release of soi-toolkit you need to perform two actions:
+
+ * Add the soi-toolkit snapshot-maven-repository to you maven-settings-file:
+
+ * Update the soi-toolkit-dependency to the snapshot-release:
