@@ -69,7 +69,7 @@ MYSAMPLESFTPSERVICE_RECEIVER_SFTP_ADDRESS=muletest1@localhost/~/sftp/mysamplesft
 MYSAMPLESFTPSERVICE_ARCHIVE_FOLDER=/Users/magnuslarsson/archive
 MYSAMPLESFTPSERVICE_ARCHIVE_RESTART_POLLING_MS=1000
  }}}
-    * *NOTE:* Under Windows the archive folder path must be configured with forward-slashes like:
+    * *NOTE:* Under Windows the archive folder path must be configured with forward-slashes since this is a URL used with the "file:"-protocol and not a native file-location (e.g. used by the java.io.File - class). Example:
  {{{
 MYSAMPLESFTPSERVICE_ARCHIVE_FOLDER=C:/tmp/soitksftp/archive/mysamplesftpservice
  }}}
