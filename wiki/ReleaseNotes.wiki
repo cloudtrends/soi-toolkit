@@ -4,6 +4,31 @@
 <wiki:toc max_depth="2" />
 
 = Release Notes =
+
+== soi-toolkit v0.2.0 ==
+Release date: Nov 13 2010
+
+This is a minor feature and maintenance release with bug fixes and some new features. 
+
+Of most importance are:
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=51 Issue #51, Allow free combinations of inbound transport and outbound transport]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=53 Issue #53, Support http multipart post as inbound transport for oneway services]
+
+Full Release Notes can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.2.0 Release Notes]
+
+=== Upgrade from earlier versions of soi-toolkit ===
+
+ * Existing projects are updated by specifying the new soi-toolkit version in the parent-pom in the pom.xml file in each projects trunk-folder...
+{{{
+	<parent>
+		<groupId>org.soitoolkit.commons.poms</groupId>
+		<artifactId>soitoolkit-default-parent</artifactId>
+		<version>0.2.0</version>
+	</parent>
+}}}
+
+ * The Eclipse plugin can be upgraded by following the instructions [http://code.google.com/p/soi-toolkit/wiki/InstallationGuide#Updating_the_Soi-toolkit_Eclipse_plugin here].
+
 == soi-toolkit v0.1.9 ==
 Release date: Oct 23 2010
 
