@@ -89,18 +89,22 @@ This tutorial helps you to create your first integration component.
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent8.png
 
    * Click on the "Next" button 
-   * Click on the "Browse" button and navigate to the trink folder of your integration component and select the top level pom.xml file (the parent pom)
+   * Click on the "Browse" button and navigate to the {{{trunk}}} folder of your integration component and select the top level pom.xml file (the parent pom)
    * Click on the "Finish" button
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent9.png
 
-   * Parent-pom-project, {{{mySample}}}, is now imported into the Eclipse workspace.
+   * The parent-pom-project, {{{mySample}}}, is now imported into the Eclipse workspace.
   
   * Right click the parent-pom-project, {{{mySample}}}, and select "Run As --> Maven install"
-   * In the command window you can see the progress of the maven build and it should end up with a {{{BUILD SUCCESSFUL}}} message. The integration components runtime files are now installed in your local maven repository.
-   See the ([UserGuidelines user guide]) for how to deploy the runtime files to a Tomcat server.
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent10.png
+
+  * In the command window you can see the progress of the maven build and it should end up with a {{{BUILD SUCCESSFUL}}} message. The integration components runtime files are now installed in your local maven repository.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent11.png
+
+  * See the ([UserGuidelines user guide]) for how to deploy the runtime files to a Tomcat server.
 
 =If something goes wrong=
 
