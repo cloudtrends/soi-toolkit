@@ -182,7 +182,7 @@ Is currently done manually :-(
 
  * Ensure that {{{soi_toolkit_generator_plugin_default_preferences.properties}}} is reverted to the checked-in version, i.e. no developer specific settings here!
  * Ensure that the update site-project is fully reverted, i.e. no runtime files exists in the project
- * Perform a "build all" in the update-project (click on the "Build All" button
+ * Perform a "build all" in the update-project (click on the "Build All" button)
  * Copy updated runtime files from the update project to svn/eclipse-update-site
    NOTE: Do not copy folders, then .svn files will be removed from eclipse-update-site folders!!!
  * Commit changes in svn/eclipse-update-site
