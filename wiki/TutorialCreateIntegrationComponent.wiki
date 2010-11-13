@@ -68,7 +68,7 @@ This tutorial helps you to create your first integration component.
    {{{mySample-common.xml}}} and {{{mySample-config.xml}}} are common mule-configuration files used by all services in this integration component. The service-folder will contain the mule configuration files for the spoecific services as they are created. 
   * Project {{{mySample-teststub-web}}}   
    * Target folder {{{target}}}
-   The runtime files for this integration components teststub.
+   The runtime files for this integration components teststubs.
    {{{mySample-teststub-1.0-SNAPSHOT.war}}} contains the mule config files and class files for the services teststubs and all jar-files created for executing the teststubs on a standard servlet engine, e.g. Tomcat or Jetty.
   * Project {{{mySample-web}}}
    * Target folder {{{target}}}
