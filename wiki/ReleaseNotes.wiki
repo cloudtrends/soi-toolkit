@@ -13,6 +13,7 @@ This is a minor feature and maintenance release with bug fixes and some new feat
 Of most importance are:
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=51 Issue #51, Allow free combinations of inbound transport and outbound transport]
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=53 Issue #53, Support http multipart post as inbound transport for oneway services]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=54 Issue #54, Create unit test classes for generated transformer classes] 
 
 Full Release Notes can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.2.0 Release Notes]
 
