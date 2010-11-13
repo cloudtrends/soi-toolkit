@@ -79,6 +79,8 @@ This tutorial helps you to create your first integration component.
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent6.png
 
+=Building runtime files=
+
  * After development and local tests are done, you typically wants to build runtime files for deploy to a common test environment (and later on to a production environment).
  This is done by running the maven install command. If you have installed the Maven Eclipse plugin ([InstallationGuide#Maven_Eclipse_plugin installation guide]) you can perform this (and other maven commands) directly within Eclipse without having to open a command window.
   * Start with importing the parent pom of the integration component.
