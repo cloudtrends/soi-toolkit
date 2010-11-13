@@ -75,6 +75,25 @@ firefox https://issues.sonatype.org/
     </server>
   </servers>
 }}}
+ # Add the following profile (used during verification of a release) to the maven settings.xml - file:
+{{{
+    <profile>
+      <id>soi-toolkit-sonatype</id>
+      <repositories> 
+        <repository> 
+          <id>sonatype-nexus-staging</id> 
+          <name>Sonatype Nexus Staging</name> 
+          <url>https://oss.sonatype.org/content/repositories/staging</url> 
+          <releases> 
+            <enabled>true</enabled> 
+          </releases> 
+          <snapshots> 
+            <enabled>false</enabled> 
+          </snapshots> 
+        </repository> 
+      </repositories>       
+    </profile>
+}}}
  # Install pgp, create key-pair and distribute public key.
  See http://www.sonatype.com/people/2010/01/how-to-generate-pgp-signatures-with-maven/ for details.
   * Install pgp
@@ -179,13 +198,14 @@ mvn clean test
  * Revert any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
  Note: Save them in some safe place so that you easily can re-apply them after the release is done!
 
- * Review build command constant in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/util/SystemUtil.java}}}, e.g. remove "-o" if it is used during development to speed up tests...
-
- * Review build command in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/createcomponent/CreateComponentWizard.java}}}, e.g. remove "-o" if it is used during development to speed up tests...
-
  * Check versions of dependencies and parent pom, replace any SNAPSHOT-versions with stable ones. 
 {{{
 mate pom.xml
+}}}
+
+  * Run tests again to ensure that nothing was broken
+{{{
+mvn clean test
 }}}
 
  * Commit changes
@@ -227,31 +247,18 @@ mvn release:perform
   * Click the Close button.
 
  * Validate against the staging repo https://oss.sonatype.org/content/repositories/staging/org/soitoolkit/
-  * NOTE: Can't we simply add the repo below *temporary* to the settings-file, then everything should run without problem during validation (junit tests first, thenmanuel tests...)???
+  * Activate the maven profile {{{soi-toolkit-sonatype}}} in the maven settings.xml - file:
+{{{
+  <activeProfiles>
+    <activeProfile>soi-toolkit-sonatype</activeProfile>
+  </activeProfiles>
+}}}
+  * Remove {{{org.soitoolkit}}} from the local maven repository (to ensure that the artifacts are downloaded as expected from the Sonatypes staging repository
   * Refresh the generator plugin project in eclipse to get the updated version-numbers from above into the eclipse-project
   * Re-apply any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
-  * Start a runtime eclipse workbench and run the new version of the generator plugin to create an integration component and service description component.
-   * The creation of these components will fail, since the new version is not yet available in the central maven repo.
-   * Add the staging-repo to the components pom.xml files:
- {{{
-	<repositories> 
-		<repository> 
-			<id>sonatype-nexus-staging</id> 
-			<name>Sonatype Nexus Staging</name> 
-			<url>https://oss.sonatype.org/content/repositories/staging</url> 
-			<releases> 
-				<enabled>true</enabled> 
-			</releases> 
-			<snapshots> 
-				<enabled>false</enabled> 
-			</snapshots> 
-		</repository> 
-	</repositories> 
-}}}
-   * Build the components manually {{{mvn install eclipse:m2eclipse}}}
-   * Import the components manually into the runtime eclipse workbench
-   * Try out the new components, e.g. create som services in the integration component and run their integration tests
-  * TBS: How to add the generator unit tests manually against the pre-released new version (how to control the soi-toolkit version that the generated code use, is it pointing to the new version already?)
+  * Run all unit tests in soitoolkit-generator-plugin, including the generator tests to verify that the generated code works with the new version of soi-toolkit
+  * Start a runtime eclipse workbench and run the new version of the generator plugin to create an integration component and service description (schema) component.
+  * Try out the new integration component by creating some services and run their integration tests
 
  * If errors then Click on the Drop button and correct error and redo the process...
  If something is wrong you can fix it on the release-tag in svn and perform av redeploy to the staging repo from the tag-folder using:
@@ -288,11 +295,6 @@ mvn release:perform
   * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xml}}} 
 
  * Re-apply (if not already done during the verification) any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
-
- * Review build command constant in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/util/SystemUtil.java}}}, e.g. add back "-o" if it is used during development to speed up tests...
-
- * Review build command in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/createcomponent/CreateComponentWizard.java}}}, e.g. add back "-o" if it is used during development to speed up tests...
-
 
  * Perform a local build to get the new snapshot-versions of the parent pom installed in your local repository
 {{{
