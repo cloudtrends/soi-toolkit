@@ -135,6 +135,13 @@ Install Maven according to the following instructions:
 
 ===Maven Eclipse plugin===
 
+Mavens Eclipse plugin makes maven more or less invisible :-)
+
+It takes care of resolving maven dependencies automatically for you and and if you change any dependencies in you pom-file the plugin automatically updates your eclipse projects classpath.
+The plugin is also very convenient to use for making specific maven builds, e.g. perform a {{{mvn clean install}}} of your component or deploying a {{{war-sub-module}}} to Tomcat for tests, all without having to leave the Eclipse environment, e.g. without escaping to console windows.
+
+However, if you really are into maven and at all times want to perform your maven commands on your own in a command window you are fully free to do so by simply not installing this plugin! 
+
 Install the Maven plugin for Eclipse according to the following instructions:
 
  * The installation is performed using the Eclipse "Update Site"-mechanism.
@@ -145,6 +152,13 @@ Install the Maven plugin for Eclipse according to the following instructions:
  Notes:
   * If the installation asks for approval of certificates, so be sure to select the available certificate before the next step in the installation.
   * Restart the workspace when so requested.
+
+ * After the installation of the plugin open Eclipse Preferences
+  * Navigate to the Maven Plugin and its Installations node
+  * Click on the "Add..." button and add point out the home folder of your maven installation.
+  * Ensure that your newly added maven installation is the selected one in the list.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MavenEclipsePluginInstallation.png
 
  * To avoid the error message {{{"The Maven Integration requires that Eclipse be running in a JDK, because a number of Maven core plugins are using jars from the JDK. (...)"}}} follow the instructions on the following page [http://tech.karolzielinski.com/m2eclipse-eclipse-is-running-in-a-jre-but-a-jdk-is-required Eclipse is running in a JRE, but a JDK is required]
 
