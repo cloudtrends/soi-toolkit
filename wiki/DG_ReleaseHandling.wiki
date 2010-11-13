@@ -48,7 +48,7 @@ mvn clean test
   * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml}}} 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
   * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
-  * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}}
+  * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}} (*two places*)
   * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xml}}} 
  
  * Revert any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
