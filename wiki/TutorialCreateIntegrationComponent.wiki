@@ -79,12 +79,26 @@ This tutorial helps you to create your first integration component.
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent6.png
 
- * After development and local tests are done and you want to deploy the integration component to a common test environment (and later  on in a production environment)  you can create new runtime files (the war-files) by opening a command window in the integration components trunk-folder and enter the command 
- {{{mvn clean install}}}.
- 
- If everything goes well the build ends with a {{{BUILD SUCCESSFUL}}} - message
+ * After development and local tests are done, you typically wants to build runtime files for deploy to a common test environment (and later on to a production environment).
+ This is done by running the maven install command. If you have installed the Maven Eclipse plugin ([InstallationGuide#Maven_Eclipse_plugin installation guide]) you can perform this (and other maven commands) directly within Eclipse without having to open a command window.
+  * Start with importing the parent pom of the integration component.
+   * In the menu select "File --> Import..." and select "Maven --> Existing Maven Project"
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent7.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent8.png
+
+   * Click on the "Next" button 
+   * Click on the "Browse" button and navigate to the trink folder of your integration component and select the top level pom.xml file (the parent pom)
+   * Click on the "Finish" button
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent9.png
+
+   * Parent-pom-project, {{{mySample}}}, is now imported into the Eclipse workspace.
+  
+  * Right click the parent-pom-project, {{{mySample}}}, and select "Run As --> Maven install"
+   * In the command window you can see the progress of the maven build and it should end up with a {{{BUILD SUCCESSFUL}}} message. The integration components runtime files are now installed in your local maven repository.
+   See the ([UserGuidelines user guide]) for how to deploy the runtime files to a Tomcat server.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateIntegrationComponent/TutorialCreateIntegrationComponent10.png
 
 =If something goes wrong=
 
