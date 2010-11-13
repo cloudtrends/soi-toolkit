@@ -115,6 +115,7 @@ mvn release:perform
   * Run all unit tests in soitoolkit-generator-plugin, including the generator tests to verify that the generated code works with the new version of soi-toolkit
   * Start a runtime eclipse workbench and run the new version of the generator plugin to create an integration component and service description (schema) component.
   * Try out the new integration component by creating some services and run their integration tests
+  * Wrap up the verification by deactivating the maven profile {{{soi-toolkit-sonatype}}} in the settings-file.
 
  * If errors then Click on the Drop button and correct error and redo the process...
  If something is wrong you can fix it on the release-tag in svn and perform av redeploy to the staging repo from the tag-folder using:
