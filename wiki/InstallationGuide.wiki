@@ -135,9 +135,9 @@ Install Maven according to the following instructions:
 
 ===Maven Eclipse plugin===
 
-Mavens Eclipse plugin makes maven more or less invisible :-)
+Mavens Eclipse plugin makes Maven much easier to handle directly from within Eclipse when it comes to perform the most common tasks.
 
-It takes care of resolving maven dependencies automatically for you and and if you change any dependencies in you pom-file the plugin automatically updates your eclipse projects classpath.
+The plugin takes care of resolving maven dependencies automatically for you and and if you change any dependencies in yours pom-file the plugin automatically updates your eclipse projects classpath.
 The plugin is also very convenient to use for making specific maven builds, e.g. perform a {{{mvn clean install}}} of your component or deploying a {{{war-sub-module}}} to Tomcat for tests, all without having to leave the Eclipse environment, e.g. without escaping to console windows.
 
 However, if you really are into maven and at all times want to perform your maven commands on your own in a command window you are fully free to do so by simply not installing this plugin! 
