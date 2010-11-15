@@ -12,6 +12,11 @@ To release a new version of soi-toolkit we use mavens release-plugin.
 
 Perform the following steps:
 
+ * Eclipse plugin-check
+ Have you added a new source folder since the last release in the plugin?
+
+ Remember to add it to the "source.." - property in build.properties before releasing!
+
  * Go to the components trunk-folder
 {{{
 cd .../trunk
