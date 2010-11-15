@@ -46,7 +46,8 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsServi
  * Files of interest:
   * Source folder {{{src/test/java}}}
   A new package is created for the service {{{org.sample.mysample.mysamplejmsservice}}} with two Java-classes.
-  {{{MySampleJmsServiceIntegrationTest.java}}} contains some unit tests for the service that you can use as a start.
+  {{{MySampleJmsServiceTransformerTest.java}}} contains some unit tests for the transformer class that you can use as a start.
+  {{{MySampleJmsServiceIntegrationTest.java}}} contains some integrations tests for the whole service that you can use as a start.
   {{{MySampleJmsServiceTestReceiver.java}}} contains a teststub receiver that you can use as a start.
   * Source folder {{{src/test/resources}}}
   The folder {{{teststub-services}}} contains the file {{{MySampleJmsService-teststub-service.xml}}} that is a teststub service that you can use as a start.
