@@ -22,7 +22,7 @@ v0.1.8, released Oct 06 2010.
 
 == v0.5 ==
 
-*Planned release date:* End November 2010.
+*Planned release date:* End December 2010.
 
  * More patterns and more generic wizards
   * For one way patterns we should support a mix of vm, jms, sftp and jdbc based endpoints
