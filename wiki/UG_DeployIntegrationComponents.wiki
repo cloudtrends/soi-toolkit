@@ -16,7 +16,7 @@ Add the following parameters to your Tomcat startup script:
     -Dcom.sun.management.jmxremote.authenticate=false
 }}}
 
-Add to Tomcat Config console
+*Add to Tomcat Config console*
 
 {{{
 -Dcom.sun.management.jmxremote
@@ -25,13 +25,21 @@ Add to Tomcat Config console
 -Dcom.sun.management.jmxremote.authenticate=false
 }}}
 
- * PERMGEN SPACE
+ * PERMGEN SPACE MM
 -XX:MaxPermSize option
 SET JAVA_OPTS=-XX:PermSize=64M -XX:MaxPermSize=128M
 Add following line into the catalina.sh file.
 
 Quote:
 JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
+
+*Add to Tomcat Config console*
+
+512 for init mem pool and 1024 MB for Max mem pool
+{{{
+-XX:PermSize=64m
+-XX:MaxPermSize=256m
+}}}
 
 http://developers.sun.com/mobility/midp/articles/garbagecollection2/
 http://blogs.sun.com/watt/entry/another_update_to_the_options
