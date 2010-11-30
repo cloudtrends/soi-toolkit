@@ -5,6 +5,36 @@
 
 = Deploying an Integration Component =
 
+*TBS*
+
+ * jmx port
+Add the following parameters to your Tomcat startup script:
+{{{
+  set CATALINA_OPTS=-Dcom.sun.management.jmxremote \
+    -Dcom.sun.management.jmxremote.port=%my.jmx.port% \
+    -Dcom.sun.management.jmxremote.ssl=false \
+    -Dcom.sun.management.jmxremote.authenticate=false
+}}}
+ * PERMGEN SPACE
+-XX:MaxPermSize option
+SET JAVA_OPTS=-XX:PermSize=64M -XX:MaxPermSize=128M
+Add following line into the catalina.sh file.
+
+Quote:
+JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
+
+http://developers.sun.com/mobility/midp/articles/garbagecollection2/
+http://blogs.sun.com/watt/entry/another_update_to_the_options
+http://blogs.sun.com/watt/resource/jvm-options-list.html
+
+ * Pictures (3)
+ * app.home for log-file
+ * heapsize in eclipse vid deploy
+ * ig för tomcat (ppt kom igång)
+  * add app.home var
+
+ * form för ws
+
 == Initial setup ==
 
 === Prepare an Integration Component for deploy using maven ===
