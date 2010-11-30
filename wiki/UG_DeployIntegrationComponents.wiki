@@ -19,7 +19,7 @@ Add the following to the pom-files for the web-projects
         <artifactId>tomcat-maven-plugin</artifactId>
         <version>1.1</version>
         <configuration>
-          <server>${artifactId}</server>
+          <server>${serverId}</server>
           <url>http://${host}:${port}/manager</url>
           <path>/${artifactId}</path>
         </configuration>
@@ -36,7 +36,7 @@ Add the following to the pom-files for the web-projects
 Add the following to your maven settings.xml file if admin/"" is not appropriate as usr/pwd:
 {{{
     <server>
-      <id>${artifactId}</id>
+      <id>${serverId}</id>
       <username>myusername</username>
       <password>mypassword</password>
     </server>
