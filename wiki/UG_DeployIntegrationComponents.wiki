@@ -15,6 +15,16 @@ Add the following parameters to your Tomcat startup script:
     -Dcom.sun.management.jmxremote.ssl=false \
     -Dcom.sun.management.jmxremote.authenticate=false
 }}}
+
+Add to Tomcat Config console
+
+{{{
+-Dcom.sun.management.jmxremote
+-Dcom.sun.management.jmxremote.port=9090
+-Dcom.sun.management.jmxremote.ssl=false
+-Dcom.sun.management.jmxremote.authenticate=false
+}}}
+
  * PERMGEN SPACE
 -XX:MaxPermSize option
 SET JAVA_OPTS=-XX:PermSize=64M -XX:MaxPermSize=128M
