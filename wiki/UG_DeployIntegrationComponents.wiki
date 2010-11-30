@@ -20,7 +20,7 @@ Add the following to the pom-files for the web-projects
         <version>1.1</version>
         <configuration>
           <server>${artifactId}</server>
-          <url>http://vgas0187.vgregion.se:8080/manager</url>
+          <url>http://${host}:${port}/manager</url>
           <path>/${artifactId}</path>
         </configuration>
       </plugin>
