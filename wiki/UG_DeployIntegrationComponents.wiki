@@ -37,7 +37,7 @@ JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1
 
 512 for init mem pool and 1024 MB for Max mem pool
 {{{
--XX:PermSize=64m
+-XX:PermSize=32m
 -XX:MaxPermSize=256m
 }}}
 
