@@ -1,0 +1,45 @@
+#summary Deploying an Integration Component.
+
+*Content*
+<wiki:toc max_depth="3" />
+
+= Deploying an Integration Component =
+
+== Initial setup ==
+
+=== Prepare an Integration Component for deploy using maven ===
+
+
+
+=== Setup a directory structure for the Integration Component on the server ===
+
+Create the following directory structure under the app-home folder on the server:
+ 
+{{{
+${app.home}
+   ${artifactId}
+      config
+}}}
+
+The directory structure will be used to hold configuration files, log-files and other files used by the Integration Components, e.g. archive for data files processed by the component.
+
+*Note:*  ${app.home} is an environment variable pointing to the app-home folder on the server and ${artifactId} is the artifact-id of your Integration Component.
+
+== Create deploy-files ==
+
+Since we deploy to Tomcat the deploy-files are standard war-files. 
+They are created with the command
+
+{{{
+cd .../trunk
+mvn install 
+}}}
+
+The command creates war-files under the target folders of the war-projects...
+
+== Setup configuration files ==
+
+ # Copy files from src/main/environment to ${app.home}/${artifactId}/config
+ # Perform nessecary configuration, i.e. change URL's in endpoints in the config-file, update username and passwords in the security-file and configure log4j to log to files in a appropriate way (e.g. rolling log-files)...
+
+== 
