@@ -29,10 +29,10 @@ The following versions (or newer) are recommended:
 
 *Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
 
-==Required installations==
+=Required installations=
 
 
-===Java SE===
+==Java SE==
 Install Java SE according to the following instructions:
 
  * Download JDK for Java SE from http://java.sun.com/javase/downloads/widget/jdk6.jsp
@@ -52,7 +52,8 @@ Install Java SE according to the following instructions:
 
  * For full installation instructions see [http://www.oracle.com/technetwork/java/javase/documentation/install-windows-152927.html Microsoft Windows Installation (32-bit)]
 
-===Eclipse===
+
+==Eclipse==
 
 Install Eclipse according to the following instructions:
 
@@ -68,7 +69,8 @@ Install Eclipse according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/EclipseVerifyInstallation.png
 
-===Maven===
+
+==Maven==
 
 Install Maven according to the following instructions:
 
@@ -90,7 +92,8 @@ Install Maven according to the following instructions:
 
  * For full installation instructions see http://maven.apache.org/download.html # Installation
 
-===Soi-toolkit Eclipse plugin===
+
+==Soi-toolkit Eclipse plugin==
 
  * Select in the Eclipse menu "Help --> Install New Software..."
 
@@ -133,9 +136,11 @@ Install Maven according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation7.png
 
-==Recommended installations==
 
-===Maven Eclipse plugin===
+=Recommended installations=
+
+
+==Maven Eclipse plugin==
 
 Mavens Eclipse plugin makes Maven much easier to handle directly from within Eclipse when it comes to perform the most common tasks.
 
@@ -164,18 +169,19 @@ Install the Maven plugin for Eclipse according to the following instructions:
 
  * To avoid the error message {{{"The Maven Integration requires that Eclipse be running in a JDK, because a number of Maven core plugins are using jars from the JDK. (...)"}}} follow the instructions on the following page [http://tech.karolzielinski.com/m2eclipse-eclipse-is-running-in-a-jre-but-a-jdk-is-required Eclipse is running in a JRE, but a JDK is required]
 
-===Subversive Eclipse plugin===
+
+==Subversive Eclipse plugin==
 
 If you already use Subversion as your source control system the Subversive Eclipse plugin can help you to bring  Subversion client functionality into Eclipse.
 
 The Subversive plugin is, due to license restrictions, divided into two separate installations, one for the Subversive plugin itself and one separate installation of the SVN connectors.
 
-==== Version check ====
+=== Version check ===
 To be able to install the SVN connector part you need to know what version of subversion you use.
 Open a command window and enter the command {{{svn --version --quiet}}}.
 The command will return something like {{{1.6.5}}}
 
-==== Install the plugin ====
+=== Install the plugin ===
  * The installation of the Eclipse plugin is performed using the Eclipse "Update Site"-mechanism.
  The Update Site is a part of Helios Update Site. 
  * Select the Eclipse menu "Help --> Install New Software... 
@@ -187,7 +193,7 @@ The command will return something like {{{1.6.5}}}
   * Subversive Revision Graph (optional)
  * Progress through the wizard as normal, approving licences and so on...
 
-==== Install the SVN connector ====
+=== Install the SVN connector ===
 
  * The installation of the SVN Connectors is performed automatically on the first usage of svn-functionality in Eclipse after the installation of the plugin.
   * A dialog named "Subversive SVN Connectors" dialog will popup. 
@@ -196,9 +202,11 @@ The command will return something like {{{1.6.5}}}
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SvnConnectors.png
 
-==Optional installation==
 
-===Installing Apache ActiveMQ===
+=Optional installation=
+
+
+==Installing Apache ActiveMQ==
 If you want to be able to perform manuel tests on your PC where JMS is involved it could be a good idea to run these tests with a external JMS provider, i.e. not a JMS provider that is embedded in Mule (as it is when you run unit tests).
 
 Follow these instructions to install ActiveMQ locally on your PC:
@@ -220,12 +228,13 @@ Follow these instructions to install ActiveMQ locally on your PC:
  A page like the following should now be displayed:
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallation.png
 
-===Installing Apache Tomcat===
+==Installing Apache Tomcat==
 If you want to deploy locally in your PC for test purposes before deploying to test servers you can install Tomcat locally as follows:
 
  * Download Tomcat from http://tomcat.apache.org/download-60.cgi
 
-===Setup of public key cryptography for the SFTP transport===
+
+==Setup of public key cryptography for the SFTP transport==
 
 When using the SFTP transport it is strongly recommended to not use traditional username/passwords but instead use public key cryptography. See http://en.wikipedia.org/wiki/Public-key_cryptography for background information.
 
@@ -332,9 +341,9 @@ MagnusMac-2:.ssh magnuslarsson$
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation8.png
 
 
-==Updates==
+=Updates=
 
-===Updating the Soi-toolkit Eclipse plugin===
+==Updating the Soi-toolkit Eclipse plugin==
 
 To update the Soi-toolkit Eclipse plugin do the following:
 
