@@ -1,8 +1,5 @@
 #summary Building against a snapshot release of soi-toolkit.
 
-*Content*
-<wiki:toc max_depth="3" />
-
 = Building against a snapshot release of soi-toolkit =
 
 Sometimes you might need the latest but not yet released enhancements of soi-toolkit.
