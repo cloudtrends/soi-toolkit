@@ -9,7 +9,40 @@
 
 === Prepare an Integration Component for deploy using maven ===
 
+Add the following to the pom-files for the web-projects
 
+{{{
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>tomcat-maven-plugin</artifactId>
+        <version>1.1</version>
+        <configuration>
+          <server>${artifactId}</server>
+          <url>http://vgas0187.vgregion.se:8080/manager</url>
+          <path>/${artifactId}</path>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+}}}
+
+*Note:* For the teststub-war project use a path variable following the naming schema:
+{{{
+          <path>/${artifactId}-teststubs</path>
+}}}
+
+Add the following to your maven settings.xml file if admin/"" is not appropriate as usr/pwd:
+{{{
+    <server>
+      <id>${artifactId}</id>
+      <username>myusername</username>
+      <password>mypassword</password>
+    </server>
+}}}
+
+For details of each parameters settings see: [http://mojo.codehaus.org/tomcat-maven-plugin/usage.html Usage of the Maven Tomcat plugin]
 
 === Setup a directory structure for the Integration Component on the server ===
 
@@ -25,6 +58,14 @@ The directory structure will be used to hold configuration files, log-files and 
 
 *Note:*  ${app.home} is an environment variable pointing to the app-home folder on the server and ${artifactId} is the artifact-id of your Integration Component.
 
+== Setup configuration files ==
+
+ # Copy and/or updates files from src/main/environment in the project to ${app.home}/${artifactId}/config on the server
+ # Perform nessecary configuration, e.g.
+  * change URL's in endpoints in the config-file
+  * update username and passwords in the security-file
+  * configure log4j to log to files in a appropriate way, using rolling log-files...
+
 == Create deploy-files ==
 
 Since we deploy to Tomcat the deploy-files are standard war-files. 
@@ -37,9 +78,9 @@ mvn install
 
 The command creates war-files under the target folders of the war-projects...
 
-== Setup configuration files ==
+== Deploy ==
 
- # Copy files from src/main/environment to ${app.home}/${artifactId}/config
- # Perform nessecary configuration, i.e. change URL's in endpoints in the config-file, update username and passwords in the security-file and configure log4j to log to files in a appropriate way (e.g. rolling log-files)...
-
-== 
+For the war file to be deployed run the command:
+{{{
+mvn tomcat:deploy-only -Dupdate=true
+}}}
