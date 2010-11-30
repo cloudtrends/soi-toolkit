@@ -8,3 +8,4 @@
 This section contains detailes not covered by the tutorials.
 
  * [UG_UseSoiToolkitSnapshotReleases Building against a snapshot release of soi-toolkit]
+ * [UG_DeployIntegrationComponents Deploying an Integration Component]
