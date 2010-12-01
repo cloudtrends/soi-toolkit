@@ -240,6 +240,6 @@ If you want to deploy locally in your PC for test purposes before deploying to t
    * Page "Choose Components": Select the "Full" type of installation
    * Page "Configuration": Enter a User Name and Password for your Administration Login 
    (you will need this later on when you deploy Integration Components to Tomcat)
-  * The wizard will wrap up by starting the Tomcat service for you.
+  * The wizard will wrap up by registering Tomcat as a Windows Service and starting the Tomcat service for you.
 
  * Verify Tomcat installation by open the URL http://localhost:8080/ in a web browser. A page should be displayed with the text "If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!”
