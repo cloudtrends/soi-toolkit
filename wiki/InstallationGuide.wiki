@@ -279,6 +279,13 @@ jconsole localhost 9090
   In the end of the field *VM arguments* you should be able to find your settings.
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Install-Tomcat-3.png
 
+  * You can also look into the log-files to ensure that everything works as expected.
+  See {{{C:\Program Files\Apache Software Foundation\Tomcat 6.0\logs}}} if you installed Tomcat in the default installation folder.
+  Typically the catalina.log file contains the most important information, a successful start of Tomcat should typically be logged as:
+{{{
+INFO: Server startup in 847 ms
+}}}
+
 ==Setup of public key cryptography for the SFTP transport==
 
 When using the SFTP transport it is strongly recommended to not use traditional username/passwords but instead use public key cryptography. See http://en.wikipedia.org/wiki/Public-key_cryptography for background information.
