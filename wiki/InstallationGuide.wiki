@@ -252,13 +252,25 @@ If you want to deploy locally in your PC for test purposes before deploying to t
   * Configure memory parameters for heap size and perm gen space
 
  This configuration is setup using Tomcats configuration tool:
-  * Launch the toll from {{{Windows Start menu --> Programs --> Apache Tomcat 6.0 --> Configure Tomcat}}}
+  * Launch the tool from {{{Windows Start menu --> Programs --> Apache Tomcat 6.0 --> Configure Tomcat}}}
+
+{{{
+-Dcom.sun.management.jmxremote
+-Dcom.sun.management.jmxremote.port=9090
+-Dcom.sun.management.jmxremote.ssl=false
+-Dcom.sun.management.jmxremote.authenticate=false
+
+-XX:PermSize=32m
+-XX:MaxPermSize=256m
+
+-Dapp.home=c:/tomcat.app.home
+}}}
 
 in med params 
-- jmx
-- app-home
-- heap size
-- permgen
+ * jmx
+ * app-home
+ * heap size
+ * permgen
 
 
 verifiera minnessättningar med jmx
