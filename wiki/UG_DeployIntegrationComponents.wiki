@@ -5,57 +5,14 @@
 
 = Deploying an Integration Component =
 
-*TBS*
+An integration component is easiest deployed using the mavens plugin for Tomcat.
+Before you can deploy to Tomcat using the maven plugin you have to configure it in the web-projects pom.xml - files.
 
- * jmx port
-Add the following parameters to your Tomcat startup script:
-{{{
-  set CATALINA_OPTS=-Dcom.sun.management.jmxremote \
-    -Dcom.sun.management.jmxremote.port=%my.jmx.port% \
-    -Dcom.sun.management.jmxremote.ssl=false \
-    -Dcom.sun.management.jmxremote.authenticate=false
-}}}
-
-*Add to Tomcat Config console*
-
-{{{
--Dcom.sun.management.jmxremote
--Dcom.sun.management.jmxremote.port=9090
--Dcom.sun.management.jmxremote.ssl=false
--Dcom.sun.management.jmxremote.authenticate=false
-}}}
-
- * PERMGEN SPACE MM
--XX:MaxPermSize option
-SET JAVA_OPTS=-XX:PermSize=64M -XX:MaxPermSize=128M
-Add following line into the catalina.sh file.
-
-Quote:
-JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
-
-*Add to Tomcat Config console*
-
-512 for init mem pool and 1024 MB for Max mem pool
-{{{
--XX:PermSize=32m
--XX:MaxPermSize=256m
-}}}
-
-http://developers.sun.com/mobility/midp/articles/garbagecollection2/
-http://blogs.sun.com/watt/entry/another_update_to_the_options
-http://blogs.sun.com/watt/resource/jvm-options-list.html
-
- * Pictures (3)
- * app.home for log-file
- * heapsize in eclipse vid deploy
- * ig för tomcat (ppt kom igång)
-  * add app.home var
-
- * form för ws
+You also need to setup a directory structure on the server for holding configuration and log-files for the integration component.
 
 == Initial setup ==
 
-=== Prepare an Integration Component for deploy using maven ===
+=== Prepare an Integration Component for deploy using maven plugin for Tomcat ===
 
 Add the following to the pom-files for the web-projects
 
@@ -105,6 +62,7 @@ ${app.home}
 The directory structure will be used to hold configuration files, log-files and other files used by the Integration Components, e.g. archive for data files processed by the component.
 
 *Note:*  ${app.home} is an environment variable pointing to the app-home folder on the server and ${artifactId} is the artifact-id of your Integration Component.
+The app.home variable should have been configured when installing the Tomcat server, see [InstallationGuide#Installing_Apache_Tomcat]
 
 == Setup configuration files ==
 
@@ -112,7 +70,7 @@ The directory structure will be used to hold configuration files, log-files and 
  # Perform nessecary configuration, e.g.
   * change URL's in endpoints in the config-file
   * update username and passwords in the security-file
-  * configure log4j to log to files in a appropriate way, using rolling log-files...
+  * configure log4j to log to files in a appropriate way, using rolling log-files instead of logging to the console...
 
 == Create deploy-files ==
 
@@ -127,15 +85,21 @@ mvn install
 If you have the Maven-plugin installed in Eclipse then you can execute the build command without leaving Eclipse.
 Right-click the integration component top-level project and select "{{{Run As --> Maven install}}}"
 
-PICTURE
+*PICTURE*
 
-The command creates war-files under the target folders of the war-projects...
+The command creates war-files under the target folders of the web-projects...
 
 == Deploy ==
 
-For the war file to be deployed run the command:
+For the war file to be deployed to your Tomcat server run the command:
 {{{
-mvn tomcat:deploy-only -Dupdate=true
+mvn tomcat:deploy-only
+}}}
+
+If the war already is installed you can reinstall it with the command:
+
+{{{
+mvn tomcat:deploy-only
 }}}
 
 For more information on available Tomcat commands see the [http://mojo.codehaus.org/tomcat-maven-plugin/plugin-info.html Plugin Documentation]
