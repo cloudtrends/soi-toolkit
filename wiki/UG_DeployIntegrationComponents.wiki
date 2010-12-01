@@ -5,16 +5,16 @@
 
 = Deploying an Integration Component =
 
-An integration component is easiest deployed using the mavens plugin for Tomcat.
+An integration component is easiest deployed using the maven plugin for Tomcat.
 Before you can deploy to Tomcat using the maven plugin you have to configure it in the web-projects pom.xml - files.
 
 You also need to setup a directory structure on the server for holding configuration and log-files for the integration component.
 
 == Initial setup ==
 
-=== Prepare an Integration Component for deploy using maven plugin for Tomcat ===
+=== Prepare an Integration Component for deploy using the maven plugin for Tomcat ===
 
-Add the following to the pom-files for the web-projects
+Add the following to the pom.xml-files for the web-projects
 
 {{{
   <build>
@@ -66,9 +66,10 @@ The app.home variable should have been configured when installing the Tomcat ser
 
 == Setup configuration files ==
 
- # Copy and/or updates files from src/main/environment in the project to ${app.home}/${artifactId}/config on the server
+ # Copy and/or update files from the folder {{{src/main/environment}}} in the project to folder {{{${app.home}/${artifactId}/config}}} on the server
  # Perform nessecary configuration, e.g.
-  * change URL's in endpoints in the config-file
+  * update the configuration of (s)ftp-servers, jms providers and/or jdbc-datasources if used in the config-file
+  * change URL's of endpoints in the config-file
   * update username and passwords in the security-file
   * configure log4j to log to files in a appropriate way, using rolling log-files instead of logging to the console...
 
@@ -93,6 +94,7 @@ The command creates war-files under the target folders of the web-projects...
 
 For the war file to be deployed to your Tomcat server run the command:
 {{{
+cd .../trunk/${artifactId}-web
 mvn tomcat:deploy-only
 }}}
 
