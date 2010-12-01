@@ -264,7 +264,8 @@ If you want to deploy to Tomcat locally in your PC for test purposes before depl
 -XX:MaxPermSize=256m
 -Dapp.home=C:\tomcat.app.home
 }}}
-  * Enter values for initial and max size of the Java heap in the fields "Initial memory pool" and  "Maximum memory pool", e.g. 256 and 1024 (MB)  depending on how much you plan to deploy and how much memory you have available.
+  * Enter values for initial and max size of the Java heap in the fields "Initial memory pool" and  "Maximum memory pool", e.g. 128 and 256 (MB)  depending on how much you plan to deploy and how much memory you have available.
+  * Click on the "Apply"-button.
 
 *PICTURE*
 
@@ -277,7 +278,7 @@ jconsole localhost 9090
 }}}
 
   * Goto the tab "VM Summary"
-  In the ...
+  In the end of the field VM *arguments* you should be able to find your settings.
 
 *PICTURE*
 
