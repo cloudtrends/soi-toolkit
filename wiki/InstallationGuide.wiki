@@ -230,7 +230,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInsta
 
 
 ==Installing Apache Tomcat==
-If you want to deploy locally in your PC for test purposes before deploying to test servers you can install Tomcat locally as follows:
+If you want to deploy to Tomcat locally in your PC for test purposes before deploying to test servers you can install Tomcat locally as follows:
 
  * Download Tomcat from http://tomcat.apache.org/download-60.cgi
   * Select the "32-bit/64-bit Windows Service Installer" (exe-file)
@@ -247,13 +247,12 @@ If you want to deploy locally in your PC for test purposes before deploying to t
 *PICTURE*
 
  * Configure Tomcat.
-  * Define an environment variable, {{{app.home}}}, for storing integration components config and log files (and whatever files that is not appropriate to package with the deploy files (e.g. the war-files)  
+  * Define an environment variable, {{{app.home}}}, for storing integration components config and log files (and whatever files that is not appropriate to package with the deploy files, e.g. the war-files)
   * Configure memory parameters for heap size and perm gen space
   * Declare a port for JMX access 
 
  The following configuration of the default installation is recommended if you plan to deploy a number of integration components to your Tomcat instance:
-  * Start Tomcats configuration tool:
-  * Launch the tool from {{{Windows Start menu --> Programs --> Apache Tomcat 6.0 --> Configure Tomcat}}}
+  * Start Tomcats configuration tool from {{{Windows Start menu --> Programs --> Apache Tomcat 6.0 --> Configure Tomcat}}}
   * Go to the tab named "Java" and add the following lines in the textarea names "Java Options":
   (adjust port number, memory levels and app.home folder according to your preferences)
 {{{
@@ -265,16 +264,20 @@ If you want to deploy locally in your PC for test purposes before deploying to t
 -XX:MaxPermSize=256m
 -Dapp.home=C:\tomcat.app.home
 }}}
-  * Enter values for initial and max size of the Java heap in the fields "Initial memory pool" and  "Maximum memory pool", e.g. 256 and 1024 depending on how much you plan to deploy and how much memory you have available.
+  * Enter values for initial and max size of the Java heap in the fields "Initial memory pool" and  "Maximum memory pool", e.g. 256 and 1024 (MB)  depending on how much you plan to deploy and how much memory you have available.
 
 *PICTURE*
 
   * Go to the tab names "General" and restart Tomcat using the "Stop" and "Start" buttons.
 
   * Verify the memory settings with JConsole (comes with Java SE JDK)
-  {{{jconsole localhost 9090}}}
+   Start JConsole in a command window with the command:
+{{{
+jconsole localhost 9090
+}}}
 
   * Goto the tab "VM Summary"
+  In the ...
 
 *PICTURE*
 
