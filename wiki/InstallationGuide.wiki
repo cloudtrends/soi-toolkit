@@ -243,8 +243,7 @@ If you want to deploy to Tomcat locally in your PC for test purposes before depl
   * The wizard will wrap up by registering Tomcat as a Windows Service and starting the Tomcat service for you.
 
  * Verify Tomcat installation by open the URL http://localhost:8080/ in a web browser. A page should be displayed with the text "_If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!_”
-
-*PICTURE*
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Install-Tomcat-1.png
 
  * Configure Tomcat.
   * Define an environment variable, {{{app.home}}}, for storing integration components config and log files (and whatever files that is not appropriate to package with the deploy files, e.g. the war-files)
@@ -266,8 +265,7 @@ If you want to deploy to Tomcat locally in your PC for test purposes before depl
 }}}
   * Enter values for initial and max size of the Java heap in the fields "Initial memory pool" and  "Maximum memory pool", e.g. 128 and 256 (MB)  depending on how much you plan to deploy and how much memory you have available.
   * Click on the "Apply"-button.
-
-*PICTURE*
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Install-Tomcat-2.png
 
   * Go to the tab names "General" and restart Tomcat using the "Stop" and "Start" buttons.
 
@@ -278,9 +276,8 @@ jconsole localhost 9090
 }}}
 
   * Goto the tab "VM Summary"
-  In the end of the field VM *arguments* you should be able to find your settings.
-
-*PICTURE*
+  In the end of the field *VM arguments* you should be able to find your settings.
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Install-Tomcat-3.png
 
 ==Setup of public key cryptography for the SFTP transport==
 
