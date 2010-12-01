@@ -5,6 +5,8 @@
 
 = Deploying an Integration Component =
 
+ABC
+
 An integration component is easiest deployed using the maven plugin for Tomcat.
 Before you can deploy to Tomcat using the maven plugin you have to configure it in the web-projects pom.xml - files.
 
