@@ -1,4 +1,4 @@
-p#summary Installation Guide for users of soi-toolkit.
+#summary Installation Guide for users of soi-toolkit.
 
 *Content*
 <wiki:toc max_depth="2" />
@@ -242,4 +242,4 @@ If you want to deploy locally in your PC for test purposes before deploying to t
    (you will need this later on when you deploy Integration Components to Tomcat)
   * The wizard will wrap up by starting the Tomcat service for you.
 
- * Verify Tomcat installation by open the URL http://localhost:8080/ 
+ * Verify Tomcat installation by open the URL http://localhost:8080/ in a web browser. A page should be displayed with the text "If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!”
