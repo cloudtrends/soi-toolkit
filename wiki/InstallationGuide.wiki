@@ -242,8 +242,19 @@ If you want to deploy locally in your PC for test purposes before deploying to t
    (you will need this later on when you deploy Integration Components to Tomcat)
   * The wizard will wrap up by registering Tomcat as a Windows Service and starting the Tomcat service for you.
 
- * Verify Tomcat installation by open the URL http://localhost:8080/ in a web browser. A page should be displayed with the text "If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!”
+ * Verify Tomcat installation by open the URL http://localhost:8080/ in a web browser. A page should be displayed with the text "_If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!_”
 
+PICTURE
+
+Start --> Programs --> Apache Tomcat 6.0 --> Configure Tomcat
+in med params 
+- jmx
+- app-home
+- heap size
+- permgen
+
+
+verifiera minnessättningar med jmx
 
 ==Setup of public key cryptography for the SFTP transport==
 
