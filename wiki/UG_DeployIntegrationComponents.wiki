@@ -1,4 +1,4 @@
-#summary Deploying an Integration Component.
+#summary User Guidelines - Deploying an Integration Component.
 
 *Content*
 <wiki:toc max_depth="3" />
