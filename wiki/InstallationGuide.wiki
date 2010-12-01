@@ -350,3 +350,25 @@ MagnusMac-2:.ssh magnuslarsson$
   * Click on the "OK" button to conclude the configuration.
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation8.png
+
+
+=Updates=
+
+==Updating the Soi-toolkit Eclipse plugin==
+
+To update the Soi-toolkit Eclipse plugin do the following:
+
+ * First write down the preference-setting you have for the existing version of the Soi-toolkit Eclipse plugin, you will have to reenter them after the upgrade
+  * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
+ * Select the Eclipse menu "Help --> Check for Updates"
+ * If any update is available a dialog like the following will be displayed:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitUpdate1.png
+
+ * Click on the "Deselcet All" button and select only the "soi-toolkit generator feature" 
+ * Click on the "Next >" button twice
+ * Accept the terms of the license agreement and press the "Finish" button
+  * The plugin is now downloaded and installed.
+ * Click on the "Ok" button when asked to accept unsigned content
+ * Click on the "Restart Now" button when asked to restart Eclipse
+ * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
