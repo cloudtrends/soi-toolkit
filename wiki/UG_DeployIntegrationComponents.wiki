@@ -79,11 +79,11 @@ They are created with the command
 
 {{{
 cd .../trunk
-mvn install 
+mvn package 
 }}}
 
 If you have the Maven-plugin installed in Eclipse then you can execute the build command without leaving Eclipse.
-Right-click the integration component top-level project and select "{{{Run As --> Maven install}}}"
+Right-click the integration component top-level project and select "{{{Run As --> Maven package}}}"
 
 *PICTURE*
 
@@ -99,20 +99,31 @@ mvn tomcat:deploy-only
 If the war already is installed you can reinstall it with the command:
 
 {{{
-mvn tomcat:deploy-only
+mvn tomcat:undeploy tomcat:deploy-only
 }}}
 
 For more information on available Tomcat commands see the [http://mojo.codehaus.org/tomcat-maven-plugin/plugin-info.html Plugin Documentation]
-
+*Note #1:* According to the documentation the following command should be able to handle both initial deploy and redeploy but it doesn't seem to work, it doesn't handle a redeploy...
+{{{
+tomcat:deploy-only -Dupdate=true
+}}}
+*Note #2:* We recommend not using the tomcat:redeploy command since it can't be configured to skip the package lifecycle, e.g. skip creating the war-files again (just created by the ...
+{{{
+tomcat:redeploy
+}}}
 
 If you have the Maven-plugin installed in Eclipse then you can execute the deploy command without leaving Eclipse.
 Right-click the integration component top-level project and select "{{{Run As --> Maven build...}}}"
 
-PICTURE
+*PICTURE*
 
 Enter the build command:
 {{{
-tomcat:deploy-only -Dupdate=true
+tomcat:deploy-only
+}}}
+or:
+{{{
+tomcat:undeploy tomcat:deploy-only
 }}}
 
 And a proper name (for easier reuse of the command):
@@ -120,4 +131,6 @@ And a proper name (for easier reuse of the command):
 sample1 deploy
 }}}
 
-PICTURE
+Since the deploy command can be quit memory intensive it is recommended to specify a larger maximum heap size than default in the "JRE"-tab in the field "VM arguments:", e.g. -Xmx256m
+
+*PICTURE*
