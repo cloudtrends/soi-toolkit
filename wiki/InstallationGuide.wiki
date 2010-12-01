@@ -244,9 +244,16 @@ If you want to deploy locally in your PC for test purposes before deploying to t
 
  * Verify Tomcat installation by open the URL http://localhost:8080/ in a web browser. A page should be displayed with the text "_If you're seeing this page via a web browser, it means you've setup Tomcat successfully. Congratulations!_”
 
-PICTURE
+*PICTURE*
 
-Start --> Programs --> Apache Tomcat 6.0 --> Configure Tomcat
+ * Configure Tomcat. The following configuration of the default installation is required:
+  * Declare a port for remote JMX access 
+  * Define an environment variable, {{{app.home}}}, for storing integration components config and log files (and whatever files that is not appropriate to package with the deploy files (e.g. the war-files)  
+  * Configure memory parameters for heap size and perm gen space
+
+ This configuration is setup using Tomcats configuration tool:
+  * Launch the toll from {{{Windows Start menu --> Programs --> Apache Tomcat 6.0 --> Configure Tomcat}}}
+
 in med params 
 - jmx
 - app-home
