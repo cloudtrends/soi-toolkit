@@ -86,7 +86,7 @@ mvn package
 If you have the Maven-plugin installed in Eclipse then you can execute the build command without leaving Eclipse.
 Right-click the integration component top-level project and select "{{{Run As --> Maven package}}}"
 
-*PICTURE*
+http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/build-from-eclipse.png
 
 The command creates war-files under the target folders of the web-projects...
 
@@ -133,6 +133,8 @@ And a proper name (for easier reuse of the command):
 sample1 deploy
 }}}
 
+http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-2.png
+
 Since the deploy command can be quit memory intensive it is recommended to specify a larger maximum heap size than default in the "JRE"-tab in the field "VM arguments:", e.g. -Xmx256m
 
-*PICTURE*
+http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-3.png
