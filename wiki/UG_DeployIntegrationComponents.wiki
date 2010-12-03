@@ -105,6 +105,7 @@ mvn tomcat:undeploy tomcat:deploy-only
 }}}
 
 For more information on available Tomcat commands see the [http://mojo.codehaus.org/tomcat-maven-plugin/plugin-info.html Plugin Documentation]
+
 *Note #1:* According to the documentation the following command should be able to handle both initial deploy and redeploy but it doesn't seem to work, it doesn't handle a redeploy...
 {{{
 tomcat:deploy-only -Dupdate=true
