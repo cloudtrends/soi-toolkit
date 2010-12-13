@@ -80,13 +80,13 @@ Since we deploy to Tomcat the deploy-files are standard war-files.
 They are created with the following command executed in the integration components root folder (i.e. the trunk-folder):
 
 {{{
-mvn package 
+mvn install 
 }}}
 
 If you have the Maven-plugin installed in Eclipse then you can execute the build command without leaving Eclipse.
-Right-click the integration component top-level project and select "{{{Run As --> Maven package}}}"
+Right-click the integration components top-level project and select "{{{Run As --> Maven package}}}"
 
-http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/build-from-eclipse.png
+*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/build-from-eclipse.png*
 
 The command creates war-files under the target folders of the web-projects...
 
@@ -95,38 +95,19 @@ The command creates war-files under the target folders of the web-projects...
 For the war file to be deployed to your Tomcat server run the following command in the web-projects folder:
 {{{
 cd ${artifactId}-web
-mvn tomcat:deploy-only
-}}}
-
-If the war already is installed you can reinstall it with the command:
-
-{{{
-mvn tomcat:undeploy tomcat:deploy-only
+mvn tomcat:redeploy
 }}}
 
 For more information on available Tomcat commands see the [http://mojo.codehaus.org/tomcat-maven-plugin/plugin-info.html Plugin Documentation]
 
-*Note #1:* According to the documentation the following command should be able to handle both initial deploy and redeploy but it doesn't seem to work, it doesn't handle a redeploy...
-{{{
-tomcat:deploy-only -Dupdate=true
-}}}
-*Note #2:* We recommend not using the tomcat:redeploy command since it can't be configured to skip the package lifecycle, e.g. skip creating the war-files again (just created by the ...
-{{{
-tomcat:redeploy
-}}}
-
 If you have the Maven-plugin installed in Eclipse then you can execute the deploy command without leaving Eclipse.
 Right-click the integration component top-level project and select "{{{Run As --> Maven build...}}}"
 
-http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-1.png
+*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-1.png*
 
 Enter the build command:
 {{{
-tomcat:deploy-only
-}}}
-or:
-{{{
-tomcat:undeploy tomcat:deploy-only
+tomcat:redeploy
 }}}
 
 And a proper name (for easier reuse of the command):
@@ -134,8 +115,8 @@ And a proper name (for easier reuse of the command):
 sample1 deploy
 }}}
 
-http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-2.png
+*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-2.png*
 
 Since the deploy command can be quit memory intensive it is recommended to specify a larger maximum heap size than default in the "JRE"-tab in the field "VM arguments:", e.g. -Xmx256m
 
-http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-3.png
+*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-3.png*
