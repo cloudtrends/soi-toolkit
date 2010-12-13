@@ -84,7 +84,7 @@ mvn clean install
 }}}
 
 If you have the Maven-plugin installed in Eclipse then you can execute the build command without leaving Eclipse.
-Right-click the integration components top-level project and select "{{{Run As --> Maven package}}}"
+Right-click the integration components top-level project and select "{{{Run As --> Maven clean}}}" and then "{{{Run As --> Maven install}}}"
 
 *UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/build-from-eclipse.png*
 
