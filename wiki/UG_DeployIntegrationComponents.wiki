@@ -80,7 +80,7 @@ Since we deploy to Tomcat the deploy-files are standard war-files.
 They are created with the following command executed in the integration components root folder (i.e. the trunk-folder):
 
 {{{
-mvn install 
+mvn clean install 
 }}}
 
 If you have the Maven-plugin installed in Eclipse then you can execute the build command without leaving Eclipse.
@@ -95,7 +95,7 @@ The command creates war-files under the target folders of the web-projects...
 For the war file to be deployed to your Tomcat server run the following command in the web-projects folder:
 {{{
 cd ${artifactId}-web
-mvn tomcat:redeploy
+mvn clean tomcat:redeploy
 }}}
 
 For more information on available Tomcat commands see the [http://mojo.codehaus.org/tomcat-maven-plugin/plugin-info.html Plugin Documentation]
@@ -107,7 +107,7 @@ Right-click the integration component top-level project and select "{{{Run As --
 
 Enter the build command:
 {{{
-tomcat:redeploy
+clean tomcat:redeploy
 }}}
 
 And a proper name (for easier reuse of the command):
