@@ -288,9 +288,9 @@ INFO: Server startup in 847 ms
 
 ==Setup of public key cryptography for the SFTP transport==
 
-When using the SFTP transport it is strongly recommended to not use traditional username/passwords but instead use public key cryptography. See http://en.wikipedia.org/wiki/Public-key_cryptography for background information.
+When using the SFTP transport it is strongly recommended to not use traditional username/passwords but instead use [http://en.wikipedia.org/wiki/Public-key_cryptography public key cryptography].
 
-The instruction below is based on DSA keys but RSA keys can be used as well.
+The instruction below is based on [http://en.wikipedia.org/wiki/Digital_Signature_Algorithm DSA] keys but [http://en.wikipedia.org/wiki/RSA RSA] keys can be used as well.
 
  * *Verify proper security settings on files and folders*
  Ssh is quite picky on security settings (not unexpected :-) so before trying to create keys verify the following permission settings:
