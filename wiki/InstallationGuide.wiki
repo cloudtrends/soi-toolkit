@@ -292,7 +292,7 @@ When using the SFTP transport it is strongly recommended to not use traditional 
 
 The instruction below is based on [http://en.wikipedia.org/wiki/Digital_Signature_Algorithm DSA] keys but [http://en.wikipedia.org/wiki/RSA RSA] keys can be used as well.
 
-*NOTE:* The instructions for creating keys are based on creating the keys on a unix/linux machine and not a Windows PC. We are working on instructions for using Cygwin in a Windows environment but are stuck on some version issues, see [http://code.google.com/p/soi-toolkit/issues/detail?id=34 issue 34]. Once the keys are created they can however be used on a Windows PC!
+*NOTE:* The instructions for creating keys are based on creating the keys on a unix/linux machine and not a Windows PC. Once the keys are created they can be used on a Windows PC. We are working on instructions for using Cygwin in a Windows environment but are stuck on some version issues, see [http://code.google.com/p/soi-toolkit/issues/detail?id=34 issue 34]. 
 
  * *Verify proper security settings on files and folders*
  Ssh is quite picky on security settings (not unexpected :-) so before trying to create keys verify the following permission settings:
