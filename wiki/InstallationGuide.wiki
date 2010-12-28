@@ -272,7 +272,7 @@ If you want to deploy to Tomcat locally in your PC for test purposes before depl
   * Verify the memory settings with JConsole (comes with Java SE JDK)
    Start JConsole in a command window with the command:
 {{{
-jconsole localhost 9090
+jconsole localhost:9090
 }}}
 
   * Goto the tab "VM Summary"
