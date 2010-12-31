@@ -1,7 +1,5 @@
 #summary Roadmap.
 
-= !!! Under construction !!! =
-
 *Content*
 <wiki:toc max_depth="2" />
 
