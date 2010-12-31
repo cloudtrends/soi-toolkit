@@ -18,7 +18,7 @@
  * [PatternCatalog Pattern Catalog (TBS)]
  * [UserGuidelines User Guidelines]
  * [ReleaseNotes Release Notes]
- * [Roadmap Roadmap (TBS)]
+ * [Roadmap Roadmap]
 
 ==Collaboration==
  * [http://groups.google.com/group/soi-toolkit-user soi-toolkit-user]
