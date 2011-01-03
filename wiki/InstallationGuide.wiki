@@ -186,6 +186,9 @@ The command will return something like {{{1.6.5}}}
  The Update Site is a part of Helios Update Site. 
  * Select the Eclipse menu "Help --> Install New Software... 
  * In the field "Work with:" select the predefined update site "Helios - http://download.eclipse.org/releases/helios"
+
+*NOTE:* In early December 2010 a compatibility problem was introduced in the helios update site for the Subversive plugin. Until that problem is resolved please install the plugin from the update site: "http://download.eclipse.org/technology/subversive/0.7/update-site/". Verify that the version installed of the Subversive plugin is version 0.7.9.I20101203-1700 or newer.
+
  * In the list below of available features expand the node "Collaboration" 
  * Select:
   * Subversive SVN Team Provider (mandatory)
