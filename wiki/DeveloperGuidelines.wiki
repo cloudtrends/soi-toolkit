@@ -55,6 +55,7 @@ To manually publish a snapshot of soi-toolkit do:
 {{{
 mvn clean deploy
 mvn clean deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml
+mvn clean deploy -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml
 mvn clean deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml
 }}}
 
