@@ -218,7 +218,7 @@ Follow these instructions to install ActiveMQ locally on your PC:
 
  * Unzip to some folder, e.g. {{{C:\opt}}}
 
- * Go to the folder {{{C:\opt\apache-activemq-5.3.2\bin\win32}}} and execute the file {{{InstallService.bat}}}.
+ * Go to the folder {{{C:\opt\apache-activemq-5.2.0\bin\win32}}} and execute the file {{{InstallService.bat}}}.
 
  Active MQ is now registered as a windows service and can be started automatically when the PC is started. 
  
