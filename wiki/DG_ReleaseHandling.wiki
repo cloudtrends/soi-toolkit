@@ -50,6 +50,7 @@ mvn clean test
 
  NOTE: Same for:
   * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml}}} 
+  * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml}}} 
   * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml}}} 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
   * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
@@ -95,6 +96,7 @@ mvn release:perform
  svn update
  cd soitoolkit-n.n.n
  mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml -Psonatype-oss-release
  mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
  cd ../../trunk
  }}}
@@ -127,6 +129,7 @@ mvn release:perform
 {{{
  mvn deploy -Psonatype-oss-release
  mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml -Psonatype-oss-release
  mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
 }}}
 
@@ -150,6 +153,7 @@ mvn release:perform
 }}}
  NOTE: Same for:
   * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml}}} 
+  * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml}}} 
   * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml}}} 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
   * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
@@ -162,6 +166,7 @@ mvn release:perform
 {{{
 mvn clean install
 mvn clean install -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml 
+mvn clean install -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml 
 mvn clean install -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml 
 }}}
 
