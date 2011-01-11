@@ -26,6 +26,7 @@ The following versions (or newer) are recommended:
 ||Subversive SVN Connectors||2.2.2||
 ||ActiveMQ||5.2.0||
 ||Tomcat||6.0.29||
+||Derby||10.7.1.1||
 ||soapUI||3.6.1||
 
 *Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
@@ -291,12 +292,29 @@ INFO: Server startup in 847 ms
 }}}
 
 
-== Installing soapUI ==
+==Installing Apache Derby==
+If you want to run manual tests on your PC for services where JDBC is involved it can be useful to run those tests with an external JDBC provider, i.e. not a JDBC provider that is embedded as when you run unit tests.
+
+Install Apache Derby by:
+ * Go to http://db.apache.org/derby/derby_downloads.html
+  * Select the latest version
+  * Download db-derby-`<VERSION>`-bin.zip
+ * Unpack the downloaded zip-file, on Windows for example to: C:\program
+
+Start/stop Apache Derby:
+ * Open the bin-folder (db-derby-`<VERSION>`-bin/bin)
+ * Start by running startNetworkServer.bat (on Windows)
+ * Stop by running stopNetworkServer.bat (on Windows)
+
+Connecting to Derby:
+ * Connect using an URL like (with your prefered databasename): jdbc:derby://localhost:1527/myDatabaseNameDb;create=true
+
+
+==Installing soapUI==
 If you want to test a soap-webservice without having to write code for a test, then soapUI is a good tool:
  * Download the latest version from http://sourceforge.net/projects/soapui/files/soapui/
  * For Windows: select soapUI-x32-`<VERSION>`.exe
  * Run the installer.
-
 
 
 ==Setup of public key cryptography for the SFTP transport==
