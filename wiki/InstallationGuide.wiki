@@ -26,6 +26,7 @@ The following versions (or newer) are recommended:
 ||Subversive SVN Connectors||2.2.2||
 ||ActiveMQ||5.2.0||
 ||Tomcat||6.0.29||
+||soapUI||3.6.1||
 
 *Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
 
@@ -288,6 +289,15 @@ jconsole localhost:9090
 {{{
 INFO: Server startup in 847 ms
 }}}
+
+
+== Installing soapUI ==
+If you want to test a soap-webservice without having to write code for a test, then soapUI is a good tool:
+ * Download the latest version from http://sourceforge.net/projects/soapui/files/soapui/
+ * For Windows: select soapUI-x32-`<VERSION>`.exe
+ * Run the installer.
+
+
 
 ==Setup of public key cryptography for the SFTP transport==
 
