@@ -52,6 +52,7 @@ mvn clean test
   * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml}}} 
   * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml}}} 
   * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml}}} 
+  * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.1-dependencies/pom.xml}}} 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
   * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
   * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}} (*two places*)
@@ -72,7 +73,7 @@ mvn clean test
 
  * Commit changes
 {{{
-svn commit
+svn commit -m "Commit for releasing v0.3.0"
 }}}
 
  * Perform a dryrun to verify that everything is ok, i.e. a release build will be successful and not fail in the middle leaving the release build in an inconsistent state. *Note:* Version numbers shall follow the format defined below.
@@ -98,6 +99,7 @@ mvn release:perform
  mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
  mvn deploy -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml -Psonatype-oss-release
  mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.0.1-dependencies/pom.xml -Psonatype-oss-release
  cd ../../trunk
  }}}
 
@@ -131,6 +133,7 @@ mvn release:perform
  mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
  mvn deploy -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml -Psonatype-oss-release
  mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.0.1-dependencies/pom.xml -Psonatype-oss-release
 }}}
 
  NOTE: Don't forget to apply the relevant changes to trunk as well...
@@ -155,6 +158,7 @@ mvn release:perform
   * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml}}} 
   * Parent version for {{{commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml}}} 
   * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml}}} 
+  * Parent version for {{{commons/poms/mule-dependencies/mule-3.0.1-dependencies/pom.xml}}} 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
   * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
   * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}} (*two places*)
@@ -168,6 +172,7 @@ mvn clean install
 mvn clean install -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml 
 mvn clean install -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml 
 mvn clean install -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml 
+mvn clean install -f commons/poms/mule-dependencies/mule-3.0.1-dependencies/pom.xml 
 }}}
 
  * Refresh the soitoolkit-projects in Eclipse, update their maven snapshot dependencies and verify that no build/compile problem exists
