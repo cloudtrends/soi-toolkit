@@ -5,6 +5,28 @@
 
 = Release Notes =
 
+== soi-toolkit v0.3.0 ==
+Release date: Jan 12 2011
+
+This is a feature and maintenance release with both new features and bug fixes. 
+
+Of most importance new features are:
+
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=52 Issue #52, Support jdbc as inbound transport and outbound transport for oneway services]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=59 Issue #59, Add support for cross reference lookups]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=62 Issue #62, Add suppor for the quartz-transport]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=63 Issue #63, Add support for a unzip transformer]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=65 Issue #65, convertStreamToString() handles BOM-markers and new method convertResourceBundleToProperties()]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=71 Issue #71, Add support for reading non UTF-8 files]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=73 Issue #73, Support file as inbound transport and outbound transport for oneway services]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=74 Issue #74, Support vm as inbound transport and outbound transport for oneway services]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=75 Issue #75, Support mail as inbound transport (imap and pop3) and outbound transport (smtp) for oneway services]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=77 Issue #77, Add support for request-response patterns]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=78 Issue #78, Add support for smooks based transformations]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=79 Issue #79, Support for Mule ESB v2.2.7]
+
+Full Release Notes can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.3.0 Release Notes]
+
 == soi-toolkit v0.2.0 ==
 Release date: Nov 13 2010
 
