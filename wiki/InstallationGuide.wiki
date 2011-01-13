@@ -20,7 +20,7 @@ The following versions (or newer) are recommended:
 ||Java SE||6 Update 21||
 ||Eclipse EE||3.6.1 (Helios)||
 ||Maven||2.2.1||
-||Soi-toolkit plugin for Eclipse||0.1.9||
+||Soi-toolkit plugin for Eclipse||0.3.0||
 ||Maven plugin for Eclipse||0.10.0||
 ||Subversive plugin for Subversion||0.7.9||
 ||Subversive SVN Connectors||2.2.2||
