@@ -206,3 +206,4 @@ Is currently done manually :-(
 
  * remove the plugin, feature and update projects from the new tag in the eclipse workspace
  * import plugin, feature and update project from trunk back into the eclipse workspace
+ * Update plugin version in table in the [InstallationGuide]
