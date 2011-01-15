@@ -18,7 +18,7 @@
  * Bug fixes as they are reported by the first projects...
  * Automated build process of soi-toolkit using !CloudBees's [http://cloudbees.com/dev-haas.cb Hudson as a Service]
 
-== v0.5 ==
+== v0.3 ==
 
 *Planned release date:* End December 2010.
 
@@ -26,14 +26,14 @@
   * For one way patterns we should support a mix of vm, jms, sftp and jdbc based endpoints
   * For request/reply patterns we should suport a mix of vm, http(s) (soap and/or rest), jms and jdbc based endpoints.
 
-== v1.0 ==
+== v0.5 ==
 
 *Planned release date:* Early 2011.
 
  * Support for Mule v3
  A plain port of our Mule v2.2.x patterns to Mule v3.
  
-== v2.0 ==
+== v1.0 ==
 
 *Planned release date:* Q1 2011.
 
