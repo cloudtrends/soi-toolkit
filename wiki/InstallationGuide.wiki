@@ -169,7 +169,7 @@ Install the Maven plugin for Eclipse according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MavenEclipsePluginInstallation.png
 
- * To avoid the error message {{{"The Maven Integration requires that Eclipse be running in a JDK, because a number of Maven core plugins are using jars from the JDK. (...)"}}} follow the instructions on the following page [http://tech.karolzielinski.com/m2eclipse-eclipse-is-running-in-a-jre-but-a-jdk-is-required Eclipse is running in a JRE, but a JDK is required]
+ * To avoid the error message {{{"The Maven Integration requires that Eclipse be running in a JDK, because a number of Maven core plugins are using jars from the JDK. (...)"}}} follow the instructions on the following page [http://blog.dawouds.com/2008/11/eclipse-is-running-in-jre-but-jdk-is.html]
 
 
 ==Subversive Eclipse plugin==
