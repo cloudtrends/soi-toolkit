@@ -157,6 +157,10 @@ Install the Maven plugin for Eclipse according to the following instructions:
  * The installation is performed using the Eclipse "Update Site"-mechanism.
  The Update Site is: http://m2eclipse.sonatype.org/sites/m2e.
  
+*NOTE:* In January 18th, 2011 v0.12.1 was released and we seen problems using this new version. Until this problem is resolved please install the plugin from the update site: "http://m2eclipse.sonatype.org/sites/archives/m2e-0.10.2.20100623-1649/". Verify that the version installed of the plugin is version 0.10.2.
+
+If you need to downgrade you can uninstall the new version from the meny "Help --> Install New Software...", click on the link "already installed" (down right), select the plugin in the list, click on the "Uninstall..." - button (down mid) and follow the wizard that is displayed.
+
  For full installation instructions see http://m2eclipse.sonatype.org/installing-m2eclipse.html.
 
  Notes:
