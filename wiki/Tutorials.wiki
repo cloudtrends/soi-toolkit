@@ -9,3 +9,7 @@
 
  * [TutorialCustomizations Customize creation of skeleton components and services (TBS)]
  * [TutorialDeploy Deploy an integration component (TBS)]
+
+
+= External tutorials and blogs =
+ * [http://blog.callistaenterprise.se/2011/01/23/getting-started-with-soi-toolkit/ CALLISTA BLOG - Getting started with Soi-toolkit]
