@@ -38,5 +38,6 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-PublishSubs
 
 == Message Flow ==
 
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/MessageFlow.png
 
 = Service Model =
