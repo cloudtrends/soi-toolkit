@@ -7,12 +7,26 @@
 
 = Introduction =
 
-Add your content here.
+This page describes concepts and definitions used in the documentation of soi-toolkit.
 
+= Definitions =
 
-= Details =
+|| *Icon* || *Term* || *Description ||
+|| || Software Components || ||
+|| || Producer || ||
+|| || Consumer || ||
+|| || Message || ||
+|| || OneWay Operation || ||
+|| || Request/Response Operation || ||
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Concepts =
+
+== Exchange Patterns ==
+
+=== Request/Response Exchange Pattern ===
+
+=== OneWay Exchange Pattern ===
+
+=== Publish/Subscribe Exchange Pattern ===
+
+== Message Flow ==
