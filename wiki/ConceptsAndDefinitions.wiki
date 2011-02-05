@@ -20,14 +20,23 @@ This page describes concepts and definitions used in the documentation of soi-to
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Message.png || Asynchronous OneWay Invocation || ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Response%20Message.png || Asynchronous OneWay Response Invocation || ||
 
-= Concepts =
-
 == Exchange Patterns ==
 
 === Request/Response Exchange Pattern ===
 
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
+
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Asynchronous.png
+
 === One-Way Exchange Pattern ===
+
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-OneWay.png
 
 === Publish/Subscribe Exchange Pattern ===
 
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-PublishSubscribe.png
+
 == Message Flow ==
+
+
+= Service Model =
