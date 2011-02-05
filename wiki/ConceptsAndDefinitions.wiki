@@ -12,12 +12,13 @@ This page describes concepts and definitions used in the documentation of soi-to
 = Definitions =
 
 || *Icon* || *Term* || *Description ||
-|| || Software Components || ||
-|| || Producer || ||
-|| || Consumer || ||
-|| || Message || ||
-|| || OneWay Operation || ||
-|| || Request/Response Operation || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/SoftwareComponent.png || Software Components || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Producer.png || Producer || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Consumer.png || Consumer || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Message.png || Message || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Sychronous%20Request:Response%20Messages.png || Synchronous Request/Response Invocation || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Message.png || Asynchronous OneWay Invocation || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Response%20Message.png || Asynchronous OneWay Response Invocation || ||
 
 = Concepts =
 
