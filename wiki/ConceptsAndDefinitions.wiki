@@ -94,6 +94,6 @@ Performing accurate "_what if analysis_" and answering questions like "_when can
 
 Some kind of governance tool needs to be used. Either it is a commercial high-end tool or a simple database application a proper meta-model needs to be defined before services, consumers and producers can be described.
 
-Soi-toolkit provides the following service model that can be used as by an organisation that use soi-toolkit, either as is or as a starting point.
+Soi-toolkit provides the following service model and it can be used by an organisation that use soi-toolkit, either _as is_ or as a starting point for a service model tailored for an organisations specific needs.
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.png
