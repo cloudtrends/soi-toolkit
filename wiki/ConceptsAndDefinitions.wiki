@@ -3,13 +3,13 @@
 = Concepts and definitions =
 
 *Content*
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="3" />
 
 = Introduction =
 
 This page describes concepts and definitions used in the documentation of soi-toolkit.
 
-= Definitions =
+== Definitions ==
 
 || *Icon* || *Term* || *Description ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/SoftwareComponent.png || Software Component || A _software component_ is any type of software (e.g. system, web app, esb) that either consumes and/or produces services. A _software component_ is a coarse grained component, i.e. a system or web app and not a single program or class and typically consumer an/or produce more than one service. A _software component_ has its own CM-scope, i.e. its own release cycle. ||
@@ -22,6 +22,16 @@ This page describes concepts and definitions used in the documentation of soi-to
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Response%20Message.png || Asynchronous One-Way Response Invocation || The _producer_ sends back a response _message_ to the _consumer_ and does not wait for the _consumer_ to process the _message_. ||
 
 == Exchange Patterns ==
+
+_Exchange patterns_ describes different styles for how _consumers_ and _producers_ can exchange _messages_ in an abstract and logical way.
+
+*Note*: The actual physical exchange taking place is transport dependent. E.g. a one-way exchange patterns describes that the consumer sends a message to the receiver but for polling transports (e.g. file based or database based trasports) it is actually the producer that polls the transport for new messages (e.g. files or database table rows).
+
+soi-toolkit supports the following _exchange patterns_:
+
+ * Request/Response
+ * One-Way
+ * Publish/Subscribe
 
 === Request/Response Exchange Pattern ===
 
