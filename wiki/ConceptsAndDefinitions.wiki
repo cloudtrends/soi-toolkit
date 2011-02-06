@@ -76,14 +76,24 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-OneWay.png
 === Publish/Subscribe ===
 
 In the case where a number of software components are interested in information owned and maintained by another software components (the _master_ of the data) it is in many cases a good approach to apply a publish/subscribe exchange pattern.
-The master publish changes to zero, one or more subscribers in a asynchronous fashion very similar to the one-way exchange pattern
+The master publish changes to subscribers in a asynchronous fashion very similar to the one-way exchange pattern but instead of sending the message to exactly one service producer it is sent to zero, one or many service producers (i.e. the subscribers).
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-PublishSubscribe.png
 
 == Message Flow ==
 
+The exchange patterns described above can be combined into a _message flow_ to involve a number of software components to meet business demands, e.g. to fulfill a business process. 
+
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/MessageFlow.png
 
 = Service Model =
+
+Once the use of services grows (i.e. the number of consumers and producers) in the system landscape it becomes more and more important to be able to describe the exiting and planned services, integrations and message flows in a structured and formal way.
+Initially word documents, excel sheets and simple wiki pages will be sufficient but at some point will the number of consumers, producers and message flows make it very inconvenient to maintain the information when the system landscape changes.
+Performing accurate "_what if analysis_" and answering questions like "_when can we shut down this old version of service xyz?_" will be very hard to answer...
+
+Some kind of governance tool needs to be used. Either it is a commercial high-end tool or a simple database application a proper meta-model needs to be defined before services, consumers and producers can be described.
+
+Soi-toolkit provides the following service model that can be used as by an organisation that use soi-toolkit, either as is or as a starting point.
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.png
