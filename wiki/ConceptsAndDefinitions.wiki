@@ -26,9 +26,9 @@ The page is divided in the following sections:
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Producer.png || Producer || A _software component_ that publish a service is called a _producer_ of that service. ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Consumer.png || Consumer ||  A _software component_ that uses a service is called a _consumer_ of that service. ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Message.png || Message || The actual _message_ (or payload) sent between the _consumer_ and _producer_ ||
-|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Sychronous%20Request:Response%20Messages.png || Synchronous Request/Response Invocation || The _consumer_ sends a request _message_ to the _producer_ and waits synchronously for a response _message_. ||
-|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Message.png || Asynchronous One-Way Invocation || The _consumer_ sends a _message_ to the _producer_ and does not wait for the _producer_ to process the _message_. ||
-|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Response%20Message.png || Asynchronous One-Way Response Invocation || The _producer_ sends back a response _message_ to the _consumer_ and does not wait for the _consumer_ to process the _message_. ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Sychronous%20Request:Response%20Messages.png || Synchronous Request/Response Invocation || The _consumer_ sends a request _message_ to the _producer_ and waits synchronously for a response _message_. A synchronous invocation is denoted by a solid arrowhead following conventions defined by UML. ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Message.png || Asynchronous One-Way Invocation || The _consumer_ sends a _message_ to the _producer_ and does not wait for the _producer_ to process the _message_. An asynchronous invocation is denoted by a line arrowhead following conventions defined by UML. ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Response%20Message.png || Asynchronous One-Way Response Invocation || The _producer_ sends back a response _message_ to the _consumer_ and does not wait for the _consumer_ to process the _message_. An asynchronous invocation is denoted by a line arrowhead following conventions defined by UML. ||
 
 == Exchange Patterns ==
 
