@@ -75,6 +75,9 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-OneWay.png
 
 === Publish/Subscribe ===
 
+In the case where a number of software components are interested in information owned and maintained by another software components (the _master_ of the data) it is in many cases a good approach to apply a publish/subscribe exchange pattern.
+The master publish changes to zero, one or more subscribers in a asynchronous fashion very similar to the one-way exchange pattern
+
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-PublishSubscribe.png
 
 == Message Flow ==
