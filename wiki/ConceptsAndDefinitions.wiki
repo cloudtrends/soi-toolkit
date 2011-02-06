@@ -44,11 +44,32 @@ soi-toolkit supports the following _exchange patterns_:
 
 === Request/Response ===
 
+When a consumer needs a response from the producer a _request/response_ exchange patterns can be used.
+Mainly depending on how fast the consumer expects a response from the producer the pattern can be divided in a synchronous and an asynchronous variant.
+
+The synchronous variant is in many cases simple to implement, e.g. using web services tools, but the asynchronous variant provides in general more robust solutions since it can guarente the delivery for the messages and for messaging based transports (e.g. JMS) the delivery can also be transactional. 
+
+_NOTE_: An asynchronous request/response exchange pattern is actually built on two _one-way_ exchange patters, see below for more details.
+
+If the expected response time is only a few seconds the synchronous variant can be used (due to its simplicity) but otherwise the asynchronous variant should be used if possible.
+
+*Synchronous request/response exchange pattern*
+
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
+
+*Asynchronous request/response exchange pattern*
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Asynchronous.png
 
 === One-Way ===
+
+If the consumer is not depending on a response from the producer a _one way_ exchange pattern is in most cases the preferred way.
+
+The consumer sends the message asynchronously, i.e. does not wait for the producer to process the message and the underlying transport is expected to guarente the delivery of the message to the producer of the service.
+Different transports fulfills the guarente of the delivery in various ways. In general messaging based transports (e.g. JMS) are preferred since they have the most robust implementation to guarente delivery of the messages and they can also be used by the consumer ans producer in a transactional way.
+
+_NOTE_: The concepts consumer and producer are referring to consuming and producing *the service*, *not the message*. In a one-way exchange patter this might look confusing since it is the consumer that produce the message and the producer that consumes the message so it is very important to remember that the roles are related to the service and not the message!
+ 
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-OneWay.png
 
