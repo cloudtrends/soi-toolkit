@@ -97,3 +97,16 @@ Some kind of governance tool needs to be used. Either it is a commercial high-en
 Soi-toolkit provides the following service model and it can be used by an organisation that use soi-toolkit, either _as is_ or as a starting point for a service model tailored for an organisations specific needs.
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.png
+
+Explanation of the model:
+
+ * A _service_ is published by a _software component_ with the role _producer_.
+ * A _software component_ that use a service describe its usage in a _contract_ with the role _consumer_
+ * A _service_ expectes messages of a specific _message type_
+  * Request/response based services define three types of messages: 
+   * Request message
+   * Response message
+   * Zero, one or meny Fault messages
+  * One-way and publish/subscribe services only define one type of message, the request message type.
+ * _Message flows_ describes a number of cooperating services (by relating to the involved contracts) that for examples implements a business process or some other interaction between a number of software components.
+ * _Domains_ can be used to group services that are logically related to each other
