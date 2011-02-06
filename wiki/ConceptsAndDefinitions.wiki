@@ -9,7 +9,16 @@
 
 This page describes concepts and definitions used in the documentation of soi-toolkit.
 
-== Definitions ==
+The page is divided in the following sections:
+ * *Definitions*
+  * *Core Concepts*, describes some core concepts such as producer, consumer and messages.
+  * *Exchange Patterns*, describes in what styles consumers and producers can exchange messages.
+  * *Message Flows*, describes how exchange patterns can be combines into larger interaction when more than one producer and consumer is involved.
+ * *Service Model*, describes a meta-model that can be used to describe a landscape of producers and consumers and how they exchange messages using services.
+
+= Definitions =
+
+== Core Concepts ==
 
 || *Icon* || *Term* || *Description ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/SoftwareComponent.png || Software Component || A _software component_ is any type of software (e.g. system, web app, esb) that either consumes and/or produces services. A _software component_ is a coarse grained component, i.e. a system or web app and not a single program or class and typically consumer an/or produce more than one service. A _software component_ has its own CM-scope, i.e. its own release cycle. ||
@@ -33,17 +42,17 @@ soi-toolkit supports the following _exchange patterns_:
  * One-Way
  * Publish/Subscribe
 
-=== Request/Response Exchange Pattern ===
+=== Request/Response ===
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Asynchronous.png
 
-=== One-Way Exchange Pattern ===
+=== One-Way ===
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-OneWay.png
 
-=== Publish/Subscribe Exchange Pattern ===
+=== Publish/Subscribe ===
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-PublishSubscribe.png
 
@@ -52,6 +61,5 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-PublishSubs
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/MessageFlow.png
 
 = Service Model =
-
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.png
