@@ -12,8 +12,9 @@ This page describes concepts and definitions used in the documentation of soi-to
 = Definitions =
 
 || *Icon* || *Term* || *Description ||
-|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/SoftwareComponent.png || Software Components || ||
-|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Producer.png || Producer || ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/SoftwareComponent.png || Software Component || A _Software Component_ is any type of software (e.g. system, web app, esb) that either consumes and/or produces services. A _Software Component_ is a coarse grained component, i.e. a system or web app and not a single program or class and typically consumer an/or produce more than one service. A _Software Component_ has its own CM-scope, i.e. its own release cycle. ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/IntegrationComponent.png || Integration Component || A _Software Component_ build using soi-toolkit is called an _Integration Component_ and contains a number of related services and that typically consumes a set of other services. ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Producer.png || Producer || The role ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Consumer.png || Consumer || ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Message.png || Message || ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Sychronous%20Request:Response%20Messages.png || Synchronous Request/Response Invocation || ||
