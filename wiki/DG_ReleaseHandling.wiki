@@ -36,6 +36,7 @@ svn update
 {{{
 mvn clean test
 }}}
+ NOTE: Also run the generator-tests (takes an hour so prepare for other things to do meanwhile...)
 
  * Manually update the soi-toolkit version to the release version in {{{commons/poms/default-parent/pom.xml}}}. 
  E.g. change:
