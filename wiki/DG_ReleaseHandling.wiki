@@ -23,7 +23,11 @@ cd .../trunk
 }}}
 
  * Check that the code is in synch
-  * Check for updates:
+ check for updates:
+{{{
+svn st -u
+}}}
+ and if required:
 {{{
 svn update
 }}}
