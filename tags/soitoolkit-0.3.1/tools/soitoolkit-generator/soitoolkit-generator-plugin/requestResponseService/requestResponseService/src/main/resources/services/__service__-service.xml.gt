@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mule 
+${xmlNamespace.reqRespService}
+
+	<!-- TODO: Add service specific definitions here -->
+<% if (transformerType=="JAVA") { %>
+    <custom-transformer name="${lowercaseJavaService}RequestTransformer"  class="${javaPackage}.${lowercaseJavaService}.${capitalizedJavaService}RequestTransformer"/>
+    <custom-transformer name="${lowercaseJavaService}ResponseTransformer" class="${javaPackage}.${lowercaseJavaService}.${capitalizedJavaService}ResponseTransformer"/>
+<% } else { %>     
+	<smooks:transformer name="${lowercaseJavaService}RequestTransformer"  configFile="/transformers/${service}-request-transformer.xml"/>
+	<smooks:transformer name="${lowercaseJavaService}ResponseTransformer" configFile="/transformers/${service}-response-transformer.xml"/>
+<% } %> 
+    <custom-transformer name="createSoapFaultIfException" class="org.soitoolkit.commons.mule.soap.CreateSoapFaultIfExceptionTransformer"/>
+
+	<model name="${service}-model">
+	
+		<service name="${service}-service">
+            <inbound>
+<% if (inboundTransport=="SOAP") { %>
+                <cxf:inbound-endpoint 
+                	address="servlet://${dollarSymbol}{${uppercaseService}_INBOUND_URI}"
+                    wsdlLocation="classpath:/schemas/org/soitoolkit/refapps/sd/sample/sampleService.wsdl"
+                    serviceName="sampleService"
+                    namespace="urn:org.soitoolkit.refapps.sd.sample.wsdl:v1"                 
+                    proxy="true" 
+                    synchronous="true"
+                    applyTransformersToProtocol="false"
+                    transformer-refs="logReqIn"
+                    responseTransformer-refs="createSoapFaultIfException logRespOut"
+                />
+<% } %> 
+            </inbound>
+
+			<outbound>
+				<pass-through-router>
+<% if (outboundTransport=="JMS") { %>
+                    <outbound-endpoint address="jms://${dollarSymbol}{${uppercaseService}_REQUEST_QUEUE}" transformer-refs="objToStr ${lowercaseJavaService}RequestTransformer strToJms logReqOut" synchronous="true"/>
+                    <reply-to address="jms://${dollarSymbol}{${uppercaseService}_RESPONSE_QUEUE}" />                                                             
+<% } %> 
+				</pass-through-router>
+			</outbound>
+<% if (outboundTransport=="JMS") { %>
+            <async-reply timeout="${dollarSymbol}{SERVICE_TIMEOUT_MS}">
+                <inbound-endpoint address="jms://${dollarSymbol}{${uppercaseService}_RESPONSE_QUEUE}" transformer-refs="logRespIn jmsToStr ${lowercaseJavaService}ResponseTransformer"/>
+                <single-async-reply-router/>
+            </async-reply>      
+<% } %> 
+		</service>
+	</model>
+</mule>

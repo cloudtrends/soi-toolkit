@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the soi-toolkit project under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The soi-toolkit project licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+ 
+      http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<mule 
+	xmlns="http://www.mulesource.org/schema/mule/core/2.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:jdbc="http://www.mulesource.org/schema/mule/jdbc/2.2"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.mulesource.org/schema/mule/core/2.2 http://www.mulesource.org/schema/mule/core/2.2/mule.xsd 
+		http://www.mulesource.org/schema/mule/jdbc/2.2 http://www.mulesource.org/schema/mule/jdbc/2.2/mule-jdbc.xsd">
+
+	<!-- 
+		Generic property based datasource definition based on Apache's DBCP for connection pooling
+		 
+		Expects settings in the property file similar to:
+			SOITOOLKIT_JDBC_DRIVER=jdbc driver class
+			SOITOOLKIT_JDBC_URL=jdbc driver connection url
+			SOITOOLKIT_JDBC_USR=username
+			SOITOOLKIT_JDBC_PWD=passowrd
+	    	SOITOOLKIT_JDBC_CON_POOL_INIT_SIZE=1
+	    	SOITOOLKIT_JDBC_CON_POOL_MAX_ACTIVE=2
+	    	SOITOOLKIT_JDBC_CON_POOL_MAX_IDLE=10
+
+		Note: It is recommended to keep the username and password properties separate in the security-property-file
+		
+		Sample settings for an Apache Derby database:
+			SOITOOLKIT_JDBC_DRIVER=org.apache.derby.jdbc.ClientDriver
+			SOITOOLKIT_JDBC_URL=jdbc:derby://myhost:1527/mydatabase;create=true
+
+		Sample settings for a Microsoft SQL Server database using the JTDS JDBC driver:
+			SOITOOLKIT_JDBC_DRIVER=net.sourceforge.jtds.jdbc.Driver
+			SOITOOLKIT_JDBC_URL=jdbc:jtds:sqlserver://myhost:1433;prepareSql=2;domain=mydomain;DatabaseName=mydatabase
+
+		Sample settings for a MySQL database:
+			SOITOOLKIT_JDBC_DRIVER=com.mysql.jdbc.Driver
+			SOITOOLKIT_JDBC_URL=jdbc:mysql://myhost:3306/mydatabase
+
+		Sample settings for an Oracle database:
+			SOITOOLKIT_JDBC_DRIVER=oracle.jdbc.driver.OracleDriver
+			SOITOOLKIT_JDBC_URL=jdbc:oracle:thin:@muhost:1521:mydatabase
+	 -->
+	<spring:bean id="soitoolkit-jdbc-datasource" class="org.apache.commons.dbcp.BasicDataSource">
+		<spring:property name="driverClassName" value="${SOITOOLKIT_JDBC_DRIVER}"/>
+		<spring:property name="url"        		value="${SOITOOLKIT_JDBC_URL}"/>
+	    <spring:property name="username"      	value="${SOITOOLKIT_JDBC_USR}"/>
+	    <spring:property name="password"   		value="${SOITOOLKIT_JDBC_PWD}"/>
+	    <spring:property name="initialSize"   	value="${SOITOOLKIT_JDBC_CON_POOL_INIT_SIZE}"/>
+	    <spring:property name="maxActive"   	value="${SOITOOLKIT_JDBC_CON_POOL_MAX_ACTIVE}"/>
+	    <spring:property name="maxIdle"   		value="${SOITOOLKIT_JDBC_CON_POOL_MAX_IDLE}"/>
+	</spring:bean>
+</mule>
