@@ -30,6 +30,8 @@ The page is divided in the following sections:
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Message.png || Asynchronous One-Way Invocation || The _consumer_ sends a _message_ to the _producer_ and does not wait for the _producer_ to process the _message_. An asynchronous invocation is denoted by a line arrowhead following conventions defined by UML. ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Asychronous%20Response%20Message.png || Asynchronous One-Way Response Invocation || The _producer_ sends back a response _message_ to the _consumer_ and does not wait for the _consumer_ to process the _message_. An asynchronous invocation is denoted by a line arrowhead following conventions defined by UML. ||
 
+*Note:* The concepts _consumer_ and _producer_ are referring to consuming and producing *the service*, *not the message*. In some cases, e.g. a one-way or publish/subscribe exchange pattern, this might look confusing since it is the consumer that produce the message and the producer that consumes the message so it is very important to remember that the roles are related to the service and not the message!
+
 == Exchange Patterns ==
 
 _Exchange patterns_ describes different styles for how _consumers_ and _producers_ can exchange _messages_ in an abstract and logical way.
@@ -49,7 +51,7 @@ Mainly depending on how fast the consumer expects a response from the producer t
 
 The synchronous variant is in many cases simple to implement, e.g. using web services tools, but the asynchronous variant provides in general more robust solutions since it can guarente the delivery for the messages and for messaging based transports (e.g. JMS) the delivery can also be transactional. 
 
-_NOTE_: An asynchronous request/response exchange pattern is actually built on two _one-way_ exchange patters, see below for more details.
+*Note*: An asynchronous request/response exchange pattern is actually built on two _one-way_ exchange patters, see below for more details.
 
 If the expected response time is only a few seconds the synchronous variant can be used (due to its simplicity) but otherwise the asynchronous variant should be used if possible.
 
@@ -66,10 +68,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResp
 If the consumer is not depending on a response from the producer a _one way_ exchange pattern is in most cases the preferred way.
 
 The consumer sends the message asynchronously, i.e. does not wait for the producer to process the message and the underlying transport is expected to guarente the delivery of the message to the producer of the service.
-Different transports fulfills the guarente of the delivery in various ways. In general messaging based transports (e.g. JMS) are preferred since they have the most robust implementation to guarente delivery of the messages and they can also be used by the consumer ans producer in a transactional way.
-
-_NOTE_: The concepts consumer and producer are referring to consuming and producing *the service*, *not the message*. In a one-way exchange patter this might look confusing since it is the consumer that produce the message and the producer that consumes the message so it is very important to remember that the roles are related to the service and not the message!
- 
+Different transports fulfills the guarente of the delivery in various ways. In general messaging based transports (e.g. JMS) are preferred since they have the most robust implementation to guarente delivery of the messages and they can also be used by the consumer ans producer in a transactional way. 
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-OneWay.png
 
