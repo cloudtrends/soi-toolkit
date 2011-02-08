@@ -5,6 +5,17 @@
 
 = Release Notes =
 
+== soi-toolkit v0.3.1 ==
+Release date: Feb 8 2011
+
+This is a minor maintenance release with only a few small enhancements, see release notes here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.3.1 Release Notes]. 
+
+The most important new feature is:
+
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=87 Issue #87, Prepare soi-toolkit for Mule 3.x]
+
+Trunk will now be branched into a MULE_2_2_BRANCH and future development on trunk will be focused on supporting Mule 3.x.
+
 == soi-toolkit v0.3.0 ==
 Release date: Jan 12 2011
 
