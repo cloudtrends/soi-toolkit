@@ -189,10 +189,12 @@ mvn clean install -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.
 
  * Refresh the soitoolkit-projects in Eclipse, update their maven snapshot dependencies and verify that no build/compile problem exists
 
- * Commit the changes
+ * Commit the changes (except for changes in `soi_toolkit_generator_plugin_default_preferences.properties`)
 {{{
 svn commit -m "Start work on version n.n.n"
 }}}
+
+ * Publish release notes in the wiki-page ReleaseNotes and add a news line on the home-page as well.
 
  * When the central maven repository is populated with the new release then also update an Eclipse workspace to the new version of the plugin and verify that it works as expected
   * Create an integration component some services and run their integration tests...
