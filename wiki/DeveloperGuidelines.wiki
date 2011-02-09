@@ -9,6 +9,7 @@
 
 Guidelines for developers of the soi-toolkit...
 
+*NOTE for Windows based developers: * To be able to checkout the source you need to be on Windows 7 due to long paths that Windows XP can't handle!!!
 
 <wiki:comment>
 soi-toolkit is based on the following components:
@@ -44,7 +45,7 @@ The generator is for now both tested and built manually using the built in suppo
 
 Use Eclipse to run all tests in the project {{{soitoolkit-generator-plugin}}}.
 
-= Running the code generator from source =
+= Running the code generator wizard from source =
 If you want to try out the code generator based on the source code in trunk you can do the following:
 
  * Ensure you have the latest code base in trunk
