@@ -49,6 +49,52 @@ The soi-toolkit project uses Hudson as its continuous integration server.
 Builds are performed after every commit to subversion and snapshots are published on a daily basis.
 Hudson runs as a cloud service, see [https://soi-toolkit.ci.cloudbees.com/ Hudson@CloudBees].
 
+= Creating a branch in svn =
+
+Not very frequently required but this is how it can be done :-)
+
+Based on that you have the whole svn-tree checked out (trunk, branches, tags and so on)
+
+*NOTE:* An alternate and maybe better way is to perform the svn copy command directly towards the svn-repo but this is how its done for now
+
+ * Go to the svn root in your local file system
+
+{{{
+cd soi-toolkit-svn-root...
+}}}
+
+ * Ensure that the state in trunk is as expected
+
+{{{
+svn st -u trunk
+}}}
+
+ * Copy trunk to a new branch locally
+
+{{{
+svn copy trunk branches/soitoolkit-mule-2.2.x
+}}}
+
+ * Verify the state in the new branch
+
+{{{
+svn st -u branches/soitoolkit-mule-2.2.x
+}}}
+
+ * Revert any non committed changes on trunk that was copied to the branch
+ For example you might have non-committed changes in the file soi_toolkit_generator_plugin_default_preferences.properties that you don't want to be copied to the new branch.
+
+{{{
+svn revert branches/soitoolkit-mule-2.2.x/tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties
+}}}
+
+ * Commit the branch.
+
+{{{
+svn ci branches/soitoolkit-mule-2.2.x -m "Branch for mule-2.2.x fixes"
+}}}
+
+ 
 = Publish snapshots =
 
 To manually publish a snapshot of soi-toolkit do:
