@@ -21,7 +21,7 @@ The page is divided in the following sections:
 == Core Concepts ==
 
 || *Icon* || *Term* || *Description ||
-|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/SoftwareComponent.png || Software Component || A _software component_ is any type of software (e.g. system, web app, esb) that either consumes and/or produces services. A _software component_ is a coarse grained component, i.e. a system or web app and not a single program or class and typically consumer an/or produce more than one service. A _software component_ has its own CM-scope, i.e. its own release cycle. ||
+|| http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/SoftwareComponent.png || Software Component || A _software component_ is any type of software (e.g. system, web app, eai-platform, esb, integration-platform...) that either consumes and/or produces services. A _software component_ is a coarse grained component, i.e. a system or web app and not a single program or class and typically consumer an/or produce more than one service. A _software component_ has its own CM-scope, i.e. its own release cycle. ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/IntegrationComponent.png || Integration Component || A _software component_ build using soi-toolkit is called an _integration component_ and contains a number of related services and typically consumes a set of other services. ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Producer.png || Producer || A _software component_ that publish a service is called a _producer_ of that service. ||
 || http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/Consumer.png || Consumer ||  A _software component_ that uses a service is called a _consumer_ of that service. ||
@@ -95,6 +95,7 @@ Some kind of governance tool needs to be used. Either it is a commercial high-en
 
 Soi-toolkit provides the following service model and it can be used by an organisation that use soi-toolkit, either _as is_ or as a starting point for a service model tailored for an organisations specific needs.
 
+== Logical View ==
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.png
 
 Explanation of the model:
@@ -109,3 +110,11 @@ Explanation of the model:
   * One-way and publish/subscribe services only define one type of message, the request message type.
  * _Message flows_ describes a number of cooperating services (by relating to the involved contracts) that for examples implements a business process or some other interaction between a number of software components.
  * _Domains_ can be used to group services that are logically related to each other
+
+== Physical View ==
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel-PhysicalView.png
+
+Explanation of the model:
+
+ * A _software component_ is deployed on an _application_server_ that is installed on a _host_. The _application_server_ is dedicated for a specific environment, e.g. _dev_, _test_, _qa_ or _prod_.
+ * A _service_ expose an _inbound endpoint_ that is managed by a _resource manager_ that is installed on  a _host_. The _application_server_ is dedicated for a specific environment, e.g. _dev_, _test_, _qa_ or _prod_.
