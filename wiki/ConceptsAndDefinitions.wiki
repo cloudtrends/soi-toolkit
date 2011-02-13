@@ -98,23 +98,28 @@ Soi-toolkit provides the following service model and it can be used by an organi
 == Logical View ==
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.png
 
-Explanation of the model:
+*Explanation of the model:*
 
  * A _service_ is published by a _software component_ with the role _producer_.
+
  * A _software component_ that use a service describe its usage in a _contract_ with the role _consumer_
+
  * A _service_ expectes messages of a specific _message type_
   * Request/response based services define three types of messages: 
    * Request message
    * Response message
    * Zero, one or meny Fault messages
   * One-way and publish/subscribe services only define one type of message, the request message type.
+
  * _Message flows_ describes a number of cooperating services (by relating to the involved contracts) that for examples implements a business process or some other interaction between a number of software components.
+
  * _Domains_ can be used to group services that are logically related to each other
 
 == Physical View ==
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel-PhysicalView.png
 
-Explanation of the model:
+*Explanation of the model:*
 
  * A _software component_ is deployed on an _application_server_ that is installed on a _host_. The _application_server_ is dedicated for a specific environment, e.g. _dev_, _test_, _qa_ or _prod_.
+
  * A _service_ expose an _inbound endpoint_ that is managed by a _resource manager_ that is installed on  a _host_. The _application_server_ is dedicated for a specific environment, e.g. _dev_, _test_, _qa_ or _prod_.
