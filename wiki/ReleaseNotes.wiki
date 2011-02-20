@@ -14,6 +14,12 @@ The most important new feature is:
 
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=87 Issue #87, Prepare soi-toolkit for Mule 3.x]
 
+*BACKWARD COMPATIBILITY ISSUES:*
+
+ * *Issue 87 and svn revision r693:*
+ Added a MuleContext parameter to the public static methods 'initEndpointDirectory()', __getFilesInEndpoint()__ and __getSftpFileContent()__ to prepare for an upgrade to Mule 3.1. 
+  * *Action required:* Calls to these methods must be updated. Since these methods only are called from mule-junit-test-classes a muleContext member variable already exists in the callers code (from its baseclass) and can simply be added to the method calls!
+
 Trunk will now be branched into a MULE_2_2_BRANCH and future development on trunk will be focused on supporting Mule 3.x.
 
 == soi-toolkit v0.3.0 ==
