@@ -114,6 +114,7 @@ Install Maven according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation3.png
 
+ * If you want to install an older version than the latest then deselect the check box "_Select only the lastest versions of available software_" to select an older release.
  * Click on the "Next >" button
  * Click on the "Next >" button again
 
