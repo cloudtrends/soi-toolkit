@@ -69,16 +69,18 @@ mvn clean install
 
  * Launch the soi-toolkit generator wizard in the new Eclipse workspace and proceed as normal...
 
-=Testing snapshot versions of the soi-toolkit eclipse plugin=
-To be able to test a new version of soi-toolkit before it is finally released snapshot versions of the eclipse-plugin and the runtime-components are built from trunk and published.
+=Testing snapshot versions of soi-toolkit=
 
-The eclipse-plugin is deployed at: http://soi-toolkit.googlecode.com/svn/eclipse-update-snapshot-site/
+To be able to test a new version of soi-toolkit before it is finally released snapshot versions are built from trunk and are published as:
 
-The runtime components are deployed to the maven snapshot repository: https://oss.sonatype.org/content/repositories/staging
+ * The eclipse-plugin is deployed at: http://soi-toolkit.googlecode.com/svn/eclipse-update-snapshot-site/
+ * The runtime components are deployed to the maven snapshot repository: https://oss.sonatype.org/content/repositories/staging
 
-*Note:* In the near future the maven snapshot repository will move over to https://repository-soi-toolkit.forge.cloudbees.com/snapshot
+*Note:* In the near future the maven snapshot repository will be moved to: https://repository-soi-toolkit.forge.cloudbees.com/snapshot
 
-To be able to download snapshot versions of the runtime components the following profile has to be defined in the maven settings.xml file:
+Do the following to be able to test a snapshot release of soi-toolkit:
+
+ * To be able to download snapshot versions of the runtime components the following profile has to be defined in the maven settings.xml file:
 
 {{{
     <profile>
@@ -108,6 +110,11 @@ When testing snapshot versions of soi-toolkit the profile also needs to be activ
 }}}
 
 *Note:* Don't forget to deactivate this profile when going back to released versions of soi-toolkit!
+
+ * Install the snapshot version of the eclipse plugin from the snapshot update site specified above.
+
+ * Generate code using the soi-toolkit plugin as normal.
+ Note that the generated code will have a dependency to the corresponding snapshot versions of the soi-toolkit runtime components!
 
 =Continuous Integration=
 The soi-toolkit project uses Hudson as its continuous integration server. 
