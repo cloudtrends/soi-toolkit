@@ -39,5 +39,3 @@
  * [DeveloperGuidelines Developer Guidelines]
  * [https://soi-toolkit.ci.cloudbees.com/ Hudson@CloudBees]
  * [https://www.google.com/analytics/reporting/?id=37696735 Google Analytics]
-
-<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml" up_feeds="http://twitter.com/statuses/user_timeline/247419961.rss" width="250" height="800" border="0"/>
