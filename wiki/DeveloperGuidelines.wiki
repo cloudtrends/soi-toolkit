@@ -69,6 +69,46 @@ mvn clean install
 
  * Launch the soi-toolkit generator wizard in the new Eclipse workspace and proceed as normal...
 
+=Testing snapshot versions of the soi-toolkit eclipse plugin=
+To be able to test a new version of soi-toolkit before it is finally released snapshot versions of the eclipse-plugin and the runtime-components are built from trunk and published.
+
+The eclipse-plugin is deployed at: http://soi-toolkit.googlecode.com/svn/eclipse-update-snapshot-site/
+
+The runtime components are deployed to the maven snapshot repository: https://oss.sonatype.org/content/repositories/staging
+
+*Note:* In the near future the maven snapshot repository will move over to https://repository-soi-toolkit.forge.cloudbees.com/snapshot
+
+To be able to download snapshot versions of the runtime components the following profile has to be defined in the maven settings.xml file:
+
+{{{
+    <profile>
+      <id>soi-toolkit-snapshot</id>
+      <repositories> 
+        <repository> 
+          <id>sonatype-nexus-snapshot</id> 
+          <name>Sonatype Nexus Staging</name> 
+          <url>https://oss.sonatype.org/content/repositories/staging</url> 
+          <releases> 
+            <enabled>true</enabled> 
+          </releases> 
+          <snapshots> 
+            <enabled>false</enabled> 
+          </snapshots> 
+        </repository> 
+      </repositories>       
+    </profile>
+}}}
+
+When testing snapshot versions of soi-toolkit the profile also needs to be activated by specifying the following in the maven settings-xml file:
+
+{{{
+  <activeProfiles>
+    <activeProfile>soi-toolkit-snapshot</activeProfile>
+  </activeProfiles>
+}}}
+
+*Note:* Don't forget to deactivate this profile when going back to released versions of soi-toolkit!
+
 =Continuous Integration=
 The soi-toolkit project uses Hudson as its continuous integration server. 
 Builds are performed after every commit to subversion and snapshots are published on a daily basis.
