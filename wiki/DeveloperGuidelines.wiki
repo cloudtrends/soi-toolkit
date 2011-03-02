@@ -111,7 +111,9 @@ When testing snapshot versions of soi-toolkit the profile also needs to be activ
   </activeProfiles>
 }}}
 
-*Note:* Don't forget to deactivate this profile when going back to released versions of soi-toolkit!
+*Note #1:* If you are using maven repository mirrors please assure that they don't prevent accees to soi-toolkits snapshot-repository.
+
+*Note #2:* Don't forget to deactivate this profile when going back to using released versions of soi-toolkit!
 
  * Install the snapshot version of the eclipse plugin from the snapshot update site specified above.
 
