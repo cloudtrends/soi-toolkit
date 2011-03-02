@@ -74,9 +74,11 @@ mvn clean install
 To be able to test a new version of soi-toolkit before it is finally released snapshot versions are built from trunk and are published as:
 
  * The eclipse-plugin is deployed at: http://soi-toolkit.googlecode.com/svn/eclipse-update-snapshot-site/
- * The runtime components are deployed to the maven snapshot repository: https://oss.sonatype.org/content/repositories/staging
-
+ * The runtime components are deployed to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
+<wiki:comment>
+https://oss.sonatype.org/content/repositories/staging
 *Note:* In the near future the maven snapshot repository will be moved to: https://repository-soi-toolkit.forge.cloudbees.com/snapshot
+</wiki:comment>
 
 Do the following to be able to test a snapshot release of soi-toolkit:
 
@@ -84,17 +86,17 @@ Do the following to be able to test a snapshot release of soi-toolkit:
 
 {{{
     <profile>
-      <id>soi-toolkit-snapshot</id>
+      <id>soi-toolkit-snapshot-profile</id>
       <repositories> 
         <repository> 
-          <id>sonatype-nexus-snapshot</id> 
-          <name>Sonatype Nexus Staging</name> 
-          <url>https://oss.sonatype.org/content/repositories/staging</url> 
+          <id>soi-toolkit-snapshot-repository</id> 
+          <name>soi-toolkit snapshot repository</name>
+          <url>http://repository-soi-toolkit.forge.cloudbees.com/snapshot/</url>
           <releases> 
-            <enabled>true</enabled> 
+            <enabled>false</enabled> 
           </releases> 
           <snapshots> 
-            <enabled>false</enabled> 
+            <enabled>true</enabled> 
           </snapshots> 
         </repository> 
       </repositories>       
