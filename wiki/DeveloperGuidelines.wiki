@@ -107,7 +107,7 @@ When testing snapshot versions of soi-toolkit the profile also needs to be activ
 
 {{{
   <activeProfiles>
-    <activeProfile>soi-toolkit-snapshot</activeProfile>
+    <activeProfile>soi-toolkit-snapshot-profile</activeProfile>
   </activeProfiles>
 }}}
 
