@@ -55,7 +55,7 @@ Add configuration directly to myIntegrationComponent/pom.xml, for example it has
 
 http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/CustomMavenParentPom/custom-ic-pom.png
 
-*Note:* This option isn't recommended but allows for quick testing before moving configuration up to a parent-pom that is common for all your integration components.
+*Note:* This option isn't recommended for long term use but allows for quick testing before moving configuration up to a parent-pom that is common for all your integration components.
 
 *When not to use:*
   * Do not use this option as a permanent solution if you have more than one integration component since it duplicates configuration, possibly creating maintenance problems.
