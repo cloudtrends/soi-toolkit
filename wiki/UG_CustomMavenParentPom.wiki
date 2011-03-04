@@ -9,6 +9,9 @@ Integration components are generated with a default Maven parent POM. The main p
   * build repeatability by specifying Maven plugin versions in the `<pluginManagement>` section
   * classpath stability by specifying versions of common dependencies in the `<dependencyManagement>` section
 
+ http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/CustomMavenParentPom/default-parent-pom.png
+
+
 == Reasons for using a custom parent POM ==
 There are several reasons for replacing the default parent POM with a custom POM for your organization, for example:
  # If you are deploying/releasing to a Maven repository you need to add a `<distributionManagement>` section to the POM.
