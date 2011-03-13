@@ -5,8 +5,9 @@
   <properties size='1'>
     <property name='p2.timestamp' value='1243822502441'/>
   </properties>
-  <children size='2'>
+  <children size='3'>
     <child location='http://soi-toolkit.merikan.com/myUpdateSite/soitoolkit-0.4.0.SNAPSHOT_2011-02-27_2147/'/>
     <child location='http://soi-toolkit.merikan.com/myUpdateSite/soitoolkit-0.4.0.SNAPSHOT_2011-03-03_2258/'/>
+    <child location='http://soi-toolkit.merikan.com/myUpdateSite/soitoolkit_0.4.0.SNAPSHOT_2011-03-13_1525/'/>    
   </children>
 </repository>
