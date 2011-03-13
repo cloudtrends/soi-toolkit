@@ -140,6 +140,8 @@ Install Maven according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation7.png
 
+*NOTE:* Regarding the problem with disabled Apply and Ok buttons.
+If, for example, a non existing file or folder is specified in the fields "Maven home folder" or "Default root folder" then the Ok and Apply buttons are disabled. Please verify the correctness of the content in all fields if the Ok and Apply buttons gets disabled.
 
 =Recommended installations=
 
