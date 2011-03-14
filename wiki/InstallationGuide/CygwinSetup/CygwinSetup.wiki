@@ -1,0 +1,112 @@
+#summary Cygwin setup for SFTP-server on Windows.
+
+*Content*
+<wiki:toc max_depth="2" />
+
+
+= Install Cygwin with OpenSSH =
+Download and run setup.exe from http://www.cygwin.com/ and then follow the steps below to install Cygwin:
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-1.png
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-2.png
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-3.png
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-4.png
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-5.png
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-6-openssh.png
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-7.png
+
+
+= Configure SSH-server =
+Configure the SSH-service (sshd) in a Cygwin window:
+{{{
+dfc0364@dse31673 ~
+$ ssh-host-config
+*** Info: Generating /etc/ssh_host_key
+*** Info: Generating /etc/ssh_host_rsa_key
+*** Info: Generating /etc/ssh_host_dsa_key
+*** Info: Creating default /etc/ssh_config file
+*** Info: Creating default /etc/sshd_config file
+*** Info: Privilege separation is set to yes by default since OpenSSH 3.3.
+*** Info: However, this requires a non-privileged account called 'sshd'.
+*** Info: For more info on privilege separation read /usr/share/doc/openssh/README.privsep.
+*** Query: Should privilege separation be used? (yes/no) yes
+*** Info: Updating /etc/sshd_config file
+
+
+*** Warning: The following functions require administrator privileges!
+
+*** Query: Do you want to install sshd as a service?
+*** Query: (Say "no" if it is already installed as a service) (yes/no) yes
+*** Info: Note that the CYGWIN variable must contain at least "ntsec"
+*** Info: for sshd to be able to change user context without password.
+*** Query: Enter the value of CYGWIN for the daemon: [ntsec]
+
+*** Info: The sshd service has been installed under the LocalSystem
+*** Info: account (also known as SYSTEM). To start the service now, call
+*** Info: `net start sshd' or `cygrunsrv -S sshd'.  Otherwise, it
+*** Info: will start automatically after the next reboot.
+
+*** Info: Host configuration finished. Have fun!
+
+
+dfc0364@dse31673 ~
+$ cygrunsrv --start sshd
+
+dfc0364@dse31673 ~
+$ ssh dfc0364@localhost
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+RSA key fingerprint is 70:98:18:05:da:d2:fe:84:15:45:b6:68:ab:85:7f:a0.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'localhost' (RSA) to the list of known hosts.
+dfc0364@localhost's password:
+
+dfc0364@dse31673 ~
+$
+}}}
+
+
+= Generate SSH-keys =
+Generate the SSH-keys to use for public-key cryptography in a Cygwin window:
+{{{
+dfc0364@dse31673 ~
+$ ssh-keygen -t dsa
+Generating public/private dsa key pair.
+Enter file in which to save the key (/cygdrive/c/Documents and Settings/dfc0364/.ssh/id_dsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /cygdrive/c/Documents and Settings/dfc0364/.ssh/id_dsa.
+Your public key has been saved in /cygdrive/c/Documents and Settings/dfc0364/.ssh/id_dsa.pub.
+The key fingerprint is:
+07:5c:3f:f6:8e:b5:91:de:02:5c:c3:c8:3a:04:3f:aa dfc0364@dse31673
+The key's randomart image is:
++--[ DSA 1024]----+
+|        . .      |
+|       . + o o   |
+|        o + * +  |
+|         + = + o |
+|        S + o =  |
+|       . . . * + |
+|      E     . = .|
+|               . |
+|                 |
++-----------------+
+
+dfc0364@dse31673 ~
+$ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys2
+
+dfc0364@dse31673 ~
+$
+}}}
+
+
+= Test login to SFTP-server =
+Test to login to your local SFTP-server in a Cygwin window:
+{{{
+dfc0364@dse31673 ~
+$ sftp dfc0364@localhost
+Connecting to localhost...
+Enter passphrase for key '/cygdrive/c/Documents and Settings/dfc0364/.ssh/id_dsa':
+sftp> exit
+
+dfc0364@dse31673 ~
+$
+}}}
