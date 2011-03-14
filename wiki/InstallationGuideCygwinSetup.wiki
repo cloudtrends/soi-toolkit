@@ -23,6 +23,22 @@ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-7.png
 
 
+= Configure home-directory =
+*Note:* This step is necessary if roaming profiles are used in Windows.
+
+  # Start Cygwin
+  # Open "c:\cygwin\etc\passwd" with a text editor (Notepad for example)
+  # In passwd, change home-dir from "/home" to "C:\Documents and Settings" (example below for user id: dfc0364).
+  Change:
+{{{
+dfc0364:unused_by..........-1851:/home/dfc0364:/bin/bash
+}}}
+  to:
+{{{
+dfc0364:unused_by..........-1851:/cygdrive/c/Documents and Settings/dfc0364:/bin/bash
+}}}
+
+
 = Configure SSH-server =
 Configure the SSH-server (sshd) in a Cygwin window:
 {{{
