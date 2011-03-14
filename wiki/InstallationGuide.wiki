@@ -330,7 +330,7 @@ Cygwin is useful for running a local SFTP-server on Windows.
 
 *Note:* Requires Soi-toolkit version 0.4.0 or later for SSH-keys created with Cygwin (due to http://www.mulesource.org/jira/browse/SFTP-38).
 
-[InstallationGuide/CygwinSetup/CygwinSetup Cygwin installation instructions]
+[InstallationGuideCygwinSetup Cygwin installation instructions].
 
 
 ==Setup of public key cryptography for the SFTP transport==
