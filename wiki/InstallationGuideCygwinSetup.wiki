@@ -5,7 +5,8 @@
 
 
 = Install Cygwin with OpenSSH =
-Download and run setup.exe from http://www.cygwin.com/ and then follow the steps below to install Cygwin:
+  # Download setup.exe from http://www.cygwin.com/ and save the file to "c:\cygwin\cygwin.install" (you will have to create the directory).
+  # Run setup.exe and follow instructions below:
 
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-1.png
 
@@ -23,9 +24,8 @@ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-
 
 
 = Configure SSH-server =
-Configure the SSH-service (sshd) in a Cygwin window:
+Configure the SSH-server (sshd) in a Cygwin window:
 {{{
-dfc0364@dse31673 ~
 $ ssh-host-config
 *** Info: Generating /etc/ssh_host_key
 *** Info: Generating /etc/ssh_host_rsa_key
@@ -53,28 +53,19 @@ $ ssh-host-config
 *** Info: will start automatically after the next reboot.
 
 *** Info: Host configuration finished. Have fun!
+}}}
 
 
-dfc0364@dse31673 ~
+= Start the SSH-service =
+Start the SSH-server (sshd) in a Cygwin window:
+{{{
 $ cygrunsrv --start sshd
-
-dfc0364@dse31673 ~
-$ ssh dfc0364@localhost
-The authenticity of host 'localhost (127.0.0.1)' can't be established.
-RSA key fingerprint is 70:98:18:05:da:d2:fe:84:15:45:b6:68:ab:85:7f:a0.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'localhost' (RSA) to the list of known hosts.
-dfc0364@localhost's password:
-
-dfc0364@dse31673 ~
-$
 }}}
 
 
 = Generate SSH-keys =
 Generate the SSH-keys to use for public-key cryptography in a Cygwin window:
 {{{
-dfc0364@dse31673 ~
 $ ssh-keygen -t dsa
 Generating public/private dsa key pair.
 Enter file in which to save the key (/cygdrive/c/Documents and Settings/dfc0364/.ssh/id_dsa):
@@ -99,21 +90,14 @@ The key's randomart image is:
 
 dfc0364@dse31673 ~
 $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys2
-
-dfc0364@dse31673 ~
-$
 }}}
 
 
 = Test login to SFTP-server =
-Test to login to your local SFTP-server in a Cygwin window:
+Test to login to your local SFTP-server in a Cygwin window (example for user id: dfc0364):
 {{{
-dfc0364@dse31673 ~
 $ sftp dfc0364@localhost
 Connecting to localhost...
 Enter passphrase for key '/cygdrive/c/Documents and Settings/dfc0364/.ssh/id_dsa':
 sftp> exit
-
-dfc0364@dse31673 ~
-$
 }}}
