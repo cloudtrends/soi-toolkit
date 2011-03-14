@@ -6,12 +6,19 @@
 
 = Install Cygwin with OpenSSH =
 Download and run setup.exe from http://www.cygwin.com/ and then follow the steps below to install Cygwin:
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-1.png
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-2.png
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-3.png
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-4.png
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-5.png
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-6-openssh.png
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/CygwinSetup/cygwin-setup-7.png
 
 
