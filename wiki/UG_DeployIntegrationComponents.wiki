@@ -24,8 +24,6 @@ Add the following to the pom.xml-files for the web-projects
         <artifactId>tomcat-maven-plugin</artifactId>
         <version>1.1</version>
         <configuration>
-          <server>${serverId}</server>
-          <url>http://${host}:${port}/manager</url>
           <path>/${artifactId}</path>
         </configuration>
       </plugin>
