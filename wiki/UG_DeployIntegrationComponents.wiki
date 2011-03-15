@@ -95,7 +95,7 @@ The command creates war-files under the target folders of the web-projects...
 For the war file to be deployed to your Tomcat server run the following command in the web-projects folder:
 {{{
 cd ${artifactId}-web
-mvn clean tomcat:redeploy
+mvn clean tomcat:redeploy -Dmaven.tomcat.server=serverId -Dmaven.tomcat.url=http://server:8080/manager
 }}}
 
 For more information on available Tomcat commands see the [http://mojo.codehaus.org/tomcat-maven-plugin/plugin-info.html Plugin Documentation]
@@ -107,7 +107,7 @@ Right-click the integration component top-level project and select "{{{Run As --
 
 Enter the build command:
 {{{
-clean tomcat:redeploy
+clean tomcat:redeploy -Dmaven.tomcat.server=serverId -Dmaven.tomcat.url=http://server:8080/manager
 }}}
 
 And a proper name (for easier reuse of the command):
