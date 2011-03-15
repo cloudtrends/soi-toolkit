@@ -210,7 +210,7 @@ The command will return something like {{{1.6.5}}}
 
  * The installation of the SVN Connectors is performed automatically on the first usage of svn-functionality in Eclipse after the installation of the plugin.
   * A dialog named "Subversive SVN Connectors" dialog will popup. 
-  * Select appropriate svn connectors, e.g. "SVN Kit 1.3.2" if you have SVN 1.6.x installed in your environment and want to use a pure Java connector
+  * Select appropriate svn connectors, e.g. "SVN Kit 1.3.5" if you have SVN 1.6.x installed in your environment and want to use a pure Java connector
   (verify with you svn version check as described above).
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SvnConnectors.png
