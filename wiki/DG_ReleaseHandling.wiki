@@ -245,6 +245,11 @@ svn commit -m "Start work on version n.n.n"
 == Releasing the eclipse plugin ==
 Is currently done manually :-(
 
+ * get the source of new release
+{{{
+svn up tags
+}}}
+
  * temporary remove the plugin, feature and update project from the eclipse workspace
 
  * import the plugin, feature and update site projects from the new tag
