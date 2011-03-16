@@ -238,10 +238,10 @@ mvn clean install -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.
 svn commit -m "Start work on version n.n.n"
 }}}
 
- * Publish release notes in the wiki-page ReleaseNotes and add a news line on the home-page as well.
-
  * When the central maven repository is populated with the new release then also update an Eclipse workspace to the new version of the plugin and verify that it works as expected
   * Create an integration component some services and run their integration tests...
+
+ * Publish release notes in the wiki-page ReleaseNotes and add a news line on the home-page as well.
 
  * Update eclipse plugin version in table in the [InstallationGuide]
 
