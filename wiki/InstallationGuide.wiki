@@ -105,8 +105,7 @@ Install Maven according to the following instructions:
   * Enter "Soi-toolkit update site" in the name-field
   * Enter "http://soi-toolkit.googlecode.com/svn/eclipse-update-site/" in the location field
 
-  NOTE: Some customers has experienced long download times using this update site (> 5min). If you experience similar problems try 
-http://soi-toolkit.googlecode.com/svn/eclipse-update-site/soitoolkit-0.4.0 instead. Follow the resolution of this problem at [http://code.google.com/p/soi-toolkit/issues/detail?id=118 issue 118].
+  NOTE: Some customers has experienced long download times using this update site (> 5min). If you experience similar problems try http://soi-toolkit.googlecode.com/svn/eclipse-update-site/soitoolkit-0.4.0 instead. Follow the resolution of this problem at [http://code.google.com/p/soi-toolkit/issues/detail?id=118 issue 118].
   * Click on the "Ok" button
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation2.png
