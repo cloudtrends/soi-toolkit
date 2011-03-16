@@ -5,8 +5,9 @@
   <properties size='1'>
     <property name='p2.timestamp' value='1243822502500'/>
   </properties>
-  <children size='2'>
+  <children size='3'>
     <child location='soitoolkit-0.3.0'/>
     <child location='soitoolkit-0.3.1'/>
+    <child location='soitoolkit-0.4.0'/>
   </children>
 </repository>
