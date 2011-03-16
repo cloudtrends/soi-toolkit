@@ -7,7 +7,9 @@
 
 This section contains detailes not covered by the tutorials.
 
-soi-toolkit not only wants to support the initial getting started phases but support each phase in the lifetime of a service and/or integration.
+=== Supporting all lifecycle phases of a service ===
+
+Soi-toolkit not only wants to support the initial getting started phases but support each phase in the lifetime of a service and/or integration.
 
 The following picture visualize a generic lifecycle and its phases for a service or an integration:
 
