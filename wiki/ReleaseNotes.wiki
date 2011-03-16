@@ -10,7 +10,7 @@ Release date: March 16 2011
 
 This is a feature and maintenance release with both new features and bug fixes. 
 
-The most important new features is:
+The most important new feature is:
 
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=92 Issue #92, Migrate soi-toolkit to Mule 3 (v3.1.1)]
 
