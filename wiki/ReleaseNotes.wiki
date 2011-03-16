@@ -28,7 +28,7 @@ Full Release Notes can be found here: [http://code.google.com/p/soi-toolkit/issu
 
 *BACKWARD COMPATIBILITY ISSUES:*
 
- * See migration notes from MuleSoft regarding migration from Mule ESB 2.2.x to Mule ESB 3.x.
+ * See [http://www.mulesoft.org/documentation/display/MULEMIG/Home migration guides] from MuleSoft regarding migration from Mule ESB 2.2.x to Mule ESB 3.x.
 
 == soi-toolkit v0.3.1 ==
 Release date: Feb 8 2011
