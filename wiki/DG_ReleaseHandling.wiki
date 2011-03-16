@@ -231,6 +231,7 @@ mvn clean install -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.
 </wiki:comment>
 
  * Refresh the soitoolkit-projects in Eclipse, update their maven snapshot dependencies and verify that no build/compile problem exists
+  * Select Maven --> Update Project Configuration on the project soitoolkit-commons-mule 
 
  * Commit the changes (except for changes in `soi_toolkit_generator_plugin_default_preferences.properties`)
 {{{
