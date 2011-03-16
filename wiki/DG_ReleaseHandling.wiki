@@ -242,6 +242,8 @@ svn commit -m "Start work on version n.n.n"
  * When the central maven repository is populated with the new release then also update an Eclipse workspace to the new version of the plugin and verify that it works as expected
   * Create an integration component some services and run their integration tests...
 
+ * Update eclipse plugin version in table in the [InstallationGuide]
+
 == Releasing the eclipse plugin ==
 Is currently done manually :-(
 
@@ -273,4 +275,3 @@ svn up tags
 
  * remove the plugin, feature and update projects from the new tag in the eclipse workspace
  * import plugin, feature and update project from trunk back into the eclipse workspace
- * Update plugin version in table in the [InstallationGuide]
