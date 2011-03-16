@@ -5,6 +5,31 @@
 
 = Release Notes =
 
+== soi-toolkit v0.4.0 ==
+Release date: March 16 2011
+
+This is a feature and maintenance release with both new features and bug fixes. 
+
+The most important new features is:
+
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=92 Issue #92, Migrate soi-toolkit to Mule 3 (v3.1.1)]
+
+Other important new features are:
+
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=104 Issue #104, Add support for Mule 3 new deployment model]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=68 Issue #68	Do not save security related info in the preference page]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=34 Issue #34	Clarify instructions on how to setup PKI keys on a Windows PC]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=46 Issue #46	Document customized parent-poms replcaing soi-tk default-parent-pom]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=106 Issue #106	Add support for web service proxy]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=110 Issue #110	Simplify the code of generated soap-test-consumers]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=64 Issue #64	Change naming conventions for the sftp-protocol]
+
+Full Release Notes can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.4 Release Notes]
+
+*BACKWARD COMPATIBILITY ISSUES:*
+
+ * See migration notes from MuleSoft regarding migration from Mule ESB 2.2.x to Mule ESB 3.x.
+
 == soi-toolkit v0.3.1 ==
 Release date: Feb 8 2011
 
