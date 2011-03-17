@@ -3,7 +3,7 @@
 <repository name='&quot;Eclipse Project Test Site&quot;'
     type='org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1243822502502'/>
+    <property name='p2.timestamp' value='1243822502501'/>
   </properties>
   <children size='1'>
     <child location='http://soi-toolkit.merikan.com/myUpdateSite/soitoolkit-0.4.1.SNAPSHOT_2011-03-17_1339/'/>
