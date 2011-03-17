@@ -17,7 +17,13 @@ http://soi-toolkit.googlecode.com/svn/wiki/images/life-cycle-support.png
 
 The instructions below will evolve over time to support all phases.
 
- * [UG_UseSoiToolkitSnapshotReleases Building against a snapshot release of soi-toolkit]
- * [UG_DeployIntegrationComponents Deploying an Integration Component]
+=== Initial Setup ===
  * [UG_CustomMavenParentPom Customizing a Maven parent POM for Integration Components]
- * [UG_WmqTransport Using the WMQ transport]
+ * TBD: Customize file- and foldernames created by the generators
+ * TBD: Specify your own dependencies for Mule
+ * TBD: Custom handling of log-events
+ * [UG_UseSoiToolkitSnapshotReleases Building against a snapshot release of soi-toolkit]
+
+=== Test and Production ===
+ * [UG_DeployIntegrationComponents Deploying an Integration Component]
+ * [UG_WmqTransport Using the WMQ transport (Mule EE only)]
