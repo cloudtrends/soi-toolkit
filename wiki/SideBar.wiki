@@ -12,9 +12,9 @@
 ==Other documents===
  * [InstallationGuide Installation Guide]
  * [ConceptsAndDefinitions Concepts and Definitions]
- * [Overview Overview (TBS)]
- * [Architecture Architecture (TBS)]
- * [PatternCatalog Pattern Catalog (TBS)]
+ * [Overview Overview]
+ * [Architecture Architecture]
+ * [PatternCatalog Pattern Catalog]
  * [UserGuidelines User Guidelines]
  * [ReleaseNotes Release Notes]
  * [Roadmap Roadmap]
