@@ -3,7 +3,7 @@
 *Content*
 <wiki:toc max_depth="3" />
 
-= Using the WMQ transport =
+= Using the WMQ transport (Mule EE only) =
 
 _Note: The WMQ-transport is only available to Mule EE customers._
 
