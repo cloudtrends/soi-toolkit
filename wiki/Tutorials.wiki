@@ -7,9 +7,6 @@
   * [TutorialCreateSftpToSftpService Create a one-way SFTP to SFTP service with transformation]
   * [TutorialCreateServiceDescriptionComponent Create a Service Description Component]
 
- * [TutorialCustomizations Customize creation of skeleton components and services (TBS)]
- * [TutorialDeploy Deploy an integration component (TBS)]
-
-
 == External tutorials and blogs ==
+
  * *CALLISTA BLOG* - [http://blog.callistaenterprise.se/2011/01/23/getting-started-with-soi-toolkit/ Getting started with soi-toolkit]
