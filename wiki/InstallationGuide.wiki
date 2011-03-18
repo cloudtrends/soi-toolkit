@@ -29,6 +29,7 @@ The following versions (or newer) are recommended:
 ||Derby||10.7.1.1||
 ||soapUI||3.6.1||
 ||Cygwin||1.7.8||
+||!FileZilla Server||0.9.37||
 
 *Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
 
@@ -331,6 +332,12 @@ Cygwin is useful for running a local SFTP-server on Windows.
 *Note:* Requires Soi-toolkit version 0.4.0 or later for SSH-keys created with Cygwin (due to http://www.mulesource.org/jira/browse/SFTP-38).
 
 [InstallationGuideCygwinSetup Cygwin installation instructions].
+
+
+==Installing !FileZilla Server (Windows only)==
+!FileZilla Server is useful for running a local FTP-server on Windows.
+
+[InstallationGuideFileZillaServerSetup FileZilla Server installation instructions].
 
 
 ==Setup of public key cryptography for the SFTP transport==
