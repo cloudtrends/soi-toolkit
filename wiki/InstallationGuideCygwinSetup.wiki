@@ -37,6 +37,7 @@ dfc0364:unused_by..........-1851:/home/dfc0364:/bin/bash
 {{{
 dfc0364:unused_by..........-1851:/cygdrive/c/Documents and Settings/dfc0364:/bin/bash
 }}}
+  # Close Cygwin
 
 
 = Configure SSH-server =
@@ -118,4 +119,12 @@ $ sftp dfc0364@localhost
 Connecting to localhost...
 Enter passphrase for key '/cygdrive/c/Documents and Settings/dfc0364/.ssh/id_dsa':
 sftp> exit
+}}}
+
+
+= Uninstall the SSH-service =
+If you want to uninstall the SSH-service, open up Cygwin and execute commands:
+{{{
+cygrunsrv --stop sshd
+cygrunsrv --remove sshd
 }}}
