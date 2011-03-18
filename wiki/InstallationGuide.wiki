@@ -28,6 +28,7 @@ The following versions (or newer) are recommended:
 ||Tomcat||6.0.29||
 ||Derby||10.7.1.1||
 ||soapUI||3.6.1||
+||Cygwin||1.7.8||
 
 *Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
 
