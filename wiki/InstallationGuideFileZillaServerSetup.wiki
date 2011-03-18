@@ -1,22 +1,24 @@
-#summary FileZilla Server setup for FTP-server on Windows.
+#summary !FileZilla Server setup for FTP-server on Windows.
 
 *Content*
 <wiki:toc max_depth="2" />
 
+*Note:* This setup is intended to be used for local development, see the !FileZilla website for notes about hardening installation for production usage!
 
-= Install FileZilla Server =
+
+= Install !FileZilla Server =
   # Download http://filezilla-project.org/download.php?type=server distribution from
   # Install with everything default
 
   
 = Configure server =  
-Start the FileZilla Server Interface from the Windows programs menu (if it doesn't start automatically).
+Start the !FileZilla Server Interface from the Windows programs menu (if it doesn't start automatically).
 
 Select admin password:
 
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/FileZillaServerSetup/filezilla-server-setup-1.png
 
-Select menu: Edit | Users:
+Select menu: Edit | Users and select add user:
 
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/FileZillaServerSetup/filezilla-server-setup-2.png
 
