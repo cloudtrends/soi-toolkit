@@ -14,9 +14,9 @@ You also need to setup a directory structure on the server for holding configura
 
 === Configure Tomcat with a user for deployment ===
 In the $TOMCAT_HOME/conf/tomcat-users.xml file, add a user like:
-[[[
+{{{
 <user username="deployer" password="SET_YOUR_OWN_PASSWORD" roles="manager"/>
-]]]
+}}}
 
 === Prepare an Integration Component for deploy using the maven plugin for Tomcat ===
 
