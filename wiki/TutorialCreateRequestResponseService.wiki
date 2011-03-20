@@ -70,6 +70,10 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Requ
 
 =Create a request/response - service=
 
+We are now going to create a service that bridge between synchronous SOAP/HTTP based consumers and asynchronous JMS producers that use a CSV-format for their messages.
+
+PATTERN PIC HERE!!!
+
  * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
  * Select the code generator "Create a new service"
 
@@ -77,12 +81,12 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Crea
 
  * Click on the "Next >" button
  * The wizard "SOI Toolkit - Create a new service" opens up
-  * Select the message exchange pattern "One Way"
-  * Select the inbound transport "JMS"
+  * Select the message exchange pattern "Request/Response"
+  * Select the inbound transport "SOAP/HTTP"
   * Select the outbound transport "JMS"
   * Select your service project using the "Browse..." button, e.g. "/mySample-services"
-  * Set a proper service-name, e.g. mySampleJmsService
-  NOTE: In real usage, avoid using "{{{service}}}" in the name of the service since the actual Mule service will be suffixed with "{{{-service}}}", see the file list screenshot below,  {{{mySampleJmsService-service.xml}}}
+  * Set a proper service-name, e.g. "soap2jms"
+  HINT: Avoid using "{{{service}}}" in the name of the service since the actual Mule service will be suffixed with "{{{-service}}}", see the file list screenshot below,  {{{soap2jms-service.xml}}}
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-2.png
 
@@ -95,30 +99,34 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Crea
 
  * Files of interest:
   * Source folder {{{src/test/java}}}
-  A new package is created for the service {{{org.sample.mysample.mysamplejmsservice}}} with two Java-classes.
-  {{{MySampleJmsServiceTransformerTest.java}}} contains some unit tests for the transformer class that you can use as a start.
-  {{{MySampleJmsServiceIntegrationTest.java}}} contains some integrations tests for the whole service that you can use as a start.
-  {{{MySampleJmsServiceTestReceiver.java}}} contains a teststub receiver that you can use as a start.
+  A new package is created for the service {{{org.sample.mysample.soap2jms}}} with the Java-classes:
+   * {{{Soap2JmsServiceIntegrationTest.java}}} contains some integrations tests for the whole service that you can use as a start.
+   * {{{Soap2JmsRequestTransformerTest.java}}} contains some unit tests for the request transformer that you can use as a start.
+   * {{{Soap2JmsResponseTransformerTest.java}}} contains some unit tests for the response transformer that you can use as a start.
+   * {{{Soap2JmsTestConsumer.java}}} contains a test consumer that you can use as a start.
+   * {{{Soap2JmsTestReceiver.java}}} contains a teststub producer that you can use as a start.
   * Source folder {{{src/test/resources}}}
-  The folder {{{teststub-services}}} contains the file {{{MySampleJmsService-teststub-service.xml}}} that is a teststub service that you can use as a start.
+  The folder {{{teststub-services}}} contains the file {{{soap2jms-teststub-service.xml}}} that is a teststub producer that you can use as a start.
   * Source folder {{{src/main/java}}}
-  A new package is created for the service {{{org.sample.mysample.mysamplejmsservice}}} with one Java-class.
+  A new package is created for the service {{{org.sample.mysample.soap2jms}}} with the Java-classes:
   {{{MySampleJmsServiceTransformer.java}}} contains a sample transformation that you can use as a start.
+   * {{{Soap2JmsRequestTransformer.java}}} contains a sample request transformer that converts the SOAP payload to a CVS format that you can use as a start.
+   * {{{Soap2JmsResponseTransformer.java}}} contains a sample response transformer that converts the CVS formatted response back to a SOAP payload that  you can use as a start.
   * Source folder {{{src/main/resources}}}
-  The folder {{{services}}} contains the file {{{MySampleJmsService-service.xml}}} that contains the actual definition of the new service. 
+  The folder {{{services}}} contains the file {{{soap2jms-service.xml}}} that contains the actual definition of the new service. 
   * Source folder {{{src/environment}}}
   The configuration file {{{mySample-config.properties}}} has got the following properties added:
  {{{
- # Properties for jms-service "mySampleJmsService"
- # TODO: Update to reflect your settings
- MYSAMPLEJMSSERVICE_IN_QUEUE=MYSAMPLE.MYSAMPLEJMSSERVICE.IN.QUEUE
- MYSAMPLEJMSSERVICE_OUT_QUEUE=MYSAMPLE.MYSAMPLEJMSSERVICE.OUT.QUEUE
- MYSAMPLEJMSSERVICE_DL_QUEUE=DLQ.MYSAMPLE.MYSAMPLEJMSSERVICE.IN.QUEUE
+# Properties for service "soap2jms"
+# TODO: Update to reflect your settings
+SOAP2JMS_INBOUND_URL=http://localhost:8081/mySample/services/soap2jms/v1
+SOAP2JMS_REQUEST_QUEUE=MYSAMPLE.SOAP2JMS.REQUEST.QUEUE
+SOAP2JMS_RESPONSE_QUEUE=MYSAMPLE.SOAP2JMS.RESPONSE.QUEUE
  }}}
 
  * Run unit tests
-  * Right-click the test-class {{{MySampleJmsServiceIntegrationTest.java}}} and select "Run As" --> "JUnit Test"
-  The tests runs and its success are reported in the JUnit view:
+  * Right-click the project {{{mySample-services}}} and select "Run As" --> "JUnit Test"
+  Both integration ans unit tests are executed and its success are reported in the JUnit view:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-4.png
 
