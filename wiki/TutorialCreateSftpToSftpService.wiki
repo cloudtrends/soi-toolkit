@@ -7,6 +7,8 @@
 
 This tutorial will help you to get started with a one-way service that consumes a file over SFTP, transform it and produce an outgoing file again using SFTP.
 
+This tutorial is a variant of the generic tutorial of [TutorialCreateOneWayService creating a One-Way service] focusing on file based transports.
+
 The generated code includes error handling that:
  * Verifying that the file is stable, no one is writing to it
  * Renaming the file before consuming it to avoid that two threads start to consume one and the same file
