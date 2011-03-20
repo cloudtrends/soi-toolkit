@@ -5,7 +5,13 @@
 
 =Introduction=
 
-This tutorial will help you to get started with creating a service that follows the Request Response Pattern.
+This tutorial will help you to get started with creating a service that follows the [ConceptsAndDefinitions#Request/Response Request/Response Exchange Pattern], either synchronous:
+
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
+
+and/or asynchronous:
+
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Asynchronous.png
 
 The soi-toolkit generator helps you get started by generating the following for a new service:
  * A Mule service with:
