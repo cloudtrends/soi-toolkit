@@ -6,7 +6,7 @@
 *Creating a:*
  * [TutorialCreateIntegrationComponent Integration Component]
  * [TutorialCreateRequestResponseService Request/Response service]
- * [TutorialCreateJmsToJmsService JMS to JMS service]
+ * [TutorialCreateOneWayService One-Way service]
  * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
  * [TutorialCreateServiceDescriptionComponent Service Description Component]
 
