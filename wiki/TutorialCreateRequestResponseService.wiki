@@ -20,7 +20,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResp
 The soi-toolkit generator helps you get started by generating the following for a new service:
  * A Mule service with:
   * Transformers for both the request and the response, transformers can either be based on Java or Smooks.
-  * Proper error handling, both for error messages from the producer and capturing technical errors, such timeouts.
+  * Proper error handling, both for error messages from the producer and capturing technical errors, such as timeouts.
   * Tracing, by default log-events are created when both a request and a response are received and when they are sent.  
 
  * jUnit based unit-tests for the transformers
