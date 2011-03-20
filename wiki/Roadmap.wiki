@@ -3,44 +3,45 @@
 *Content*
 <wiki:toc max_depth="2" />
 
+=Current releases=
+
+== v0.4.0 ==
+
+Released March 16 2011. Main features:
+ * First release with support for Mule 3, starting at v3.1.1.
+ * Generated code based on the old service-concept.
+ * Supports the new deployment model in Mule 3.
+ * For details se [ReleaseNotes#soi-toolkit_v0.4.0 Release Notes].
+
 =Planned releases=
 
-== v0.1.8 ==
+== v0.4.1 ==
 
-*Planned release date:* Early October 2010.
+*Planned release date:* Late Q1 2011.
 
- * The first public release...
-
-== v0.1.9 ==
-
-*Planned release date:* End October 2010.
-
- * Bug fixes as they are reported by the first projects...
- * Automated build process of soi-toolkit using !CloudBees's [http://cloudbees.com/dev-haas.cb Hudson as a Service]
-
-== v0.3 ==
-
-*Planned release date:* End December 2010.
-
- * More patterns and more generic wizards
-  * For one way patterns we should support a mix of vm, jms, sftp and jdbc based endpoints
-  * For request/reply patterns we should suport a mix of vm, http(s) (soap and/or rest), jms and jdbc based endpoints.
+*Planned features:*
+ * Add or improve support for some transports (FTP and POP3 for one-way services and REST and JDBC for request/response services)
+ * Improve the documentation on the [http://code.google.com/p/soi-toolkit/ wiki].
+ * Add other minor features left out from the 0.4.0 release due to time constraints, for details see [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=milestone%3DRelease0.4.1 issues planned for v0.4.1]
 
 == v0.5 ==
 
-*Planned release date:* Early 2011.
+*Planned release date:* Mid Q2 2011.
 
- * Support for Mule v3
- A plain port of our Mule v2.2.x patterns to Mule v3.
- 
+ * Full support Mule flows instead of the old service-concept
+
 == v1.0 ==
 
-*Planned release date:* Q1 2011.
+*Planned release date:* Unknown, depends on availability on unreleased 3'rd party products.
 
- * Full support for Mule v3
- Not only a plain port of our Mule v2.2.x patterns but rewritten versions that use the new features in Mule v3, e.g. Flows, Patterns, improved Exception Strategy, the new deployment model and so on. Also ensuring that the soi-toolkit tools don't interfere with new tools such as http://blogs.mulesoft.org/new-mule-ide-coming/...
+ * Support för MuleSofts upcoming graphical development environment, [http://blogs.mulesoft.org/mule-studio-beta/ Mule Studio].
  
+Ensure that soi-toolkit can co-exist with Mule Studio and not interfering with it.
+Typically soi-toolkit can be used to generate good skeletons for pattern and test driven development of flow based services while Mule Studio hopefully can take on based on the generated code and allow the developer to enhance the code in a graphical environment.
+
+Our progress depends on availability of the Mule Studio, hopefully we can get on the beta program...
+
 = Not yet planned features =
 
- * Support for BPM, BAM and CEP
- Based on a solid foundation for providing services, i.e. Mule ESB, we should be able to walk upwards the stack and add support for features like BPM, BAM and CEP based on proven open source products in each area such as JBoss jBPM and Esper...
+ * Support for Pub/Sub patterns, BPM, BAM and CEP
+ Based on a solid foundation for providing services, i.e. Mule ESB, we should be able to walk upwards the stack and add support for features like BPM, BAM and CEP based on proven open source products in each area such as [http://www.jboss.org/jbpm JBoss jBPM], [http://activiti.org/ Activiti] and [http://esper.codehaus.org/ Esper]...
