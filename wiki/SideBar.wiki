@@ -5,6 +5,7 @@
 ==Tutorials==
 *Creating a:*
  * [TutorialCreateIntegrationComponent Integration Component]
+ * [TutorialCreateRequestResponseService Request/Response service]
  * [TutorialCreateJmsToJmsService JMS to JMS service]
  * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
  * [TutorialCreateServiceDescriptionComponent Service Description Component]
