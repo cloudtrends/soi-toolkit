@@ -5,9 +5,15 @@
 
 =Introduction=
 
+*Prerequisites for this tutorial are:*
+ * The tutorial [TutorialCreateIntegrationComponent Create a new Integration Component] is completed (and that the SFTP transport was selected) 
+ * The installation guide regarding [InstallationGuide#Setup_of_public_key_cryptography_for_the_SFTP_transport setup of public key cryptography for the SFTP transport] is completed
+
 This tutorial will help you to get started with a one-way service that consumes a file over SFTP, transform it and produce an outgoing file again using SFTP.
 
 This tutorial is a variant of the generic tutorial of [TutorialCreateOneWayService creating a One-Way service] focusing on file based transports.
+
+=Create a SFTP to SFTP service=
 
 The generated code includes error handling that:
  * Verifying that the file is stable, no one is writing to it
@@ -18,11 +24,7 @@ The generated code includes error handling that:
  * Manual routine for restart sending the file, either from original sender or from Mule.
  * Logging of central SFTP events, such as get, put, rename, delete and any errors that might occur
 
-*NOTE*: Prerequisites for this tutorial are:
- * The tutorial [TutorialCreateIntegrationComponent Create a new Integration Component] is completed (and that the SFTP transport was selected) 
- * The installation guide regarding [InstallationGuide#Setup_of_public_key_cryptography_for_the_SFTP_transport setup of public key cryptography for the SFTP transport] is completed
-
-=Create a SFTP to SFTP service=
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateSftpToSftpService/TutorialCreateSftpToSftpService0.png
 
  * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
  * Select the code generator "Create a new service"
