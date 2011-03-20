@@ -5,22 +5,56 @@
 
 =Introduction=
 
-This tutorial will help you to get started with creating service that follows the Request Response Pattern.
+This tutorial will help you to get started with creating a service that follows the Request Response Pattern.
 
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestSupportPattern.png
+The soi-toolkit generator helps you get started by generating the following for a new service:
+ * A Mule service with:
+  * Transformers for both the request and the response, transformers can either be based on Java or Smooks.
+  * Proper error handling, both for error messages from the producer and capturing technical errors, such timeouts.
+  * Tracing, by default log-events are created when both a request and a response are received and when they are sent.  
 
-The generated code includes error handling that:
- * Automatically reconnects to the JMS Provider after a network failure or problem with the jms provider itself
- * Perform jms receive and jms send operations in one and the same transaction
- * In case of error during processing (e.g. receiving poisoned messages that can't be transformed)
-  * Rollback the transaction
-  * Sends a error-log-message to the error-log-queue 
-  * Removes the poisoned message from the in-queue and puts it on a dead letter queue 
-    (with the same name as the input-queue but prefixed with "DLQ.")
+ * jUnit based unit-tests for the transformers
+
+ * jUnit based integration-tests for the Mule service
+  * Including a test-consumer and a teststub for the producer.
+  * Generated integration tests cover both a "happy days" scenario and negative tests (invalid input + timeout tests)
+
+ * Configurable properties for settings that needs to be environment specific
+  * E.g. for endpoint adresses and timeouts
 
 *NOTE*: Prerequisites for this tutorial is that the tutorial [TutorialCreateIntegrationComponent Create a new Integration Component] is completed.
 
-=Create a JMS to JMS service=
+==Consumer support==
+
+The soi-toolkit generator support synchronous consumers that either use SOAP or REST over HTTP.
+If Mule is deployed in a servlet container, e.g. Tomcat or TCat, the HTTP connectivity can be delegated to the servlet container. 
+
+Example of a consumer that communicates directly with Mule:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-HttpConsumer.png
+
+Example of a consumer that communicates with Mule via Tomcat:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-ServletConsumer.png
+
+==Producer support==
+
+The soi-toolkit generator support both JMS based asynchronous producers and SOAP, REST or JDBC based synchronous producers.
+
+Example of a asynchronous producer:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-AsynchronousProducer.png
+
+Example of a synchronous producer:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-SynchronousProducer.png
+
+*NOTE*: For the time being the following features are not supported:
+ * Smooks based transformers, since the smooks module not yet supports Mule 3.1
+ * REST based consumers, only SOAP based, work is in progress.
+ * JDBC based producers, only JMS and REST based, work is in progress.
+
+=Create a request/response - service=
 
  * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
  * Select the code generator "Create a new service"
