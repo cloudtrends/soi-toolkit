@@ -3,6 +3,7 @@
 == Getting started tutorials ==
 
   * [TutorialCreateIntegrationComponent Create an Integration Component]
+  * [TutorialCreateRequestResponseService Request/Response service]
   * [TutorialCreateJmsToJmsService Create a one-way JMS to JMS service with transformation]
   * [TutorialCreateSftpToSftpService Create a one-way SFTP to SFTP service with transformation]
   * [TutorialCreateServiceDescriptionComponent Create a Service Description Component]
