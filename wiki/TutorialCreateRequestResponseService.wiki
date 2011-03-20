@@ -73,7 +73,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Requ
  * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
  * Select the code generator "Create a new service"
 
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/TutorialCreateJmsToJmsService1.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/Create-RequestResponse-Service-1.png
 
  * Click on the "Next >" button
  * The wizard "SOI Toolkit - Create a new service" opens up
@@ -84,14 +84,14 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsServi
   * Set a proper service-name, e.g. mySampleJmsService
   NOTE: In real usage, avoid using "{{{service}}}" in the name of the service since the actual Mule service will be suffixed with "{{{-service}}}", see the file list screenshot below,  {{{mySampleJmsService-service.xml}}}
 
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/TutorialCreateJmsToJmsService2.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/Create-RequestResponse-Service-2.png
 
  * Click on the "Finish" button
   * The wizard now starts to generate files and refresh the workspace.
 
  * When the wizard is done you can find the files for your new service in the Eclipse Package Explorer
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/TutorialCreateJmsToJmsService3.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/Create-RequestResponse-Service-3.png
 
  * Files of interest:
   * Source folder {{{src/test/java}}}
@@ -120,22 +120,10 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsServi
   * Right-click the test-class {{{MySampleJmsServiceIntegrationTest.java}}} and select "Run As" --> "JUnit Test"
   The tests runs and its success are reported in the JUnit view:
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/TutorialCreateJmsToJmsService4.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/Create-RequestResponse-Service-4.png
 
   The Console view displays at the same time log-messages from the execution:
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/TutorialCreateJmsToJmsService5.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/Create-RequestResponse-Service-5.png
 
   NOTE: Take a look at the unit test code and the transformer code for a better understanding on what is going on :-)
-
- * Run tests manually
- Sometimes just running unit tests are not sufficient so it is a good idea to know how to perform manual tests locally in your own PC.
-  * NOTE: Requires that you have ActiveMQ installed separately and that it is started.
-  See [InstallationGuide#Installing_Apache_ActiveMQ installation guide] for instructions.
-  * Right-click on the test-server {{{MySampleMuleServer.java}}} in package {{{org/sample/mysample}}} in source folder {{{src/test/java}}} and select "Run As --> Java Application"
-  * Go to the url {{{http://localhost:8161/admin/queues.jsp}}} in a web browser.
-  * Write an ok test-message (e.g. "AAA") to the in-queue ({{{MYSAMPLE.MYSAMPLEJMSSERVICE.IN.QUEUE}}}) using the ActiveMQ console and watch the console output and the log + out-queue ({{{SOITOOLKIT.LOG.INFO}}} and {{{MYSAMPLE.MYSAMPLEJMSSERVICE.OUT.QUEUE}}})
-  * Write a incorrect message (e.g. "ERROR") to the in-queue and review the console + queues.
-  * Stop the mule server by giving focus to the console view in Eclipse and pressing the return key.
-
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateJmsToJmsService/TutorialCreateJmsToJmsService6.png
