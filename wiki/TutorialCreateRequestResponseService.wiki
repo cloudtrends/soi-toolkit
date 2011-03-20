@@ -72,7 +72,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Requ
 
 We are now going to create a service that bridge between synchronous SOAP/HTTP based consumers and asynchronous JMS producers that use a CSV-format for their messages.
 
-PATTERN PIC HERE!!!
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-0.png
 
  * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
  * Select the code generator "Create a new service"
