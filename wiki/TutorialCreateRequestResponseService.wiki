@@ -7,6 +7,8 @@
 
 =Introduction=
 
+*Prerequisites:* For this tutorial is that the tutorial [TutorialCreateIntegrationComponent Create a new Integration Component] is completed.
+
 This tutorial will help you to get started with creating a service that follows the [ConceptsAndDefinitions#Request/Response Request/Response Exchange Pattern], either synchronous:
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
@@ -30,7 +32,9 @@ The soi-toolkit generator helps you get started by generating the following for 
  * Configurable properties for settings that needs to be environment specific
   * E.g. for endpoint adresses and timeouts
 
-*NOTE*: Prerequisites for this tutorial is that the tutorial [TutorialCreateIntegrationComponent Create a new Integration Component] is completed.
+The generated source code fiels are summarized by the following picture:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-SourceFiles.png
 
 ==Consumer support==
 
