@@ -35,9 +35,9 @@ The page is divided in the following sections:
 
 == Exchange Patterns ==
 
-_Exchange patterns_ describes different styles for how _consumers_ and _producers_ can exchange _messages_ in an abstract and logical way.
+_Exchange patterns_ defines different styles for how _consumers_ and _producers_ can exchange _messages_ on an abstract (logical) level.
 
-*Note*: The actual physical exchange taking place is transport dependent. E.g. a one-way exchange patterns describes that the consumer sends a message to the receiver but for polling transports (e.g. file based or database based trasports) it is actually the producer that polls the transport for new messages (e.g. files or database table rows).
+*Note*: The actual physical exchange taking place is transport dependent. E.g. a one-way exchange patterns describes that the consumer sends a message to the service producer but for polling transports (e.g. file based or database based trasports) it is actually the producer that polls the transport for new messages (e.g. files or database table rows).
 
 soi-toolkit supports the following _exchange patterns_:
 
