@@ -32,9 +32,11 @@ The soi-toolkit generator helps you get started by generating the following for 
  * Configurable properties for settings that needs to be environment specific
   * E.g. for endpoint adresses and timeouts
 
-The generated source code fiels are summarized by the following picture:
+The generated source code files are summarized by the following picture:
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-SourceFiles.png
+
+*Color schema:* yellow for files that build up the actual service, green for test-classes and grey for classes used by the test-classes.
 
 ==Consumer support==
 
