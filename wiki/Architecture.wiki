@@ -7,12 +7,25 @@
 
 = Introduction =
 
-Add your content here.
+= Component Model =
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/component-model.png
 
+= Maven Dependeny Management =
 
-= Details =
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/maven-dependeny-management.png
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Code Structure =
+
+= Test Driven Development =
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/integration-tests-problem.png
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/integration-tests-solution.png
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-problem.png
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-solution.png
+
+= Service Description Components =
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/service-description-components.png
