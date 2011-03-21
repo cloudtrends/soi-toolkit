@@ -7,14 +7,22 @@
 
 = Introduction =
 
-Add your content here.
+For concepts and definitions used in the pattern catalog see [ConceptsAndDefinitions Concepts and Definitions].
+
+
+
+= Request/Response (synchronous and/or asynchronous) =
+
+http://soi-toolkit.googlecode.com/svn/wiki/PatternCatalog/pattern-request-response.png
+
+= One-Way (asynchronous) =
+
+http://soi-toolkit.googlecode.com/svn/wiki/PatternCatalog/pattern-one-way.png
+
+= Publish/Subscribe (asynchronous) =
+
+http://soi-toolkit.googlecode.com/svn/wiki/PatternCatalog/pattern-publish-subscribe.png
+
+= Old stuff =
 
 http://soi-toolkit.googlecode.com/svn/wiki/PatternCatalog/PatternOverview.png
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
