@@ -8,13 +8,18 @@
 = Introduction =
 
 = Component Model =
+
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/component-model.png
+
+= Code Structure =
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/code-structure-one-ic.png
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/code-structure-one-service.png
 
 = Maven Dependeny Management =
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/maven-dependeny-management.png
-
-= Code Structure =
 
 = Test Driven Development =
 
