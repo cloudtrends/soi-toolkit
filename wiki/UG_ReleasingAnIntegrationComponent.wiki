@@ -22,6 +22,16 @@ The release is done in two steps:
 cd .../trunk
 }}}
 
+ * Verify that the maven pom.xml files contains an scm element like.
+{{{
+	<scm>
+		<connection>scm:svn://${svn-host}/${svn-path}/${artifactId}/trunk</connection>
+		<developerConnection>scm:svn:svn://${svn-host}/${svn-path}/${artifactId}/trunk</developerConnection>
+		<url>https://${svn-host}/${svn-path}/${artifactId}/trunk</url>
+	</scm>
+}}}
+
+
  * Check that the code is in synch
  check for updates:
 {{{
