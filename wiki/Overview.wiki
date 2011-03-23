@@ -9,7 +9,7 @@ Soi-toolkit helps you getting started with Mule ESB in no time using Eclipse and
 
 The project is based on experiences from earlier projects using Mule ESB and provides setups of source code structures and usage of tools that already has been proven to be working efficiently in other projects.
 
-Values of soi-toolkit:
+== Values of soi-toolkit ==
 
  * Integration Pattern catalog
   * Reduce time for decision making and implementation
