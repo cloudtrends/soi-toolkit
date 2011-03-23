@@ -9,7 +9,7 @@ Soi-toolkit contains a number of suggested structures for various purposes. Thes
 
 The structures are:
 
- * *[#Component_Model A Component Model]*
+ * [#Component_Model A Component Model]
   * _*Answers the questions:*_
    * How can we package our Mule based services (and their service contracts) so that we can start small without a overcomplex structure but then grow without getting into a mess later on?
    * What are the components that we version and deploy as separate units to test and production?
@@ -20,13 +20,13 @@ The structures are:
   * _*Answers the question:*_ 
    * How can we structure the source code inside an Integration Component and a Service Description Component so that services can be developed and tested efficiently without interfering with each other?
 
- * *[#Maven_Dependency_Management Maven Dependency Management]*
+ * [#Maven_Dependency_Management Maven Dependency Management]
   * _*Answers the questions:*_ 
    * How can we use Maven to manage all the dependencies that Mule and other open source products introduce? 
    * How can we use Maven to manage a growing number of Integration Components and a Service Description Components?
    * How can we use Maven to automate the release handling of an Integration Component and a Service Description Component?
 
- * *[#Test_Driven_Development Test Driven Development]*
+ * [#Test_Driven_Development Test Driven Development]
   * _*Answers the questions:*_
    * How can we structure jUnit based unit and integrations tests so that it is very easy to get started and continue with Test Driven Development of Mule based services?
    * How can we reuse the teststub producers we generate for jUnit based integrations in system tests where some systems are not available?
