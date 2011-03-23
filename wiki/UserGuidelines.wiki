@@ -25,6 +25,6 @@ The instructions below will evolve over time to support all phases.
  * [UG_UseSoiToolkitSnapshotReleases Building against a snapshot release of soi-toolkit]
 
 === Test and Production ===
- * [UG_ReleasingAnIntegrationComponent Releasing an IntegrationComponent]
+ * [UG_ReleasingAnIntegrationComponent Releasing an Integration Component]
  * [UG_DeployIntegrationComponents Deploying an Integration Component]
  * [UG_WmqTransport Using the WMQ transport (Mule EE only)]
