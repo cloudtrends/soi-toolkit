@@ -1,21 +1,59 @@
 #summary Describes how the various parts of soi-toolkit fits together.
 
-= !!! Under construction !!! =
-
 *Content*
 <wiki:toc max_depth="2" />
 
 = Introduction =
 
-= Component Model =
+Soi-toolkit contains a number of suggested structures for various purposes. These structures are based on experiences from several Mule projects at several companies and have been proven to work very well establishing a de facto standard in each area.
 
+The structures are:
+
+ * A Component Model
+  * *Answers the question:* How can we package our Mule based services (and their service contracts) so that we can start small without a overcomplex structure but then grow without getting into a mess later on?
+  * Defines the concepts of Integration Components and Service Description Components
+
+ * Source Code 
+  * *Answers the question:* How can we structure the source code inside an Integration Component and a Service Description Component so that services can be developed and tested efficiently without interfering with each other?
+
+ * Maven Dependency Management
+  * *Answers the questions:* 
+   * How can we use Maven to manage all the dependencies that Mule and other open source products introduce? 
+   * How can we use Maven to manage a growing number of Integration Components and a Service Description Components?
+   * How can we use Maven to automate the release handling of an Integration Component and a Service Description Component?
+
+ * Test Driven Development
+  * *Answers the questions:*
+   * How can we structure jUnit based unt and integrations tests so that 
+   * How can we reuse the teststub producers we generate for jUnit based integrations in system tests where some systems are not available?
+
+= Component Model =
+*Answers the question:* How can we package our Mule based services (and their service contracts) so that we can start small without a overcomplex structure but then grow without getting into a mess later on?
+
+Based on definitions and concepts described here...
+
+ What is the size of component that we version and deploy as separate units to test and production?
+
+ How can we share and reuse services and service contracts?
+ 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/component-model.png
 
-= Code Structure =
+= Source Code Structures =
+  * *Answers the question:* How can we structure the source code inside an Integration Component and a Service Description Component so that services can be developed and tested efficiently without interfering with each other?
+
+== Structure of an Integration Component ==
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/code-structure-one-ic.png
 
+== Structure of mule configuration files ==
+
+== Structure of files for an service ==
+
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/code-structure-one-service.png
+
+== Structure of a Service Description Component ==
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/service-description-components.png
 
 = Maven Dependeny Management =
 
@@ -30,7 +68,3 @@ http://soi-toolkit.googlecode.com/svn/wiki/Architecture/integration-tests-soluti
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-problem.png
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-solution.png
-
-= Service Description Components =
-
-http://soi-toolkit.googlecode.com/svn/wiki/Architecture/service-description-components.png
