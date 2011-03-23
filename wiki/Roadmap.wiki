@@ -21,6 +21,7 @@ Released March 16 2011. Main features:
 
 *Planned features:*
  * Add or improve support for some transports (FTP and POP3 for one-way services and REST and JDBC for request/response services)
+ * Add suport for embedded ftp and sftp servers for integrations tests, removing need for external ftp and sftp servers for integration tests
  * Improve the documentation on the [http://code.google.com/p/soi-toolkit/ wiki].
  * Add other minor features left out from the 0.4.0 release due to time constraints, for details see [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=milestone%3DRelease0.4.1 issues planned for v0.4.1]
 
