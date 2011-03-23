@@ -51,12 +51,6 @@ http://soi-toolkit.googlecode.com/svn/wiki/Architecture/component-model.png
 
 == Structure of an Integration Component ==
 
- * Maven Dependency Management
-  * *Answers the questions:* 
-   * How can we use Maven to manage all the dependencies that Mule and other open source products introduce? 
-   * How can we use Maven to manage a growing number of Integration Components and a Service Description Components?
-   * How can we use Maven to automate the release handling of an Integration Component and a Service Description Component?
-
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/code-structure-one-ic.png
 
 == Structure of Mule configuration files ==
@@ -70,6 +64,12 @@ http://soi-toolkit.googlecode.com/svn/wiki/Architecture/code-structure-one-servi
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/service-description-components.png
 
 = Maven Dependeny Management =
+
+ * Maven Dependency Management
+  * *Answers the questions:* 
+   * How can we use Maven to manage all the dependencies that Mule and other open source products introduce? 
+   * How can we use Maven to manage a growing number of Integration Components and a Service Description Components?
+   * How can we use Maven to automate the release handling of an Integration Component and a Service Description Component?
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/maven-dependeny-management.png
 
