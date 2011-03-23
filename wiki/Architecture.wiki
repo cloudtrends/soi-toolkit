@@ -9,7 +9,7 @@ Soi-toolkit contains a number of suggested structures for various purposes. Thes
 
 The structures are:
 
- * *A Component Model*
+ * *[#Component Model A Component Model]*
   * _*Answers the questions:*_
    * How can we package our Mule based services (and their service contracts) so that we can start small without a overcomplex structure but then grow without getting into a mess later on?
    * What are the components that we version and deploy as separate units to test and production?
