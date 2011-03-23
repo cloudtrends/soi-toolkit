@@ -16,17 +16,17 @@ The structures are:
    * How can we share and reuse services and service contracts?
   * Defines the concepts of [ConceptsAndDefinitions#Core_Concepts Integration Components] and [ConceptsAndDefinitions#Core_Concepts Service Description Components]
 
- * *Source Code* 
+ * [#Source_Code Source Code] 
   * _*Answers the question:*_ 
    * How can we structure the source code inside an Integration Component and a Service Description Component so that services can be developed and tested efficiently without interfering with each other?
 
- * *Maven Dependency Management*
+ * *[#Maven_Dependency_Management Maven Dependency Management]*
   * _*Answers the questions:*_ 
    * How can we use Maven to manage all the dependencies that Mule and other open source products introduce? 
    * How can we use Maven to manage a growing number of Integration Components and a Service Description Components?
    * How can we use Maven to automate the release handling of an Integration Component and a Service Description Component?
 
- * *Test Driven Development*
+ * *[#Test_Driven_Development Test Driven Development]*
   * _*Answers the questions:*_
    * How can we structure jUnit based unit and integrations tests so that it is very easy to get started and continue with Test Driven Development of Mule based services?
    * How can we reuse the teststub producers we generate for jUnit based integrations in system tests where some systems are not available?
