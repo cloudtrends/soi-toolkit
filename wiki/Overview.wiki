@@ -3,7 +3,7 @@
 *Content*
 <wiki:toc max_depth="2" />
 
-= Introduction =
+= Overview of soi-toolkit =
 
 Soi-toolkit helps you getting started with Mule ESB in no time using Eclipse and Maven.
 
@@ -41,6 +41,14 @@ The project is based on experiences from earlier projects using Mule ESB and pro
 
  * Customization
   * SOI-Toolkit can be customized in a number of ways to fit in an organization’s specific environment
+
+== Recommended reading ==
+
+ # Tutorials to get a jumpstart
+ # Concepts and Definitions and PatternCatalog to better understand the concepts
+ # Architecture to get hold of the structures
+ # User Guide to learn about suggested working procedures
+
 
 = Generate source code to get you started quicker =
 Soi-toolkit provides a source code generator (as a Eclipse plugin) that can generate:
