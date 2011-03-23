@@ -7,16 +7,22 @@
 
 For concepts and definitions used in the pattern catalog see [ConceptsAndDefinitions Concepts and Definitions].
 
+The catalog describes the following high level patterns:
 
+ * Request/Response (synchronous and/or asynchronous)
+ * One-Way (asynchronous)
+ * Publish/Subscribe (asynchronous)
 
-= Request/Response (synchronous and/or asynchronous) =
+= Pattern Catalog =
+
+== Request/Response (synchronous and/or asynchronous) ==
 
 http://soi-toolkit.googlecode.com/svn/wiki/PatternCatalog/pattern-request-response.png
 
-= One-Way (asynchronous) =
+== One-Way (asynchronous) ==
 
 http://soi-toolkit.googlecode.com/svn/wiki/PatternCatalog/pattern-one-way.png
 
-= Publish/Subscribe (asynchronous) =
+== Publish/Subscribe (asynchronous) ==
 
 http://soi-toolkit.googlecode.com/svn/wiki/PatternCatalog/pattern-publish-subscribe.png
