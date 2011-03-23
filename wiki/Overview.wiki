@@ -12,29 +12,32 @@ The project is based on experiences from earlier projects using Mule ESB and pro
 == Values of soi-toolkit ==
 
  * Integration Pattern catalog
-  * Reduce time for decision making and implementation
+  * Reduce time for decision making and streamline implementations
+
+ * Pattern based source code generator
+  * Reduce time from decision to initial implementation, gives a common structure for all services
 
  * Structures
-  * Component model and Maven based code structure and dependency management 
-  * Can start quickly without hitting the wall when growing
+  * Common component model and maven based code structure and dependency management 
+  * Well proven structures that helps the projects to start quickly and without hitting the wall when growing later on
 
  * Testability
   * Test integrations without any infrastructure
   * Great time saver and quality improver!
 
  * Quality of Service
-  * Security, transactions, error handling, logging, resilience...
+  * Out of the box support for transactions, error handling, logging, resilience...
 
  * Deployment & Configuration
-  * Automated deploy to Standalone Mule or Tomcat/TCat
-  * Support for handling of environment specific configurations
+  * Standardized and automated deploy to standalone mule or Tomcat/TCat
+  * Support for handling of environment specific configurations through standardized setup of property files
 
  * Monitoring & Tracing
-  * Rich set of runtime information exposed using JMX
-  * Can be consumed by generic JMX consoles (i.e. JConsole) or more advanced 3’rd party monitoring tools (MMC, Nagios...)
+  * Rich set of runtime information exposed by Mule using JMX
+  * Can be consumed by generic JMX consoles (i.e. Java SE JConsole) or more advanced 3’rd party monitoring tools (MMC, Nagios...)
 
  * Changeability
-  * TTD and well defined release handling minimize time to change
+  * Test Driven Development and well defined and automated procedures for build, release and deploy minimize both risks and time to change and improve the overall quality of the services.
 
  * Customization
   * SOI-Toolkit can be customized in a number of ways to fit in an organization’s specific environment
