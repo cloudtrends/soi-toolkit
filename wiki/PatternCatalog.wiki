@@ -1,7 +1,5 @@
 #summary One-sentence summary of this page.
 
-=!!!UNDER CONSTRUCTION!!!=
-
 *Content*
 <wiki:toc max_depth="2" />
 
