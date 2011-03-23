@@ -82,14 +82,24 @@ http://soi-toolkit.googlecode.com/svn/wiki/Architecture/maven-dependeny-manageme
    * How can we reuse the teststub producers we generate for jUnit based integrations in system tests when some systems are not available?
 
 == Structuring jUnit based unit and integrations tests ==
+
+Testing integrations and service is traditionally a very complex task involving many systems and infrastructure components like described in this picture:
+
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/integration-tests-problem.png
 
+With Mule, being based on Spring, Maven and jUnit we can however simplify this problem a lot and allow for local automatic integration testing of services and integrations.
+Local integration tests means that a test class sends messages over the actual protocols to the service inbound endpoint and that a teststub producer receives the messages sent out from the service on the outbound protocols and that the test class compare these messages with predefined expected messages.
+ 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/integration-tests-solution.png
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/service-source-files.png
 
 == Reusing teststub producers in system tests when some systems are not available ==
 
+When moving into coordinated systems tests between a number of systems and Mule based services it is often a problem that one or more of the involved systems are not ready for testing while other systems are eager to get started with system testing. It could be the case that some systems don't yet support the latest release of common service descriptions or that they simply can't support the project with a test environment for the moment.
+
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-problem.png
+
+In these cases it has been proven to be very valuable to be able to package the teststub producers created for running local integration tests in separate deploy files and deploy them into the system test environment having them taking the role for the systems that can't participate in the systems tests for the moment.
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-solution.png
