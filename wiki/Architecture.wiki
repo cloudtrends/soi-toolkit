@@ -60,6 +60,8 @@ http://soi-toolkit.googlecode.com/svn/wiki/Architecture/code-structure-one-servi
 
 == Structure of a Service Description Component ==
 
+Creation of projects for skeleton WSDL and XML Schemas that complies to [http://www.ws-i.org/deliverables/workinggroup.aspx?wg=basicsecurity WS-I Basic Profile] with automatic creation of Java code...
+
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/service-description-components.png
 
 = Maven Dependeny Management =
