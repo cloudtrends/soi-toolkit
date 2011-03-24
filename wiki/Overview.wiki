@@ -11,43 +11,44 @@ The project is based on experiences from earlier projects using Mule ESB and pro
 
 == Values of soi-toolkit ==
 
- * Integration Pattern catalog
-  * Reduce time for decision making and streamline implementations
+ * [PatternCatalog Integration Pattern catalog]
+  * Reduce time for decision making and streamline implementations.
 
- * Pattern based source code generator
-  * Reduce time from decision to initial implementation, gives a common structure for all services
+ * [Tutorials Pattern based source code generator]
+  * Reduce time from decision to initial implementation, gives a common structure for all services.
 
- * Structures
-  * Common component model and maven based code structure and dependency management 
-  * Well proven structures that helps the projects to start quickly and without hitting the wall when growing later on
+ * [Architecture Structures]
+  * Common component model, code structure and dependency management based on Maven.
+  * Well proven structures that helps the projects to start quickly and without hitting the wall when growing later on.
 
- * Testability
-  * Test integrations without any infrastructure
+ * [Architecture#Test_Driven_Development Testability]
+  * Test integrations without any infrastructure.
   * Great time saver and quality improver!
 
- * Quality of Service
+ * [Tutorials Quality of Service]
   * Out of the box support for transactions, error handling, logging, resilience...
 
- * Deployment & Configuration
-  * Standardized and automated deploy to standalone mule or Tomcat/TCat
-  * Support for handling of environment specific configurations through standardized setup of property files
+ * [UserGuidelines Deployment & Configuration]
+  * Standardized and automated deploy to standalone Mule or Tomcat/TCat.
+  * Support for management of environment specific configurations through standardized setup of property files.
 
- * Monitoring & Tracing
-  * Rich set of runtime information exposed by Mule using JMX
-  * Can be consumed by generic JMX consoles (i.e. Java SE JConsole) or more advanced 3’rd party monitoring tools (MMC, Nagios...)
+ * [UserGuidelines Monitoring & Tracing]
+  * Rich set of runtime information exposed by Mule using JMX.
+  * Can be consumed by generic JMX consoles (i.e. Java SE JConsole) or more advanced 3’rd party monitoring tools (MMC, Nagios...).
 
- * Changeability
+ * [UserGuidelines Changeability]
   * Test Driven Development and well defined and automated procedures for build, release and deploy minimize both risks and time to change and improve the overall quality of the services.
 
- * Customization
-  * SOI-Toolkit can be customized in a number of ways to fit in an organization’s specific environment
+ * [UserGuidelines Customization]
+  * SOI-Toolkit can be customized in a number of ways to fit in an organization’s existing environment.
 
 == Recommended reading ==
 
- # Tutorials to get a jumpstart
- # Concepts and Definitions and PatternCatalog to better understand the concepts
- # Architecture to get hold of the structures
- # User Guide to learn about suggested working procedures
+ # [Tutorials] to get a jumpstart
+ # [ConceptsAndDefinitions Concepts and Definitions] and [PatternCatalog Pattern Catalog] to better understand the concepts we use.
+ # [Architecture] to get hold of the structures we use.
+ # [UserGuidelines User Guidelines] to learn about suggested working procedures.
+ # [Roadmap] to see were we are going.
 
 
 = Generate source code to get you started quicker =
@@ -81,4 +82,4 @@ Soi-toolkit also provides you with some runtime components, reference applicatio
 The source code generator can also generate skeleton code for specific serviceas and integrations by selecting a basic integration pattern and then selecting protocols for inbound and outbound messages. The generator creates:
  * A mule config file with a service for the selected pattern supportting the selected protocols
  * Approriates testcases that enables you to unit test the service in isolation inside Eclipse without being forced to create any deploy artifacts (e.g. war-files) or deploy anything to a test-infrastructure or even having any testsystems up and running
- * teststubs, separate mule services that has the purpose to act as receivers of the messages sent out by the Mule service 
+ * teststubs, separate mule services that has the purpose to act as receivers of the messages sent out by the Mule service
