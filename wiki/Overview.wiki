@@ -44,9 +44,9 @@ The project is based on experiences from earlier projects using Mule ESB and pro
 
 == Recommended reading ==
 
- # [Tutorials] to get a jumpstart
+ # [Tutorials] to get a jump start.
  # [ConceptsAndDefinitions Concepts and Definitions] and [PatternCatalog Pattern Catalog] to better understand the concepts we use.
- # [Architecture] to get hold of the structures we use.
+ # [Architecture] to get a hold of the structures we use.
  # [UserGuidelines User Guidelines] to learn about suggested working procedures.
  # [Roadmap] to see were we are going.
 
