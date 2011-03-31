@@ -11,3 +11,6 @@
 == External tutorials and blogs ==
 
  * *CALLISTA BLOG* - [http://blog.callistaenterprise.se/2011/01/23/getting-started-with-soi-toolkit/ Getting started with soi-toolkit]
+
+
+If you have questions or want more information please send us a mail at [mail:info@soi-toolkit.org info@soi-toolkit.org]
