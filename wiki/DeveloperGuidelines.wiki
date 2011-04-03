@@ -99,7 +99,21 @@ Do the following to be able to test a snapshot release of soi-toolkit:
             <enabled>true</enabled> 
           </snapshots> 
         </repository> 
-      </repositories>       
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>soi-toolkit-snapshot-plugin-repository</id> 
+          <name>soi-toolkit snapshot plugin repository</name>
+          <url>http://repository-soi-toolkit.forge.cloudbees.com/snapshot/</url>
+          <releases> 
+            <enabled>false</enabled> 
+          </releases> 
+          <snapshots> 
+            <enabled>true</enabled> 
+          </snapshots> 
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
 }}}
 
