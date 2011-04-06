@@ -11,7 +11,7 @@ The soi-toolkit project is an open source project, read here for [DG_HowItWorks 
 
 Committers needs to sign a Contributor License Agreement (CLA).
 
-Guidelines for developers of the soi-toolkit...
+= Guidelines for developers of the soi-toolkit =
 
 <wiki:comment>
 soi-toolkit is based on the following components:
@@ -26,13 +26,13 @@ soi-toolkit is based on the following components:
 All components in soi-toolkit has one and the same release cycle (i.e. cm scope) and are released together as described below.
 </wiki:comment>
 
-= Initial setup of development environment=
+== Initial setup of development environment ==
 
 See the wiki page [DG_InitialSetup Initial Setup].
 
-= Running tests =
+== Running tests ==
 
-== Maven based tests ==
+=== Maven based tests ===
 
 {{{
 cd .../trunk
@@ -41,13 +41,13 @@ mvn clean install
 
 *Note:* {{{mvn clean test}}} is actually sufficient but since the generator tests (see below) need the latest binaries in the local maven repository to run successfully {{{mvn clean install}}} is required anyhow.
 
-== Generator tests ==
+=== Generator tests ===
 
 The generator is for now both tested and built manually using the built in support in Eclipse for building Eclipse-plugins.
 
 Use Eclipse to run all tests in the project {{{soitoolkit-generator-plugin}}}.
 
-= Running the code generator wizard from source =
+== Running the code generator wizard from source ==
 If you want to try out the code generator based on the source code in trunk you can do the following:
 
  * Ensure you have the latest code base in trunk
@@ -71,7 +71,7 @@ mvn clean install
 
  * Launch the soi-toolkit generator wizard in the new Eclipse workspace and proceed as normal...
 
-=Testing snapshot versions of soi-toolkit=
+== Testing snapshot versions of soi-toolkit ==
 
 To be able to test a new version of soi-toolkit before it is finally released snapshot versions are built from trunk and are published as:
 
@@ -136,12 +136,12 @@ Do the following to be able to test a snapshot release of soi-toolkit:
  * Generate code using the soi-toolkit plugin as normal.
  Note that the generated code will have a dependency to the corresponding snapshot versions of the soi-toolkit runtime components!
 
-=Continuous Integration=
+== Continuous Integration ==
 The soi-toolkit project uses Hudson as its continuous integration server. 
 Builds are performed after every commit to subversion and snapshots are published on a daily basis.
 Hudson runs as a cloud service, see [https://soi-toolkit.ci.cloudbees.com/ Hudson@CloudBees].
 
-= Creating a branch in svn =
+== Creating a branch in svn ==
 
 Not very frequently required but this is how it can be done :-)
 
@@ -187,7 +187,7 @@ svn ci branches/soitoolkit-mule-2.2.x -m "Branch for mule-2.2.x fixes"
 }}}
 
  
-= Publish snapshots =
+== Publish snapshots ==
 
 To manually publish a snapshot of soi-toolkit do:
 {{{
@@ -199,11 +199,11 @@ mvn clean deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.x
 
 Snapshot artifacts are deployed to the repository https://oss.sonatype.org/content/repositories/snapshots/org/soitoolkit
 
-= Release handling =
+== Release handling ==
 
 See the wiki page [DG_ReleaseHandling Release Handling].
 
-= Naming Conventions =
+== Naming Conventions ==
 
 Version numbers:
  * {{{n.n.n}}} for releases
