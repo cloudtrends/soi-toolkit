@@ -9,7 +9,7 @@
 
 The soi-toolkit project is an open source project, read here for [DG_HowItWorks How It Works].
 
-Committers needs to sign an [http://soi-toolkit.googlecode.com/svn/licenses/soi-toolkit-icls.txt Individual Contributor License Agreement (ICLA)].
+Committers needs to sign an [http://soi-toolkit.googlecode.com/svn/licenses/soi-toolkit-icla.txt Individual Contributor License Agreement (ICLA)].
 
 = Guidelines for developers of the soi-toolkit =
 
