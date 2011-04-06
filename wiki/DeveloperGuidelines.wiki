@@ -7,9 +7,9 @@
 
 = Introduction =
 
-Guidelines for developers of the soi-toolkit...
+The soi-toolkit project is an open source project, read here for [DG_HowItWorks How It Works].
 
-*NOTE for Windows based developers: * To be able to checkout the source you need to be on Windows 7 due to long paths that Windows XP can't handle!!!
+Guidelines for developers of the soi-toolkit...
 
 <wiki:comment>
 soi-toolkit is based on the following components:
