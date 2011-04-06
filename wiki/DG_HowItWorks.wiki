@@ -2,7 +2,9 @@
 
 = How the soi-toolkit project works =
 
-The soi-toolkit project is an open source project with a community of Users, Developer and Committer. The project is managed and governed by a Project Management Board (PMB).
+The soi-toolkit project is an open source project with a community of Users, Developer and Committer. 
+
+The project is managed and governed by a Project Management Board (PMB).
 
 All decisions regarding the evolution of the project and acceptance of new Committers are taken by the PMB. The PMB is composed by the owners of the project, se http://code.google.com/p/soi-toolkit/people/list.
 
