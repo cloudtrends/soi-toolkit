@@ -9,6 +9,8 @@
 
 The soi-toolkit project is an open source project, read here for [DG_HowItWorks How It Works].
 
+Committers needs to sign a Contributor License Agreement (CLA).
+
 Guidelines for developers of the soi-toolkit...
 
 <wiki:comment>
