@@ -1,0 +1,25 @@
+#summary Describs how the soi-toolkit project works.
+
+= How the soi-toolkit project works =
+
+The soi-toolkit project is an open source project with a community of Users, Developer and Committer. The project is managed and governed by a Project Management Board (PMB).
+
+All decisions regarding the evolution of the project and acceptance of new Committers are taken by the PMB. The PMB is composed by the owners of the project, se http://code.google.com/p/soi-toolkit/people/list.
+
+Long term plans are published in a [Roadmap] and details regarding the content of specific versions under development are managed in the [http://code.google.com/p/soi-toolkit/issues/list Issue Tracker].
+
+== Roles ==
+
+The project defines the following roles:
+
+=== User ===
+A *_user_* is someone that uses our software. They contribute to the project by providing feedback to developers in the form of bug reports and feature suggestions in the [http://code.google.com/p/soi-toolkit/issues/list Issue Tracker]. Users participate in the community by helping other users on mailing lists and user support forums.
+
+=== Developer ===
+A *_developer_* is a user who contributes to a project in the form of code or documentation. They take extra steps to participate in a project, are active on the developer mailing list, participate in discussions, provide patches, documentation, suggestions, and criticism. Developers are also known as *_contributors_*.
+
+=== Committer ===
+A *_committer_* is a developer that was elected by the PMB due to merit for the evolution of the project and demonstration of commitment. They have write access to the code repository and have a signed Contributor License Agreement (CLA) on file. Not needing to depend on other people for the patches, they are actually making short-term decisions for the project regarding resolution of a specific issue in the [http://code.google.com/p/soi-toolkit/issues/list Issue Tracker]. The PMB can (even tacitly) agree and approve it into permanency, or they can reject it. 
+
+=== PMB Member === 
+A *_PMB member_* is a developer or a committer that was elected by the PMB due to merit for the evolution of the project and demonstration of commitment. They have write access to the code repository, the right to vote decisions and the right to propose an active user for committership. The PMB as a whole is the entity that controls the project, nobody else.
