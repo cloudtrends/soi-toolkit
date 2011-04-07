@@ -1,4 +1,5 @@
 #summary User Guidelines - Customizing a Maven parent POM for Integration Components.
+#sidebar UG_SideBar
 
 *Content*
 <wiki:toc max_depth="3" />
