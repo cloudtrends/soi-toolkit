@@ -19,13 +19,13 @@ To be able to run the generators from the command prompt you only need Java SE a
 The generators can be launched with the command: 
 
 {{{
-mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:${version}:${generator-goal} -Darg1=value1 -Darg2=value2 ...
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:${version}:${generator-goal} -Darg1=value1 ...
 }}}
 
 E.g.:
 
 {{{
-mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.4.1:genIC
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.4.1:genIC -DoutDir=ic1
 }}}
 
 The generators can also be launched with a shorter command: 
@@ -37,7 +37,7 @@ mvn soitoolkit-generator:${generator-goal}
 E.g.:
 
 {{{
-mvn soitoolkit-generator:genIC
+mvn soitoolkit-generator:genIC -DoutDir=ic1
 }}}
 
 The shorter command-form requires that you have specified the following Plugin Group in your Maven settings.xml-file: 
