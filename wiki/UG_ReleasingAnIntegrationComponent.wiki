@@ -1,12 +1,13 @@
 #summary User Guidelines - Releasing An Integration Component.
 #sidebar UG_SideBar
 
+= Releasing An Integration Component =
+
 *Content*
 <wiki:toc max_depth="3" />
 
-= Releasing An Integration Component =
 
-== Introduction ==
+= Introduction =
 
 When development and local testing is finished for a new version of an Integration Component its time to release it, i.e. tag the source code with a version-label, build the deployable artifacts an publish them for deployment in system test, qa test and finally production environments.
 
@@ -16,7 +17,7 @@ The release is done in two steps:
  # First we ensure that the source code in trunk is ready to be deployed
  # Next we use the release plugin to perform the release
 
-== Verify that the source code in trunk is ready to be released ==
+= Verify that the source code in trunk is ready to be released =
 
  * Go to the integration components trunk-folder
 {{{
@@ -55,7 +56,7 @@ mvn clean test
 svn commit -m "Commit for releasing vn.n.n"
 }}}
 
-== Perform the release ==
+= Perform the release =
 
 It is recommended to use the naming conventions defined below for version numbers specified during the release.
 
