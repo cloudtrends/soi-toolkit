@@ -1,5 +1,7 @@
 #summary User Guidelines for users of soi-toolkit.
 
+= User Guidelines =
+
 *Content*
 <wiki:toc max_depth="3" />
 
