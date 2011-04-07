@@ -1,5 +1,7 @@
 #summary Describes various best-practices structures that comes with soi-toolkit.
 
+= Architecture =
+
 *Content*
 <wiki:toc max_depth="1" />
 
