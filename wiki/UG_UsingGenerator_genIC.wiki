@@ -47,3 +47,43 @@ All parameters are optional.
 
 
 = Examples =
+
+== Simple examples ==
+
+In its simples form you can use the generator with its default values like:
+
+{{{
+mvn soitoolkit-generator:genIC
+}}}
+
+It will then create an integration component using its default values:
+
+{{{
+...
+[INFO] [soitoolkit-generator:genIC {execution: default-cli}]
+[INFO] 
+[INFO] =========================================
+[INFO] = Creating an new Integration Component =
+[INFO] =========================================
+[INFO] 
+[INFO] ARGUMENTS:
+[INFO] (change an arg by suppling: -Darg=value):
+[INFO] 
+[INFO] outDir=/Users/magnuslarsson/Documents/temp/st-test
+[INFO] artifactId=sample1
+[INFO] groupId=org.sample
+[INFO] version=1.0.0-SNAPSHOT
+[INFO] muleVersion=3.1.1
+[INFO] deployModel=Standalone
+[INFO] connectors=JMS,JDBC,FTP,SFTP
+[INFO] groovyModel=null
+[INFO] 
+[INFO] Generate files from templateFolder: /templates/integrationComponent/newProject
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+...
+}}}
+
+== Advanced example ==
