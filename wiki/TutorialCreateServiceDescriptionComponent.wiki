@@ -66,7 +66,7 @@ This tutorial helps you to create your first service description component.
  
  If everything goes well the build ends with a {{{BUILD SUCCESSFUL}}} - message
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateServiceDescriptionComponent/TutorialCreateServiceDescriptionComponent6.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateServiceDescriptionComponent/TutorialCreateServiceDescriptionComponent6.png
 
 
 =If something goes wrong=
