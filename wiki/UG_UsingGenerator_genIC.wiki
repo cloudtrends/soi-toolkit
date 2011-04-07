@@ -152,4 +152,6 @@ mvn install
 
 Or import the maven projects under the trunk folder in your Java IDE (e.g. using the Maven-plugin for Eclipse).
  
+*NOTE:* The first time you run a maven command on a component created by soi-toolkit a lot of dependencies are download, please be patient :-)
+
 == Advanced example ==
