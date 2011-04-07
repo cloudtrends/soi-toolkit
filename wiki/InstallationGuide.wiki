@@ -1,5 +1,7 @@
 #summary Installation Guide for users of soi-toolkit.
 
+= Installation Guide =
+
 *Content*
 <wiki:toc max_depth="2" />
 
