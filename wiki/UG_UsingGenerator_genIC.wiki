@@ -10,7 +10,7 @@
 The generator can be launched with the command: 
 
 {{{
-mvn soitoolkit-generator:genIC
+mvn soitoolkit-generator:genIC -Darg1=value1 ...
 }}}
 
 E.g.:
@@ -130,8 +130,6 @@ sample1/
             `-- main
                 `-- app
                     `-- mule-config.xml
-
-30 directories, 19 files
 }}}
 
 You can build the integration component with standard maven commands:
@@ -146,3 +144,86 @@ Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g.
 *NOTE:* The first time you run a maven command on a component created by soi-toolkit a lot of dependencies are download, please be patient :-)
 
 == Advanced example ==
+
+
+ mvn soitoolkit-generator:genIC -DoutDir=ic1 -DartifactId=ic1 -DgroupId=org.myorg.ic1 -Dconnectors=FTP,SFTP
+
+
+
+[INFO] =========================================
+[INFO] = Creating an new Integration Component =
+[INFO] =========================================
+[INFO] 
+[INFO] ARGUMENTS:
+[INFO] (change an arg by suppling: -Darg=value):
+[INFO] 
+[INFO] outDir=/Users/magnuslarsson/Documents/temp/st-test/ic1
+[INFO] artifactId=ic1
+[INFO] groupId=org.myorg.ic1
+[INFO] version=1.0.0-SNAPSHOT
+[INFO] muleVersion=3.1.1
+[INFO] deployModel=Standalone
+[INFO] connectors=JMS,FTP,SFTP
+[INFO] groovyModel=null
+[INFO] 
+[INFO] Generate files from templateFolder: /templates/integrationComponent/newProject
+
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+...
+}}}
+
+It will create a folder structure as:
+
+{{{
+
+
+
+ic1
+`-- ic1
+    |-- branches
+    |-- tags
+    `-- trunk
+        |-- ic1-services
+        |   |-- pom.xml
+        |   `-- src
+        |       |-- environment
+        |       |   |-- ic1-config.properties
+        |       |   |-- ic1-security.properties
+        |       |   |-- log4j.dtd
+        |       |   `-- log4j.xml
+        |       |-- main
+        |       |   |-- java
+        |       |   |   `-- org
+        |       |   |       `-- myorg
+        |       |   |           `-- ic1
+        |       |   `-- resources
+        |       |       |-- ic1-common.xml
+        |       |       |-- ic1-config.xml
+        |       |       `-- services
+        |       `-- test
+        |           |-- java
+        |           |   `-- org
+        |           |       `-- myorg
+        |           |           `-- ic1
+        |           |               `-- Ic1MuleServer.java
+        |           `-- resources
+        |               |-- ic1-teststubs-and-services-config.xml
+        |               |-- ic1-teststubs-only-config.xml
+        |               |-- testfiles
+        |               `-- teststub-services
+        |-- ic1-standalone
+        |   |-- pom.xml
+        |   `-- src
+        |       `-- main
+        |           `-- app
+        |               `-- mule-config.xml
+        |-- ic1-teststub-standalone
+        |   |-- pom.xml
+        |   `-- src
+        |       `-- main
+        |           `-- app
+        |               `-- mule-config.xml
+        `-- pom.xml
