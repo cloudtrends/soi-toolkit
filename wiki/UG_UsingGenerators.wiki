@@ -7,9 +7,9 @@
 
 Soi-toolkits source code generators can be started either from the command prompt as Maven Goals or within Eclipse as a Wizard.
 
-For information on how to use the Eclipse Wizard see [Tutorials#Getting_started_tutorials Getting Started Tutorials]
+For information on how to use the _Eclipse Wizard_ see [Tutorials#Getting_started_tutorials Getting Started Tutorials]
 
-For information on how to use the Maven Goals from the command prompt, read on :-)
+For information on how to use the _Maven Goals_ from the command prompt, read on :-)
 
 == Start the generators as Maven Goals ==
 
