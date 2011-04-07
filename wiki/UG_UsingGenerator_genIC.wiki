@@ -86,4 +86,61 @@ It will then create an integration component using its default values:
 ...
 }}}
 
+It will create a folder structure as:
+
+{{{
+sample1/
+|-- branches
+|-- tags
+`-- trunk
+    |-- pom.xml
+    |-- sample1-services
+    |   |-- pom.xml
+    |   `-- src
+    |       |-- environment
+    |       |   |-- log4j.dtd
+    |       |   |-- log4j.xml
+    |       |   |-- sample1-config.properties
+    |       |   |-- sample1-security.properties
+    |       |   `-- setup
+    |       |       |-- sample1-db-create-tables.sql
+    |       |       |-- sample1-db-drop-tables.sql
+    |       |       `-- sample1-db-insert-testdata.sql
+    |       |-- main
+    |       |   |-- java
+    |       |   |   `-- org
+    |       |   |       `-- sample
+    |       |   |           `-- sample1
+    |       |   `-- resources
+    |       |       |-- sample1-common.xml
+    |       |       |-- sample1-config.xml
+    |       |       |-- sample1-jdbc-connector.xml
+    |       |       `-- services
+    |       `-- test
+    |           |-- java
+    |           |   `-- org
+    |           |       `-- sample
+    |           |           `-- sample1
+    |           |               `-- Sample1MuleServer.java
+    |           `-- resources
+    |               |-- sample1-teststubs-and-services-config.xml
+    |               |-- sample1-teststubs-only-config.xml
+    |               |-- testfiles
+    |               `-- teststub-services
+    |-- sample1-standalone
+    |   |-- pom.xml
+    |   `-- src
+    |       `-- main
+    |           `-- app
+    |               `-- mule-config.xml
+    `-- sample1-teststub-standalone
+        |-- pom.xml
+        `-- src
+            `-- main
+                `-- app
+                    `-- mule-config.xml
+
+30 directories, 19 files
+}}}
+
 == Advanced example ==
