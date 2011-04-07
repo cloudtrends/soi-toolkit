@@ -1,5 +1,7 @@
 #summary Tutorial on how to create a one way Service based on the SFTP transport.
 
+=Tutorial: Create a one way Service based on the SFTP transport=
+
 *Content*
 <wiki:toc max_depth="2" />
 
