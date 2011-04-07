@@ -1,4 +1,5 @@
 #summary User Guidelines - Deploying an Integration Component.
+#sidebar UG_SideBar
 
 *Content*
 <wiki:toc max_depth="3" />
