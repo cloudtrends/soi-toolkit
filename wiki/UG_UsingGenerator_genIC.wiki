@@ -43,7 +43,7 @@ All parameters are optional.
 || muleVersion || Enum  || 3.1.1 || The Mule version to use within the Integration Component. Allowed values: [3.1.1] ||
 || deployModel || Enum  || Standalone || The Mule deploy model to use for the Integration Component. Allowed values: [Standalone, War]||
 || connectors || Enum || JDBC,FTP,SFTP || Declared connectors to be used by the Integration Component, specified as a comma separated list without any space characters. The JMS connector is required and does not need to be specified. Allowed values: [JDBC,FTP,SFTP,SERVLET]||
-|| groovyModel || URL || http://soi-toolkit.googlecode.com/svn/trunk/tools/soitoolkit-generator/soitoolkit-generator/src/test/java/org/soitoolkit/tools/generator/model/GroovyModelImpl.groovy || Groovy model for customizing the generator. ||
+|| groovyModel || URL || [http://soi-toolkit.googlecode.com/svn/trunk/tools/soitoolkit-generator/soitoolkit-generator/src/test/java/org/soitoolkit/tools/generator/model/GroovyModelImpl.groovy http://.../GroovyModelImpl.groovy] || Groovy model for customizing the generator. ||
 
 
 = Examples =
