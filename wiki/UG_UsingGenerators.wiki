@@ -1,4 +1,5 @@
 #summary Using the source code generators
+#sidebar UG_SideBar
 
 =Using the source code generators=
 
