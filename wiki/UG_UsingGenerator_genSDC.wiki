@@ -155,7 +155,7 @@ sdc1-schemas/
 You can build the service description component with standard maven commands:
 
 {{{
-cd sample1/trunk
+cd sdc1-schemas/trunk
 mvn install
 }}} 
 
