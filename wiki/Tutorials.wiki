@@ -1,5 +1,8 @@
 #summary Tutorials
 
+*Content*
+<wiki:toc max_depth="2" />
+
 == Getting started tutorials ==
 
   * [TutorialCreateIntegrationComponent Create an Integration Component]
