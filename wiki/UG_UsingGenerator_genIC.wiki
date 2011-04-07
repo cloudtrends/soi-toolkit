@@ -48,7 +48,7 @@ All parameters are optional.
 
 = Examples =
 
-== Simple examples ==
+== Simple example ==
 
 In its simples form you can use the generator with its default values like:
 
