@@ -19,7 +19,7 @@ E.g.:
 mvn soitoolkit-generator:genSDC -DoutDir=ic1
 }}}
 
-The generators can also be launched with a longer command-form, see [UG_UsingGenerator] for differences in usage of the two variants. 
+The generators can also be launched with a longer command-form, see [UG_UsingGenerators Using the source code generators] for differences in usage of the two variants. 
 
 
 = Parameters =
