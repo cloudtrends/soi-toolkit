@@ -12,9 +12,9 @@
  * [UG_UsingGenerators Source code generators]
 
 *Test and Production*
- * [UG_ReleasingAnIntegrationComponent Release]
- * [UG_DeployIntegrationComponents Deploy]
- * [UG_WmqTransport WMQ transport (Mule EE only)]
+ * [UG_ReleasingAnIntegrationComponent Release management]
+ * [UG_DeployIntegrationComponents Deploy management]
+ * [UG_WmqTransport WMQ transport (Mule EE)]
 
 ==Tutorials==
 *Creating a:*
