@@ -1,9 +1,10 @@
 #summary User Guidelines - Using the WMQ transport.
+#sidebar UG_SideBar
+
+= Using the WMQ transport (Mule EE only) =
 
 *Content*
 <wiki:toc max_depth="3" />
-
-= Using the WMQ transport (Mule EE only) =
 
 _Note: The WMQ-transport is only available to Mule EE customers._
 
