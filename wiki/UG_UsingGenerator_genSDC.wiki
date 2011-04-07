@@ -98,7 +98,7 @@ Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g.
 
 *NOTE:* The first time you run a maven command on a component created by soi-toolkit a lot of dependencies are download, please be patient :-)
 
-*NOTE*: If you import a service description project into Eclipse using Mavens Eclipse-plugin, the plugin will fail on detecting the generated source folder under the target folder as a source-folder. As a workaround for this bug you can right-click the project and select "{{{MAven --> Update Project Configuration}}}".
+*NOTE*: If you import a service description project into Eclipse using Mavens Eclipse-plugin, the plugin will fail on detecting the generated source folder under the target folder as a source-folder. As a workaround for this bug you can right-click the project and select "{{{Maven --> Update Project Configuration}}}".
 
 == Advanced example ==
 
@@ -165,4 +165,4 @@ Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g.
 
 *NOTE:* The first time you run a maven command on a component created by soi-toolkit a lot of dependencies are download, please be patient :-)
 
-*NOTE*: If you import a service description project into Eclipse using Mavens Eclipse-plugin, the plugin will fail on detecting the generated source folder under the target folder as a source-folder. As a workaround for this bug you can right-click the project and select "{{{MAven --> Update Project Configuration}}}".
+*NOTE*: If you import a service description project into Eclipse using Mavens Eclipse-plugin, the plugin will fail on detecting the generated source folder under the target folder as a source-folder. As a workaround for this bug you can right-click the project and select "{{{Maven --> Update Project Configuration}}}".
