@@ -14,7 +14,7 @@ For information on how to use the _*Maven Goals*_ from the command prompt, read 
 == Start the generators as Maven Goals ==
 
 === Setup ===
-To be able to run the generators from the command prompt you only need Java SE and Maven to be installed (as describen in the [InstallationGuide Installation Guide].
+To be able to run the generators from the command prompt you only need Java SE and Maven to be installed (as describen in the [InstallationGuide Installation Guide]).
 
 The generators can be launched with the command: 
 
