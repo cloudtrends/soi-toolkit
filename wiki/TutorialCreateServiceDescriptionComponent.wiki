@@ -1,5 +1,7 @@
 #summary Tutorial on how to create a Service Description Component
 
+=Tutorial: Create a Service Description Component=
+
 *Content*
 <wiki:toc max_depth="2" />
 
