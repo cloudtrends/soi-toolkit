@@ -1,4 +1,5 @@
 #summary User Guidelines for users of soi-toolkit.
+#sidebar UG_SideBar
 
 = User Guidelines =
 
