@@ -1,4 +1,5 @@
 #summary Building against a snapshot release of soi-toolkit.
+#sidebar UG_SideBar
 
 = Building against a snapshot release of soi-toolkit =
 
