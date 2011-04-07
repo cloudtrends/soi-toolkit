@@ -1,0 +1,49 @@
+#summary How to generate an Integration Component using Maven
+
+=Generate an Integration Component using Maven=
+
+*Content*
+<wiki:toc max_depth="2" />
+
+= Introduction =
+
+The generator can be launched with the command: 
+
+{{{
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:${version}:genIC -Darg1=value1 ...
+}}}
+
+E.g.:
+
+{{{
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.4.1:genIC -DoutDir=ic1
+}}}
+
+The generators can also be launched with a shorter command: 
+
+{{{
+mvn soitoolkit-generator:genIC
+}}}
+
+E.g.:
+
+{{{
+mvn soitoolkit-generator:genIC -DoutDir=ic1
+}}}
+
+= Parameters =
+
+All parameters are optional.
+
+|| *Name* || *Type* || *Default Value* || *Description* ||
+|| outDir || File || . (i.e. your current directory) || Location of the output folder. ||
+|| artifactId || String || sample1 || The artifactId of the Integration Component.  ||
+|| groupId || String || org.sample || The groupId of the Integration Component. ||
+|| version || String || 1.0.0-SNAPSHOT || The initial version of the Integration Component. ||
+|| muleVersion || Enum  || 3.1.1 || The Mule version to use within the Integration Component. Allowed values: [3.1.1] ||
+|| deployModel || Enum  || Standalone || The Mule deploy model to use for the Integration Component. Allowed values: [Standalone, War]||
+|| connectors || Enum || JDBC,FTP,SFTP || Declared connectors to be used by the Integration Component, specified as a comma separated list without any space characters. The JMS connector is required and does not need to be specified. Allowed values: [JDBC,FTP,SFTP,SERVLET]||
+|| groovyModel || URL || || Groovy model for customizing the generator. ||
+
+
+= Examples =
