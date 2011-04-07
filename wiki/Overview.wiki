@@ -1,15 +1,17 @@
 #summary Overview of soi-toolkit
 
+= Overview of soi-toolkit =
+
 *Content*
 <wiki:toc max_depth="2" />
 
-= Overview of soi-toolkit =
+= Introduction =
 
 Soi-toolkit helps you getting started with Mule ESB in no time using Eclipse and Maven.
 
 The project is based on experiences from earlier projects using Mule ESB and provides setups of source code structures and usage of tools that already has been proven to be working efficiently in other projects.
 
-== Values of soi-toolkit ==
+= Values of soi-toolkit =
 
  * [PatternCatalog Integration Pattern catalog]
   * Reduce time for decision making and streamline implementations.
@@ -42,7 +44,7 @@ The project is based on experiences from earlier projects using Mule ESB and pro
  * [UserGuidelines Customization]
   * SOI-Toolkit can be customized in a number of ways to fit in an organization’s existing environment.
 
-== Recommended reading ==
+= Recommended reading =
 
  # [Tutorials] to get a jump start.
  # [ConceptsAndDefinitions Concepts and Definitions] and [PatternCatalog Pattern Catalog] to better understand the concepts we use.
