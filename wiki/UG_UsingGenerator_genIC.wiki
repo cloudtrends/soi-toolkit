@@ -10,18 +10,6 @@
 The generator can be launched with the command: 
 
 {{{
-mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:${version}:genIC -Darg1=value1 ...
-}}}
-
-E.g.:
-
-{{{
-mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.4.1:genIC -DoutDir=ic1
-}}}
-
-The generators can also be launched with a shorter command: 
-
-{{{
 mvn soitoolkit-generator:genIC
 }}}
 
@@ -30,6 +18,9 @@ E.g.:
 {{{
 mvn soitoolkit-generator:genIC -DoutDir=ic1
 }}}
+
+The generators can also be launched with a longer command-form, see [UG_UsingGenerator] for differences in usage of the two variants. 
+
 
 = Parameters =
 
@@ -150,8 +141,8 @@ cd sample1/trunk
 mvn install
 }}} 
 
-Or import the maven projects under the trunk folder in your Java IDE (e.g. using the Maven-plugin for Eclipse).
- 
+Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g. using the Maven-plugin for Eclipse).
+
 *NOTE:* The first time you run a maven command on a component created by soi-toolkit a lot of dependencies are download, please be patient :-)
 
 == Advanced example ==
