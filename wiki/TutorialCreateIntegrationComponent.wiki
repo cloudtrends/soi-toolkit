@@ -1,5 +1,7 @@
 #summary Tutorial on how to create an Integration Component.
 
+=Tutorial: Create an Integration Component=
+
 *Content*
 <wiki:toc max_depth="2" />
 
