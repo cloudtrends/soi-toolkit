@@ -143,4 +143,13 @@ sample1/
 30 directories, 19 files
 }}}
 
+You can build the integration component with standard maven commands:
+
+{{{
+cd sample1/trunk
+mvn install
+}}} 
+
+Or import the maven projects under the trunk folder in your Java IDE (e.g. using the Maven-plugin for Eclipse).
+ 
 == Advanced example ==
