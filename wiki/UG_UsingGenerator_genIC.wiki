@@ -77,7 +77,7 @@ It will then create an integration component using its default values:
 ...
 }}}
 
-It will create a folder structure as:
+It will result in a folder structure like:
 
 {{{
 sample1/
@@ -145,11 +145,16 @@ Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g.
 
 == Advanced example ==
 
+You can add any of the parameters described above to the generator command, e.g.: 
 
+{{{
  mvn soitoolkit-generator:genIC -DoutDir=ic1 -DartifactId=ic1 -DgroupId=org.myorg.ic1 -Dconnectors=FTP,SFTP
+}}}
 
+It will then create an integration component using the values you have supplied:
 
-
+{{{
+...
 [INFO] =========================================
 [INFO] = Creating an new Integration Component =
 [INFO] =========================================
@@ -167,7 +172,6 @@ Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g.
 [INFO] groovyModel=null
 [INFO] 
 [INFO] Generate files from templateFolder: /templates/integrationComponent/newProject
-
 ...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
@@ -175,12 +179,9 @@ Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g.
 ...
 }}}
 
-It will create a folder structure as:
+It will result in a folder structure like:
 
 {{{
-
-
-
 ic1
 `-- ic1
     |-- branches
@@ -227,3 +228,17 @@ ic1
         |           `-- app
         |               `-- mule-config.xml
         `-- pom.xml
+
+}}}
+
+
+You can build the integration component with standard maven commands:
+
+{{{
+cd sample1/trunk
+mvn install
+}}} 
+
+Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g. using the Maven-plugin for Eclipse).
+
+*NOTE:* The first time you run a maven command on a component created by soi-toolkit a lot of dependencies are download, please be patient :-)
