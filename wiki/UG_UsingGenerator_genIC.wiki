@@ -65,8 +65,6 @@ It will then create an integration component using the values you have supplied:
 [INFO] deployModel=Standalone
 [INFO] connectors=JMS,FTP,SFTP
 [INFO] groovyModel=null
-[INFO] 
-[INFO] Generate files from templateFolder: /templates/integrationComponent/newProject
 ...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
