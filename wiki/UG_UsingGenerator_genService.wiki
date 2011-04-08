@@ -1,7 +1,7 @@
 #summary How to generate a Service using Maven
 #sidebar UG_SideBar
 
-=Generate a service using Maven=
+=Generate a Service using Maven=
 
 *Content*
 <wiki:toc max_depth="2" />
@@ -11,13 +11,13 @@
 The generator can be launched with the command: 
 
 {{{
-mvn soitoolkit-generator:genIC -Darg1=value1 ...
+mvn soitoolkit-generator:genService -Darg1=value1 ...
 }}}
 
 E.g.:
 
 {{{
-mvn soitoolkit-generator:genIC -DartifactId=ic1
+mvn soitoolkit-generator:genService -Dservice=sample1 -DmessageExchangePattern=Request/Response
 }}}
 
 The generators can also be launched with a longer command-form, see [UG_UsingGenerators Using the source code generators] for differences in usage of the two variants. 
