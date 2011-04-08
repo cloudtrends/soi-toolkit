@@ -34,74 +34,7 @@ All parameters are optional.
 || version || String || 1.0.0-SNAPSHOT || The initial version of the Integration Component. ||
 || schema || String || sample1 || The name of the default schema-file and prefix for the wsdl-file.  ||
 
-= Examples =
-
-== Simple example ==
-
-In its simples form you can use the generator with its default values like:
-
-{{{
-mvn soitoolkit-generator:genSDC
-}}}
-
-It will then create a service description component using its default values:
-
-{{{
-...
-[INFO] [soitoolkit-generator:genSDC {execution: default-cli}]
-[INFO] 
-[INFO] ================================================
-[INFO] = Creating a new Service Description Component =
-[INFO] ================================================
-[INFO] 
-[INFO] ARGUMENTS:
-[INFO] (change an arg by suppling: -Darg=value):
-[INFO] 
-[INFO] outDir=/Users/magnuslarsson/Documents/temp/st-test
-[INFO] artifactId=sample1
-[INFO] groupId=org.sample
-[INFO] version=1.0.0-SNAPSHOT
-[INFO] schema=sample1
-...
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESSFUL
-[INFO] ------------------------------------------------------------------------
-...
-}}}
-
-It will result in a folder structure like:
-
-{{{
-sample1-schemas/
-|-- branches
-|-- tags
-`-- trunk
-    |-- pom.xml
-    `-- src
-        `-- main
-            `-- resources
-                `-- schemas
-                    `-- org
-                        `-- sample
-                            `-- sample1
-                                |-- sample1.xsd
-                                `-- sample1Service.wsdl
-}}}
-
-You can build the service description component with standard maven commands:
-
-{{{
-cd sample1-schemas/trunk
-mvn install
-}}} 
-
-Or import the maven projects under the {{{trunk}}}-folder in your Java IDE (e.g. using the Maven-plugin for Eclipse).
-
-*NOTE:* The first time you run a maven command on a component created by soi-toolkit a lot of dependencies are download, please be patient :-)
-
-*NOTE*: If you import a service description project into Eclipse using Mavens Eclipse-plugin, the plugin will fail on detecting the generated source folder under the target folder as a source-folder. As a workaround for this bug you can right-click the project and select "{{{Maven --> Update Project Configuration}}}".
-
-== Advanced example ==
+= Example =
 
 You can add any of the parameters described above to the generator command, e.g.: 
 
