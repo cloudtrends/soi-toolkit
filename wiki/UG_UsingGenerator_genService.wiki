@@ -111,9 +111,6 @@ The following files are created in the integration components service-project (i
 The following two files have been updated (appended)  with service specific properties:
 
 {{{
-[INFO] Appending to property file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/environment/ic1-config.properties
-[INFO] Appending to property file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/environment/ic1-security.properties
-
 `-- src
     `-- environment
         |-- ic1-config.properties
