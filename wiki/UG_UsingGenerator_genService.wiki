@@ -164,5 +164,20 @@ mvn test
 
 Or run the junit tests inside your Java IDE, e.g.g Eclipse.
 
+{{{
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.896 sec
+Running org.myorg.ic1.sample1.Sample1RequestTransformerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
+Running org.myorg.ic1.sample1.Sample1ResponseTransformerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
 
-== Create a request/response SOAP to REST proxy ==
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+}}}
+
+== Create an one-way file-adapter ==
