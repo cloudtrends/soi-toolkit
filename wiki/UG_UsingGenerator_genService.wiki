@@ -150,6 +150,6 @@ Or run the junit tests inside your Java IDE, e.g Eclipse.
 
 The generated source code is now yours and you can update it to fit your needs, e.g. refine the transformers or apply other wsdl's and xml-schemas to the SOAP-part...
 
-...and updating the test-classes to always ensure that you have proper test-coverage :-)
+...and updating the test-classes to always ensure that you have proper test-coverage!
 
 == Create an one-way file-adapter ==
