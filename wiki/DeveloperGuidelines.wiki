@@ -87,7 +87,7 @@ https://oss.sonatype.org/content/repositories/staging
 
 Do the following to be able to test a snapshot release of soi-toolkit:
 
- * To be able to download snapshot versions of the runtime components the following profile has to be defined in the maven settings.xml file:
+ * To be able to download snapshot versions of the maven-plugin and the runtime components the following profile has to be defined in the maven settings.xml file:
 
 {{{
     <profile>
