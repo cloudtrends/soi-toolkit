@@ -17,7 +17,7 @@ mvn soitoolkit-generator:genSDC -Darg1=value1 ...
 E.g.:
 
 {{{
-mvn soitoolkit-generator:genSDC -DoutDir=ic1
+mvn soitoolkit-generator:genSDC -DartifactId=ic1
 }}}
 
 The generators can also be launched with a longer command-form, see [UG_UsingGenerators Using the source code generators] for differences in usage of the two variants. 
