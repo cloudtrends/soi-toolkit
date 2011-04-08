@@ -127,6 +127,7 @@ This will result in something like:
 
 {{{
 ...
+Running org.myorg.ic1.sample1.Sample1IntegrationTest
 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.896 sec
 Running org.myorg.ic1.sample1.Sample1RequestTransformerTest
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
@@ -237,15 +238,14 @@ This will result in something like:
 
 {{{
 ...
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.896 sec
-Running org.myorg.ic1.sample1.Sample1RequestTransformerTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
-Running org.myorg.ic1.sample1.Sample1ResponseTransformerTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running org.myorg.ic1.sample2.Sample2IntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.627 sec
+Running org.myorg.ic1.sample2.Sample2TransformerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
 
 Results :
 
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
