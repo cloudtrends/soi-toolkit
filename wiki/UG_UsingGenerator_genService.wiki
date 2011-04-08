@@ -180,4 +180,7 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 }}}
 
+The generated source code is now yours and you can update it to fit your needs, e.g. refine the transformers or apply other wsdl's and xml-schemas to the SOAP-part...
+...and updating the test-classes to always ensure thta you have proper test-coverage :-)
+
 == Create an one-way file-adapter ==
