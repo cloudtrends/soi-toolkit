@@ -65,7 +65,7 @@ It will then create a service in the integration component using the values you 
 [INFO] (from /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/pom.xml)
 [INFO] artifactId=ic1
 [INFO] groupId=org.myorg.ic1
-[INFO] 
+...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
@@ -149,14 +149,14 @@ The generated source code is now yours and you can update it to fit your needs, 
 
 ...and updating the test-classes to always ensure that you have proper test-coverage!
 
+
 == Create an one-way file-adapter ==
 
-
-You can add any of the parameters described above to the generator command, e.g. for creating a SOAP to REST proxy in the integration component ic1:
+You can add any of the parameters described above to the generator command, e.g. for creating a file-adapter that picks up files in the local filesystem and place it contents on a JMS queue in the integration component ic1:
 
 {{{
 cd ic1/trunk/ic1-services/
-mvn soitoolkit-generator:genService -Dservice=sample1 -DmessageExchangePattern=Request/Response -DinboundTransport=SOAPHTTP -DoutboundTransport=RESTHTTP
+mvn soitoolkit-generator:genService -Dservice=sample2 -DmessageExchangePattern=One-Way -DinboundTransport=FILE -DoutboundTransport=JMS
 }}}
 
 It will then create a service in the integration component using the values you have supplied:
@@ -171,16 +171,16 @@ It will then create a service in the integration component using the values you 
 [INFO] (change an arg by suppling: -Darg=value):
 [INFO] 
 [INFO] outDir=/Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services
-[INFO] service=sample1
-[INFO] messageExchangePattern=Request/Response
-[INFO] inboundTransport=SOAPHTTP
-[INFO] outboundTransport=RESTHTTP
+[INFO] service=sample2
+[INFO] messageExchangePattern=One-Way
+[INFO] inboundTransport=FILE
+[INFO] outboundTransport=JMS
 [INFO] 
 [INFO] EXTRACTED POM-INFO:
 [INFO] (from /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/pom.xml)
 [INFO] artifactId=ic1
 [INFO] groupId=org.myorg.ic1
-[INFO] 
+...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
@@ -196,31 +196,26 @@ The following files are created in the integration components service-project (i
     |   |   `-- org
     |   |       `-- myorg
     |   |           `-- ic1
-    |   |               `-- sample1
-    |   |                   |-- Sample1RequestTransformer.java
-    |   |                   `-- Sample1ResponseTransformer.java
+    |   |               `-- sample2
+    |   |                   `-- Sample2Transformer.java
     |   `-- resources
     |       `-- services
-    |           `-- sample1-service.xml
+    |           `-- sample2-service.xml
     `-- test
         |-- java
         |   `-- org
         |       `-- myorg
         |           `-- ic1
-        |               `-- sample1
-        |                   |-- Sample1IntegrationTest.java
-        |                   |-- Sample1RequestTransformerTest.java
-        |                   |-- Sample1ResponseTransformerTest.java
-        |                   |-- Sample1TestConsumer.java
-        |                   `-- Sample1TestProducer.java
+        |               `-- sample2
+        |                   |-- Sample2IntegrationTest.java
+        |                   |-- Sample2TestReceiver.java
+        |                   `-- Sample2TransformerTest.java
         `-- resources
             |-- testfiles
-            |   |-- sample1-request-expected-result.csv
-            |   |-- sample1-request-input.xml
-            |   |-- sample1-response-expected-result.xml
-            |   `-- sample1-response-input.rest
+            |   |-- sample2-expected-result.txt
+            |   `-- sample2-input.txt
             `-- teststub-services
-                `-- sample1-teststub-service.xml
+                `-- sample2-teststub-service.xml
 }}}
 
 The following two files have been updated (appended)  with service specific properties:
