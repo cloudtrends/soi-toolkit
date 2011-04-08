@@ -17,7 +17,7 @@ mvn soitoolkit-generator:genService -Darg1=value1 ...
 E.g.:
 
 {{{
-mvn soitoolkit-generator:genService -Dservice=sample1 -DmessageExchangePattern=Request/Response
+mvn soitoolkit-generator:genService -Dservice=sample1 
 }}}
 
 The generators can also be launched with a longer command-form, see [UG_UsingGenerators Using the source code generators] for differences in usage of the two variants. 
@@ -28,38 +28,26 @@ The generators can also be launched with a longer command-form, see [UG_UsingGen
 All parameters are optional.
 
 || *Name* || *Type* || *Default Value* || *Description* ||
-|| outDir || File || . (i.e. your current directory) || Location of the output folder. ||
-|| artifactId || String || sample1 || The artifactId of the Integration Component.  ||
-|| groupId || String || org.sample || The groupId of the Integration Component. ||
-|| version || String || 1.0.0-SNAPSHOT || The initial version of the Integration Component. ||
-|| muleVersion || Enum  || 3.1.1 || The Mule version to use within the Integration Component. Allowed values: 3.1.1 ||
-|| deployModel || Enum  || Standalone || The Mule deploy model to use for the Integration Component. Allowed values: Standalone, War ||
-|| connectors || Enum || JDBC,FTP,SFTP || Declared connectors to be used by the Integration Component, specified as a comma separated list without any space characters. The JMS connector is required and does not need to be specified. Allowed values: JDBC,FTP,SFTP,SERVLET ||
-|| groovyModel || URL || not specified || Groovy model for customizing the generator. Example: [http://soi-toolkit.googlecode.com/svn/trunk/tools/soitoolkit-generator/soitoolkit-generator/src/test/java/org/soitoolkit/tools/generator/model/GroovyModelImpl.groovy http://.../GroovyModelImpl.groovy]  ||
-
+|| outDir || File || . (i.e. your current directory) || Location of the output folder. The folder must be the root folder of a service-project of an integration component. ||
+|| service || String || sample || The name of the service, the suffix "-service" will be added so avoid it in this value.  ||
+|| messageExchangePattern || Enum  || Request/Response || The Message Exchange Pattern for this service. Allowed values: Request/Response, One-Way ||
+|| inboundTransport || Enum  || SOAPHTTP || The inbound transport for the service. Allowed values: For Request/Response services: SOAPHTTP, SOAPSERVLET, for One-Way services: VM, JMS, JDBC, FILE, FTP, SFTP, HTTP, SERVLET, POP3, IMAP ||
+|| outboundTransport || Enum || SOAPHTTP || The outbound transport for the service. Allowed values: For Request/Response services: SOAPHTTP, RESTHTTP, JMS, for One-Way services: VM, JMS, JDBC, FILE, FTP, SFTP, SMTP || 
 
 = Example =
 
 == Create a request/response SOAP to REST proxy ==
-You can add any of the parameters described above to the generator command, e.g. creating a SOAP to REST proxy in the integration component ic1:
+You can add any of the parameters described above to the generator command, e.g. for creating a SOAP to REST proxy in the integration component ic1:
 
 {{{
 cd ic1/trunk/ic1-services/
 mvn soitoolkit-generator:genService -Dservice=sample1 -DmessageExchangePattern=Request/Response -DinboundTransport=SOAPHTTP -DoutboundTransport=RESTHTTP
 }}}
 
-It will then create an integration component using the values you have supplied:
+It will then create a service in the integration component using the values you have supplied:
 
 {{{
 ...
-[INFO] Scanning for projects...
-[INFO] Searching repository for plugin with prefix: 'soitoolkit-generator'.
-[INFO] ------------------------------------------------------------------------
-[INFO] Building ic1-services
-[INFO]    task-segment: [soitoolkit-generator:genService] (aggregator-style)
-[INFO] ------------------------------------------------------------------------
-[INFO] [soitoolkit-generator:genService {execution: default-cli}]
-[INFO] 
 [INFO] ==========================
 [INFO] = Creating a new Service =
 [INFO] ==========================
@@ -78,46 +66,16 @@ It will then create an integration component using the values you have supplied:
 [INFO] artifactId=ic1
 [INFO] groupId=org.myorg.ic1
 [INFO] 
-[INFO] Generate files from templateFolder: /requestResponseService
-[INFO] Creates a Request/Response-service, inbound transport: SOAPHTTP, outbound transport: RESTHTTP, type of transformer: JAVA
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/main/resources/services/sample1-service.xml, size: 3201
-[INFO] Created directory: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/main/java/org/myorg/ic1/sample1
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/main/java/org/myorg/ic1/sample1/Sample1RequestTransformer.java, size: 759
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/main/java/org/myorg/ic1/sample1/Sample1ResponseTransformer.java, size: 1271
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/resources/testfiles/sample1-request-input.xml, size: 133
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/resources/testfiles/sample1-request-expected-result.csv, size: 23
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/resources/testfiles/sample1-response-input.rest, size: 15
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/resources/testfiles/sample1-response-expected-result.xml, size: 174
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/resources/teststub-services/sample1-teststub-service.xml, size: 1030
-[INFO] Created directory: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/java/org/myorg/ic1/sample1
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/java/org/myorg/ic1/sample1/Sample1IntegrationTest.java, size: 4420
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/java/org/myorg/ic1/sample1/Sample1RequestTransformerTest.java, size: 910
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/java/org/myorg/ic1/sample1/Sample1ResponseTransformerTest.java, size: 1021
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/java/org/myorg/ic1/sample1/Sample1TestConsumer.java, size: 1581
-[INFO] Created file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/test/java/org/myorg/ic1/sample1/Sample1TestProducer.java, size: 1354
-[INFO] Appending to property file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/environment/ic1-config.properties
-[INFO] Appending to property file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/environment/ic1-security.properties
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3 seconds
-[INFO] Finished at: Fri Apr 08 06:43:07 CEST 2011
-[INFO] Final Memory: 21M/265M
-[INFO] ------------------------------------------------------------------------
-MagnusMac-2:ic1-services magnuslarsson$ 
 ...
 }}}
 
-It will result in a folder structure like:
+The following files are created in the integration components service-project (ic1-services in this example):
 
 {{{
-|-- pom.xml
 `-- src
-    |-- environment
-    |   |-- ic1-config.properties
-    |   |-- ic1-security.properties
-    |   |-- log4j.dtd
-    |   `-- log4j.xml
     |-- main
     |   |-- java
     |   |   `-- org
@@ -127,8 +85,6 @@ It will result in a folder structure like:
     |   |                   |-- Sample1RequestTransformer.java
     |   |                   `-- Sample1ResponseTransformer.java
     |   `-- resources
-    |       |-- ic1-common.xml
-    |       |-- ic1-config.xml
     |       `-- services
     |           `-- sample1-service.xml
     `-- test
@@ -136,7 +92,6 @@ It will result in a folder structure like:
         |   `-- org
         |       `-- myorg
         |           `-- ic1
-        |               |-- Ic1MuleServer.java
         |               `-- sample1
         |                   |-- Sample1IntegrationTest.java
         |                   |-- Sample1RequestTransformerTest.java
@@ -144,8 +99,6 @@ It will result in a folder structure like:
         |                   |-- Sample1TestConsumer.java
         |                   `-- Sample1TestProducer.java
         `-- resources
-            |-- ic1-teststubs-and-services-config.xml
-            |-- ic1-teststubs-only-config.xml
             |-- testfiles
             |   |-- sample1-request-expected-result.csv
             |   |-- sample1-request-input.xml
@@ -155,16 +108,28 @@ It will result in a folder structure like:
                 `-- sample1-teststub-service.xml
 }}}
 
+The following two files have been updated (appended)  with service specific properties:
 
-You can test the service with standard maven commands:
+{{{
+[INFO] Appending to property file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/environment/ic1-config.properties
+[INFO] Appending to property file: /Users/magnuslarsson/Documents/temp/st-test/ic1/ic1/trunk/ic1-services/src/environment/ic1-security.properties
+
+`-- src
+    `-- environment
+        |-- ic1-config.properties
+        `-- ic1-security.properties
+}}}
+
+You can now test the new service with standard maven commands:
 
 {{{
 mvn test
 }}} 
 
-Or run the junit tests inside your Java IDE, e.g.g Eclipse.
+This will result in something like:
 
 {{{
+...
 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.896 sec
 Running org.myorg.ic1.sample1.Sample1RequestTransformerTest
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
@@ -178,7 +143,10 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------
+...
 }}}
+
+Or run the junit tests inside your Java IDE, e.g Eclipse.
 
 The generated source code is now yours and you can update it to fit your needs, e.g. refine the transformers or apply other wsdl's and xml-schemas to the SOAP-part...
 ...and updating the test-classes to always ensure thta you have proper test-coverage :-)
