@@ -138,7 +138,7 @@ Do the following to be able to test a snapshot release of soi-toolkit:
 
  * Generate code using the soi-toolkit eclipse plugin as [Tutorials#Getting_started_tutorials normal].
 
- * When using the [UG_UsingGenerators] for generating source code you have to use the longer format of the command to be able to use a SNAPSHOT-version, i.e.
+ * When using the [UG_UsingGenerators maven plugin] for generating source code you have to use the longer format of the command to be able to use a SNAPSHOT-version, i.e.
 {{{
  mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.4.1-SNAPSHOT:genIC -Darg=value ...
 }}}
