@@ -136,8 +136,15 @@ Do the following to be able to test a snapshot release of soi-toolkit:
 
  * Install the snapshot version of the eclipse plugin from the snapshot update site specified above.
 
- * Generate code using the soi-toolkit plugin as normal.
- Note that the generated code will have a dependency to the corresponding snapshot versions of the soi-toolkit runtime components!
+ * Generate code using the soi-toolkit eclipse plugin as [Tutorials#Getting_started_tutorials normal].
+
+ * When using the [UG_UsingGenerators#Start_the_generators_as_Maven_Goals maven plugin] for generating source code you have to use the longer format of the command to be able to use a SNAPSHOT-version, i.e.
+{{{
+ mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.4.1-SNAPSHOT:genIC -Darg=value ...
+}}}
+
+ Note #3: the generated code will have a dependency to the corresponding snapshot versions of the soi-toolkit runtime components!
+
 
 == Continuous Integration ==
 The soi-toolkit project uses Hudson as its continuous integration server. 
