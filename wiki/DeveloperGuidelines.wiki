@@ -1,5 +1,4 @@
 #summary Guidelines for developers of the soi-toolkit
-#labels Phase-Implementation
 
 = Developer Guidelines =
 
