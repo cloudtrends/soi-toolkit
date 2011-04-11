@@ -46,47 +46,19 @@ The app.home variable should have been configured when installing the Tomcat ser
 
 == Download deploy-files ==
 
-Since we deploy to Tomcat the deploy-files are standard war-files. 
-They are created with the following command executed in the integration components root folder (i.e. the trunk-folder):
+Copy war files from the maven repository to a local folder.
+
+The war-files are typically stored in the maven repository in the form of:
 
 {{{
-mvn clean install 
+- http://host/repositories/releases/${groupId}/${artifactId}/${version}/${artifactId}-${version}.war
+- http://host/repositories/releases/${groupId}/${artifactId}-teststubs/${version}/${artifactId}-teststubs-${version}.war
 }}}
 
-If you have the Maven-plugin installed in Eclipse then you can execute the build command without leaving Eclipse.
-Right-click the integration components top-level project and select "{{{Run As --> Maven clean}}}" and then "{{{Run As --> Maven install}}}"
+== Undeploy existing versions of the integration component ==
 
-*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/build-from-eclipse.png*
-
-The command creates war-files under the target folders of the web-projects...
+Use Tomcat Web Application Manager to undeploy any already deployed versions of the integration component.
 
 == Deploy ==
 
-For the war file to be deployed to your Tomcat server run the following command in the web-projects folder:
-{{{
-cd ${artifactId}-web
-mvn clean tomcat:redeploy -Dmaven.tomcat.server=serverId -Dmaven.tomcat.url=http://server:8080/manager
-}}}
-
-For more information on available Tomcat commands see the [http://mojo.codehaus.org/tomcat-maven-plugin/plugin-info.html Plugin Documentation]
-
-If you have the Maven-plugin installed in Eclipse then you can execute the deploy command without leaving Eclipse.
-Right-click the integration component top-level project and select "{{{Run As --> Maven build...}}}"
-
-*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-1.png*
-
-Enter the build command:
-{{{
-clean tomcat:redeploy -Dmaven.tomcat.server=serverId -Dmaven.tomcat.url=http://server:8080/manager
-}}}
-
-And a proper name (for easier reuse of the command):
-{{{
-sample1 deploy
-}}}
-
-*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-2.png*
-
-Since the deploy command can be quit memory intensive it is recommended to specify a larger maximum heap size than default in the "JRE"-tab in the field "VM arguments:", e.g. -Xmx256m
-
-*UPDATE_PICTURE_http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-from-eclipse-3.png*
+Use Tomcat Web Application Manager to deploy the integration components artifacts.
