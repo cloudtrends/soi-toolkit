@@ -1,12 +1,18 @@
 #summary User Guidelines - Deploying an Integration Component.
 #sidebar UG_SideBar
 
-*Content*
-<wiki:toc max_depth="3" />
 
 = Deploying an Integration Component =
 
-An integration component is easiest deployed using the [http://mojo.codehaus.org/tomcat-maven-plugin maven plugin for Tomcat].
+*Content*
+<wiki:toc max_depth="3" />
+
+== Introduction ==
+
+If you want to test-deploy an integration component before you have a release you can build and deploy it based on source code using the [http://mojo.codehaus.org/tomcat-maven-plugin maven plugin for Tomcat].
+
+*NOTE:* This should only be performed in a test environment, never deploy from source code to production. Alway use a tagged release when deploying to production.
+
 Before you can deploy to Tomcat using the maven plugin you have to configure it in the web-projects pom.xml - files.
 
 You also need to setup a directory structure on the server for holding configuration and log-files for the integration component.
