@@ -61,6 +61,10 @@ Rename the downloaded war-files to {{{${artifactId}.war}}} and {{{${artifactId}-
 
 Use Tomcat Web Application Manager to undeploy any already deployed versions of the integration component.
 
+http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/undeploy-using-tomcat-manager.png
+
 == Deploy ==
 
 Use Tomcat Web Application Manager to deploy the integration components artifacts.
+
+http://soi-toolkit.googlecode.com/svn/wiki/UserGuide/Deploy/deploy-using-tomcat-manager.png
