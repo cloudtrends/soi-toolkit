@@ -48,12 +48,14 @@ The app.home variable should have been configured when installing the Tomcat ser
 
 Copy war files from the maven repository to a local folder.
 
-The war-files are typically stored in the maven repository in the form of:
+The war-files are typically stored in the maven repository in a form similar to:
 
 {{{
 - http://host/repositories/releases/${groupId}/${artifactId}/${version}/${artifactId}-${version}.war
 - http://host/repositories/releases/${groupId}/${artifactId}-teststubs/${version}/${artifactId}-teststubs-${version}.war
 }}}
+
+Rename the downloaded war-files to {{{${artifactId}.war}}} and {{{${artifactId}-teststubs.war}}}.
 
 == Undeploy existing versions of the integration component ==
 
