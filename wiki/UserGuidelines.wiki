@@ -32,4 +32,5 @@ The instructions below will evolve over time to support all phases.
 === Test and Production ===
  * [UG_ReleasingAnIntegrationComponent Releasing an Integration Component]
  * [UG_DeployIntegrationComponents Deploying an Integration Component]
+ * [UG_DeployIntegrationComponentsFromSource Deploying an Integration Component from Source Code]
  * [UG_WmqTransport Using the WMQ transport (Mule EE only)]
