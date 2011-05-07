@@ -9,6 +9,7 @@
  * [UG_UseSoiToolkitSnapshotReleases Use snapshot of soi-toolkit]
 
 *Development and Maintenance*
+ * [UG_CustomizeLogging Custom log-mechanism]
  * [UG_UsingGenerators Source code generators]
 
 *Test and Production*
