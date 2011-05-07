@@ -29,6 +29,8 @@ The instructions below will evolve over time to support all phases.
 
 === Development and Maintenance ===
  * [UG_UsingGenerators Using the source code generators]
+ * [UG_CustomizeLogging Customizing the log-mechanism (Experimental since v0.4.1)]
+
 === Test and Production ===
  * [UG_ReleasingAnIntegrationComponent Releasing an Integration Component]
  * [UG_DeployIntegrationComponents Deploying an Integration Component]
