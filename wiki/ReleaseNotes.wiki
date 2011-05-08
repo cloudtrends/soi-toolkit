@@ -5,6 +5,13 @@
 *Content*
 <wiki:toc max_depth="2" />
 
+== soi-toolkit v0.4.1 ==
+Release date: TBS
+
+*BACKWARD COMPATIBILITY ISSUES:*
+ * See [http://code.google.com/p/soi-toolkit/issues/detail?id=132 Issue #132, Create a confi-zip-file for deployable artifacts]
+ A manual change of the service-projects pom.xml file is required for enabling this new feature, see link above for details.
+
 == soi-toolkit v0.4.0 ==
 Release date: March 16 2011
 
