@@ -12,6 +12,18 @@ Release date: TBS
  * See [http://code.google.com/p/soi-toolkit/issues/detail?id=132 Issue #132, Create a confi-zip-file for deployable artifacts]
  A manual change of the service-projects pom.xml file is required for enabling this new feature, see link above for details.
 
+
+ * See [http://code.google.com/p/soi-toolkit/issues/detail?id=150 Issue #150, Add support for the restlet-transport]
+Custom specific parent-poms used for Mule 3.1.2 and soi-toolkit 0.4.1 (or later) needs to add the repository:
+{{{
+<repository>
+  <id>mulesoft</id>
+  <name>MuleSoft Repository</name>
+  <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+</repository>
+}}}
+to make it possible to download the restlet-transport.
+
 == soi-toolkit v0.4.0 ==
 Release date: March 16 2011
 
