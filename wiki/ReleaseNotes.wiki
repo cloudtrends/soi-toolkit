@@ -14,7 +14,7 @@ Release date: TBS
 
 
  * See [http://code.google.com/p/soi-toolkit/issues/detail?id=150 Issue #150, Add support for the restlet-transport]
- Custom specific parent-poms used for Mule 3.1.2 and soi-toolkit 0.4.1 (or later) needs to add the repository:
+ Custom specific parent-poms and maven-proxies such as Nexus used for Mule 3.1.2 and soi-toolkit 0.4.1 (or later) needs to add the repository:
  {{{
 <repository>
   <id>mulesoft</id>
