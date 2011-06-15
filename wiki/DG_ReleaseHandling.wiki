@@ -10,6 +10,8 @@ To release a new version of soi-toolkit we use mavens release-plugin.
 
 *NOTE*: Do not use mobile internet during {{{mvn release:perform}}} or {{{mvn deploy}}} commands since your IP adress might change during a lengthy deploy operation and sonatypes maven repositories will get very confused by that typ of upload and you will not be able to get your artifacts transferred into the staging repository...
 
+== Prepare ==
+
 Perform the following steps:
 
  * Eclipse plugin-check
@@ -36,7 +38,8 @@ svn update
 {{{
 mvn clean test
 }}}
- NOTE: Also run the generator-tests (takes half an hour so prepare for other things to do meanwhile...)
+ NOTE: Also run the generator-tests from within Eclipse (takes half an hour so prepare for other things to do meanwhile...)
+ TODO: Make it possible to run the generator-integration-tests as well from the mvn-prompt using a separate profile!
 
  * Use the update-tool to update soi-toolkit version to the release version in files not updated by the release plugin.
   * Update the variable "newVersion" to the new nversion, e.g. "0.4.0"
@@ -94,6 +97,10 @@ mvn clean test
 svn commit -m "Commit for releasing v0.4.0"
 }}}
 
+== Perform ==
+
+Perform the following steps:
+
  * Perform a dryrun to verify that everything is ok, i.e. a release build will be successful and not fail in the middle leaving the release build in an inconsistent state. *Note:* Version numbers shall follow the format defined below.
 {{{
 mvn release:clean release:prepare -DdryRun=true -Darguments="-Dgpg.passphrase=nnn"
@@ -109,27 +116,22 @@ mvn release:clean release:prepare -Darguments="-Dgpg.passphrase=nnn"
 mvn release:perform
 }}}
 
- * Deploy other mule-version-dependency files to staging repository (*NONE FOR THE MOMENT*)
+ * Deploy other mule-version-dependency files to staging repository
  {{{
  cd ../tags
  svn update
  cd soitoolkit-n.n.n
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.1.1-dependencies/pom.xml -Psonatype-oss-release
  cd ../../trunk
  }}}
 
 <wiki:comment>
- {{{
- cd ../tags
- svn update
- cd soitoolkit-n.n.n
- mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-3.0.1-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.xml -Psonatype-oss-release
- cd ../../trunk
- }}}
+(*NONE FOR THE MOMENT*)
 </wiki:comment>
+
+== Validate ==
+
+Perform the following steps:
 
  * Go to Sonatypes staging repository and release it to synch with maven central repo
   * Go to: https://oss.sonatype.org
@@ -159,19 +161,14 @@ mvn release:perform
  If something is wrong you can fix it on the release-tag in svn and perform av redeploy to the staging repo from the tag-folder using:
 {{{
  mvn deploy -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.1.1-dependencies/pom.xml -Psonatype-oss-release
 }}}
-<wiki:comment>
-{{{
- mvn deploy -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-2.2.5-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-2.2.7-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-3.0.0-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-3.0.1-dependencies/pom.xml -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.xml -Psonatype-oss-release
-}}}
-</wiki:comment>
 
  NOTE: Don't forget to apply the relevant changes to trunk as well...
+
+== Deploy ==
+
+Perform the following steps:
 
  * Release the eclipse plugin as described below
 
@@ -179,6 +176,17 @@ mvn release:perform
   * If ok go back to the Sonatype staing repository web-app
   * Select the soi-toolkit release again and click on the Release button.
   * Artifacts should now be synched with central repo on a hourly bases... 
+
+ * When the central maven repository is populated with the new release then also update an Eclipse workspace to the new version of the plugin and verify that it works as expected
+  * Create an integration component some services and run their integration tests...
+
+ * Publish release notes in the wiki-page ReleaseNotes and add a news line on the home-page as well.
+
+ * Update eclipse plugin version in table in the [InstallationGuide]
+
+== Prepare for next version ==
+
+Perform the following steps:
 
  * Use the update-tool to update soi-toolkit version to the snapshot of the next version in files not updated by the release plugin.
   * Update the variable "newVersion" to the next version, e.g. "0.4.1"
@@ -239,13 +247,6 @@ mvn clean install -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.
 svn commit -m "Start work on version n.n.n"
 }}}
 
- * When the central maven repository is populated with the new release then also update an Eclipse workspace to the new version of the plugin and verify that it works as expected
-  * Create an integration component some services and run their integration tests...
-
- * Publish release notes in the wiki-page ReleaseNotes and add a news line on the home-page as well.
-
- * Update eclipse plugin version in table in the [InstallationGuide]
-
 == Releasing the eclipse plugin ==
 Is currently done manually :-(
 
@@ -257,6 +258,8 @@ svn up tags
  * temporary remove the plugin, feature and update project from the eclipse workspace
 
  * import the plugin, feature and update site projects from the new tag
+
+ * Manually copy the soitoolkit-generator-n.n.n.jar file to the soitoolkit-generator-plugin/lib - folder.
 
  * Verify/update version numbers
   * DefaultModelImpl.java
