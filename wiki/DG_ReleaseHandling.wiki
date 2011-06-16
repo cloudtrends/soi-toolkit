@@ -51,7 +51,7 @@ mvn clean test
  TODO: Make it possible to run the update-tool as a mvn command (in the same way as for the generator)
 
  * Manually update the soi-toolkit version to the release version in the following files: 
-  * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
+  * Constant {{{SOITOOLKIT_VERSION}}} in {{{trunk/tools/soitoolkit-generator/soitoolkit-generator/src/main/java/org/soitoolkit/tools/generator/model/impl/DefaultModelImpl.java}}}
   * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
 
 <wiki:comment>
