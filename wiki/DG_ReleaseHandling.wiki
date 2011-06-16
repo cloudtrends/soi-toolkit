@@ -155,6 +155,7 @@ Perform the following steps:
   * Remove {{{org.soitoolkit}}} from the local maven repository (to ensure that the artifacts are downloaded as expected from the Sonatypes staging repository)
   * Refresh the generator plugin project in eclipse to get the updated version-numbers from above into the eclipse-project
   * Re-apply any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
+  * Manually copy the soitoolkit-generator-n.n.n.jar file to the soitoolkit-generator-plugin/lib - folder.
   * Run all unit tests in soitoolkit-generator-plugin, including the generator tests to verify that the generated code works with the new version of soi-toolkit
   * Start a runtime eclipse workbench and run the new version of the generator plugin to create an integration component and service description (schema) component.
   * Try out the new integration component by creating some services and run their integration tests
