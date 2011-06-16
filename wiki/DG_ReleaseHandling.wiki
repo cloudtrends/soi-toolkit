@@ -269,6 +269,7 @@ OLD STUFF!!!
  * Perform a local build to get the new snapshot-versions of the parent pom installed in your local repository
 {{{
 mvn clean install
+mvn clean install -f commons/poms/mule-dependencies/mule-3.1.1-dependencies/pom.xml 
 }}}
 <wiki:comment>
 {{{
@@ -283,6 +284,8 @@ mvn clean install -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.
 
  * Refresh the soitoolkit-projects in Eclipse, update their maven snapshot dependencies and verify that no build/compile problem exists
   * Select Maven --> Update Project Configuration on the project soitoolkit-commons-mule 
+
+ * Manually copy the new soitoolkit-generator-n.n.n-SNAPSHOT.jar file to the soitoolkit-generator-plugin/lib - folder and update the build path.
 
  * Commit the changes (except for changes in `soi_toolkit_generator_plugin_default_preferences.properties`)
 {{{
