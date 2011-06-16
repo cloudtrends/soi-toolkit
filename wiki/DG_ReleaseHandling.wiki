@@ -52,7 +52,7 @@ mvn clean test
 
  * Manually update the soi-toolkit version to the release version in the following files: 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{trunk/tools/soitoolkit-generator/soitoolkit-generator/src/main/java/org/soitoolkit/tools/generator/model/impl/DefaultModelImpl.java}}}
-  * Bundle version and Bundle-ClassPath (lib/soitoolkit-generator-n.n.n.jar) in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
+  * Bundle version and Bundle-!ClassPath (lib/soitoolkit-generator-n.n.n.jar) in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
 
 <wiki:comment>
 OLD STUFF!!!
