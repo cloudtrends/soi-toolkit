@@ -205,7 +205,7 @@ svn up tags
 
  * import the plugin, feature and update site projects from the new tag
 
- * Manually copy the soitoolkit-generator-n.n.n.jar file to the soitoolkit-generator-plugin/lib - folder.
+ * Manually copy the soitoolkit-commons-xml-n.n.n.jar and soitoolkit-generator-n.n.n.jar file to the soitoolkit-generator-plugin/lib - folder.
 
  * Verify/update version numbers
   * DefaultModelImpl.java
@@ -288,7 +288,7 @@ mvn clean install -f commons/poms/mule-dependencies/mule-3.1.0-dependencies/pom.
  * Refresh the soitoolkit-projects in Eclipse, update their maven snapshot dependencies and verify that no build/compile problem exists
   * Select Maven --> Update Project Configuration on the project soitoolkit-commons-mule 
 
- * Manually copy the new soitoolkit-generator-n.n.n-SNAPSHOT.jar file to the soitoolkit-generator-plugin/lib - folder and update the build path.
+ * Manually copy the new soitoolkit-commons-xml-n.n.n.jar and soitoolkit-generator-n.n.n-SNAPSHOT.jar file to the soitoolkit-generator-plugin/lib - folder and update the build path.
 
  * Commit the changes (except for changes in `soi_toolkit_generator_plugin_default_preferences.properties`)
 {{{
