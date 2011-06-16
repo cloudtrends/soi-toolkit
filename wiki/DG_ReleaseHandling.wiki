@@ -133,10 +133,6 @@ mvn release:perform
 (*NONE FOR THE MOMENT*)
 </wiki:comment>
 
-== Validate ==
-
-Perform the following steps:
-
  * Go to Sonatypes staging repository and release it to synch with maven central repo
   * Go to: https://oss.sonatype.org
   * Login to the Nexus UI.
@@ -144,6 +140,10 @@ Perform the following steps:
   * Select a staging repository.
   * Select the soi-toolkit release
   * Click the Close button.
+
+== Validate ==
+
+Perform the following steps:
 
  * Validate against the staging repo https://oss.sonatype.org/content/repositories/staging/org/soitoolkit/
   * Activate the maven profile {{{soi-toolkit-sonatype}}} in the maven settings.xml - file:
