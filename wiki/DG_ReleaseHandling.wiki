@@ -52,6 +52,8 @@ mvn clean test
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
   * Bundle version in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
 
+ TODO: Make it possible to run the update-tool as a mvn command (in the same way as for the generator)
+
 <wiki:comment>
 OLD STUFF!!!
  * Manually update the soi-toolkit version to the release version in {{{commons/poms/default-parent/pom.xml}}}. 
@@ -229,6 +231,8 @@ Perform the following steps:
   * Update the variable "newVersion" to the next version, e.g. "0.4.1"
   * Set the variable "isSnapshot" to true
   * Run the update-tool.
+
+ TODO: Make it possible to run the update-tool as a mvn command (in the same way as for the generator)
 
  * Manually update the soi-toolkit version to the snapshot of the next version in the following files: 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/org/soitoolkit/tools/generator/plugin/model/impl/DefaultModelImpl.java}}}
