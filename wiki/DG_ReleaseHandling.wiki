@@ -51,7 +51,7 @@ mvn clean test
  TODO: Make it possible to run the update-tool as a mvn command (in the same way as for the generator)
 
  * Manually update the soi-toolkit version to the release version in the following files: 
-  * Constant {{{SOITOOLKIT_VERSION}}} in {{{trunk/tools/soitoolkit-generator/soitoolkit-generator/src/main/java/org/soitoolkit/tools/generator/model/impl/DefaultModelImpl.java}}}
+  * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator/src/main/java/org/soitoolkit/tools/generator/model/impl/DefaultModelImpl.java}}}
   * Bundle version and Bundle-!ClassPath (lib/soitoolkit-generator-n.n.n.jar) in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
 
 <wiki:comment>
@@ -83,8 +83,8 @@ OLD STUFF!!!
   * Feature version in {{{tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xml}}} 
 </wiki:comment>
  
- * Revert any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/src/soi_toolkit_generator_plugin_default_preferences.properties}}}
- Note: Save them in some safe place so that you easily can re-apply them after the release is done!
+ * Revert any personal settings in the property file for the generator plugin, {{{tools/soitoolkit-generator/soitoolkit-generator/src/main/resources/soi_toolkit_generator_plugin_default_preferences.properties}}}
+ NOTE: Save them in some safe place so that you easily can re-apply them after the release is done!
 
  * Check versions of dependencies and parent pom, replace any SNAPSHOT-versions with stable ones. 
 {{{
