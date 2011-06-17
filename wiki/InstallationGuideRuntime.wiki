@@ -132,7 +132,7 @@ Cygwin is useful for running a local SFTP-server on Windows.
 [InstallationGuideFileZillaServerSetup FileZilla Server installation instructions].
 
 
-==Setup of public key cryptography for the SFTP transport==
+=Setup of public key cryptography for the SFTP transport=
 
 When using the SFTP transport it is strongly recommended to not use traditional username/passwords but instead use [http://en.wikipedia.org/wiki/Public-key_cryptography public key cryptography].
 
