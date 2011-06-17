@@ -225,7 +225,7 @@ The command will return something like {{{1.6.5}}}
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SvnConnectors.png
 
 
-==Installing soapUI==
+==soapUI==
 If you want to test a soap-webservice without having to write code for a test, then soapUI is a good tool:
  * Download the latest version from http://sourceforge.net/projects/soapui/files/soapui/
  * For Windows: select soapUI-x32-`<VERSION>`.exe
