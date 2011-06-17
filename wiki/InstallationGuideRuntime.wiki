@@ -11,7 +11,6 @@ The installation guides below assumes your on a 32 bit Microsoft Windows PC.
 
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
-||Java SE||6 Update 21||
 ||ActiveMQ||5.2.0||
 ||Tomcat||6.0.29||
 ||Derby||10.7.1.1||
