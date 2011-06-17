@@ -7,7 +7,7 @@
 
 = Introduction =
 
-To get started with soi-toolkit and Mule ESB you only need to install Java SE and Maven, Eclipse and the soi-toolkit Eclipse plugin are recommended as well.
+To get started with soi-toolkit and Mule ESB you only need to install Java SE and Maven, Eclipse and the soi-toolkit Eclipse plugin are recommended as well, [#Required_installations  Required installations].
 
 Eclipse is the preferred Java IDE for soi-toolkit, meaning that soi-toolkit provides a specific Eclipse plugin functionality not available for other Java IDE's.
 Users of other Java IDE's (e.g. NetBeans or IntelliJ) should however be fine using soi-toolkit's Maven based source code generators that have the same functionality as the Eclipse plugin. see [UG_UsingGenerators Using the source code generators] for more information.
@@ -15,7 +15,7 @@ Users of other Java IDE's (e.g. NetBeans or IntelliJ) should however be fine usi
 For not so experienced Maven users it is also strongly recommended to install the Maven Eclipse plugin for a very simple and transparent integration with Maven inside Eclipse.
 We also recommend using the Subversive Eclipse plugin for a smooth integration with Subversion (if used) inside Eclipse and soapUI as a test tool for Web Services, see section [#Recommended_installations  Recommended installations].
 
-Depending on your needs you also might want to install some run time products in your development environment such as ActiveMQ, or setting up PKI - keys for usage with the SFTP transport. See section [#Installing_Run_time_products Installing Run time products] for instructions on how to install and configure run time products.
+Depending on your needs you also might want to install some run time products in your development environment such as ActiveMQ, or setting up PKI - keys for usage with the SFTP transport. See section [InstallationGuideRuntime Installing Run time products] for instructions on how to install and configure run time products.
 
 The installation guides below assumes your on a 32 bit Microsoft Windows PC.
 
