@@ -13,27 +13,27 @@ This is a feature and maintenance release with both new features and bug fixes.
 The most important new features are:
 
 *Added support for Mule ESB 3.1.2* 
- * 145;Add support for Mule ESB v3.1.2
-  * 149;Switch to Mule ESB 3.1.2 as the default version for soi-toolkit
-  * 150;Add support for the restlet-transport added by Mule ESB 3.1.2
-  * 116;Problem with error handling in Mule 3.1, null is returned in exception instead of relevant error info
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=145 Issue #145, Add support for Mule ESB v3.1.2]
+  * [http://code.google.com/p/soi-toolkit/issues/detail?id=149 Issue #149, Switch to Mule ESB 3.1.2 as the default version for soi-toolkit]
+  * [http://code.google.com/p/soi-toolkit/issues/detail?id=150 Issue #150, Add support for the restlet-transport added by Mule ESB 3.1.2]
+  * [http://code.google.com/p/soi-toolkit/issues/detail?id=116 Issue #116, Problem with error handling in Mule 3.1, null is returned in exception instead of relevant error info]
 
-*Removed requirement on using Eclispe*
- * 109;Support starting the soi-toolkit generators from the command line
+*Removed requirement on using Eclipse*
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=109 Issue #109, Support starting the soi-toolkit generators from the command line]
 
 *Support for new protocols in the pattern driven source code generators* 
- * 120;Support for REST/HTTP based outbound endpoints for request/response based services
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=120 Issue #120, Support for REST/HTTP based outbound endpoints for request/response based services]
 
- * 58;Support ftp as inbound transport and outbound transport for oneway services
-  * 124;Startup embedded ftp-server in integration tests
-  * 128;Move ftp and sftp username and password info to security-property-file
-  * 141;"More than one FTP-test cause an ""Address already in use"" exception"
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=58 Issue #58, Support ftp as inbound transport and outbound transport for oneway services]
+  * [http://code.google.com/p/soi-toolkit/issues/detail?id=124 Issue #124, Startup embedded ftp-server in integration tests]
+  * [http://code.google.com/p/soi-toolkit/issues/detail?id=128 Issue #128, Move ftp and sftp username and password info to security-property-file]
+  * [http://code.google.com/p/soi-toolkit/issues/detail?id=141 Issue #141, More than one FTP-test cause an "Address already in use" exception]
 
 *Simplified setting up configuration on test and prod servers*
- * 132;Create a config-zip-file for deployable artifacts
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=132 Issue #132, Create a config-zip-file for deployable artifacts]
 
 *Improved quality by new backward compatibility tests*
- * 131;Always test migration of source code from an old version in the process of releasing a new version of soi-toolkit
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=131 Issue #131, Always test migration of source code from an old version in the process of releasing a new version of soi-toolkit]
 
 
 *Full Release Notes* can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.4.1 Release Notes]
