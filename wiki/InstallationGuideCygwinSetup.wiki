@@ -4,7 +4,7 @@
 <wiki:toc max_depth="2" />
 
 
-= Install Cygwin with OpenSSH =
+= Install SFTP-server, Cygwin with OpenSSH =
   # Download setup.exe from http://www.cygwin.com/ and save the file to "c:\cygwin\cygwin.install" (you will have to create the directory).
   # Run setup.exe and follow instructions below:
 
