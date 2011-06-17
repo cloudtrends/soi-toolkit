@@ -206,6 +206,8 @@ svn up tags
 
  * temporary remove the plugin, feature and update project from the eclipse workspace
 
+ BETTER IDEA: Use a separate Eclipse workspace, you have to specify svn creds but you don't need to remove and add back projects...
+
  * import the plugin, feature and update site projects from the new tag
 
  * Manually copy the soitoolkit-commons-xml-n.n.n.jar and soitoolkit-generator-n.n.n.jar file to the soitoolkit-generator-plugin/lib - folder.
