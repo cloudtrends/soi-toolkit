@@ -6,9 +6,14 @@
 <wiki:toc max_depth="2" />
 
 == soi-toolkit v0.4.1 ==
-Release date: TBS
+Release date: June 17 2011
 
-*BACKWARD COMPATIBILITY ISSUES:*
+Full Release Notes can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.4.1 Release Notes]
+
+*UPGRADE INSTRUCTIONS:*
+
+To upgrade a soi-toolkit project from v0.4.0 the following has to be addressed:
+
  * See [http://code.google.com/p/soi-toolkit/issues/detail?id=132 Issue #132, Create a confi-zip-file for deployable artifacts]
  A manual change of the service-projects pom.xml file is required for enabling this new feature, see [http://code.google.com/p/soi-toolkit/issues/detail?id=132#c5 Comment #5 in Issue #132] for detailed instructions.
 
