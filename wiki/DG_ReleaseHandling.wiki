@@ -184,7 +184,7 @@ Perform the following steps:
  * Manually deploy the eclipse plugin as described below
 
  * Publish to central repo
-  * If ok go back to the Sonatype staing repository web-app
+  * If ok go back to the Sonatype staging repository web-app, https://oss.sonatype.org
   * Select the soi-toolkit release again and click on the Release button.
   * Artifacts should now be synched with central repo on a hourly bases... 
 
