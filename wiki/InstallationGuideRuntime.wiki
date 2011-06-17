@@ -1,226 +1,24 @@
-#summary Installation Guide for users of soi-toolkit.
+#summary Installation Guide for users of soi-toolkit for runt time-products.
 
-= Installation Guide =
+= Installation Guide of Run time products =
 
 *Content*
 <wiki:toc max_depth="2" />
 
 = Introduction =
 
-To get started with soi-toolkit and Mule ESB you only need to install Java SE, Eclipse, Maven and the soi-toolkit Eclipse plugin. See section [#Required_installations Required installations] for instructions.
-
-For not so experienced Maven users it is also strongly recommended to install the Maven Eclipse plugin for a very simple and transparent integration with Maven inside Eclipse, see section [#Recommended_installations  Recommended installations].
-
-We also recommend using the Subversive Eclipse plugin for a smooth integration with Subversion (if used) inside Eclipse, see section [#Recommended_installations  Recommended installations].
-
-Depending on your needs you also might want to install some optional tools in your development environment such as ActiveMQ, test tool for Web Services, soapUI, or setting up PKI - keys for usage with the SFTP transport. See section [#Optional_installation Optional installations] for instructions on how to install and configure optional tools.
-
 The installation guides below assumes your on a 32 bit Microsoft Windows PC.
 
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
 ||Java SE||6 Update 21||
-||Eclipse EE||3.6.1 (Helios)||
-||Maven||2.2.1||
-||Soi-toolkit plugin for Eclipse||0.4.0.1||
-||Maven plugin for Eclipse||0.10.0||
-||Subversive plugin for Subversion||0.7.9||
-||Subversive SVN Connectors||2.2.2||
 ||ActiveMQ||5.2.0||
 ||Tomcat||6.0.29||
 ||Derby||10.7.1.1||
-||soapUI||3.6.1||
 ||Cygwin||1.7.8||
 ||!FileZilla Server||0.9.37||
 
-*Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
-
-=Required installations=
-
-
-==Java SE==
-Install Java SE according to the following instructions:
-
- * Download JDK for Java SE from http://java.sun.com/javase/downloads/widget/jdk6.jsp
- A file named {{{jdk-6u21-windows-i586.exe}}} is downloaded to your PC.
-
- * Execute the downloaded installation program and use default values for the installation of both the JDK and the JRE.
-
- * Create an environment variable, JAVA_HOME, in Windows that points to the installation directory. 
- E.g. {{{JAVA_HOME=C:\Program Files\Java\jdk1.6.0_21}}}
-
- * Add the bin-folder of the JDK to the Windows PATH-environment variable.
- E.g. {{{PATH=...;C:\Program Files\Java\jdk1.6.0_21\bin}}}
-
- * Verify the installation in a command window with the commands {{{java –version}}},  {{{javac –version}}} och {{{set JAVA_HOME}}}. The result should be similar to: 
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/JavaSeVerifyInstallation.png
-
- * For full installation instructions see [http://www.oracle.com/technetwork/java/javase/documentation/install-windows-152927.html Microsoft Windows Installation (32-bit)]
-
-
-==Eclipse==
-
-Install Eclipse according to the following instructions:
-
- * Download  {{{Eclipse IDE for Java EE Developers}}} from http://eclipse.org/downloads/.
- A file named {{{eclipse-jee-helios-SR1-win32.zip}}} is downloaded to your computer.
-
- * Unzip the zip file to the desired installation folder, eg C:\opt.
-
- * Create a shortcut to the file {{{eclipse.exe}}} (eg {{{C:\opt\eclipse\eclipse.exe}}}) in the installation folder to the desktop.
-
- * Verify the installation, start Eclipse through the desktop shortcut.
- Enter the desired workspace folder where requested and click on the "Workbench" icon (top right) when the welcome screen is presented. The the Eclipse workbench should be displayed and look like:
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/EclipseVerifyInstallation.png
-
-
-==Maven==
-
-Install Maven according to the following instructions:
-
- * Download Maven from http://maven.apache.org/download.html
- Download the file named {{{apache-maven-2.2.1-bin.zip}}} to your computer.
-
- * Unzip the zip file to the desired installation folder, eg {{{C:\opt}}}.
-
- * Create an environment variable, {{{M2_HOME}}}, in Windows pointing out the installation.
- For example: {{{M2_HOME=C:\opt\apache-maven-2.2.1}}}
-
- * Add Maven's bin folder to the Windows {{{PATH}}} variable.
- For example: {{{PATH=...;C:\opt\apache-maven-2.2.1\bin}}}
-
- * Verifying the installation of a command window with the command {{{mvn -v}}},
- it should produce a result like:
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MavenVerifyInstallation.png
-
- * For full installation instructions see http://maven.apache.org/download.html # Installation
-
-
-==Soi-toolkit Eclipse plugin==
-
- * Select in the Eclipse menu "Help --> Install New Software..."
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation1.png
-
- * Click on the "Add..." button to add the soi-toolkit update site
-  * Enter "Soi-toolkit update site" in the name-field
-  * Enter "http://soi-toolkit.googlecode.com/svn/eclipse-update-site/" in the location field
-
-  NOTE: Some customers has experienced long download times using this update site (> 5min). If you experience similar problems try http://soi-toolkit.googlecode.com/svn/eclipse-update-site/soitoolkit-0.4.0 instead. Follow the resolution of this problem at [http://code.google.com/p/soi-toolkit/issues/detail?id=118 issue 118].
-  * Click on the "Ok" button
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation2.png
-
- * Allow Eclipse to process the update site
-
- * Expand the available selection "soi-toolkit generator" and select the "soi-toolkit generator feature"
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation3.png
-
- * If you want to install an older version than the latest then deselect the check box "_Select only the lastest versions of available software_" to select an older release.
- * Click on the "Next >" button
- * Click on the "Next >" button again
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation4.png
-
- * Accept the terms of the license agreement and press the "Finish" button
-  * The plugin is now downloaded and installed.
-
- * Click on the "Ok" button when asked to accept unsigned content
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation5.png
-
- * Click on the "Restart Now" button when asked to restart Eclipse
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation6.png
-
- * Configure the plugin by open Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
-  * Specify the folder where you have Maven installed in the field "*_Maven home folder_*"
-  * Specify the default folder where the generator should create files in the field "*_Default root folder_*"
-  * If you don't have the file specified in the field "*_SFTP identity file for PKI_*" empty that field or update it to point at your identity file
-  * You can leave the rest of the fields as they are.
-  * Click on the "*_OK_*" button to conclude the configuration.
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation7.png
-
-*NOTE:* Regarding the problem with disabled Apply and Ok buttons.
-If, for example, a non existing file or folder is specified in the fields "Maven home folder" or "Default root folder" then the Ok and Apply buttons are disabled. Please verify the correctness of the content in all fields if the Ok and Apply buttons gets disabled.
-
-=Recommended installations=
-
-
-==Maven Eclipse plugin==
-
-Mavens Eclipse plugin makes Maven much easier to handle directly from within Eclipse when it comes to perform the most common tasks.
-
-The plugin takes care of resolving maven dependencies automatically for you and and if you change any dependencies in yours pom-file the plugin automatically updates your eclipse projects classpath.
-The plugin is also very convenient to use for making specific maven builds, e.g. perform a {{{mvn clean install}}} of your component or deploying a {{{war-sub-module}}} to Tomcat for tests, all without having to leave the Eclipse environment, e.g. without escaping to console windows.
-
-However, if you really are into maven and at all times want to perform your maven commands on your own in a command window you are fully free to do so by simply not installing this plugin! 
-
-Install the Maven plugin for Eclipse according to the following instructions:
-
- * The installation is performed using the Eclipse "Update Site"-mechanism.
- The Update Site is: http://m2eclipse.sonatype.org/sites/m2e.
- 
-*NOTE:* In January 18th, 2011 v0.12.1 was released and we seen problems using this new version. Until this problem is resolved please install the plugin from the update site: "http://m2eclipse.sonatype.org/sites/archives/m2e-0.10.2.20100623-1649/". Verify that the version installed of the plugin is version 0.10.2.
-
-If you need to downgrade you can uninstall the new version from the meny "Help --> Install New Software...", click on the link "already installed" (down right), select the plugin in the list, click on the "Uninstall..." - button (down mid) and follow the wizard that is displayed.
-
- For full installation instructions see http://m2eclipse.sonatype.org/installing-m2eclipse.html.
-
- Notes:
-  * If the installation asks for approval of certificates, so be sure to select the available certificate before the next step in the installation.
-  * Restart the workspace when so requested.
-
- * After the installation of the plugin open Eclipse Preferences
-  * Navigate to the Maven Plugin and its Installations node
-  * Click on the "Add..." button and add point out the home folder of your maven installation.
-  * Ensure that your newly added maven installation is the selected one in the list.
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MavenEclipsePluginInstallation.png
-
- * To avoid the error message {{{"The Maven Integration requires that Eclipse be running in a JDK, because a number of Maven core plugins are using jars from the JDK. (...)"}}} follow the instructions on the following page [http://blog.dawouds.com/2008/11/eclipse-is-running-in-jre-but-jdk-is.html]
-
-
-==Subversive Eclipse plugin==
-
-If you already use Subversion as your source control system the Subversive Eclipse plugin can help you to bring  Subversion client functionality into Eclipse.
-
-The Subversive plugin is, due to license restrictions, divided into two separate installations, one for the Subversive plugin itself and one separate installation of the SVN connectors.
-
-=== Version check ===
-To be able to install the SVN connector part you need to know what version of subversion you use.
-Open a command window and enter the command {{{svn --version --quiet}}}.
-The command will return something like {{{1.6.5}}}
-
-=== Install the plugin ===
- * The installation of the Eclipse plugin is performed using the Eclipse "Update Site"-mechanism.
- The Update Site is a part of Helios Update Site. 
- * Select the Eclipse menu "Help --> Install New Software... 
- * In the field "Work with:" select the predefined update site "Helios - http://download.eclipse.org/releases/helios"
- * In the list below of available features expand the node "Collaboration" 
- * Select:
-  * Subversive SVN Team Provider (mandatory)
-  * Subversive SVN JDT Ignore Extension (optional)
-  * Subversive Revision Graph (optional)
- * Progress through the wizard as normal, approving licences and so on...
-
-=== Install the SVN connector ===
-
- * The installation of the SVN Connectors is performed automatically on the first usage of svn-functionality in Eclipse after the installation of the plugin.
-  * A dialog named "Subversive SVN Connectors" dialog will popup. 
-  * Select appropriate svn connectors, e.g. "SVN Kit 1.3.5" if you have SVN 1.6.x installed in your environment and want to use a pure Java connector
-  (verify with you svn version check as described above).
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SvnConnectors.png
-
-
-=Optional installation=
-
+= Installation instructions =
 
 ==Installing Apache ActiveMQ==
 If you want to be able to perform manuel tests on your PC where JMS is involved it could be a good idea to run these tests with a external JMS provider, i.e. not a JMS provider that is embedded in Mule (as it is when you run unit tests).
@@ -319,13 +117,6 @@ Start/stop Apache Derby:
 
 Connecting to Derby:
  * Connect using an URL like (with your prefered databasename): jdbc:derby://localhost:1527/myDatabaseNameDb;create=true
-
-
-==Installing soapUI==
-If you want to test a soap-webservice without having to write code for a test, then soapUI is a good tool:
- * Download the latest version from http://sourceforge.net/projects/soapui/files/soapui/
- * For Windows: select soapUI-x32-`<VERSION>`.exe
- * Run the installer.
 
 
 ==Installing Cygwin (Windows only)==
@@ -449,25 +240,3 @@ MagnusMac-2:.ssh magnuslarsson$
   * Click on the "OK" button to conclude the configuration.
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation8.png
-
-
-=Updates=
-
-==Updating the Soi-toolkit Eclipse plugin==
-
-To update the Soi-toolkit Eclipse plugin do the following:
-
- * First write down the preference-setting you have for the existing version of the Soi-toolkit Eclipse plugin, you will have to reenter them after the upgrade
-  * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
- * Select the Eclipse menu "Help --> Check for Updates"
- * If any update is available a dialog like the following will be displayed:
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitUpdate1.png
-
- * Click on the "Deselcet All" button and select only the "soi-toolkit generator feature" 
- * Click on the "Next >" button twice
- * Accept the terms of the license agreement and press the "Finish" button
-  * The plugin is now downloaded and installed.
- * Click on the "Ok" button when asked to accept unsigned content
- * Click on the "Restart Now" button when asked to restart Eclipse
- * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
