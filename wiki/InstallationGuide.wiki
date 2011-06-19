@@ -38,7 +38,7 @@ The following versions (or newer) are recommended:
 ==Java SE==
 Install Java SE according to the following instructions:
 
- * Download JDK for Java SE from http://java.sun.com/javase/downloads/widget/jdk6.jsp
+ * Download JDK for Java SE from http://www.oracle.com/technetwork/java/javase/downloads/index.html.
  A file named {{{jdk-6u21-windows-i586.exe}}} is downloaded to your PC.
 
  * Execute the downloaded installation program and use default values for the installation of both the JDK and the JRE.
