@@ -47,7 +47,7 @@ Install Java SE according to the following instructions:
  E.g. {{{JAVA_HOME=C:\Program Files\Java\jdk1.6.0_21}}}
 
  * Add the bin-folder of the JDK to the Windows PATH-environment variable.
- E.g. {{{PATH=...;C:\Program Files\Java\jdk1.6.0_21\bin}}}
+ E.g. {{{PATH=...;%JAVA_HOME%\bin}}}
 
  * Verify the installation in a command window with the commands {{{java –version}}},  {{{javac –version}}} och {{{set JAVA_HOME}}}. The result should be similar to: 
 
@@ -69,7 +69,7 @@ Install Maven according to the following instructions:
  For example: {{{M2_HOME=C:\opt\apache-maven-2.2.1}}}
 
  * Add Maven's bin folder to the Windows {{{PATH}}} variable.
- For example: {{{PATH=...;C:\opt\apache-maven-2.2.1\bin}}}
+ For example: {{{PATH=...;%M2_HOME%\bin}}}
 
  * Verifying the installation of a command window with the command {{{mvn -v}}},
  it should produce a result like:
