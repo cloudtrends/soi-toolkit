@@ -13,6 +13,8 @@
 
 == External tutorials and blogs ==
 
- * *CALLISTA BLOG* 
+ * Lee Ackerman has published an interview about soi-toolkit at [http://patternsbasedengineering.net/magnus-larsson/ patternsbasedengineering.net]
+
+ * *Callista blog* 
   * [http://blog.callistaenterprise.se/2011/01/23/getting-started-with-soi-toolkit/ Getting started with soi-toolkit]
   * [http://blog.callistaenterprise.se/2011/06/30/soi-toolkit-meets-mule-studio-a-perfect-match/ soi-toolkit and Mule Studio]
