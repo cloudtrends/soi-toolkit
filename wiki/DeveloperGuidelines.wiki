@@ -217,12 +217,14 @@ Snapshot artifacts are deployed to the repository https://oss.sonatype.org/conte
 
 == Publish snapshots of the Eclipse plugin ==
 
- * {{{trunk/tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
+ * Edit the following files:
+
+ ** {{{trunk/tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
  {{{
 Bundle-Version: 0.4.1.SNAPSHOT_2011-03-28_0941
  }}}
 
- * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}}
+  * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}}
  {{{
 /site/feature/@version: 0.4.1.SNAPSHOT_2011-03-28_0941 --> 0.4.1
  }}}
@@ -236,6 +238,10 @@ Bundle-Version: 0.4.1.SNAPSHOT_2011-03-28_0941
  {{{
 /feature/@version: 0.4.1.SNAPSHOT_2011-03-28_0941 --> 0.4.1
  }}}
+
+ * Build the update site in Eclipse
+ * Push the update site to http://soi-toolkit.merikan.com/myUpdateSite with name like soitoolkit_0.5.0.SNAPSHOT_2011-11-19_1655
+ * Update eclipse-update-snapshot-site/compositeContent.xml and compositeArtifacts.xml in svn so that they point out the new folder in the snapshot-update-site
 
 == Release handling ==
 
