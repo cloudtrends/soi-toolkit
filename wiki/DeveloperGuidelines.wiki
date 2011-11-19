@@ -218,23 +218,19 @@ Snapshot artifacts are deployed to the repository https://oss.sonatype.org/conte
 == Publish snapshots of the Eclipse plugin ==
 
  * Edit the following files:
-
- ** {{{trunk/tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
+  * {{{trunk/tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
  {{{
 Bundle-Version: 0.4.1.SNAPSHOT_2011-03-28_0941
  }}}
-
   * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}}
  {{{
 /site/feature/@version: 0.4.1.SNAPSHOT_2011-03-28_0941 --> 0.4.1
  }}}
-
- * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}}
+  * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.update/site.xml}}}
  {{{
 /site/feature/@url: features/org.soitoolkit.generator.feature_0.4.1.SNAPSHOT_2011-03-28_0941.jar --> features/org.soitoolkit.generator.feature_0.4.1.jar
  }}}
-
- * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xm}}}
+  * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xm}}}
  {{{
 /feature/@version: 0.4.1.SNAPSHOT_2011-03-28_0941 --> 0.4.1
  }}}
