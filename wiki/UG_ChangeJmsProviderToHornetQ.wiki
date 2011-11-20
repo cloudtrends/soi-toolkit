@@ -38,12 +38,12 @@ activemq start
 mvn -PmuleServer
 }}}
 
+== Replace ActiveMQ with HornetQ ==
+
  * If you want to edit the source code in Eclipse you can create Eclipse project files with the command:
 {{{
 mvn eclipse:eclipse
 }}}
-
-== Replace ActiveMQ with HornetQ ==
 
  * Update *pom.xml* with HornetQ dependencies
  First add some properties for the versions used of HornetQ and its io-package Netty:
