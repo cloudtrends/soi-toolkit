@@ -27,7 +27,7 @@ cd ic
 mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.0-SNAPSHOT:genService -Dservice=jms2jms -DmessageExchangePattern=One-Way -DinboundTransport=JMS -DoutboundTransport=JMS
 }}}
 
- * Build an run tests with the default Apache ActiveMQ as JMS provider
+ * Build an run integrations tests with the default Apache ActiveMQ as JMS provider
 {{{
 mvn install
 }}}
