@@ -32,29 +32,102 @@ mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.0-SNAPS
 mvn install
 }}}
 
- * Start Mule server with ActiveMQ as JMS provider (launch ActiveMQ separatley), test placing messages on the in-queue using ActiveMQ admin console, http://localhost:8161/admin/queues.jsp
- activemq start
- mvn -PmuleServer
-
- * Change ActiveMQ to HornetQ
+ * Start Mule server with ActiveMQ as JMS provider (launch ActiveMQ separately), test placing messages on the in-queue, IC.JMS2JMS.IN.QUEUE in this case, using ActiveMQ admin console, http://localhost:8161/admin/queues.jsp
+{{{
+activemq start
+mvn -PmuleServer
+}}}
 
 == Replace ActiveMQ with HornetQ ==
 
-
-
-
-*NOTE*: Support for customizing the log-mechanism in soi-toolkit is introduced in v0.4.1 on an experimental level only. Try it out but be prepared for changes in coming releases!
-
-== Introduction ==
-
-To override the default behavior of handling logging in soi-toolkit a custom !EventLogger can be declared in an integration components service-project.
-
-== Details ==
-
-The declaration should be placed in the common-xml-config-file: {{{src/main/resources/${artifactId}-common.xml}}}.
-
+ * Update pom.xml with HornetQ dependencies
+ First add some properties for the versions used of HornetQ and its io-package Netty:
 {{{
- <spring:beans>
-   <spring:bean name="soitoolkit.eventLogger" class="org.sample.MyCustomEventLogger" primary="true"/>
- </spring:beans>
+    <properties>
+        <hornetq.version>2.2.5.Final</hornetq.version>
+        <netty.version>3.2.3.Final</netty.version>
+    </properties>
 }}}
+
+ Next declare dependencies for HornetQ client and for embedded server used during tests:
+{{{
+	    <!-- HornetQ Client -->
+	    <dependency>
+	        <groupId>org.hornetq</groupId>
+	        <artifactId>hornetq-core-client</artifactId>
+	        <version>${hornetq.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.hornetq</groupId>
+	        <artifactId>hornetq-jms</artifactId>
+	        <version>${hornetq.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.jboss.netty</groupId>
+	        <artifactId>netty</artifactId>
+	        <version>${netty.version}</version>
+	    </dependency>
+	
+	    <!-- HornetQ Embedded Server -->
+	    <dependency>
+	        <groupId>org.hornetq</groupId>
+	        <artifactId>hornetq-spring-integration</artifactId>
+	        <version>${hornetq.version}</version>
+	        <scope>test</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.hornetq</groupId>
+	        <artifactId>hornetq-core</artifactId>
+	        <version>${hornetq.version}</version>
+	        <scope>test</scope>
+	    </dependency>  
+}}}
+
+ * Change in int-test + *-config.xml
+{{{
+}}}
+
+ * Add properties for 
+{{{
+# Properties for service "jms2jms"
+# TODO: Update to reflect your settings
+JMS2JMS_IN_QUEUE=IC5.JMS2JMS.IN.QUEUE
+JMS2JMS_DL_QUEUE=DLQ.IC5.JMS2JMS.IN.QUEUE
+JMS2JMS_OUT_QUEUE=IC5.JMS2JMS.OUT.QUEUE
+}}}
+
+ * Add hornetq-jms.xml to src/main/resources
+{{{
+<configuration 
+   xmlns="urn:hornetq"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="urn:hornetq /schema/hornetq-jms.xsd">
+
+   <queue name="SOITOOLKIT.LOG.INFO">
+      <entry name="SOITOOLKIT.LOG.INFO"/>
+   </queue>
+
+   <queue name="SOITOOLKIT.LOG.ERROR">
+      <entry name="SOITOOLKIT.LOG.ERROR"/>
+   </queue>
+   
+   <queue name="IC5.JMS2JMS.IN.QUEUE">
+      <entry name="IC5.JMS2JMS.IN.QUEUE"/>
+   </queue>
+
+   <queue name="DLQ.IC5.JMS2JMS.IN.QUEUE">
+      <entry name="DLQ.IC5.JMS2JMS.IN.QUEUE"/>
+   </queue>
+
+   <queue name="IC5.JMS2JMS.OUT.QUEUE">
+      <entry name="IC5.JMS2JMS.OUT.QUEUE"/>
+   </queue>
+
+</configuration>
+}}}
+
+ * external-tester 
+{{{
+}}}
+- kopiera in köer från src/main/resources/hornetq-jms.xml to hornetq-2.2.5.Final/config/stand-alone/non-clustered/hornetq-jms.xml
+- starta hornetq genom att exekvera hornetq-2.2.5.Final/bin/run.sh
