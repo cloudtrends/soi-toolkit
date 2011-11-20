@@ -1,0 +1,60 @@
+#summary User Guidelines - Change JMS provider to HornetQ (Since v0.5.0).
+#sidebar UG_SideBar
+
+*Content*
+<wiki:toc max_depth="3" />
+
+= Change JMS provider to HornetQ =
+
+This page describes how you can change the default JMS provider, Apache ActiveMQ, to HornetQ.
+
+ # First you create an integration component and create some services that use JMS based on ActiveMQ and verify that it work as expected.
+ # In the next step you perform the necessary changes to replace ActiveMQ with HornetQ.
+
+== Create an integration component that use JMS and the default JMS provider, ActiveMQ ==
+
+In this section we use the maven plugin (v0.5.0-SNAPSHOT) to create the code but you can as well use the eclipse plugin if you prefer.
+
+
+ * Create a new integration component
+{{{
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.0-SNAPSHOT:genIC -DartifactId=ic -DgroupId=org.myorg.ic -Dconnectors=FTP,SFTP,JDBC
+}}}
+
+ * Create a sample jsm-to-jms service 
+{{{
+cd ic
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.0-SNAPSHOT:genService -Dservice=jms2jms -DmessageExchangePattern=One-Way -DinboundTransport=JMS -DoutboundTransport=JMS
+}}}
+
+ * Build an run tests with the default Apache ActiveMQ as JMS provider
+{{{
+mvn install
+}}}
+
+ * Start Mule server with ActiveMQ as JMS provider (launch ActiveMQ separatley), test placing messages on the in-queue using ActiveMQ admin console, http://localhost:8161/admin/queues.jsp
+ activemq start
+ mvn -PmuleServer
+
+ * Change ActiveMQ to HornetQ
+
+== Replace ActiveMQ with HornetQ ==
+
+
+
+
+*NOTE*: Support for customizing the log-mechanism in soi-toolkit is introduced in v0.4.1 on an experimental level only. Try it out but be prepared for changes in coming releases!
+
+== Introduction ==
+
+To override the default behavior of handling logging in soi-toolkit a custom !EventLogger can be declared in an integration components service-project.
+
+== Details ==
+
+The declaration should be placed in the common-xml-config-file: {{{src/main/resources/${artifactId}-common.xml}}}.
+
+{{{
+ <spring:beans>
+   <spring:bean name="soitoolkit.eventLogger" class="org.sample.MyCustomEventLogger" primary="true"/>
+ </spring:beans>
+}}}
