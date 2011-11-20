@@ -159,7 +159,9 @@ mvn install
  Copy queues from {{{src/main/resources/hornetq-jms.xml}}} to {{{HORNET_HOME/config/stand-alone/non-clustered/hornetq-jms.xml}}}
 
  * Start the externa HornetQ server
- Execute {{{hornetq-2.2.5.Final/bin/run.sh}}}
+{{{
+HORNETQ_HOME/bin/run.sh
+}}}
 
  * Start Mule
 {{{
