@@ -40,7 +40,7 @@ mvn -PmuleServer
 
 == Replace ActiveMQ with HornetQ ==
 
- * Update pom.xml with HornetQ dependencies
+ * Update *pom.xml* with HornetQ dependencies
  First add some properties for the versions used of HornetQ and its io-package Netty:
 {{{
     <properties>
@@ -83,20 +83,16 @@ mvn -PmuleServer
 	    </dependency>  
 }}}
 
- * Change in int-test + *-config.xml
+ * Add HornetQ specific properties to the property-file, */ic/src/main/resources/ic-config.properties*
 {{{
+SOITOOLKIT_MULE_HORNETQ_HOST=localhost
+SOITOOLKIT_MULE_HORNETQ_PORT=5445
 }}}
 
- * Add properties for 
-{{{
-# Properties for service "jms2jms"
-# TODO: Update to reflect your settings
-JMS2JMS_IN_QUEUE=IC5.JMS2JMS.IN.QUEUE
-JMS2JMS_DL_QUEUE=DLQ.IC5.JMS2JMS.IN.QUEUE
-JMS2JMS_OUT_QUEUE=IC5.JMS2JMS.OUT.QUEUE
-}}}
 
- * Add hornetq-jms.xml to src/main/resources
+ * Add the file *hornetq-jms.xml* to *src/main/resources*
+ Unlike ActiveMQ HornetQ requires a configuration file that declare what JMS queues that is shall provide.
+ For this example the following queues are required. Look into your proeprty-file for what queue-names you need!
 {{{
 <configuration 
    xmlns="urn:hornetq"
@@ -111,22 +107,37 @@ JMS2JMS_OUT_QUEUE=IC5.JMS2JMS.OUT.QUEUE
       <entry name="SOITOOLKIT.LOG.ERROR"/>
    </queue>
    
-   <queue name="IC5.JMS2JMS.IN.QUEUE">
-      <entry name="IC5.JMS2JMS.IN.QUEUE"/>
+   <queue name="IC.JMS2JMS.IN.QUEUE">
+      <entry name="IC.JMS2JMS.IN.QUEUE"/>
    </queue>
 
-   <queue name="DLQ.IC5.JMS2JMS.IN.QUEUE">
-      <entry name="DLQ.IC5.JMS2JMS.IN.QUEUE"/>
+   <queue name="DLQ.IC.JMS2JMS.IN.QUEUE">
+      <entry name="DLQ.IC.JMS2JMS.IN.QUEUE"/>
    </queue>
 
-   <queue name="IC5.JMS2JMS.OUT.QUEUE">
-      <entry name="IC5.JMS2JMS.OUT.QUEUE"/>
+   <queue name="IC.JMS2JMS.OUT.QUEUE">
+      <entry name="IC.JMS2JMS.OUT.QUEUE"/>
    </queue>
-
 </configuration>
 }}}
 
+ * Change the integration test to use a HornetQ-connector and rerun the integration tests.
+ Edit the method *getConfigResources()* and replace *soitoolkit-mule-jms-connector-activemq-embedded.xml* with *soitoolkit-mule-jms-connector-hornetq-embedded.xml* for embedded HornetQ or *soitoolkit-mule-jms-connector-hornetq-external.xml* for external HornetQ.
+{{{
+	protected String getConfigResources() {
+//		return "soitoolkit-mule-jms-connector-activemq-embedded.xml," + 
+		return "soitoolkit-mule-jms-connector-hornetq-embedded.xml," + 
+//		return "soitoolkit-mule-jms-connector-hornetq-external.xml," + 
+  
+  
+    }
+
+}}}
+
  * external-tester 
+ Change *-config.xml
+{{{
+}}}
 {{{
 }}}
 - kopiera in köer från src/main/resources/hornetq-jms.xml to hornetq-2.2.5.Final/config/stand-alone/non-clustered/hornetq-jms.xml
