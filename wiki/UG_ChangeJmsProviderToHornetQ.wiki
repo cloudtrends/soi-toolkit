@@ -122,15 +122,17 @@ SOITOOLKIT_MULE_HORNETQ_PORT=5445
 }}}
 
  * Change the integration test to use a HornetQ-connector and rerun the integration tests.
- Edit the method *getConfigResources()* and replace *soitoolkit-mule-jms-connector-activemq-embedded.xml* with *soitoolkit-mule-jms-connector-hornetq-embedded.xml* for embedded HornetQ or *soitoolkit-mule-jms-connector-hornetq-external.xml* for external HornetQ.
+ Edit the method *getConfigResources()* and replace:
+ soitoolkit-mule-jms-connector-activemq-embedded.xml with
+ soitoolkit-mule-jms-connector-hornetq-embedded.xml for embedded HornetQ or
+ soitoolkit-mule-jms-connector-hornetq-external.xml for external HornetQ.
 {{{
 	protected String getConfigResources() {
-//		return "soitoolkit-mule-jms-connector-activemq-embedded.xml," + 
+//	 	return "soitoolkit-mule-jms-connector-activemq-embedded.xml," + 
 		return "soitoolkit-mule-jms-connector-hornetq-embedded.xml," + 
-//		return "soitoolkit-mule-jms-connector-hornetq-external.xml," + 
-  
-  
-    }
+//		return "soitoolkit-mule-jms-connector-hornetq-external.xml," +   
+		...
+	}
 
 }}}
 
