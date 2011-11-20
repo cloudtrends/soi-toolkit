@@ -8,13 +8,13 @@
 
 This page describes how you can change the default JMS provider, Apache ActiveMQ, to HornetQ.
 
- # First you create an integration component and create some services that use JMS based on ActiveMQ and verify that it work as expected.
- # In the next step you perform the necessary changes to replace ActiveMQ with HornetQ.
+ # First we create an integration component and create some services that use JMS based on ActiveMQ and verify that it work as expected.
+ # In the next step we perform the necessary changes to replace ActiveMQ with HornetQ.
 
 == Create an integration component that use JMS and the default JMS provider, ActiveMQ ==
 
 In this section we use the maven plugin (v0.5.0-SNAPSHOT) to create the code but you can as well use the eclipse plugin if you prefer.
-
+Since we are using a snapshot version of soi-toolkit ensure that you have added soi-toolits snapshot-maven-repo to your settings.xml file as described here: [DeveloperGuidelines#Testing_snapshot_versions_of_soi-toolkit Testing snapshot versions of soi-toolkit]
 
  * Create a new integration component
 {{{
@@ -51,36 +51,36 @@ mvn -PmuleServer
 
  Next declare dependencies for HornetQ client and for embedded server used during tests:
 {{{
-	    <!-- HornetQ Client -->
-	    <dependency>
-	        <groupId>org.hornetq</groupId>
-	        <artifactId>hornetq-core-client</artifactId>
-	        <version>${hornetq.version}</version>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.hornetq</groupId>
-	        <artifactId>hornetq-jms</artifactId>
-	        <version>${hornetq.version}</version>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.jboss.netty</groupId>
-	        <artifactId>netty</artifactId>
-	        <version>${netty.version}</version>
-	    </dependency>
+<!-- HornetQ Client -->
+<dependency>
+    <groupId>org.hornetq</groupId>
+    <artifactId>hornetq-core-client</artifactId>
+    <version>${hornetq.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.hornetq</groupId>
+    <artifactId>hornetq-jms</artifactId>
+    <version>${hornetq.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.netty</groupId>
+    <artifactId>netty</artifactId>
+    <version>${netty.version}</version>
+</dependency>
 	
-	    <!-- HornetQ Embedded Server -->
-	    <dependency>
-	        <groupId>org.hornetq</groupId>
-	        <artifactId>hornetq-spring-integration</artifactId>
-	        <version>${hornetq.version}</version>
-	        <scope>test</scope>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.hornetq</groupId>
-	        <artifactId>hornetq-core</artifactId>
-	        <version>${hornetq.version}</version>
-	        <scope>test</scope>
-	    </dependency>  
+<!-- HornetQ Embedded Server -->
+<dependency>
+    <groupId>org.hornetq</groupId>
+    <artifactId>hornetq-spring-integration</artifactId>
+    <version>${hornetq.version}</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.hornetq</groupId>
+    <artifactId>hornetq-core</artifactId>
+    <version>${hornetq.version}</version>
+    <scope>test</scope>
+</dependency>  
 }}}
 
  * Add HornetQ specific properties to the property-file, */ic/src/main/resources/ic-config.properties*
