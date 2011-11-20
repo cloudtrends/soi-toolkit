@@ -135,13 +135,12 @@ SOITOOLKIT_MULE_HORNETQ_PORT=5445
 	}
 }}}
 
-Now run the integration-tests again with HornetQ as JMS provider.
+ Now run the integration-tests again with HornetQ as JMS provider.
 
-*NOTE*: The happay-days test will pass ok but the negative test will fail since we not yet has configured HornetQ for retry and deadletter queue handling!
+*NOTE*: The happay-days test will pass ok but the negative test will fail since we not yet have configured HornetQ for retry and deadletter queue handling!
 
  * Update mule config files to use HornetQ 
-Change the config.xml - files that the mule server, {{{IcMuleServer.java}}}, e.g. {{{ic5-teststubs-and-services-config.}}} to use external HornetQ instead of ActiveMQ:
-
+ Change the config.xml - files that the mule server, {{{IcMuleServer.java}}}, e.g. {{{ic5-teststubs-and-services-config.}}} to use external HornetQ instead of ActiveMQ:
 {{{
 <!-- 
         <spring:import resource="classpath:soitoolkit-mule-jms-connector-activemq-external.xml"/>
@@ -149,15 +148,17 @@ Change the config.xml - files that the mule server, {{{IcMuleServer.java}}}, e.g
         <spring:import resource="classpath:soitoolkit-mule-jms-connector-hornetq-external.xml"/>
 }}}
 
-* Copy queue definitions to the externa HornetQ definition
-  Copy queues from {{{src/main/resources/hornetq-jms.xml}}} to {{{HORNET_HOME/config/stand-alone/non-clustered/hornetq-jms.xml}}}
+ * Copy queue definitions to the externa HornetQ definition
+ Copy queues from {{{src/main/resources/hornetq-jms.xml}}} to {{{HORNET_HOME/config/stand-alone/non-clustered/hornetq-jms.xml}}}
 
-* Start the externa HornetQ server
-  execute {{{hornetq-2.2.5.Final/bin/run.sh}}}
+ * Start the externa HornetQ server
+ Execute {{{hornetq-2.2.5.Final/bin/run.sh}}}
 
-* Start Mule
+ * Start Mule
 {{{
 mvn -PmuleServer
 }}}
 
-* Place a message on the in queue and ensure that it is processed correctly...
+ * Place a message on the in queue and ensure that it is processed correctly...
+
+*NOTE*: If you place a poisoned message on the inqueue the expected error handling will not happen since we not yet have configured HornetQ for retry and deadletter queue handling!
