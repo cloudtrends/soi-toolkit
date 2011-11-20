@@ -141,7 +141,9 @@ SOITOOLKIT_MULE_HORNETQ_PORT=5445
 }}}
 
  * Run the integration-tests again, but now with HornetQ as JMS provider.
-
+{{{
+mvn install
+}}}
 *PROBLEM*: The happay-days test will pass ok but the negative test will fail since we not yet have configured HornetQ for retry and deadletter queue handling!
 
  * Update mule config files to use HornetQ 
