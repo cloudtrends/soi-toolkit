@@ -140,6 +140,8 @@ SOITOOLKIT_MULE_HORNETQ_PORT=5445
 	}
 }}}
 
+ * Replace "new ActiveMqJmsTestUtil()" with "new HornetQJmsTestUtil()" in the doSetUpJms() method in the integration test class.
+
  * Run the integration-tests again, but now with HornetQ as JMS provider.
 {{{
 mvn install
