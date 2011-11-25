@@ -94,6 +94,16 @@ SOITOOLKIT_MULE_HORNETQ_HOST=localhost
 SOITOOLKIT_MULE_HORNETQ_PORT=5445
 }}}
 
+ * Change the name of the DLQ-queue in the property-file, */ic/src/main/resources/ic-config.properties*
+from:
+{{{
+MYSAMPLE_DL_QUEUE=DLQ.IC6.MYSAMPLE.IN.QUEUE
+}}}
+to:
+{{{
+MYSAMPLE_DL_QUEUE=DLQ
+}}}
+
 
  * Add the file *hornetq-jms.xml* to *src/main/resources*
  Unlike ActiveMQ HornetQ requires a configuration file that declare what JMS queues that is shall provide.
