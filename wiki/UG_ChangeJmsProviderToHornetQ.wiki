@@ -150,7 +150,21 @@ MYSAMPLE_DL_QUEUE=DLQ
 	}
 }}}
 
- * Replace "new ActiveMqJmsTestUtil()" with "new HornetQJmsTestUtil()" in the doSetUpJms() method in the integration test class.
+ * In the integration test class replace "{{{new ActiveMqJmsTestUtil()}}}" with "{{{new HornetQJmsTestUtil()}}}" in the {{{doSetUpJms()}}} method.
+
+ * In the integration test class change the negative test testMySample_transformationError() method.
+ from:
+{{{
+        // Verify that the message is still on the in-queue and now marked for redelivery
+        List<Message> inMsgs = jmsUtil.browseMessagesOnQueue(IN_QUEUE);
+        assertEquals(1, inMsgs.size());
+}}}
+ to:
+{{{
+        // Verify that the message is still on the in-queue and now marked for redelivery
+        assertEquals(1, jmsUtil.getNoOfMsgsIncludingPendingForRetry(IN_QUEUE));
+}}}
+
 
  * Run the integration-tests again, but now with HornetQ as JMS provider.
 {{{
@@ -159,7 +173,7 @@ mvn install
 *PROBLEM*: The happay-days test will pass ok but the negative test will fail since we not yet have configured HornetQ for retry and deadletter queue handling!
 
  * Update mule config files to use HornetQ 
- Change the config.xml - files that the mule server, {{{IcMuleServer.java}}}, e.g. {{{ic-teststubs-and-services-config.}}} to use external HornetQ instead of ActiveMQ:
+ Change the config.xml - files that the mule server, {{{IcMuleServer.java}}}, e.g. {{{ic-teststubs-and-services-config.xml}}} to use external HornetQ instead of ActiveMQ:
 {{{
 <!-- 
         <spring:import resource="classpath:soitoolkit-mule-jms-connector-activemq-external.xml"/>
@@ -169,6 +183,21 @@ mvn install
 
  * Copy queue definitions to the externa HornetQ definition
  Copy queues from {{{src/main/resources/hornetq-jms.xml}}} to {{{HORNET_HOME/config/stand-alone/non-clustered/hornetq-jms.xml}}}
+
+ * Config the external HornetQ serve for redelivery
+ Ensure that the a configuration similar to the following is part of the file {{{HORNET_HOME/config/stand-alone/non-clustered/hornetq-configuration.xml}}}.
+ Should be placed in the end of the config-file:
+{{{
+<address-settings>
+  <address-setting match="#">
+	<dead-letter-address>jms.queue.DLQ</dead-letter-address>
+	<max-delivery-attempts>4</max-delivery-attempts>
+	<redelivery-delay>500</redelivery-delay>
+  </address-setting>
+</address-settings>
+
+<message-counter-enabled>true</message-counter-enabled>
+}}}
 
  * Start the externa HornetQ server
 {{{
