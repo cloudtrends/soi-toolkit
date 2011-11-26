@@ -170,7 +170,6 @@ MYSAMPLE_DL_QUEUE=DLQ
 {{{
 mvn install
 }}}
-*PROBLEM*: The happay-days test will pass ok but the negative test will fail since we not yet have configured HornetQ for retry and deadletter queue handling!
 
  * Update mule config files to use HornetQ 
  Change the config.xml - files that the mule server, {{{IcMuleServer.java}}}, e.g. {{{ic-teststubs-and-services-config.xml}}} to use external HornetQ instead of ActiveMQ:
@@ -210,5 +209,3 @@ mvn -PmuleServer
 }}}
 
  * Place a message on the in queue and ensure that it is processed correctly...
-
-*PROBLEM*: If you place a poisoned message on the inqueue the expected error handling will not happen since we not yet have configured HornetQ for retry and deadletter queue handling!
