@@ -1,0 +1,65 @@
+#summary User Guidelines - Property file configuration and usage.
+#sidebar UG_SideBar
+
+= Property file configuration and usage =
+
+_*Since: 0.5.0*_
+
+*Content*
+<wiki:toc max_depth="3" />
+
+
+== Default values ==
+TODO: describe use of defaults with tests and portability of tests.
+
+== Override default values ==
+TODO: describe use of ${artifactId}-config-override.properties
+
+
+== Encrypted passwords ==
+Passwords in the property file can be encrypted using [http://www.jasypt.org jasypt].
+
+*High level description for using encrypted passwords*
+# Select a _master password_ to use for encryption/decryption of passwords in the property file
+# Encrypt passwords for the property file using the _master password_ and the jasypt command line tool
+# Write the encrypted passwords in the property file
+# Configure the Mule-server environment with the _master password_ (to allow for runtime decryption of passwords from the property file)
+
+*Detailed description for using encrypted passwords*
+# Select _master password_, example: MY_SECRET_MASTER_PASSWORD
+# Encrypt a password
+  # Download jasypt command line tools http://www.jasypt.org/download.html
+  # Unzip the jasypt-distribution
+  # Encrypt a password:
+{{{
+bin $ cd /opt/sf/jasypt-1.8/bin
+bin $ ./encrypt.sh input="PASSWORD_TO_ENCRYPT_FOR_PROPERTY_FILE" password=MY_SECRET_MASTER_PASSWORD
+
+----ENVIRONMENT-----------------
+
+Runtime: Apple Inc. Java HotSpot(TM) 64-Bit Server VM 20.4-b02-402 
+
+----ARGUMENTS-------------------
+
+input: PASSWORD_TO_ENCRYPT_FOR_PROPERTY_FILE
+password: MY_SECRET_MASTER_PASSWORD
+
+----OUTPUT----------------------
+
+Sc2JJ0XmftcDg2472aXVrVtj6pq23eevHFRplV/WYgynlUhLRpF8n9yiH+6q70gn
+
+}}}
+# Write the encrypted password (i.e. the value after OUTPUT in the previous step) in the property file. Note the syntax with: ENC(encrypted-password)
+{{{
+MY_DATABASE_PASSWORD=ENC(Sc2JJ0XmftcDg2472aXVrVtj6pq23eevHFRplV/WYgynlUhLRpF8n9yiH+6q70gn)
+}}}
+# Configure the Mule-server environment with the _master password_:
+  # For Mule standalone, edit $MULE_HOME/conf/wrapper.conf, add:
+  {{{
+  set.SOITOOLKIT_ENCRYPTION_PASSWORD=MY_SECRET_MASTER_PASSWORD
+  }}}
+  Ref: http://wrapper.tanukisoftware.com/doc/english/props-envvars.html
+
+Note: encrypted passwords should only be used in the ${artifactId}-config-override.properties file to avoid exposing the _master password_. Anyway, to test usage of encrypted passwords when running Mule from Eclipse or Maven you can:
+# For running tests in eclipse, open "Run configurations" for the junit-testsuite and add environment variable SOITOOLKIT_ENCRYPTION_PASSWORD=MY_SECRET_MASTER_PASSWORD
+# For running tests with maven: export SOITOOLKIT_ENCRYPTION_PASSWORD=MY_SECRET_MASTER_PASSWORD and then run your desired Maven-goal. Use "set" instead of "export" on Windows.
