@@ -50,10 +50,12 @@ password: MY_SECRET_MASTER_PASSWORD
 
 Sc2JJ0XmftcDg2472aXVrVtj6pq23eevHFRplV/WYgynlUhLRpF8n9yiH+6q70gn
 
-}}}# Write the encrypted password (i.e. the value after OUTPUT in the previous step) in the property file. Note the syntax with: ENC(encrypted-password)
+}}}
+# Write the encrypted password (i.e. the value after OUTPUT in the previous step) in the property file. Note the syntax with: ENC(encrypted-password)
 {{{
 MY_DATABASE_PASSWORD=ENC(Sc2JJ0XmftcDg2472aXVrVtj6pq23eevHFRplV/WYgynlUhLRpF8n9yiH+6q70gn)
-}}}# Configure the Mule-server environment with the _master password_:
+}}}
+# Configure the Mule-server environment with the _master password_:
   # For Mule standalone, edit $MULE_HOME/conf/wrapper.conf, add:
   {{{
   set.SOITOOLKIT_ENCRYPTION_PASSWORD=MY_SECRET_MASTER_PASSWORD
