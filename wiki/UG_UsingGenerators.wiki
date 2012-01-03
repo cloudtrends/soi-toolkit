@@ -21,6 +21,7 @@ For information on how to use the _*Maven Goals*_ from the command prompt, read 
  * [UG_UsingGenerator_genSDC Generate a Service Description Component] 
  * [UG_UsingGenerator_genIC Generate an Integration Component] 
  * [UG_UsingGenerator_genService Generate a Service]
+ * [UG_UsingGenerator_genICTS Generate a Teststub Integration Component]
 
 === Setup ===
 To be able to run the generators from the command prompt you only need Java SE and Maven to be installed (as describen in the [InstallationGuide Installation Guide]).
