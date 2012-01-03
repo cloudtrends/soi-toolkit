@@ -29,7 +29,8 @@ The instructions below will evolve over time to support all phases.
 
 === Development and Maintenance ===
  * [UG_UsingGenerators Using the source code generators]
- * [UG_PropertyFile Property file configuration and usage (Since v0.5.0)] 
+ * [UG_PropertyFile Property file configuration and usage (Since v0.5.0)]
+ * [UG_IntegrationTesting Integration testing]
  * [UG_CustomizeLogging Customizing the log-mechanism (Experimental since v0.4.1)]
  * [UG_ChangeJmsProviderToHornetQ Change JMS provider to HornetQ (Since v0.5.0)]
 
