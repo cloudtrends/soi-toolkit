@@ -28,22 +28,21 @@ SFTPTOSFTP1_ARCHIVE_FOLDER=target/soitoolkit/archive/sftptosftp1
 Property values that are specific for test/production environments are configured by following these steps:
 
   # Override property values with an override-file
-  Override values in
-  the file:
-  {{{
-  ${artifactId}-config.properties
-  }}}
-  with values in a file named (you have to create this file):
-  {{{
-  ${artifactId}-config-override.properties
-  }}}
-  and placing the override file on the classpath.
-  *Note:* The override file should not be added to source-control as part of the classpath for an integration-component since the override file would then be used integration tests are run - and probably causing the tests to fail.
+    Override values in the file:
+    {{{
+    ${artifactId}-config.properties
+    }}}
+    with values in a file named (you have to create this file):
+    {{{
+    ${artifactId}-config-override.properties
+    }}}
+    and placing the override file on the classpath.
+    *Note:* The override file should not be added to source-control as part of the classpath for an integration-component since the override file would then be used integration tests are run - and probably causing the tests to fail.
   # Placing the override-file on the classpath
-  For a standalone Mule-installation, put the override-file in the $MULE_HOME/conf directory
+    For a standalone Mule-installation, put the override-file in the $MULE_HOME/conf directory
   # Adding encrypted property values
-  The override-file is typically where encrypted values (se next section) are used.
-  *Note:* Encrypted values should be avoided in the default property values since decryption requires some environment setup for integration tests to run.
+    The override-file is typically where encrypted values (se next section) are used.
+    *Note:* Encrypted values should be avoided in the default property values since decryption requires some environment setup for integration tests to run.
 
 
 == Encrypted passwords ==
