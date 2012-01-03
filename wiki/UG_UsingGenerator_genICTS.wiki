@@ -1,0 +1,21 @@
+#summary How to generate a Teststub Integration Component using Maven
+#sidebar UG_SideBar
+
+=Generate an Teststub Integration Component using Maven=
+
+*Content*
+<wiki:toc max_depth="2" />
+
+= Introduction =
+Read more on [Teststub components|Architecture#Test_Driven_Development].
+
+
+The generator can be launched with the command: 
+
+{{{
+mvn soitoolkit-generator:genICTS -DartifactId=myic -DgroupId=org.myorg.myic
+}}}
+
+where:
+ * artifactId  is the artifactId of the integration component (IC) to generate a teststub for, the generated teststub-component will get an artifactId: ${artifactId}-teststub
+ * groupId is the groupId of the IC to generate a teststub for, the generated teststub-component will get the same groupId
