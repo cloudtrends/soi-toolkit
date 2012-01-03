@@ -122,12 +122,13 @@ mvn release:clean release:prepare -Darguments="-Dgpg.passphrase=nnn"
 mvn release:perform
 }}}
 
- * Deploy other mule-version-dependency files to staging repository
+ * Deploy other mule-version-dependency files + populate repo script to staging repository
  {{{
  cd ../tags
  svn update
  cd soitoolkit-n.n.n
- mvn deploy -f commons/poms/mule-dependencies/mule-3.1.1-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.2.0-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f tools/soitoolkit-populate-local-maven-repo/pom.xml -Psonatype-oss-release
  cd ../../trunk
  }}}
 
