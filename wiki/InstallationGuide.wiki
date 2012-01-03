@@ -253,7 +253,7 @@ To update the Soi-toolkit Eclipse plugin do the following:
 [InstallationGuideRuntime See the following installation instructions].
 
 
-=Downloading dependencies=
+=Downloading Maven dependencies=
 _*Since: 0.5.0*_
 <br>There is a maven-script that downloads all necessary dependencies for a version of Soi-toolkit:
   # Download the script for the version of Soi-toolkit you will use from:
