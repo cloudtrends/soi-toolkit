@@ -16,7 +16,7 @@ ${artifactId}-config.properties
 }}}
 should always be configured with values that make integration tests portable between users/hosts/operating systems. In other words: user specific credentials or absolute file paths should not be used.
 
-Example: use a relative file path to keep integration test portable:
+*Example:* use a relative file path to keep integration test portable:
 {{{
 SFTPTOSFTP1_ARCHIVE_FOLDER=target/soitoolkit/archive/sftptosftp1
 }}}
@@ -38,13 +38,13 @@ Property values that are specific for test/production environments are configure
     }}}
     and place the override file on the classpath.
     
-    *Note:* The override file should not be added to source-control as part of the classpath for an integration-component since the override file would then be used integration tests are run - and probably causing the tests to fail.
+    Note: The override file should not be added to source-control as part of the classpath for an integration-component since the override file would then be used integration tests are run - and probably causing the tests to fail.
   # Placing the override-file on the classpath
     For a standalone Mule-installation, put the override-file in the $MULE_HOME/conf directory
   # Adding encrypted property values
-    The override-file is typically where encrypted values (se [next section|Encrypted passwords]) are used.
+    The override-file is typically where encrypted values (see [next section|Encrypted_passwords]) are used.
     
-    *Note:* Encrypted values should be avoided in the default property values since decryption requires some environment setup for integration tests to run.
+    Note: Encrypted values should be avoided in the default property values since decryption requires some environment setup for integration tests to run.
 
 
 == Encrypted passwords ==
