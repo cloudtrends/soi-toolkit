@@ -1,0 +1,15 @@
+#summary User Guidelines - Integration testing.
+#sidebar UG_SideBar
+
+= Integration testing =
+
+*Content*
+<wiki:toc max_depth="3" />
+
+
+== Setting test timeout ==
+If an integration test times out too soon (typically if you are debugging) you can override the default time out by setting:
+{{{
+-Dmule.test.timeoutSecs=XX
+}}}
+in your environment.
