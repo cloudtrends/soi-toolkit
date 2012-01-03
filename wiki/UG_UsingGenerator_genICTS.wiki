@@ -7,7 +7,7 @@
 <wiki:toc max_depth="2" />
 
 = Introduction =
-Read more on [Teststub components|Architecture#Test_Driven_Development].
+Read more on [Architecture#Test_Driven_Development Teststub components].
 
 
 The generator can be launched with the command: 
