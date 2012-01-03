@@ -15,6 +15,7 @@ Property values in the file:
 ${artifactId}-config.properties
 }}}
 should always be configured with values that make integration tests portable between users/hosts/operating systems. In other words: user specific credentials or absolute file paths should not be used.
+
 Example: use a relative file path to keep integration test portable:
 {{{
 SFTPTOSFTP1_ARCHIVE_FOLDER=target/soitoolkit/archive/sftptosftp1
@@ -25,6 +26,7 @@ SFTPTOSFTP1_ARCHIVE_FOLDER=target/soitoolkit/archive/sftptosftp1
 
 == Override default values ==
 Property values that are specific for test/production environments are configured by following these steps:
+
 # Override property values with an override-file
   Override values in
   the file:
