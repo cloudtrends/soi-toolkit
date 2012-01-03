@@ -251,3 +251,28 @@ To update the Soi-toolkit Eclipse plugin do the following:
 
 =Installing Run time products=
 [InstallationGuideRuntime See the following installation instructions].
+
+
+=Downloading dependencies=
+_*Since: 0.5.0*_
+There is a maven-script that downloads all necessary dependencies for a version of Soi-toolkit:
+  # Download the script for the version of Soi-toolkit you will use from:
+    http://search.maven.org/#search|ga|1|soitoolkit-populate-local-maven-repo
+    
+    <br>Note: groupId: org.soitoolkit.tools, artifactId: soitoolkit-populate-local-maven-repo
+
+  # Put the script in an empty tmp-dir, for example C:\temp\poprepo, and run the script:
+    {{{
+    cd poprepo
+    mvn install
+    }}}
+    to download dependencies with the default Mule-version for the used Soi-toolkit version.
+    <br>To specify a Mule-version use the "muleVersion" argument like:
+    {{{
+    mvn install -DmuleVersion=3.2.1
+    }}}
+    
+*Note:* if dependencies can not be resolved/downloaded, it may be because your organization is using a Maven repository manager that does not mirror all required repositories.
+  * Verify if that is the case by temporary renaming your $USER_HOME/.m2/settings.xml to $USER_HOME/.m2/settings.xml.nop and re-run the script.
+  * The Maven mirror configuration may alternatively have been entered in: $MAVEN_HOME/conf/settings.xml in which case you need comment out the mirror-settings and test by re-running the script.
+  * *IF* your Maven repository manager does not mirror necessary repositories, you need to configure the repository manager.
