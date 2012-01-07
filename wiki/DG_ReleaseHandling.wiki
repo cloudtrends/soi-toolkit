@@ -205,8 +205,8 @@ This is currently done manually, mostly since the Eclipse-projects are not yet b
 
  * Open a new workspace and import plugin, feature and update project
  * Perform a maven import of the generator-project
- * Edit soi_toolkit_generator_plugin_default_preferences.properties and remove the default values for root_folder and maven_home
-  * the existing default values are adopted to fit jenkin buidls on cloudbees
+ * Edit soi_toolkit_generator_plugin_default_preferences.properties and remove the default value for the root_folder
+  * Note: the existing default value is adopted to fit jenkin builds on cloudbees
  * Build generator-project
  * Copy generator-jar to plugin/lib - folder
  * Copy xml-commons-jar from local maven repo as well to the plugin/lib - folder
