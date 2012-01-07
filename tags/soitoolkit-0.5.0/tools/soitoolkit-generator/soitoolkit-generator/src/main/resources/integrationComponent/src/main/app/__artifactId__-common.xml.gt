@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mule 
+${xmlNamespace.common}
+
+  <!-- Load property files in three steps... -->
+  
+  <!-- 1. Support for decrypting encrypted properties.
+       The encryption password will be read from an environment variable
+       called "SOITOOLKIT_ENCRYPTION_PASSWORD" which, once
+       the application has been started, could be safely unset. -->
+  <spring:bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+    <spring:property name="algorithm" value="PBEWithMD5AndDES"/>
+    <spring:property name="passwordEnvName" value="SOITOOLKIT_ENCRYPTION_PASSWORD"/>
+  </spring:bean>
+  
+  
+  <!-- 2. Support for decrypting encrypted properties -->
+  <spring:bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+    <spring:property name="config" ref="environmentVariablesConfiguration"/>
+  </spring:bean>
+  
+  
+  <!-- 3. Replacement for org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
+       that supports decrypting encrypted property values -->
+  <spring:bean id="propertyConfigurer" class="org.jasypt.spring.properties.EncryptablePropertyPlaceholderConfigurer">
+    <spring:constructor-arg ref="configurationEncryptor"/>
+    <spring:property name="ignoreResourceNotFound" value="true"/>
+    <spring:property name="locations">
+      <spring:list>
+        <spring:value>classpath:${configPropertyFile}.properties</spring:value>
+        <spring:value>classpath:${configPropertyFile}-override.properties</spring:value>
+      </spring:list>
+    </spring:property>
+  </spring:bean>
+
+<!-- 
+    <management:jmx-default-config port="${dollarSymbol}{JMX_PORT}" registerMx4jAdapter="false" >
+        <management:credentials>
+            <spring:entry key="${dollarSymbol}{JMX_USER}" value="${dollarSymbol}{JMX_PWD}"/>
+        </management:credentials>
+    </management:jmx-default-config> 
+ -->
+
+<% if (sftp) { %>
+    <!-- Enable sftp-listener to publish sftp-events. Requires the SftpDummyEndpointMessageNotificationListenerImpl to work... -->
+    <spring:bean name="sftpTransportNotificationLogger" class="org.soitoolkit.commons.mule.sftp.SftpTransportNotificationListenerImpl"/>
+<!-- Temporary removed due to http://code.google.com/p/soi-toolkit/issues/detail?id=181
+    <spring:bean name="endpointMessageNotificationLogger" class="org.soitoolkit.commons.mule.sftp.SftpDummyEndpointMessageNotificationListenerImpl"/>
+-->
+    <notifications>
+        <notification event="ENDPOINT-MESSAGE"/>
+        <notification event="CUSTOM"/>
+        <notification-listener ref="sftpTransportNotificationLogger"/>
+<!-- Temporary removed due to http://code.google.com/p/soi-toolkit/issues/detail?id=181
+        <notification-listener ref="endpointMessageNotificationLogger"/>
+-->
+    </notifications>
+<% } %>  
+
+    <!-- Common connectors and endpoints, i.e. that not needs to be changed for different config-files (local unit-test, integration-test or production environments) -->
+<% if (servlet) { %>
+	<servlet:connector name="servletConnector" />
+<% } %>  
+
+<% if (false) { %>
+    <!-- We don't use these global endpoint for the moment but maybe we will again in the future so we keep the code fragments -->
+	<endpoint name="soitoolkit-info-log-endpoint" address="vm://soitoolkit-info-log">
+		<jms:transaction action="NONE" />
+	</endpoint>
+	<endpoint name="soitoolkit-error-log-endpoint" address="vm://soitoolkit-error-log">
+		<jms:transaction action="NONE" />
+	</endpoint>
+<% } %>  
+
+<% if (pop3) { %>
+	<pop3:connector name="pop3Connector" checkFrequency="${dollarSymbol}{POP3_CHECK_FREQUENCY_MS}"/>
+<% } %>  
+
+<% if (imap) { %>
+	<imap:connector name="imapConnector" deleteReadMessages="true" checkFrequency="${dollarSymbol}{IMAP_CHECK_FREQUENCY_MS}"/>
+<% } %>  
+
+    <rest:config />
+
+    <spring:beans>
+<% if (false) { %>
+        <!-- the SFTP-connector is now imported in the top-level config-file, but is kept here as an example -->
+        <spring:import resource="classpath:soitoolkit-mule-sftp-connector.xml"/>
+<% } %>  
+    </spring:beans>
+
+    <message-properties-transformer name="setJsonContentType" scope="outbound">
+        <add-message-property key="Content-Type" value="application/json;charset=UTF-8"/>
+    </message-properties-transformer>
+ 
+    <json:object-to-json-transformer name="jaxbToJson" />
+
+	<custom-transformer name="objToStr" class="org.soitoolkit.commons.mule.core.ObjectToStringTransformer"/>
+
+	<custom-transformer name="createCorrId"  class="org.soitoolkit.commons.mule.log.correlationid.CreateCorrelationIdTransformer" />
+	<custom-transformer name="saveCorrId"    class="org.soitoolkit.commons.mule.log.correlationid.SaveCorrelationIdTransformer" />
+	<custom-transformer name="restoreCorrId" class="org.soitoolkit.commons.mule.log.correlationid.RestoreCorrelationIdTransformer" />
+
+	<custom-transformer name="objToXml" class="org.soitoolkit.commons.mule.jaxb.JaxbObjectToXmlTransformer">
+		<spring:property name="contextPath"  value="
+			"/>
+	</custom-transformer>
+
+	<custom-transformer name="xmlToObj" class="org.soitoolkit.commons.mule.jaxb.XmlToJaxbObjectTransformer">
+		<spring:property name="contextPath"  value="
+			"/>
+	</custom-transformer>
+
+    <custom-transformer name="createSoapFaultIfException" class="org.soitoolkit.commons.mule.soap.CreateSoapFaultIfExceptionTransformer"/>
+
+	<custom-transformer name="mimeToStr" class="org.soitoolkit.commons.mule.mime.MimeToStringTransformer" />
+
+    <custom-transformer name="logMsgIn" class="org.soitoolkit.commons.mule.log.LogTransformer">
+		<spring:property name="logType"  value="msg-in"/>
+		<spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer name="logMsgOut" class="org.soitoolkit.commons.mule.log.LogTransformer">
+		<spring:property name="logType"  value="msg-out"/>
+		<spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer name="logReqIn" class="org.soitoolkit.commons.mule.log.LogTransformer">
+		<spring:property name="logType"  value="req-in"/>
+		<spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer name="logReqOut" class="org.soitoolkit.commons.mule.log.LogTransformer">
+		<spring:property name="logType"  value="req-out"/>
+		<spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer name="logRespIn" class="org.soitoolkit.commons.mule.log.LogTransformer">
+		<spring:property name="logType"  value="resp-in"/>
+		<spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>
+
+    <custom-transformer name="logRespOut" class="org.soitoolkit.commons.mule.log.LogTransformer">
+		<spring:property name="logType"  value="resp-out"/>
+		<spring:property name="jaxbObjectToXml"  ref="objToXml"/>
+    </custom-transformer>  
+
+    <!-- TODO: Add global definitions here -->
+
+</mule>
