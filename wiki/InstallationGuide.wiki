@@ -102,7 +102,11 @@ Install Eclipse according to the following instructions:
 ==Soi-toolkit Eclipse plugin==
 
 If you want to be able to start the soi-toolkit source code generators from within Eclipse you should install this Eclipse plugin.
-*NOTE*: an alternative is to use MAven to start the source code generators, see [UG_UsingGenerators Using the source code generators].
+
+*NOTE #1*: an alternative is to use Maven to start the source code generators, see [UG_UsingGenerators Using the source code generators].
+
+*NOTE #2*: Since soi-toolkit v0.5.0 the eclipse plugin is distributed as a downloadable zip'ed update site.
+Download the zip file from http://soi-toolkit.googlecode.com/svn/eclipse-update-site/soitoolkit-eclipse-plugin-0.5.0.zip and unzip it to a local folder. In the instructions below point to the update site in the local folder instead of the update site in the url below.
 
  * Select in the Eclipse menu "Help --> Install New Software..."
 
