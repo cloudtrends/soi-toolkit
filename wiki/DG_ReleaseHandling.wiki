@@ -39,9 +39,10 @@ svn update
 mvn clean test
 }}}
 
- NOTE: Also run the generator-tests from within Eclipse (takes half an hour so prepare for other things to do meanwhile...)
- 
- TODO: Make it possible to run the generator-integration-tests as well from the mvn-prompt using a separate profile!
+  * Run generator tests (takes a looong time, e.g. some 30 minutes...)
+{{{
+mvn test -PrunGeneratorTests
+}}}
 
  * Use the update-tool to update soi-toolkit version to the release version in files not updated by the release plugin.
   * Update the variable "newVersion" to the new nversion, e.g. "0.4.0"
