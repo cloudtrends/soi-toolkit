@@ -203,16 +203,16 @@ Perform the following steps:
 
 This is currently done manually :-(
 
-* Open a new workspace and import commons-xml, generator, plugin, feature and update project
-* Edit soi_toolkit_generator_plugin_default_preferences.properties and remove the default values for root_folder and maven_home
- (the existing default values are adopted to fit jenkin buidls on cloudbees)
-* Build generator-project
-* Copy generator-jar and xml-jar to plugin/lib - folder
-* Perform a "build all" in the update-project 
-* Zip the update-project and call it, soitoolkit-eclipse-plugin-n.n.n.zip
-* Copy it to ...
-* Update the index.html-page
-* Commit changes
+ * Open a new workspace and import commons-xml, generator, plugin, feature and update project
+ * Edit soi_toolkit_generator_plugin_default_preferences.properties and remove the default values for root_folder and maven_home
+  * the existing default values are adopted to fit jenkin buidls on cloudbees
+ * Build generator-project
+ * Copy generator-jar and xml-jar to plugin/lib - folder
+ * Perform a "build all" in the update-project 
+ * Zip the update-project and call it, soitoolkit-eclipse-plugin-n.n.n.zip
+ * Copy it to ...
+ * Update the index.html-page
+ * Commit changes
 
 === Manually deploy the eclipse plugin - OLD STYLE ===
 
