@@ -243,20 +243,25 @@ To update the Soi-toolkit Eclipse plugin do the following:
 
  * Download the zip'ed update site from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
  * Unzip it to a local folder, we will name this folder as {local-update-site} in the instructions below.
+ * Select in the Eclipse menu "Help --> Install New Software..."
 
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation1.png
 
- * Select the Eclipse menu "Help --> Check for Updates"
- * If any update is available a dialog like the following will be displayed:
+ * Click on the link "Available Software Sites"
+ * Select "soi-toolkit update site" and click on Edit-button.
+ * Update the Location-field to point out the new {local-update-site} folder.
 
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitUpdate1.png
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitUpdate2.png
 
- * Click on the "Deselcet All" button and select only the "soi-toolkit generator feature" 
- * Click on the "Next >" button twice
- * Accept the terms of the license agreement and press the "Finish" button
-  * The plugin is now downloaded and installed.
- * Click on the "Ok" button when asked to accept unsigned content
- * Click on the "Restart Now" button when asked to restart Eclipse
- * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
+ * Click on the Ok-button twice to close the two dialogs
+ * Back in the "Install" - Dialog select the soi-toolkit update site
+ * The soi-toolkit generator should be displayed, expand it and select the new version. 
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation3.png
+
+ * Now follow the instruction from the initial installation of the plugin above.
+
+ * After the update is done open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
 
 
 =Installing Run time products=
