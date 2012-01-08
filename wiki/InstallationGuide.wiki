@@ -105,11 +105,9 @@ If you want to be able to start the soi-toolkit source code generators from with
 
 *NOTE #1*: an alternative is to use Maven to start the source code generators, see [UG_UsingGenerators Using the source code generators].
 
-*NOTE #2*: Since soi-toolkit v0.5.0 the eclipse plugin is distributed as a downloadable zip'ed update site that needs to be downloaded and unzipped to the local file system. The reason for this change is improved stability and performance during the installation and update process.
+*NOTE #2*: Since soi-toolkit v0.5.0 the eclipse plugins (also for older versions of soi-toolkit) are distributed as a downloadable zip'ed update site that needs to be downloaded and unzipped to the local file system. The reason for this change is improved stability and performance during the installation and update process.
 
- * *For soi-toolkit v0.5.0 or newer:*
-  * Download the zip'ed update site from:
-  http://soi-toolkit.googlecode.com/svn/eclipse-update-site/soitoolkit-eclipse-plugin-0.5.0.zip 
+  * Download the zip'ed update site from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
   * Unzip it to a local folder, we will name this folder as {local-update-site} in the instructions below.
 
  * Select in the Eclipse menu "Help --> Install New Software..."
@@ -117,11 +115,8 @@ If you want to be able to start the soi-toolkit source code generators from with
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation1.png
 
  * Click on the "Add..." button to add the soi-toolkit update site
-  * Enter "Soi-toolkit update site" in the name-field
-
-
-  * Enter "http://soi-toolkit.googlecode.com/svn/eclipse-update-site/" in the location field
-  NOTE: Some customers has experienced long download times using this update site (> 5min). If you experience similar problems try http://soi-toolkit.googlecode.com/svn/eclipse-update-site/soitoolkit-0.4.0 instead. Follow the resolution of this problem at [http://code.google.com/p/soi-toolkit/issues/detail?id=118 issue 118].
+  * Enter "soi-toolkit update site" in the name-field
+  * Click on the "Local..." button and point out the local folder {local-update-site}
   * Click on the "Ok" button
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation2.png
@@ -132,7 +127,6 @@ If you want to be able to start the soi-toolkit source code generators from with
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation3.png
 
- * If you want to install an older version than the latest then deselect the check box "_Select only the lastest versions of available software_" to select an older release.
  * Click on the "Next >" button
  * Click on the "Next >" button again
 
@@ -240,10 +234,17 @@ If you want to test a soap-webservice without having to write code for a test, t
 
 ==Updating the Soi-toolkit Eclipse plugin==
 
+*NOTE*: Since soi-toolkit v0.5.0 the eclipse plugins (also for older versions of soi-toolkit) are distributed as a downloadable zip'ed update site that needs to be downloaded and unzipped to the local file system. The reason for this change is improved stability and performance during the installation and update process.
+
 To update the Soi-toolkit Eclipse plugin do the following:
 
  * First write down the preference-setting you have for the existing version of the Soi-toolkit Eclipse plugin, you will have to reenter them after the upgrade
   * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
+
+ * Download the zip'ed update site from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
+ * Unzip it to a local folder, we will name this folder as {local-update-site} in the instructions below.
+
+
  * Select the Eclipse menu "Help --> Check for Updates"
  * If any update is available a dialog like the following will be displayed:
 
