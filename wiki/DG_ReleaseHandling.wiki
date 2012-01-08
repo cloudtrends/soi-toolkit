@@ -176,7 +176,7 @@ Perform the following steps:
  If something is wrong you can fix it on the release-tag in svn and perform av redeploy to the staging repo from the tag-folder using:
 {{{
  mvn deploy -Psonatype-oss-release
- mvn deploy -f commons/poms/mule-dependencies/mule-3.1.1-dependencies/pom.xml -Psonatype-oss-release
+ mvn deploy -f commons/poms/mule-dependencies/mule-3.2.0-dependencies/pom.xml -Psonatype-oss-release
 }}}
 
  NOTE: Don't forget to apply the relevant changes to trunk as well...
@@ -301,7 +301,7 @@ OLD STUFF!!!
  * Perform a local build to get the new snapshot-versions of the parent pom installed in your local repository
 {{{
 mvn clean install
-mvn clean install -f commons/poms/mule-dependencies/mule-3.1.1-dependencies/pom.xml 
+mvn clean install -f commons/poms/mule-dependencies/mule-3.2.0-dependencies/pom.xml 
 }}}
 <wiki:comment>
 {{{
