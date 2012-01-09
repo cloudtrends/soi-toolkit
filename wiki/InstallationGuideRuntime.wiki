@@ -11,7 +11,7 @@ The installation guides below assumes your on a 32 bit Microsoft Windows PC.
 
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
-||ActiveMQ||5.2.0||
+||ActiveMQ||5.5.1||
 ||Tomcat||6.0.29||
 ||Derby||10.7.1.1||
 ||Cygwin||1.7.8||
@@ -24,11 +24,11 @@ If you want to be able to perform manuel tests on your PC where JMS is involved 
 
 Follow these instructions to install ActiveMQ locally on your PC:
 
- * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2F5.2.0%2Fapache-activemq-5.2.0-bin.zip
+ * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2F5.5.1%2Fapache-activemq-5.5.1-bin.zip
 
  * Unzip to some folder, e.g. {{{C:\opt}}}
 
- * Go to the folder {{{C:\opt\apache-activemq-5.2.0\bin\win32}}} and execute the file {{{InstallService.bat}}}.
+ * Go to the folder {{{C:\opt\apache-activemq-5.5.1\bin\win32}}} and execute the file {{{InstallService.bat}}}.
 
  Active MQ is now registered as a windows service and can be started automatically when the PC is started. 
  
