@@ -275,7 +275,7 @@ _*Since: 0.5.0*_
     http://search.maven.org/#search|ga|1|soitoolkit-populate-local-maven-repo
     <br>Note: groupId: org.soitoolkit.tools, artifactId: soitoolkit-populate-local-maven-repo
     <br>
-    <br>Save the script as *pom.xml*.
+    <br>Save the script as *pom.xml*
     <br>
   # Put the script in an empty tmp-dir, for example C:\temp\poprepo, and run the script:
     {{{
