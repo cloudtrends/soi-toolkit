@@ -20,10 +20,12 @@ The following versions (or newer) are recommended:
 = Installation instructions =
 
 ==Installing Apache ActiveMQ==
+
 If you want to be able to perform manuel tests on your PC where JMS is involved it could be a good idea to run these tests with a external JMS provider, i.e. not a JMS provider that is embedded in Mule (as it is when you run unit tests).
 
 Follow these instructions to install ActiveMQ locally on your PC:
 
+===On Windows===
  * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2F5.5.1%2Fapache-activemq-5.5.1-bin.zip
 
  * Unzip to some folder, e.g. {{{C:\opt}}}
@@ -34,8 +36,18 @@ Follow these instructions to install ActiveMQ locally on your PC:
  
  NOTE: If you prefer to start ActiveMQ manually you can find start script (activemq.bat) in the bin-folder.
 
- Verify that ActiveMQ is running after the installation and start its windows service if not by:
+ Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
 
+
+===On Unix & Linux===
+ * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2F5.5.1%2Fapache-activemq-5.5.1-bin.tar.gz
+
+ * Unpack to some folder
+
+ * Go to the sub folder {{{apache-activemq-5.5.1/bin}}} and execute the command {{{activemq console}}}.
+  * Note: On Mac OS X go to the sub folder {{{apache-activemq-5.5.1/bin/macosx}}} and execute the command {{{activemq console}}}.
+
+===Verify the installation===
  Open the url http://localhost:8161/admin/index.jsp in a web browser.
 
  A page like the following should now be displayed:
