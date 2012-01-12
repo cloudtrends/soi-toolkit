@@ -44,8 +44,8 @@ Follow these instructions to install ActiveMQ locally on your PC:
 
  * Unpack to some folder
 
- * Go to the sub folder {{{apache-activemq-5.5.1/bin}}} and execute the command {{{activemq console}}}.
-  * Note: On Mac OS X go to the sub folder {{{apache-activemq-5.5.1/bin/macosx}}} and execute the command {{{activemq console}}}.
+ * Go to the sub folder {{{apache-activemq-5.5.1/bin}}} and execute the command: {{{activemq console}}}.
+  * *Note:* On Mac OS X go to the sub folder {{{apache-activemq-5.5.1/bin/macosx}}} and execute the command: {{{activemq console}}}.
 
 ===Verify the installation===
  Open the url http://localhost:8161/admin/index.jsp in a web browser.
