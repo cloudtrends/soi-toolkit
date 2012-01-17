@@ -146,7 +146,6 @@ If you want to be able to start the soi-toolkit source code generators from with
  * Configure the plugin by open Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
   * Specify the folder where you have Maven installed in the field "*_Maven home folder_*"
   * Specify the default folder where the generator should create files in the field "*_Default root folder_*"
-  * If you don't have the file specified in the field "*_SFTP identity file for PKI_*" empty that field or update it to point at your identity file
   * You can leave the rest of the fields as they are.
   * Click on the "*_OK_*" button to conclude the configuration.
 
