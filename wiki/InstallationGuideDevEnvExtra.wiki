@@ -9,6 +9,10 @@
 
 This page describes extra and/or outdated development tools that also can be used with soi-toolkit.
 
+For not so experienced Maven users it is also strongly recommended to install the Maven Eclipse plugin for a very simple and transparent integration with Maven inside Eclipse.
+We also recommend using the Subversive Eclipse plugin for a smooth integration with Subversion (if used) inside Eclipse, see section [#Recommended_installations  Recommended installations].
+
+
 The installation guides below assumes your on a 32 bit Microsoft Windows PC.
 
 The following versions (or newer) are recommended:
