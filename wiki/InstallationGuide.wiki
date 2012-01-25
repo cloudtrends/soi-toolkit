@@ -21,12 +21,9 @@ The installation guides below assumes your on a 32 bit Microsoft Windows PC.
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
 ||Java SE||6 Update 26||
-||Maven||2.2.1||
+||Maven||2.2.1 or 3.0.3||
 ||Eclipse EE||3.6.2 (Helios)||
-||Soi-toolkit plugin for Eclipse||0.4.1||
-||Maven plugin for Eclipse||0.10.0||
-||Subversive plugin for Subversion||0.7.9||
-||Subversive SVN Connectors||2.2.2||
+||Soi-toolkit plugin for Eclipse||0.5.0||
 ||soapUI||3.6.1||
 
 *Note:* Older version such as Java SE 5 and Eclipse 3.4, 3.5 should work without any problem (even though we don't test against these versions), but we strongly recommend using Maven 2.2.1 or newer since some older versions of Maven are known to produce incorrect GPG signatures and checksums .
