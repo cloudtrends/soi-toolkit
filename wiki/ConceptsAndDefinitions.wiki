@@ -112,8 +112,6 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.p
    * Zero, one or meny Fault messages
   * One-way and publish/subscribe services only define one type of message, the request message type.
 
- * _Integration Scenarios_ describes a number of cooperating services (by relating to the involved contracts) that for examples implements a business process or some other interaction between a number of software components.
-
  * _Integration Scenario_ groups a number of cooperating services (by relating to the involved contracts) that combined implements for example a business process or other interaction between a number of software components. The motivation for creating a sequence is typically a need for tracking progress and measurements on an aggregated level (and not only on the individual services) 
 
  * _Domains_ can be used to group services that are logically related to each other
