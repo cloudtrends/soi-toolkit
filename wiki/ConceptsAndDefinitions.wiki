@@ -13,7 +13,7 @@ The page is divided in the following sections:
  * *Definitions*
   * *Core Concepts*, describes some core concepts such as producer, consumer and messages.
   * *Exchange Patterns*, describes in what styles consumers and producers can exchange messages.
-  * *Message Flows*, describes how exchange patterns can be combines into larger interaction when more than one producer and consumer is involved.
+  * *Integration Scenarios*, describes how exchange patterns can be combines into larger interaction when more than one producer and consumer is involved.
  * *Service Model*, describes a meta-model that can be used to describe a landscape of producers and consumers and how they exchange messages using services.
 
 = Definitions =
@@ -80,16 +80,16 @@ The master publish changes to subscribers in a asynchronous fashion very similar
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-PublishSubscribe.png
 
-== Message Flow ==
+== Integration Scenario ==
 
-The exchange patterns described above can be combined into a _message flow_ to involve a number of software components to meet business demands, e.g. to fulfill a business process. 
+The exchange patterns described above can be combined into a _integration scenario_ to involve a number of software components to meet business demands, e.g. to fulfill a business process. 
 
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/MessageFlow.png
 
 = Service Model =
 
-Once the use of services grows (i.e. the number of consumers and producers) in the system landscape it becomes more and more important to be able to describe the exiting and planned services, integrations and message flows in a structured and formal way.
-Initially word documents, excel sheets and simple wiki pages will be sufficient but at some point will the number of consumers, producers and message flows make it very inconvenient to maintain the information when the system landscape changes.
+Once the use of services grows (i.e. the number of consumers and producers) in the system landscape it becomes more and more important to be able to describe the exiting and planned services, integrations and integration scenarios in a structured and formal way.
+Initially word documents, excel sheets and simple wiki pages will be sufficient but at some point will the number of consumers, producers and integration scenarios make it very inconvenient to maintain the information when the system landscape changes.
 Performing accurate "_what if analysis_" and answering questions like "_when can we shut down this old version of service xyz?_" will be very hard to answer...
 
 Some kind of governance tool needs to be used. Either it is a commercial high-end tool or a simple database application a proper meta-model needs to be defined before services, consumers and producers can be described.
@@ -112,7 +112,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.p
    * Zero, one or meny Fault messages
   * One-way and publish/subscribe services only define one type of message, the request message type.
 
- * _Message flows_ describes a number of cooperating services (by relating to the involved contracts) that for examples implements a business process or some other interaction between a number of software components.
+ * _Integration Scenarios_ describes a number of cooperating services (by relating to the involved contracts) that for examples implements a business process or some other interaction between a number of software components.
 
  * _Integration Scenario_ groups a number of cooperating services (by relating to the involved contracts) that combined implements for example a business process or other interaction between a number of software components. The motivation for creating a sequence is typically a need for tracking progress and measurements on an aggregated level (and not only on the individual services) 
 
