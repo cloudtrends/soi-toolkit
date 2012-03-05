@@ -114,7 +114,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel.p
 
  * _Integration Scenario_ groups a number of cooperating services (by relating to the involved contracts) that combined implements for example a business process or other interaction between a number of software components. The motivation for creating a sequence is typically a need for tracking progress and measurements on an aggregated level (and not only on the individual services) 
 
- * _Domains_ can be used to group services that are logically related to each other
+ * _Service Groups_ can be used to group services that are logically related to each other
 
 == Physical View ==
 http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/ServiceModel-PhysicalView.png
