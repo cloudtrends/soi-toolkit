@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E117F11-D498-4EDE-B058-2E9AB87CFF8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>soitoolkit_nms</RootNamespace>
+    <AssemblyName>soitoolkit-nms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apache.NMS">
+      <HintPath>..\libs\net-4.0\Apache.NMS.dll</HintPath>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ">
+      <HintPath>..\libs\net-4.0\Apache.NMS.ActiveMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="log\impl\AbstractLogAdapter.cs" />
+    <Compile Include="log\impl\ConsoleLogAdapter.cs" />
+    <Compile Include="log\impl\EventLogAdapter.cs" />
+    <Compile Include="log\impl\FileLogAdapter.cs" />
+    <Compile Include="log\impl\NmsTraceAdapter.cs" />
+    <Compile Include="log\Log.cs" />
+    <Compile Include="log\LogFactory.cs" />
+    <Compile Include="log\LogLevelEnum.cs" />
+    <Compile Include="nms\IDestination.cs" />
+    <Compile Include="nms\impl\Destination.cs" />
+    <Compile Include="nms\impl\QueueReceiver.cs" />
+    <Compile Include="nms\impl\QueueSender.cs" />
+    <Compile Include="nms\impl\TextMessage.cs" />
+    <Compile Include="nms\ITextMessage.cs" />
+    <Compile Include="nms\IQueueReceiver.cs" />
+    <Compile Include="nms\IQueueSender.cs" />
+    <Compile Include="nms\impl\Session.cs" />
+    <Compile Include="nms\ISession.cs" />
+    <Compile Include="nms\MessageReceivedDelegate.cs" />
+    <Compile Include="nms\SessionFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
