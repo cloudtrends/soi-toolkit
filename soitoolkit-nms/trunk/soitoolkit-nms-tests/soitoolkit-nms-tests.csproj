@@ -45,6 +45,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractNmsTest.cs" />
+    <Compile Include="EventLogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueTests.cs" />
   </ItemGroup>

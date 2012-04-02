@@ -25,7 +25,13 @@ namespace Soitoolkit.Log.Impl
     /// </remarks>  
     public class EventLogAdapter : AbstractLogAdapter  {
         
-        // Internal EventLogName destination value
+        public static readonly string         DEFAULT_EVENT_LOG_NAME    = "soi-toolkit-nms-log";
+        public static readonly string         DEFAULT_EVENT_LOG_SOURCE  = "My-ActiveMQ-App";
+        public static readonly long           DEFAULT_MAXIMUM_KILOBYTES = 1024;
+        public static readonly OverflowAction DEFAULT_OVERFLOW_ACTION   = OverflowAction.OverwriteAsNeeded;
+        public static readonly int            DEFAULT_RETENTION_DAYS    = 7;
+
+    // EventLogName destination value
         private string _EventLogName = "";
         
         /// <value>Get or set the name of the destination log</value>
@@ -34,7 +40,7 @@ namespace Soitoolkit.Log.Impl
             set { this._EventLogName = value; }
         }
         
-        // Internal EventLogSource value
+        // EventLogSource value
         private string _EventLogSource;
         
         /// <value>Get or set the name of the source of entry</value>
@@ -42,36 +48,93 @@ namespace Soitoolkit.Log.Impl
             get { return this._EventLogSource; }
             set { this._EventLogSource = value; }
         } 
+    
+        // MaximumKilobytes value
+        private long _MaximumKilobytes;
         
-        // Internal MachineName value
-        private string _MachineName = "";
+        /// <value>Get or set the size of the logfile</value>
+        public long MaximumKilobytes      {
+            get { return this._MaximumKilobytes; }
+            set { this._MaximumKilobytes = value; }
+        }
+
+        // OverflowAction value
+        private OverflowAction _OverflowAction;
         
-        /// <value>Get or set the name of the computer</value>
-        public string MachineName   {
-            get { return this._MachineName; }
-            set { this._MachineName = value; }
+        /// <value>Get or set the logfile overflow action</value>
+        public OverflowAction OverflowAction      {
+            get { return this._OverflowAction; }
+            set { this._OverflowAction = value; }
+        }
+
+        // RetentionDays value
+        private int _RetentionDays;
+
+        /// <value>Get or set the number of retentionDays</value>
+        public int RetentionDays
+        {
+            get { return this._RetentionDays; }
+            set { this._RetentionDays = value; }
+        }
+
+        // The event log
+        private EventLog _EventLog;
+
+        /// <value>Get the EventLog if required</value>
+        public EventLog EventLog
+        {
+            get { return this._EventLog; }
         }
 
         /// <summary>
         /// Constructor   
         /// </summary>   
-        public EventLogAdapter(string EventLogName, string EventLogSource) : this()
+        public EventLogAdapter(string EventLogName, string EventLogSource,  long MaximumKilobytes, OverflowAction OverflowAction, int RetentionDays)
         {
-            this.EventLogName   = EventLogName;
-            this.EventLogSource = EventLogSource;
+            InitEventLogAdapter(EventLogName, EventLogSource, MaximumKilobytes, OverflowAction, RetentionDays);
         }
 
         /// <summary>
-        /// Constructor   
+        /// Constructor, defaults MaximumKilobytes OverflowAction and RetentionDays to DEFAULT_MAXIMUM_KILOBYTES, DEFAULT_OVERFLOW_ACTION, and DEFAULT_RETENTION_DAYS.
+        /// </summary>   
+        public EventLogAdapter(string EventLogName, string EventLogSource)
+        {
+            InitEventLogAdapter(EventLogName, EventLogSource, DEFAULT_MAXIMUM_KILOBYTES, DEFAULT_OVERFLOW_ACTION, DEFAULT_RETENTION_DAYS);
+        }
+
+        /// <summary>
+        /// Constructor, defaults EventLogName, EventLogSource, MaximumKilobytes, OverflowAction and RetentionDays to DEFAULT_EVENT_LOG_NAME, DEFAULT_EVENT_LOG_SOURCE, DEFAULT_MAXIMUM_KILOBYTES, DEFAULT_OVERFLOW_ACTION, DEFAULT_RETENTION_DAYS.
         /// </summary>   
         public EventLogAdapter()
         {
-            this.MachineName = ".";
-            //            this.EventLogName = "Apache ActiveMQ NMS";
-            //            this.EventLogSource = "ActiveMQ Adapter";
-            this.EventLogName = "MyEventLog";
-            this.EventLogSource = "ActiveMQ-Adapter";
+            InitEventLogAdapter(DEFAULT_EVENT_LOG_NAME, DEFAULT_EVENT_LOG_SOURCE, DEFAULT_MAXIMUM_KILOBYTES, DEFAULT_OVERFLOW_ACTION, DEFAULT_RETENTION_DAYS);
         }
+
+        /// <summary>
+        /// Initiates the EventLog for the constructors   
+        /// </summary>   
+        private void InitEventLogAdapter(string EventLogName, string EventLogSource, long MaximumKilobytes, OverflowAction OverflowAction, int RetentionDays)
+        {
+            this.EventLogName = EventLogName;
+            this.EventLogSource = EventLogSource;
+            this.MaximumKilobytes = MaximumKilobytes;
+            this.OverflowAction = OverflowAction;
+            this.RetentionDays = RetentionDays;
+
+            _EventLog = new EventLog();
+
+            // Create the source if it does not already exist
+            if (!EventLog.SourceExists(_EventLogSource))
+            {
+                EventLog.CreateEventSource(_EventLogSource, _EventLogName);
+            }
+
+            _EventLog.Source = _EventLogSource;
+            _EventLog.Log = _EventLogName;
+            _EventLog.MaximumKilobytes = _MaximumKilobytes;
+            _EventLog.ModifyOverflowPolicy(_OverflowAction, _RetentionDays);
+        }
+
 
         /// <summary>   
         /// Log a message.   
@@ -80,22 +143,14 @@ namespace Soitoolkit.Log.Impl
         /// <param name="Severity">Error severity level.</param>
         public override void RecordMessage(string Message, LogLevelEnum Severity)
         {
+
             StringBuilder message = new StringBuilder();
-            System.Diagnostics.EventLog eventLog = new System.Diagnostics.EventLog();
-            
-            // Create the source if it does not already exist
-            if( !System.Diagnostics.EventLog.SourceExists(this._EventLogSource) )     {
-                System.Diagnostics.EventLog.CreateEventSource(this._EventLogSource, this._EventLogName);
-            }
-            
-            eventLog.Source = this._EventLogSource;
-            eventLog.MachineName = this._MachineName;
-            
+
             // Determine what the EventLogEventType should be
             // based on the LogSeverity passed in
             EventLogEntryType type = EventLogEntryType.Information; 
             
-            switch(Severity.ToString())     {
+            switch(Severity.ToString()) {
                 case "DEBUG": type = EventLogEntryType.Information;
                     break;
 
@@ -110,7 +165,7 @@ namespace Soitoolkit.Log.Impl
             }
 
             message.Append(Severity.ToString()).Append(" ").Append(Message);
-            eventLog.WriteEntry(message.ToString(), type);
+            _EventLog.WriteEntry(message.ToString(), type);
         }
     }
 }

@@ -21,21 +21,12 @@ using Soitoolkit.Log;
 using Soitoolkit.Log.Impl;
 using System;
 
-namespace Soitoolkit.Nms.Tests
+namespace Soitoolkit.Nms.Tests 
 {
     [TestClass]
-    public class QueueTests
+    public class QueueTests : AbstractNmsTest
     {
-//      private static readonly string   BROKER_URL    = "failover:(tcp://magnusmac:61616)";
-        private static readonly string   BROKER_URL    = "tcp://10.211.55.2:61616"; // During tests a plain TCP-connection is better for detection of problems during tests (e.g. with failover-protocol the tests just hang if the broker is not started...)
-        private static readonly string   TEST_QUEUE    = "my-test-queue";
-        private static readonly string   TEST_MSG_1    = "message 1";
-        private static readonly string   TEST_MSG_2    = "message 2";
-        private static readonly int      SHORT_WAIT    = 200;
-        private static readonly int      LONG_WAIT     = 1000;
-        private static readonly TimeSpan SHORT_WAIT_TS = TimeSpan.FromMilliseconds(SHORT_WAIT);
-
-        private Soitoolkit.Log.Log log = new Soitoolkit.Log.Log();
+        private static readonly int LONG_WAIT = 1000;
 
         [ClassInitialize]
         public static void InitClass(TestContext testContext) 
@@ -48,13 +39,16 @@ namespace Soitoolkit.Nms.Tests
         [TestInitialize]
         public void InitTest()
         {
+            // Direct logging to the console 
+            LogFactory.LogAdapter = new ConsoleLogAdapter();
+
             // Lower loglevel during the purge operation to WARN
             LogFactory.LogLevel = LogLevelEnum.WARN;
 
             // Purge test test-queue
             PurgeQueue(BROKER_URL, TEST_QUEUE);
 
-            // Increase the loglevel back to DEBUG
+            // Increase the loglevel to DEBUG level for easy debugging of unit-tests
             LogFactory.LogLevel = LogLevelEnum.DEBUG;
         }
 
@@ -221,39 +215,6 @@ namespace Soitoolkit.Nms.Tests
                         // Verify that the expected message where received
                         Assert.IsTrue(TEST_MSG_2.Equals(response.TextBody));
                     }
-                }
-            }
-        }
-
-        private void PurgeQueue(string BrokerUrl, string Queue)
-        {
-            // Create a session to the message broker
-            using (ISession s = SessionFactory.CreateSession(BrokerUrl))
-            {
-
-                // Create a receiver for the queue
-                using (IQueueReceiver qr = s.CreateQueueReceiver(Queue))
-                {
-                    // Setup a listener for incoming messages that simply writes a warning for each pruged message
-                    qr.OnMessageReceived += Message => log.Warn("Purged message: " + Message.TextBody);
-
-                    // Start the listener
-                    qr.StartListener();
-
-                    // Wait for a while for the messages to be purged
-                    Thread.Sleep(SHORT_WAIT);
-                }
-            }
-        }
-
-        private void SendTestMsgs(ISession s, string[] msgs)
-        {
-            // Create a sender and send some test messages to a test queue
-            using (IQueueSender qs = s.CreateQueueSender(TEST_QUEUE))
-            {
-                foreach (string msg in msgs)
-                {
-                    qs.SendMessage(msg);
                 }
             }
         }
