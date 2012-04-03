@@ -150,6 +150,18 @@ For a fully working code example see [http://code.google.com/p/soi-toolkit/sourc
 
 Soitoolkit-nms support secure communication with ActiveMQ using SSL with mutual authentication.
 
+The ActiveMQ broker is expected to be configured for secure communication using SSL according to the following guidelines: [http://code.google.com/p/soi-toolkit/wiki/InstallationGuideRuntime#Secure_connections_using_SSL_over_TCP Configure ActiveMQ using SSL]
+
+The soitoolkit-nms client is configured by its broker-url. Using plain TCP a broker-url looks something like: `failover:(tcp://amq-broker:61616)`
+
+To use SSL a number of query-parameters needs to be added and the `tcp:`-protocoll needs to be changed to `ssl:`.
+
+Query-parameters:
+ * `transport.ClientCertFilename`: Points to the client-side certificate in the local filesystem 
+ * `transport.ClientCertPassword`: Password for the client-side certificate. 
+ * ``: 
+ * ``: 
+ * ``: 
         protected static readonly string SSL_BROKER_URL = // "tcp://10.211.55.2:61616"; // During tests a plain TCP-connection is better for detection of problems during tests (e.g. with failover-protocol the tests just hang if the broker is not started...)
         //  "failover:(ssl://10.211.55.2:61618?transport.ServerName=vgms0141.vgregion.se&transport.acceptInvalidBrokerCert=false&transport.ClientCertFilename=C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgms0141_cert1.p12&transport.ClientCertPassword=bUNJTZWWU9)?transport.timeout=5000";
             "failover:(ssl://10.211.55.2:61618?transport.ServerName=vgms0141.vgregion.se&transport.acceptInvalidBrokerCert=false&transport.ClientCertFilename=C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgas0187_cert1.p12&transport.ClientCertPassword=rB5nkPY7Uk)?transport.timeout=5000";
