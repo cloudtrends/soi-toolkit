@@ -3,7 +3,7 @@
 = Installation Guide of Run time products =
 
 *Content*
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="4" />
 
 = Introduction =
 
@@ -38,7 +38,6 @@ Follow these instructions to install ActiveMQ locally on your PC:
 
  Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
 
-
 ===On Unix & Linux===
  * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2F5.5.1%2Fapache-activemq-5.5.1-bin.tar.gz
 
@@ -53,8 +52,67 @@ Follow these instructions to install ActiveMQ locally on your PC:
  A page like the following should now be displayed:
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallation.png
 
+==Configure Apache ActiveMQ==
+
+A Active MQ message broker has a configuration file typically named `${ACTIVEMQ_HOME}/conf/activemq.xml`.
+
+Note that the XML elements under the root `<broker>`-element in this file shall be declared in alphabetic order
+
+=== Secure connections using SSL over TCP ===
+
+Three different XML-element needs to be configured:
+ * `<sslContext>` - defines certificates and trust stores to be used.
+ * `<transportConnectors>` - defines secure connectors to be used by ActiveMQ - clients.
+ * `<networkConnectors>` - defines secure connectors to be used by other ActiveMQ -brokers to establish a secure network of brokers.
+
+*Reference:* [http://activemq.apache.org/ssl-transport-reference.html ActiveMQ-SSL-transport].
+
+==== Configure the `<sslContext>` - element ====
+
+Server certificate and truststore is defined in a traditional Java-style, e.g.:
+
+{{{
+<sslContext>
+    <sslContext 
+	keyStore="file:.../server-cert.jks" keyStorePassword="password" keyStoreType="PKCS12"
+        trustStore="file:.../truststore.jks" trustStorePassword="password"/>
+</sslContext>
+}}}
+
+==== Configure the `<transportConnectors>` - element ====
+
+Add secure-connector to the `<transportConnectors>` - element as required, e.g. one ssl connector for server-only-cert, `ssl1`, and one for mutual-authentication, `ssl2`:
+
+{{{
+<transportConnectors>
+    <transportConnector name="openwire" uri="tcp://0.0.0.0:61616"/>
+    <transportConnector name="ssl1" uri="ssl://0.0.0.0:61617" />
+    <transportConnector name="ssl2" uri="ssl://0.0.0.0:61618?needClientAuth=true" />
+</transportConnectors>
+}}}
+
+If no longer required the pure tcp-connector, called `openwire` in the example above, can be removed to avoid unsecured connections to the broker.
+
+==== Configure the `<networkConnectors>` - element ====
+
+Add secure-connector to other brokers in the `<networkConnectors>` - element as required, e.g.:
+
+{{{
+<networkConnectors>
+    <networkConnector uri="static:(ssl://remote-amq-mb-ip-address:61618)" duplex="true"/>
+</networkConnectors>
+}}}
+
+*Note:* ActiveMQ does not support a mix of multicast network-connectors and ssl according to: [http://activemq.apache.org/ssl-transport-reference.html ActiveMQ-SSL-transport].
+
+This means that any multicast connectors like the one below should be removed:
+
+{{{
+<networkConnector uri="multicast://default"/>
+}}}
 
 ==Installing Apache Tomcat==
+
 If you want to deploy to Tomcat locally in your PC for test purposes before deploying to test servers you can install Tomcat locally as follows:
 
  * Download Tomcat from http://tomcat.apache.org/download-60.cgi
