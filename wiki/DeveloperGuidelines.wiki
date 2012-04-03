@@ -153,9 +153,9 @@ mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.0-SNAPS
 
 
 == Continuous Integration ==
-The soi-toolkit project uses Hudson as its continuous integration server. 
+The soi-toolkit project uses Jenkins as its continuous integration server. 
 Builds are performed after every commit to subversion and snapshots are published on a daily basis.
-Hudson runs as a cloud service, see [https://soi-toolkit.ci.cloudbees.com/ Hudson@CloudBees].
+Jenkins runs as a cloud service, see [https://soi-toolkit.ci.cloudbees.com/ Jenkins@CloudBees].
 
 == Creating a branch in svn ==
 
