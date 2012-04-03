@@ -178,6 +178,8 @@ Example of a broker-url configured for SSL communication using mutual authentica
 failover:(ssl://amq-broker:61618?transport.clientCertFilename=C:/my_clinet_cert1.p12&transport.clientCertPassword=my_client_pwd)?transport.timeout=5000
 }}}
 
+For a fully working code example see [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms-tests/SSLTests.cs SSLTests.cs].
+
 == Debug SSL connections ==
 
 It is, unfortunately, very frequent that initial SSL configurations doesn't work due to configuration mistakes. It can be quite hard to find where the problem is due to its complex and secure nature...
