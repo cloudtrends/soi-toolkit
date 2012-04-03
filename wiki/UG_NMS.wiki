@@ -8,7 +8,9 @@
 
 = Introduction =
 
-Soitoolkit-nms provides a very simple api for accessing [http://activemq.apache.org Apache ActiveMQ] from an Microsoft .Net environment. It is based on [http://activemq.apache.org/nms/ Apache NMS] but provides a easier to use api focused on supporting the following exchange patterns:
+Soitoolkit-nms provides a very simple api for accessing [http://activemq.apache.org Apache ActiveMQ] from an Microsoft .Net environment. 
+
+It is based on [http://activemq.apache.org/nms/ Apache NMS] but provides a easier to use api focused on supporting the following exchange patterns:
 
 || *Icon* || *Pattern* ||
 || http://soi-toolkit.googlecode.com/svn/wiki/NMS/ep_store_forward.png || *Store & Forward* (a.k.a One-way or Fire & Forget) ||
@@ -25,52 +27,4 @@ Soitoolkit-nms also provides:
 
 = Security =
 
-s source code generators can be started either from the command prompt as Maven Goals or within Eclipse as a Wizard.
-
-For information on how to use the _*Eclipse Wizard*_ see [Tutorials#Getting_started_tutorials Getting Started Tutorials]
-
-For information on how to use the _*Maven Goals*_ from the command prompt, read on :-)
-
-== Start the generators as Maven Goals ==
-
-=== Full Documentation ===
-
- * [UG_UsingGenerator_genSDC Generate a Service Description Component] 
- * [UG_UsingGenerator_genIC Generate an Integration Component] 
- * [UG_UsingGenerator_genService Generate a Service]
- * [UG_UsingGenerator_genICTS Generate a Teststub Integration Component]
-
-=== Setup ===
-To be able to run the generators from the command prompt you only need Java SE and Maven to be installed (as describen in the [InstallationGuide Installation Guide]).
-
-The generators can be launched with the command: 
-
-{{{
-mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:${version}:${generator-goal} -Darg1=value1 ...
-}}}
-
-E.g.:
-
-{{{
-mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.4.1:genIC -DoutDir=ic1
-}}}
-
-The generators can also be launched with a shorter command: 
-
-{{{
-mvn soitoolkit-generator:${generator-goal}
-}}}
-
-E.g.:
-
-{{{
-mvn soitoolkit-generator:genIC -DoutDir=ic1
-}}}
-
-The shorter command-form requires that you have specified the following Plugin Group in your Maven settings.xml-file: 
-
-{{{
-<pluginGroups>
-  <pluginGroup>org.soitoolkit.tools.generator</pluginGroup>
-</pluginGroups>
-}}}
+= The API =
