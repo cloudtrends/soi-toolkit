@@ -23,6 +23,54 @@ Soitoolkit-nms also provides:
 
 = Exchange Patterns =
 
+This section gives a quick introduction to the programming model for each exchange pattern with source code examples.
+
+For each pattern a references is given to a fully working code example, typically a unit test.
+
+For more details of the api look into the [#TheAPI api-section] below.
+
+== Store & Forward ==
+
+To send a message to a queue you write code like:
+
+<code language="cs">
+            // Create a session to the message broker
+            using (ISession s = SessionFactory.CreateSession(BROKER_URL))
+            {
+
+            // Create a sender and send some test messages to a test queue
+            using (IQueueSender qs = s.CreateQueueSender(TEST_QUEUE))
+            {
+                foreach (string msg in msgs)
+                {
+                    qs.SendMessage(msg);
+                }
+            }
+
+                // Send some test messages to the test queue
+                SendTestMsgs(s, new string[] { TEST_MSG_1, TEST_MSG_2 });
+
+                // List of received test messages
+                List<string> msgs = new List<string>();
+
+                // Create a receiver for the test queue
+                using (IQueueReceiver qr = s.CreateQueueReceiver(TEST_QUEUE))
+                {
+                    ITextMessage msg = null;
+                    do
+                    {
+                        msg = qr.Receive(SHORT_WAIT_TS);
+                        if (msg != null) msgs.Add(msg.TextBody);
+                    }
+                    while (msg != null);
+                }
+
+</code>
+
+== Asynchronous Request/Response ==
+
+== Publish/Subscribe ==
+
 = Logging =
 
 = Security =
