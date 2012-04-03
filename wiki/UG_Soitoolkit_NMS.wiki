@@ -174,7 +174,9 @@ To use SSL a number of query-parameters needs to be added and the `tcp:`-protoco
 || `transport.timeout` || This is a parameter on the `failover:`-transport (i.e. not on the `ssl:`-transport). Can be very useful to terminate a connection attempt when a SSL connection is not working. Otherwise the failover-protocoll just keeps on trying until stopped the very hard way... || 
 
 Example of a broker-url configured for SSL communication using mutual authentication:
-`failover:(ssl://amq-broker:61618?transport.clientCertFilename=C:/my_clinet_cert1.p12&transport.clientCertPassword=my_client_pwd)?transport.timeout=5000`
+{{{
+failover:(ssl://amq-broker:61618?transport.clientCertFilename=C:/my_clinet_cert1.p12&transport.clientCertPassword=my_client_pwd)?transport.timeout=5000
+}}}
 
 == Debug SSL connections ==
 
