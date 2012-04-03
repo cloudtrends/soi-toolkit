@@ -54,7 +54,8 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     // List of received messages
     List<string> msgs = new List<string>();
 
-    // Create a receiver for the queue and receive all messages available, wait max MAX_WAITTIME for new messages
+    // Create a receiver for the queue and receives all messages available,
+    // wait max MAX_WAITTIME for new messages
     using (IQueueReceiver qr = s.CreateQueueReceiver(QUEUE_NAME))
     {
         ITextMessage msg = null;
@@ -83,7 +84,8 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     // Create a receiver for the queue
     using (IQueueReceiver qr = s.CreateQueueReceiver(QUEUE_NAME))
     {
-        // Setup a message listener for incoming messages that calls a sample ProcessMessage()-method for each message
+        // Setup a message listener for incoming messages that calls
+        // a sample ProcessMessage()-method for each message
         qr.OnMessageReceived += Message => ProcessMessage(Message.TextBody);
 
         // Start the listener
@@ -174,6 +176,16 @@ To use SSL a number of query-parameters needs to be added and the `tcp:`-protoco
 Example of a broker-url configured for SSL communication using mutual authentication:
 `failover:(ssl://amq-broker:61618?transport.clientCertFilename=C:/my_clinet_cert1.p12&transport.clientCertPassword=my_client_pwd)?transport.timeout=5000`
 
+== Debug SSL connections ==
+
+It is, unfortunately, very frequent that initial SSL configurations doesn't work due to configuration mistakes. It can be quite hard to find where the problem is. To ease the burden, make it easier to find the problem, the following guidelines can be followed:
+
+ # Increase the log-level to DEBUG and log to file or the console to make it easier to browse the log-info (it will be very verbose in debug-mode when SSL is turned on).
+  # Read the client-side log carefully, there often exist very valuable information, even though hard to find due to the verbose output...
+ # Enbable SSL-debug logging on the ActiveMQ-broker side as well.
+ # Start using only server-certs, i.e. do not require mutual-auth in the ActiveMQ-configuration of the SSL-connector.
+ # Use the `transport.acceptInvalidBrokerCert=true`, i.e. disable client side validation of server cert, to see if its helps 
+ # Use the `transport.serverName` to specify the hostname in the server-cert if the client.side log complaint about invalid server-hostname.
 
 = The API =
 
