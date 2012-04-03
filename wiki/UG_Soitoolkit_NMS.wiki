@@ -159,9 +159,11 @@ To use SSL a number of query-parameters needs to be added and the `tcp:`-protoco
 Query-parameters:
  * `transport.ClientCertFilename`: Points to the client-side certificate in the local filesystem 
  * `transport.ClientCertPassword`: Password for the client-side certificate. 
- * ``: 
- * ``: 
- * ``: 
+ * `transport.acceptInvalidBrokerCert`: Set to true to avoid validations of the server cert. Can be useful during debugging a not working SSL setup...  
+ * `transport.ServerName`: If the ActiveMQ-broker use a certificate with a hostname different from the one in the url a connection-exception is raised. If it is ok that the ActiveMQ-broker cert specifies a different hostname this can be specified using this parameter to avoid the exception.
+ * `transport.timeout`:  This is a parameter on the `failover:`-transport (i.e. not on the `ssl:`-transport). Can be very useful to terminate a connection attempt when a SSL connection is not working. Otherwise the failover-protocoll just keeps on trying until stopped the very hard way...
+
+
         protected static readonly string SSL_BROKER_URL = // "tcp://10.211.55.2:61616"; // During tests a plain TCP-connection is better for detection of problems during tests (e.g. with failover-protocol the tests just hang if the broker is not started...)
         //  "failover:(ssl://10.211.55.2:61618?transport.ServerName=vgms0141.vgregion.se&transport.acceptInvalidBrokerCert=false&transport.ClientCertFilename=C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgms0141_cert1.p12&transport.ClientCertPassword=bUNJTZWWU9)?transport.timeout=5000";
             "failover:(ssl://10.211.55.2:61618?transport.ServerName=vgms0141.vgregion.se&transport.acceptInvalidBrokerCert=false&transport.ClientCertFilename=C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgas0187_cert1.p12&transport.ClientCertPassword=rB5nkPY7Uk)?transport.timeout=5000";
