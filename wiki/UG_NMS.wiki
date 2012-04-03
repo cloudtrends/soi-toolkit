@@ -8,7 +8,7 @@
 
 = Introduction =
 
-Soitoolkit-nms provides a very simple api for accessing [http://activemq.apache.org Apache ActiveMQ] from an Microsoft .Net environment. 
+*`soitoolkit-nms`* provides a very simple api for accessing [http://activemq.apache.org Apache ActiveMQ] from an Microsoft .Net environment. 
 
 It is based on [http://activemq.apache.org/nms/ Apache NMS] but provides a easier to use api focused on supporting the following exchange patterns:
 
