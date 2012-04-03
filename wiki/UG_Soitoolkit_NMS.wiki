@@ -44,7 +44,7 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     }
 }</code>
 
-To receive messages from a queue you write code like:
+To receive messages from a queue you can either pull them using the Receive() -method like:
 
 <code language="cs">
 // Create a session to the message broker
@@ -67,11 +67,42 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     }
 }</code>
 
+*NOTE*: The `Receive()`-method can also be called without specifying any timeout, then the `Receive()`-method will wait for ever until a new message arrives (locking the current thread while waiting).
+
+...or get the messages pushed to you by register a message listener like:
+
+<code language="cs">
+// Create a session to the message broker
+using (ISession s = SessionFactory.CreateSession(BROKER_URL))
+{
+    // List of received messages
+    List<string> msgs = new List<string>();
+
+    // Create a receiver for the queue and receive all messages available, wait max MAX_WAITTIME for new messages
+    using (IQueueReceiver qr = s.CreateQueueReceiver(QUEUE_NAME))
+    {
+        // Setup a message listener for incoming messages that simply called the ProcessMessage()-method for each message
+        qr.OnMessageReceived += Message => ProcessMessage(Message.TextBody);
+
+        // Start the listener
+        qr.StartListener();
+
+        // Do other stuff while waiting for messages to be pushed to the message listener.
+        ...
+    }
+}</code>
+
+*NOTE*: Messages are delivered in a separate thread, i.e. they can be process independently of what is going on in the main thread
+
 For a fully working code example see [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms-tests/QueueTests.cs QueueTests.cs].
 
 == Asynchronous Request/Response ==
 
+*TBD*: Will be documented in the v1.1-release of soitoolkit-nms
+
 == Publish/Subscribe ==
+
+*TBD*: Will be documented in the v1.1-release of soitoolkit-nms
 
 = Logging =
 
