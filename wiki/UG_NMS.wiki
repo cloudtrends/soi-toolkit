@@ -27,7 +27,7 @@ This section gives a quick introduction to the programming model for each exchan
 
 For each pattern a references is given to a fully working code example, typically a unit test.
 
-For more details of the api look into the [#TheAPI api-section] below.
+For more details of the api look into the [#The_API api-section] below.
 
 == Store & Forward ==
 
