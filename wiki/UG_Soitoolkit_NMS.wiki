@@ -53,7 +53,7 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     // List of received messages
     List<string> msgs = new List<string>();
 
-    // Create a receiver for the queue and receive all messages available, wait max MAX_WAITTIME for new messages coming in.
+    // Create a receiver for the queue and receive all messages available, wait max MAX_WAITTIME for new messages
     using (IQueueReceiver qr = s.CreateQueueReceiver(QUEUE_NAME))
     {
         ITextMessage msg = null;
