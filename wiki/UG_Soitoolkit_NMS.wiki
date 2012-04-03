@@ -148,4 +148,8 @@ For a fully working code example see [http://code.google.com/p/soi-toolkit/sourc
 
 = Security =
 
+Soitoolkit-nms support secure communication with ActiveMQ using SSL with mutual authentication.
+
 = The API =
+
+*TBD*: Will be documented before the release of soitoolkit-nms v1.0.
