@@ -78,10 +78,10 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     // List of received messages
     List<string> msgs = new List<string>();
 
-    // Create a receiver for the queue and receive all messages available, wait max MAX_WAITTIME for new messages
+    // Create a receiver for the queue
     using (IQueueReceiver qr = s.CreateQueueReceiver(QUEUE_NAME))
     {
-        // Setup a message listener for incoming messages that simply called the ProcessMessage()-method for each message
+        // Setup a message listener for incoming messages that calls a sample ProcessMessage()-method for each message
         qr.OnMessageReceived += Message => ProcessMessage(Message.TextBody);
 
         // Start the listener
