@@ -10,9 +10,10 @@
 
 Soitoolkit-nms provides a very simple api for accessing [http://activemq.apache.org Apache ActiveMQ] from an Microsoft .Net environment. It is based on [http://activemq.apache.org/nms/ Apache NMS] but provides a easier to use api focused on supporting the following exchange patterns:
 
- * Store & Forward (a.k.a One-way or Fire & Forget)
- * Asynchronous Request/Response
- * Publish/Subscribe
+|| *Icon* || *Pattern* ||
+||  || Store & Forward (a.k.a One-way or Fire & Forget) ||
+||  || Asynchronous Request/Response ||
+||  || Publish/Subscribe ||
 
 Soitoolkit-nms also provides:
  * *Logger*: A lightweight log-mechanism that can be configured to log to either the console, file or to Windows Event Log.
