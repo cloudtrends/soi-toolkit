@@ -33,7 +33,7 @@ For more details of the api look into the [#The_API api-section] below.
 
 To send a message to a queue you write code like:
 
-<code language="cs">
+{{{
 // Create a session to the message broker
 using (ISession s = SessionFactory.CreateSession(BROKER_URL))
 {
@@ -42,11 +42,12 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     {
         qs.SendMessage(msg);
     }
-}</code>
+}
+}}}
 
 To receive messages from a queue you can either pull them using the Receive() -method like:
 
-<code language="cs">
+{{{
 // Create a session to the message broker
 using (ISession s = SessionFactory.CreateSession(BROKER_URL))
 {
@@ -65,13 +66,14 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
             while (msg != null);
         }
     }
-}</code>
+}
+}}}
 
 *NOTE*: The `Receive()`-method can also be called without specifying any timeout, then the `Receive()`-method will wait for ever until a new message arrives (locking the current thread while waiting).
 
 ...or get the messages pushed to you by register a message listener like:
 
-<code language="cs">
+{{{
 // Create a session to the message broker
 using (ISession s = SessionFactory.CreateSession(BROKER_URL))
 {
@@ -90,7 +92,8 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
         // Do other stuff while waiting for messages to be pushed to the message listener.
         ...
     }
-}</code>
+}
+}}}
 
 *NOTE*: Messages are delivered in a separate thread, i.e. they can be process independently of what is going on in the main thread
 
@@ -112,35 +115,40 @@ By default it log warning messages to the Windows Event Logger. The log-mechanis
 
 Change the log level with a call like:
 
-<code language="cs">
-LogFactory.LogLevel = LogLevelEnum.DEBUG;</code>
+{{{
+LogFactory.LogLevel = LogLevelEnum.DEBUG;
+}}}
 
 The log-mechanism can also be used to log self defined application events.
 
-<code language="cs">
+{{{
 private Soitoolkit.Log.Log log = new Soitoolkit.Log.Log();
 ...
-if (log.IsDebugEnabled()) log.Debug("Some application logging...");</code>
+if (log.IsDebugEnabled()) log.Debug("Some application logging...");
+}}}
 
 Configure logging to the console with a call like:
  
-<code language="cs">
-LogFactory.LogAdapter = new ConsoleLogAdapter();</code>
+{{{
+LogFactory.LogAdapter = new ConsoleLogAdapter();
+}}}
 
 Configure logging to a file with a call like:
  
-<code language="cs">
-LogFactory.LogAdapter = new FileLogAdapter(LOG_FILENAME);</code>
+{{{
+LogFactory.LogAdapter = new FileLogAdapter(LOG_FILENAME);
+}}}
 
 Finally configure logging to the Windows Event Log with a call like:
  
-<code language="cs">
+{{{
 LogFactory.LogAdapter = new EventLogAdapter(
     EVENT_LOG_NAME,
     EVENT_LOG_SOURCE,
     MAX_LOG_SIZE,
     OVERFLOW_ACTION,
-    RETENTION_DAYS);</code>
+    RETENTION_DAYS);
+}}}
 
 *NOTE*: The [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms/log/impl/EventLogAdapter.cs EventLogAdapter]-class provides a set of alternate constructors with fewer arguments, i.e. that relies on the default values for the configuration of the Event Log.
 
