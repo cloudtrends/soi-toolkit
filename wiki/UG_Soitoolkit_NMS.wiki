@@ -189,7 +189,7 @@ To ease the burden, make it easier to find the problem, the following guidelines
  # Enbable SSL-debug logging on the ActiveMQ-broker side as well.
  # Start using only server-certs, i.e. do not require mutual-auth in the ActiveMQ-configuration of the SSL-connector.
  # Use the `transport.acceptInvalidBrokerCert=true`, i.e. disable client side validation of server cert, to see if its helps 
- # Use the `transport.serverName` to specify the hostname in the server-cert if the client.side log complaint about invalid server-hostname.
+ # Use the `transport.serverName` to specify the hostname in the server-cert if the client-side log complaint about invalid server-hostname.
 
 = The API =
 
