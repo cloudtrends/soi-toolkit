@@ -1,6 +1,6 @@
 #summary Side bar for User Guideline pages
 
-[http://twitter.com/soitoolkit http://soi-toolkit.googlecode.com/svn/wiki/images/twitter-logo.png] [http://twitter.com/soitoolkit http://soi-toolkit.googlecode.com/svn/wiki/images/twitter-follow.jpg] 
+[http://twitter.com/soitoolkit http://soi-toolkit.googlecode.com/svn/wiki/images/twitter-follow.png] 
 
 ==User Guidelines==
 
