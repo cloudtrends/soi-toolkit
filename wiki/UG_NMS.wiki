@@ -67,6 +67,8 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     }
 }</code>
 
+For a fully working code examples see [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms-tests/QueueTests.cs QueueTests.cs].
+
 == Asynchronous Request/Response ==
 
 == Publish/Subscribe ==
