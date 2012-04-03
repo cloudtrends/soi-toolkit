@@ -18,7 +18,7 @@ It is based on [http://activemq.apache.org/nms/ Apache NMS] but provides a easie
 || http://soi-toolkit.googlecode.com/svn/wiki/NMS/ep_publish_subscribe.png || *Publish/Subscribe* ||
 
 Soitoolkit-nms also provides:
- * *Logger*: A lightweight log-mechanism that can be configured to log to either the console, file or to Windows Event Log.
+ * *Logger*: A lightweight log-mechanism that can be configured to log to either the console, file or to the Windows Event Log.
  * *Security*: Instructions on how to setup secure communication with ActiveMQ using SSL with mutual authentication.
 
 = Exchange Patterns =
@@ -105,6 +105,46 @@ For a fully working code example see [http://code.google.com/p/soi-toolkit/sourc
 *TBD*: Will be documented in the v1.1-release of soitoolkit-nms
 
 = Logging =
+
+Soitoolkit-nms implements a lightweight log-mechanism that can be configured to log to either the console, file or to the Windows Event Log. 
+
+By default it log warning messages to the Windows Event Logger. The log-mechanism can be used to better understand what is going on within soitoolkit-nms by increasing the log-level to INFO or DEBUG (specifically in case of problems).
+
+Change the log level with a call like:
+
+<code language="cs">
+LogFactory.LogLevel = LogLevelEnum.DEBUG;</code>
+
+The log-mechanism can also be used to log self defined application events.
+
+<code language="cs">
+private Soitoolkit.Log.Log log = new Soitoolkit.Log.Log();
+...
+if (log.IsDebugEnabled()) log.Debug("Some application logging...");</code>
+
+Configure logging to the console with a call like:
+ 
+<code language="cs">
+LogFactory.LogAdapter = new ConsoleLogAdapter();</code>
+
+Configure logging to a file with a call like:
+ 
+<code language="cs">
+LogFactory.LogAdapter = new FileLogAdapter(LOG_FILENAME);</code>
+
+Finally configure logging to the Windows Event Log with a call like:
+ 
+<code language="cs">
+LogFactory.LogAdapter = new EventLogAdapter(
+    EVENT_LOG_NAME,
+    EVENT_LOG_SOURCE,
+    MAX_LOG_SIZE,
+    OVERFLOW_ACTION,
+    RETENTION_DAYS);</code>
+
+*NOTE*: The [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms/log/impl/EventLogAdapter.cs EventLogAdapter]-class provides a set of alternate constructors with fewer arguments, i.e. that relies on the default values for the configuration of the Event Log.
+
+For a fully working code example see [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms-tests/EventLogTests.cs EventLogTests.cs].
 
 = Security =
 
