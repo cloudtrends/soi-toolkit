@@ -37,7 +37,7 @@ To send a message to a queue you write code like:
 // Create a session to the message broker
 using (ISession s = SessionFactory.CreateSession(BROKER_URL))
 {
-    // Create a sender and send some test messages to a test queue
+    // Create a sender and send a message to a queue
     using (IQueueSender qs = s.CreateQueueSender(QUEUE_NAME))
     {
         qs.SendMessage(msg);
@@ -53,7 +53,7 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
     // List of received messages
     List<string> msgs = new List<string>();
 
-    // Create a receiver for the test queue
+    // Create a receiver for the queue and receive all messages available, wait max MAX_WAITTIME for new messages coming in.
     using (IQueueReceiver qr = s.CreateQueueReceiver(QUEUE_NAME))
     {
         ITextMessage msg = null;
