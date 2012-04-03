@@ -150,6 +150,10 @@ For a fully working code example see [http://code.google.com/p/soi-toolkit/sourc
 
 Soitoolkit-nms support secure communication with ActiveMQ using SSL with mutual authentication.
 
+        protected static readonly string SSL_BROKER_URL = // "tcp://10.211.55.2:61616"; // During tests a plain TCP-connection is better for detection of problems during tests (e.g. with failover-protocol the tests just hang if the broker is not started...)
+        //  "failover:(ssl://10.211.55.2:61618?transport.ServerName=vgms0141.vgregion.se&transport.acceptInvalidBrokerCert=false&transport.ClientCertFilename=C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgms0141_cert1.p12&transport.ClientCertPassword=bUNJTZWWU9)?transport.timeout=5000";
+            "failover:(ssl://10.211.55.2:61618?transport.ServerName=vgms0141.vgregion.se&transport.acceptInvalidBrokerCert=false&transport.ClientCertFilename=C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgas0187_cert1.p12&transport.ClientCertPassword=rB5nkPY7Uk)?transport.timeout=5000";
+
 = The API =
 
 *TBD*: Will be documented before the release of soitoolkit-nms v1.0.
