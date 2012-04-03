@@ -178,7 +178,9 @@ Example of a broker-url configured for SSL communication using mutual authentica
 
 == Debug SSL connections ==
 
-It is, unfortunately, very frequent that initial SSL configurations doesn't work due to configuration mistakes. It can be quite hard to find where the problem is. To ease the burden, make it easier to find the problem, the following guidelines can be followed:
+It is, unfortunately, very frequent that initial SSL configurations doesn't work due to configuration mistakes. It can be quite hard to find where the problem is due to its complex and secure nature...
+
+To ease the burden, make it easier to find the problem, the following guidelines can be followed:
 
  # Increase the log-level to DEBUG and log to file or the console to make it easier to browse the log-info (it will be very verbose in debug-mode when SSL is turned on).
   # Read the client-side log carefully, there often exist very valuable information, even though hard to find due to the verbose output...
