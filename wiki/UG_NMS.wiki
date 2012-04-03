@@ -19,7 +19,7 @@ Soitoolkit-nms also provides:
  * *Logger*: A lightweight log-mechanism that can be configured to log to either the console, file or to Windows Event Log.
  * *Security*: Instructions on how to setup secure communication with ActiveMQ using SSL with mutual authentication.
 
-= Supported Exchange Patterns =
+= Exchange Patterns =
 
 = Logging =
 
