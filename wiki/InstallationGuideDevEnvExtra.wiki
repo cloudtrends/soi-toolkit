@@ -91,9 +91,9 @@ The command will return something like {{{1.6.5}}}
 
 === Install the plugin ===
  * The installation of the Eclipse plugin is performed using the Eclipse "Update Site"-mechanism.
- The Update Site is a part of Helios Update Site. 
+ The Update Site is a part of Helios/Indigo Update Site. 
  * Select the Eclipse menu "Help --> Install New Software... 
- * In the field "Work with:" select the predefined update site "Helios - http://download.eclipse.org/releases/helios"
+ * In the field "Work with:" select the predefined update site "Helios - http://download.eclipse.org/releases/helios" (or Indigo - http://download.eclipse.org/releases/indigo for Eclipse 3.7)
  * In the list below of available features expand the node "Collaboration" 
  * Select:
   * Subversive SVN Team Provider (mandatory)
