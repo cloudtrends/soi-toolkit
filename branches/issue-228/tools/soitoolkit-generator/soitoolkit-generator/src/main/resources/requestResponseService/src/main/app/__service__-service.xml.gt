@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mule 
+${xmlNamespace.reqRespService}
+
+	<!-- TODO: Add service specific definitions here -->
+
+<% if (outboundTransport=="RESTHTTP") { %>
+	<mule-xml:namespace-manager includeConfigNamespaces="true">
+		<mule-xml:namespace prefix="ns"  uri="urn:org.soitoolkit.refapps.sd.sample.schema:v1"/>
+	</mule-xml:namespace-manager>
+<% } %> 
+
+	<flow name="${service}-service">
+<% if (inboundTransport=="SOAPHTTP" || inboundTransport=="SOAPSERVLET") { %>
+		<http:inbound-endpoint
+			address="${dollarSymbol}{${uppercaseService}_INBOUND_URL}"
+			exchange-pattern="request-response"
+			transformer-refs="objToStr logReqIn"
+			responseTransformer-refs="createSoapFaultIfException logRespOut">
+			<cxf:proxy-service 
+				service="sampleService"
+				wsdlLocation="classpath:/schemas/org/soitoolkit/refapps/sd/sample/sampleService.wsdl" 
+				namespace="urn:org.soitoolkit.refapps.sd.sample.wsdl:v1">
+			</cxf:proxy-service>
+		</http:inbound-endpoint>
+<% } else if (inboundTransport=="RESTHTTP") { %>
+        <http:inbound-endpoint
+            address="${dollarSymbol}{${uppercaseService}_INBOUND_URL}"
+            exchange-pattern="request-response"
+            transformer-refs="objToStr logReqIn"
+            responseTransformer-refs="logRespOut">
+        </http:inbound-endpoint>
+<% } %> 
+
+<% if (transformerType=="JAVA") { %>
+        <custom-transformer doc:name="transform-request" class="${javaPackage}.${lowercaseJavaService}.${capitalizedJavaService}RequestTransformer"/>
+        <response>
+            <custom-transformer doc:name="transform-response" class="${javaPackage}.${lowercaseJavaService}.${capitalizedJavaService}ResponseTransformer"/>
+        </response>
+<% } else { %>     
+        <smooks:transformer doc:name="transform-request" configFile="/transformers/${service}-request-transformer.xml""/>
+        <response>
+            <smooks:transformer doc:name="transform-response" configFile="/transformers/${service}-response-transformer.xml"/>
+        </response>
+<% } %> 
+
+<% if (outboundTransport=="SOAPHTTP") { %>
+        <cxf:proxy-client />
+        
+		<http:outbound-endpoint 
+			address="${dollarSymbol}{${uppercaseService}_OUTBOUND_URL}" 
+			exchange-pattern="request-response"
+			responseTimeout="${dollarSymbol}{SERVICE_TIMEOUT_MS}"
+			transformer-refs="logReqOut"
+			responseTransformer-refs="logRespIn">
+		</http:outbound-endpoint>
+<% } else if (outboundTransport=="RESTHTTP") { %>
+		<http:outbound-endpoint 
+			address="${dollarSymbol}{${uppercaseService}_OUTBOUND_URL}/sample/#[xpath:/ns:sample/ns:id]" 
+			method="GET"
+			exchange-pattern="request-response"
+			responseTimeout="${dollarSymbol}{SERVICE_TIMEOUT_MS}"
+			transformer-refs="logReqOut"
+			responseTransformer-refs="objToStr logRespIn" />
+<% } else if (outboundTransport=="JMS") { %>
+		<request-reply timeout="${dollarSymbol}{SERVICE_TIMEOUT_MS}">
+			<jms:outbound-endpoint queue="${dollarSymbol}{${uppercaseService}_REQUEST_QUEUE}"  transformer-refs="objToStr strToJms logReqOut" />
+			<jms:inbound-endpoint  queue="${dollarSymbol}{${uppercaseService}_RESPONSE_QUEUE}" transformer-refs="logRespIn jmsToStr"/>
+		</request-reply>
+<% } %> 
+		<custom-exception-strategy class="org.soitoolkit.commons.mule.error.ServiceExceptionStrategy"/>
+	</flow>
+</mule>
