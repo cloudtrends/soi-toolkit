@@ -16,6 +16,8 @@
  */
 package org.soitoolkit.commons.mule.log;
 
+import static org.soitoolkit.commons.mule.jaxb.JaxbObjectToXmlTransformer.LOG_OBJ_CREATION;
+
 import static org.mule.api.config.MuleProperties.MULE_ENDPOINT_PROPERTY;
 import static org.mule.transport.http.HttpConnector.HTTP_METHOD_PROPERTY;
 import static org.mule.transport.http.HttpConnector.HTTP_REQUEST_PROPERTY;
@@ -125,8 +127,12 @@ public class DefaultEventLogger implements EventLogger, MuleContextAware {
 		}
 	}
 
+	public static int lastId = 0;
+	public int id = 0;
 	public DefaultEventLogger() {
 		log.debug("constructor");
+		id = ++lastId;
+		if (LOG_OBJ_CREATION) System.err.println("DEF_EVENT_LOGGER #" + id + " CREATED");
 	}
 
 
@@ -145,6 +151,8 @@ public class DefaultEventLogger implements EventLogger, MuleContextAware {
 	 * @param jaxbToXml
 	 */
 	public void setJaxbToXml(JaxbObjectToXmlTransformer jaxbToXml) {
+		if (LOG_OBJ_CREATION) System.err.println("DEF_EVENT_LOGGER #" + id + " GOT JaxbObjectToXmlTransformer#" + jaxbToXml.id);
+//		Thread.dumpStack();
 		this.jaxbToXml  = jaxbToXml;
 	}
 	
@@ -762,11 +770,20 @@ public class DefaultEventLogger implements EventLogger, MuleContextAware {
 			}
 
 			try {
-				content = (String) jaxbToXml.doTransform(jaxbObject,
-						outputEncoding);
+				if (jaxbToXml.getJaxbUtil() == null) {
+					if (LOG_OBJ_CREATION) System.err.println("DEF_EVENT_LOGGER #" + id + " SUPERFIX INIT JAXB-OBJECT!!!");
+					jaxbToXml.initialise();
+					if (LOG_OBJ_CREATION) System.err.println("DEF_EVENT_LOGGER #" + id + " JAXB-OBJECT NUL? " + (jaxbToXml.getJaxbUtil() == null));
+				}
+				content = jaxbToXml.transformJaxbObjectToXml(jaxbObject);
 			} catch (TransformerException e) {
+				if (LOG_OBJ_CREATION) System.err.println("DEF_EVENT_LOGGER #" + id + " GOT ERR1");
 				e.printStackTrace();
-				content = "JAXB object marshalling failed: " + e.getMessage();
+				content = "JAXB object marshalling failed 1: " + e.getMessage();
+			} catch (Throwable e) {
+				if (LOG_OBJ_CREATION) System.err.println("DEF_EVENT_LOGGER #" + id + " GOT ERR2");
+				e.printStackTrace();
+				content = "JAXB object marshalling failed 2: " + e.getMessage();
 			}
 		}
 		return content;
