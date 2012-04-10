@@ -144,8 +144,8 @@ namespace Soitoolkit.Nms.Tests
             }
 
             Console.WriteLine("Log events: " + ela.EventLog.Entries.Count);
-            // Verify that we have max 3000 log messages (> 4000 sent)), i.e. ensure that we got the "log file is full" when expected, when 1024 kB was filled up.
-            Assert.IsTrue(ela.EventLog.Entries.Count < 3000);
+            // Verify that we have max 3100 log messages (> 4000 sent)), i.e. ensure that we got the "log file is full" when expected, when 1024 kB was filled up.
+            Assert.IsTrue(ela.EventLog.Entries.Count < 3100);
         }
     }
 }
