@@ -21,19 +21,23 @@ using Soitoolkit.Log;
 using Soitoolkit.Log.Impl;
 using System;
 using System.Diagnostics;
+using soitoolkit_nms_tests.Properties;
 
 namespace Soitoolkit.Nms.Tests
 {
     [TestClass]
     public class AbstractNmsTest
     {
-//      protected static readonly string   BROKER_URL    = "failover:(tcp://magnusmac:61616)";
-        protected static readonly string BROKER_URL = "tcp://10.211.55.2:61616"; // During tests a plain TCP-connection is better for detection of problems during tests (e.g. with failover-protocol the tests just hang if the broker is not started...)
-        protected static readonly string TEST_QUEUE = "my-test-queue";
-        protected static readonly string TEST_MSG_1 = "message 1";
-        protected static readonly string TEST_MSG_2 = "message 2";
-        protected static readonly int SHORT_WAIT = 500;
+        protected static readonly string   TCP_HOSTNAME  = Settings.Default.TCP_HOSTNAME;
+        protected static readonly int      TCP_PORT      = Settings.Default.TCP_PORT;
+        protected static readonly int      TCP_TIMEOUT   = Settings.Default.TCP_TIMEOUT;
+        protected static readonly string   BROKER_URL    = String.Format("failover:(tcp://{0}:{1})?transport.timeout={2}", TCP_HOSTNAME, TCP_PORT, TCP_TIMEOUT);
+        protected static readonly int      SHORT_WAIT    = Settings.Default.SHORT_WAIT_MS;
         protected static readonly TimeSpan SHORT_WAIT_TS = TimeSpan.FromMilliseconds(SHORT_WAIT);
+
+        protected static readonly string   TEST_QUEUE    = "my-test-queue";
+        protected static readonly string   TEST_MSG_1    = "message 1";
+        protected static readonly string   TEST_MSG_2    = "message 2";
 
         protected Soitoolkit.Log.Log log = new Soitoolkit.Log.Log();
 

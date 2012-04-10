@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="soitoolkit_nms_tests.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TCP_HOSTNAME" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10.211.55.2</Value>
+    </Setting>
+    <Setting Name="TCP_PORT" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">61616</Value>
+    </Setting>
+    <Setting Name="TCP_TIMEOUT" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="SHORT_WAIT_MS" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="LONG_WAIT_MS" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="SSL_PORT" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">61618</Value>
+    </Setting>
+    <Setting Name="SSL_CLIENT_CERT_FILENME" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgas0187_cert1.p12</Value>
+    </Setting>
+    <Setting Name="SSL_CLIENT_CERT_PASSWORD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">rB5nkPY7Uk</Value>
+    </Setting>
+    <Setting Name="SSL_SERVER_CERT_HOSTNAME" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vgms0141.vgregion.se</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

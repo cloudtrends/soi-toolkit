@@ -20,13 +20,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Soitoolkit.Log;
 using Soitoolkit.Log.Impl;
 using System;
+using soitoolkit_nms_tests.Properties;
 
 namespace Soitoolkit.Nms.Tests 
 {
     [TestClass]
     public class QueueTests : AbstractNmsTest
     {
-        private static readonly int LONG_WAIT = 1000;
+        private static readonly int LONG_WAIT = Settings.Default.LONG_WAIT_MS;
 
         [ClassInitialize]
         public static void InitClass(TestContext testContext) 
