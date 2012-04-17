@@ -21,6 +21,7 @@ using Soitoolkit.Log;
 using Soitoolkit.Log.Impl;
 using System;
 using soitoolkit_nms_tests.Properties;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Soitoolkit.Nms.Tests 
 {
@@ -32,13 +33,22 @@ namespace Soitoolkit.Nms.Tests
         private static readonly string SSL_CLIENT_CERT_FILENME  = Settings.Default.SSL_CLIENT_CERT_FILENME;
         private static readonly string SSL_CLIENT_CERT_PASSWORD = Settings.Default.SSL_CLIENT_CERT_PASSWORD;
 
-        private static readonly string SSL_BROKER_URL = 
-        String.Format("failover:(ssl://{0}:{1}?transport.serverName={2}&transport.clientCertFilename={3}&transport.clientCertPassword={4})?transport.timeout={5}", new object[] {
+        private static readonly string SSL_BROKER_URL_EXTERNAL_CERT_FILE =
+            String.Format("failover:(ssl://{0}:{1}?transport.serverName={2}&transport.clientCertFilename={3}&transport.clientCertPassword={4})?transport.timeout={5}", new object[] {
             TCP_HOSTNAME,
             SSL_PORT,
             SSL_SERVER_CERT_HOSTNAME,
             SSL_CLIENT_CERT_FILENME,
             SSL_CLIENT_CERT_PASSWORD,
+            TCP_TIMEOUT });
+
+        private static readonly string SSL_BROKER_URL_INSTALLED_CERT =
+          String.Format("failover:(ssl://{0}:{1}?transport.serverName={2}&keyStoreName={3}&keyStoreLocation={4})?transport.timeout={5}", new object[] {
+            TCP_HOSTNAME,
+            SSL_PORT,
+            SSL_SERVER_CERT_HOSTNAME,
+            StoreName.My.ToString(),
+            "CurrentUser",
             TCP_TIMEOUT });
 
         [ClassInitialize]
@@ -66,12 +76,28 @@ namespace Soitoolkit.Nms.Tests
         }
 
         // Summary:
-        //    Verifies receive of messages using a listener, receiving messages in a separate thread
+        //    Verifies SSL with mutual authentication using an external cert file
         [TestMethod]
-        public void TestSslWithMutualAuthentication()
+        public void TestSslWithMutualAuthentication_ExternalCertFile()
+        {
+            PerformTestSslWithMutualAuthentication(SSL_BROKER_URL_EXTERNAL_CERT_FILE);
+        }
+
+        // Summary:
+        //    Verifies SSL with mutual authentication using an installed client cert
+        //    NOTE: Expects that the client certificate is installed under Current User --> Personal --> Certificates
+        [TestMethod]
+        public void TestSslWithMutualAuthentication_InstalledCert()
+        {
+            PerformTestSslWithMutualAuthentication(SSL_BROKER_URL_INSTALLED_CERT);
+        }
+
+        // Summary:
+        //    Verifies receive of messages using a listener, receiving messages in a separate thread
+        protected void PerformTestSslWithMutualAuthentication(string sslBrokerUrl)
         {
             // Create a session to the message broker
-            using (ISession s = SessionFactory.CreateSession(SSL_BROKER_URL))
+            using (ISession s = SessionFactory.CreateSession(sslBrokerUrl))
             {
                 // Send some test messages to the test queue
                 SendTestMsgs(s, new string[] { TEST_MSG_1, TEST_MSG_2 });
