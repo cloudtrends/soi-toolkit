@@ -159,6 +159,7 @@ For a fully working code example see [http://code.google.com/p/soi-toolkit/sourc
 = Security =
 
 Soitoolkit-nms support secure communication with ActiveMQ using SSL with mutual authentication.
+Client certificates can either be installed in a Windows Certificate store or kept on the filesystem.
 
 The ActiveMQ broker is expected to be configured for secure communication using SSL according to the following guidelines: [http://code.google.com/p/soi-toolkit/wiki/InstallationGuideRuntime#Secure_connections_using_SSL_over_TCP Configure ActiveMQ using SSL]
 
@@ -167,15 +168,22 @@ The soitoolkit-nms client is configured by its broker-url. Using plain TCP a bro
 To use SSL a number of query-parameters needs to be added and the `tcp:`-protocoll needs to be changed to `ssl:`.
 
 || Query-parameter || Description ||
-|| `transport.clientCertFilename` || Points to the client-side certificate in the local filesystem. || 
-|| `transport.clientCertPassword` || Password for the client-side certificate. || 
+|| `keyStoreName` || Windows Certificate Store, e.g. 'StoreName.My.ToString()'. To be used if the client certificate is installed in a Windows Certificate store  || 
+|| `keyStoreLocation` || Windows Certificate Location, e.g. '"CurrentUser"'. To be used if the client certificate is installed in a Windows Certificate store || 
+|| `transport.clientCertFilename` || Points to the client-side certificate in the local filesystem.  To be used if the client certificate is kept on the filesystem || 
+|| `transport.clientCertPassword` || Password for the client-side certificate.  To be used if the client certificate is kept on the filesystem || 
 || `transport.acceptInvalidBrokerCert` || Set to true to avoid validations of the server cert. Can be useful during debugging a not working SSL setup... || 
 || `transport.serverName` || If the ActiveMQ-broker use a certificate with a hostname different from the one in the url a connection-exception is raised. If it is ok that the ActiveMQ-broker cert specifies a different hostname this can be specified using this parameter to avoid the exception. || 
 || `transport.timeout` || This is a parameter on the `failover:`-transport (i.e. not on the `ssl:`-transport). Can be very useful to terminate a connection attempt when a SSL connection is not working. Otherwise the failover-protocoll just keeps on trying until stopped the very hard way... || 
 
-Example of a broker-url configured for SSL communication using mutual authentication:
+Example of a broker-url configured for SSL communication using mutual authentication with the client certificate installed in a Windows Certificate store:
 {{{
-failover:(ssl://amq-broker:61618?transport.clientCertFilename=C:/my_clinet_cert1.p12&transport.clientCertPassword=my_client_pwd)?transport.timeout=5000
+failover:(ssl://amq-broker:61618?keyStoreName=" + StoreName.My.ToString() + "&keyStoreLocation=CurrentUser)?transport.timeout=5000
+}}}
+
+Example of a broker-url configured for SSL communication using mutual authentication with the client certificate kept on the filesystem :
+{{{
+failover:(ssl://amq-broker:61618?transport.clientCertFilename=C:/my_client_cert1.p12&transport.clientCertPassword=my_client_pwd)?transport.timeout=5000
 }}}
 
 For a fully working code example see [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms-tests/SSLTests.cs SSLTests.cs].
