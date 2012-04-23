@@ -1,4 +1,5 @@
 #summary Concepts and definitions
+#labels Featured
 
 = Concepts and definitions =
 
