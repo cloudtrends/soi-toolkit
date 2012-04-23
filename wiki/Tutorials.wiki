@@ -1,4 +1,5 @@
 #summary Tutorials
+#labels Featured
 
 *Content*
 <wiki:toc max_depth="2" />
