@@ -1,4 +1,5 @@
 #summary Installation Guide for users of soi-toolkit.
+#labels Featured
 
 = Installation Guide =
 
