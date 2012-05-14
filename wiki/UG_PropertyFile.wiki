@@ -84,10 +84,14 @@ MY_DATABASE_PASSWORD=ENC(Sc2JJ0XmftcDg2472aXVrVtj6pq23eevHFRplV/WYgynlUhLRpF8n9y
 }}}
   # Configure the Mule-server environment with the _master password_:
     # For Mule standalone, edit $MULE_HOME/conf/wrapper.conf, add:
-      {{{set.SOITOOLKIT_ENCRYPTION_PASSWORD=MY_SECRET_MASTER_PASSWORD}}}
+      {{{
+      set.SOITOOLKIT_ENCRYPTION_PASSWORD=MY_SECRET_MASTER_PASSWORD
+      }}}
       Ref: http://wrapper.tanukisoftware.com/doc/english/props-envvars.html
     # Set permissions on the wrapper-file:
-  {{{chmod 400 $MULE_HOME/conf/wrapper.conf}}}
+      {{{
+      chmod 400 $MULE_HOME/conf/wrapper.conf
+      }}}
 
 *Note:* encrypted passwords should only be used in the ${artifactId}-config-override.properties file to avoid exposing the _master password_. Anyway, to test usage of encrypted passwords when running Mule from Eclipse or Maven you can:
   # For running tests in eclipse, open "Run configurations" for the junit-testsuite and add environment variable SOITOOLKIT_ENCRYPTION_PASSWORD=MY_SECRET_MASTER_PASSWORD
