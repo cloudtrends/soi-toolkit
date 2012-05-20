@@ -9,7 +9,7 @@
 To be able to test a new version of soi-toolkit before it is finally released snapshot versions are built from trunk and are published as:
 
  * *Update Site for the Eclipse plugin*
-  is published at http://soi-toolkit.merikan.com/myUpdateSite/ at zip-files. Download, unzip and install from local update site in Eclipse.
+  is published at http://soi-toolkit.merikan.com/myUpdateSite/ at zip-files. Download, unzip and install from local update site in Eclipse or Mule Studio.
  * *Maven plugin for the generators*
   is deployed  to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
  * *Runtime components*
@@ -68,7 +68,7 @@ When testing snapshot versions of soi-toolkit the profile also needs to be activ
 
 == Generate code using soi-toolkit Eclipse plugin ==
 
- * Install the snapshot version of the Eclipse plugin from the snapshot update site specified above.
+ * Install the snapshot version of the Eclipse plugin from the snapshot update site specified above in either Eclipse or Mule Studio.
 
  * Generate code using the soi-toolkit Eclipse plugin as [Tutorials#Getting_started_tutorials normal].
 
