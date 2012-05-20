@@ -94,7 +94,13 @@ Install Eclipse according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/EclipseVerifyInstallation.png
 
+ * Ensure that you have the classpath variable M2_REPO setup in Eclipse
+  * Goto Eclipse Preferences and select "Java --> Buid Path --> Classpath Variables"
+  * If the variable M2_REPO is not already defined then click on the "New..." button
+  * Enter M2_REPO as the name and click on the "Folder..." button and navigate and select you local Maven repository folder.
+  * Click on "Ok" buttons and accept a full rebuild of your workspace if requested.
 
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Eclipse_M2_REPO_variable.png
 
 ==Soi-toolkit Eclipse plugin==
 
