@@ -10,9 +10,12 @@ See the wiki page [DG_TestingSnapshotVersions Testing snapshot versions of soi-t
 
 To be able to test a new version of soi-toolkit before it is finally released snapshot versions are built from trunk and are published as:
 
- * Update Sites for the eclipse-plugin are published at http://soi-toolkit.merikan.com/myUpdateSite/ at zip-files. Download, unzip and install from local update site in Eclipse.
- * The maven-plugin for the generators is deployed  to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
- * Runtime components are deployed to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
+ * *Update Site for the eclipse-plugin*
+  is published at http://soi-toolkit.merikan.com/myUpdateSite/ at zip-files. Download, unzip and install from local update site in Eclipse.
+ * *Maven-plugin for the generators*
+  is deployed  to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
+ * *Runtime components*
+  are deployed to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
 
 Do the following to test a snapshot release of soi-toolkit:
 
