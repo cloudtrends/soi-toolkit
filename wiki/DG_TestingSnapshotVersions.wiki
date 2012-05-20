@@ -92,11 +92,20 @@ mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.1-SNAPS
  * Update the soi-toolkit-dependency to the snapshot-release:
  (e.g. change 0.5.0 to 0.5.1-SNAPSHOT)
 {{{
-	<parent>
-		<groupId>org.soitoolkit.commons.poms</groupId>
-		<artifactId>soitoolkit-default-parent</artifactId>
-		<version>0.5.1-SNAPSHOT</version>
-	</parent>
+<parent>
+	<groupId>org.soitoolkit.commons.poms</groupId>
+	<artifactId>soitoolkit-default-parent</artifactId>
+	<version>0.5.1-SNAPSHOT</version>
+</parent>
 }}}
 
+ * If the new version of ski-toolkit supports a newer version of Mule also update the soitoolkit-mule-n.n.n-dependencies to reflect that:
+{{{
+<dependency>
+	<groupId>org.soitoolkit.commons.poms.mule-dependencies</groupId>
+	<artifactId>soitoolkit-mule-3.3.0-dependencies</artifactId>
+	<version>${soitoolkit.version}</version>
+	<type>pom</type>
+</dependency>
+}}}
 *Note #4:* Remember to revert these changes once you turn back to work with a released version of soi-toolkit!
