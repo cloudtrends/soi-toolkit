@@ -34,6 +34,7 @@ The instructions below will evolve over time to support all phases.
  * [UG_IntegrationTesting Integration testing]
  * [UG_CustomizeLogging Customizing the log-mechanism (Experimental since v0.4.1)]
  * [UG_ChangeJmsProviderToHornetQ Change JMS provider to HornetQ (Since v0.5.0)]
+ * [DG_TestingSnapshotVersions Testing and building against snapshot versions of soi-toolkit].
 
 
 === Test and Production ===
