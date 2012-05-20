@@ -26,7 +26,6 @@ The instructions below will evolve over time to support all phases.
  * TBD: Customize file- and foldernames created by the generators
  * TBD: Specify your own dependencies for Mule
  * TBD: Custom handling of log-events
- * [UG_UseSoiToolkitSnapshotReleases Building against a snapshot release of soi-toolkit]
 
 === Development and Maintenance ===
  * [UG_UsingGenerators Using the source code generators]
