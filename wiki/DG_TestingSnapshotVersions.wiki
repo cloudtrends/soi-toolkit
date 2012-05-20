@@ -1,0 +1,81 @@
+#summary Guidelines for developers of the soi-toolkit - Testing snapshot versions of soi-toolkit
+
+*Content*
+
+<wiki:toc max_depth="3" />
+
+= Testing snapshot versions of soi-toolkit =
+
+See the wiki page [DG_TestingSnapshotVersions Testing snapshot versions of soi-toolkit].
+
+To be able to test a new version of soi-toolkit before it is finally released snapshot versions are built from trunk and are published as:
+
+ * Update Sites for the eclipse-plugin are published at http://soi-toolkit.merikan.com/myUpdateSite/ at zip-files. Download, unzip and install from local update site in Eclipse.
+ * The maven-plugin for the generators is deployed  to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
+ * Runtime components are deployed to the maven snapshot repository: http://repository-soi-toolkit.forge.cloudbees.com/snapshot
+
+Do the following to test a snapshot release of soi-toolkit:
+
+ * To be able to download snapshot versions of the maven-plugin and the runtime components the following profile has to be defined in the maven settings.xml file:
+
+{{{
+    <profile>
+      <id>soi-toolkit-snapshot-profile</id>
+      <repositories> 
+        <repository> 
+          <id>soi-toolkit-snapshot-repository</id> 
+          <name>soi-toolkit snapshot repository</name>
+          <url>http://repository-soi-toolkit.forge.cloudbees.com/snapshot/</url>
+          <releases> 
+            <enabled>false</enabled> 
+          </releases> 
+          <snapshots> 
+            <enabled>true</enabled> 
+          </snapshots> 
+        </repository> 
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>soi-toolkit-snapshot-plugin-repository</id> 
+          <name>soi-toolkit snapshot plugin repository</name>
+          <url>http://repository-soi-toolkit.forge.cloudbees.com/snapshot/</url>
+          <releases> 
+            <enabled>false</enabled> 
+          </releases> 
+          <snapshots> 
+            <enabled>true</enabled> 
+          </snapshots> 
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+}}}
+
+ When testing snapshot versions of soi-toolkit the profile also needs to be activated by specifying the following in the maven settings-xml file:
+
+{{{
+  <activeProfiles>
+    <activeProfile>soi-toolkit-snapshot-profile</activeProfile>
+  </activeProfiles>
+}}}
+
+ Note #1: If you are using maven repository mirrors please assure that they don't prevent accees to soi-toolkits snapshot-repository.
+
+ Note #2: Don't forget to deactivate this profile when going back to using released versions of soi-toolkit!
+
+ * Install the snapshot version of the eclipse plugin from the snapshot update site specified above.
+
+ * Generate code using the soi-toolkit eclipse plugin as [Tutorials#Getting_started_tutorials normal].
+
+ * When using the [UG_UsingGenerators maven plugin] for generating source code you have to use the longer format of the command to be able to use a SNAPSHOT-version, i.e.
+ {{{
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.1-SNAPSHOT:genIC -Darg=value ...
+ }}}
+ or:
+ {{{
+mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.1-SNAPSHOT:genService -Darg=value ...
+ }}}
+
+ for creating source code for a service.
+
+ Note #3: the generated code will have a dependency to the corresponding snapshot versions of the soi-toolkit runtime components!
