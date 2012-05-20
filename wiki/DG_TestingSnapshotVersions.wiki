@@ -6,8 +6,6 @@
 
 = Testing snapshot versions of soi-toolkit =
 
-See the wiki page [DG_TestingSnapshotVersions Testing snapshot versions of soi-toolkit].
-
 To be able to test a new version of soi-toolkit before it is finally released snapshot versions are built from trunk and are published as:
 
  * *Update Site for the eclipse-plugin*
