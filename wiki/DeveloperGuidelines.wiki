@@ -143,6 +143,8 @@ Snapshot artifacts are deployed to the repository https://oss.sonatype.org/conte
 
 == Publish snapshots of the Eclipse plugin ==
 
+ * Build soi-toolkit with mvn install from trunk
+ * Copy jar's for soitoolkit-generator and soitoolkit-commons-xml to generator-plugin lib-folder
  * Edit the following files:
   * {{{trunk/tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
  {{{
