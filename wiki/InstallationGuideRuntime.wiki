@@ -19,11 +19,11 @@ The following versions (or newer) are recommended:
 
 = Installation instructions =
 
- * [IG_RT_ Installing Apache ActiveMQ]
+ * [IG_RT_ActiveMQ Installing Apache ActiveMQ]
 
- * [IG_RT_ Installing Apache Derby]
+ * [IG_RT_Derby Installing Apache Derby]
 
- * [IG_RT_ Installing Apache Tomcat]
+ * [IG_RT_Tomcat Installing Apache Tomcat]
 
  * [InstallationGuideCygwinSetup Installing Cygwin (Windows only)]
  Cygwin is useful for running a local SFTP-server on Windows.
