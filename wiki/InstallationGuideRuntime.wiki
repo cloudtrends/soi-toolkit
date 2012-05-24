@@ -27,7 +27,7 @@ The following versions (or newer) are recommended:
 
  * [InstallationGuideCygwinSetup Installing Cygwin (Windows only)]
  Cygwin is useful for running a local SFTP-server on Windows.
- *Note:* Requires Soi-toolkit version 0.4.0 or later for SSH-keys created with Cygwin (due to http://www.mulesource.org/jira/browse/SFTP-38).
+ Note: Requires Soi-toolkit version 0.4.0 or later for SSH-keys created with Cygwin (due to http://www.mulesource.org/jira/browse/SFTP-38).
 
  * [InstallationGuideFileZillaServerSetup Installing FileZilla Server (Windows only)]
  !FileZilla Server is useful for running a local FTP-server on Windows.
