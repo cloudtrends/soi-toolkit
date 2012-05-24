@@ -59,12 +59,6 @@ Make ActiveMQ startup at boot-time:
 $ sudo update-rc.d activemq start 66 2 3 4 5 . stop 66 0 1 6 .
 }}}
 
-*Note:* To uninstall the activemq service later, you may do the following
-{{{
-$ sudo update-rc.d -f activemq remove
-$ sudo rm /etc/init.d/activemq
-}}}
-
 Startup ActiveMQ manually:
 {{{
 $ sudo service activemq start
@@ -82,10 +76,34 @@ You should also browse to the a URL similar to the following in you browser to m
 
 Verify in {{/var/log/boot.log}} that you got the expected startorder!
 
+Some other useful commands:
+
+To verify if  ActiveMQ is running use the command:
+{{{
+$ sudo service activemq status
+}}}
+
+To restart ActiveMQ use the command:
+{{{
+$ sudo service activemq restart
+}}}
+
+To stop ActiveMQ use the command:
+{{{
+$ sudo service activemq stop
+}}}
+
+To uninstall the ActiveMQ service, do the following:
+{{{
+$ sudo update-rc.d -f activemq remove
+$ sudo rm /etc/init.d/activemq
+}}}
+
+
 For more information see:
  * [http://www.forwardslashbin.com/?p=46]
 
-To start ActiveMQ manually:
+To run ActiveMQ in the console:
  * Go to the sub folder {{{apache-activemq-5.5.1/bin}}} and execute the command: {{{activemq console}}}.
   * *Note:* On Mac OS X go to the sub folder {{{apache-activemq-5.5.1/bin/macosx}}} and execute the command: {{{activemq console}}}.
 
