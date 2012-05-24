@@ -119,6 +119,13 @@ A Active MQ message broker has a configuration file typically named `${ACTIVEMQ_
 
 Note that the XML elements under the root `<broker>`-element in this file shall be declared in alphabetic order
 
+The following types of configuration is described below:
+
+ * How to setup retry and DLQ-handling policies
+ * How to setup a network of message brokers
+ * How to setup master/slaves message brokers for High Availability
+ * How to secure connections using SSL over TCP
+
 === Secure connections using SSL over TCP ===
 
 Three different XML-element needs to be configured:
