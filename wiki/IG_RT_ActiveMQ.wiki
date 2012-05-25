@@ -127,15 +127,32 @@ The following types of configuration is described below:
  * [#Secure_connections_using_SSL_over_TCP How to secure connections using SSL over TCP]
 
 === Setup retry and DLQ-handling policies ===
+
+For background information see: 
+ * http://activemq.apache.org/failover-transport-reference.html
+ * http://activemq.apache.org/message-redelivery-and-dlq-handling.html
+
 * TO BE DESCRIBED *
 
 === Setup a network of message brokers ===
+
+For background information see: 
+ * http://activemq.apache.org/networks-of-brokers.html
+
 * TO BE DESCRIBED *
 
 === Setup master/slaves message brokers for High Availability ===
+
+For background information see: 
+ * http://activemq.apache.org/shared-file-system-master-slave.html
+
 * TO BE DESCRIBED *
 
 === Secure connections using SSL over TCP ===
+
+For background information see: 
+ * http://activemq.apache.org/ssl-transport-reference.html
+ * http://activemq.apache.org/how-do-i-use-ssl.html
 
 Three different XML-element needs to be configured:
  * `<sslContext>` - defines certificates and trust stores to be used.
