@@ -52,7 +52,7 @@ also add required dependencies for the WMQ-transport:
       <version>${ibm.wmq.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.ibm</groupId>
+      <groupId>com.ibm.mq</groupId>
       <artifactId>dhbcore</artifactId>
       <version>${ibm.wmq.version}</version>
     </dependency>
@@ -66,6 +66,12 @@ and for WMQ v7 also add:
       <version>${ibm.wmq.version}</version>
     </dependency>
 }}}
+
+
+=== Script for Maven-deploy of WMQ-libs ===
+  # Download the client SupportPac (MQC71 for WMQ 7.1) from IBM
+  # Install the supportpac
+  # Extract the jar-files we need (listed above) from the installed SupportPac and upload them to your organizations Maven-repository manager by copying and modifying script: [https://soi-toolkit.googlecode.com/svn/trunk/tools/soitoolkit-maven-deploy-wmq-libs/mvn-deploy-wmq7-jars.bat]
 
 
 == Import the WMQ-connector ==
