@@ -103,11 +103,15 @@ Add a property to enable switch of transport:
 # jms for ActiveMQ (for test-execution and development), wmq for deploy to TEST, QA, PROD
 JMS=jms
 }}}
-  # Add property substitution for the address in the services where JMS/WMQ is used. Change the files in the service-project in directory main/resources/services, change addresses like:
+  # Add property substitution for the address in the services where JMS/WMQ is used. Change the service-files in directory src/main/app, change inbound- and outbound endpoints like:
 {{{
-jms://A_QUEUE_NAME
+<jms:inbound-endpoint queue="${WMQ_EXAMPLE_IN_QUEUE}"
+...
+<jms:outbound-endpoint queue="${WMQ_EXAMPLE_OUT_QUEUE}"
 }}}
   to:
 {{{
-${JMS}://A_QUEUE_NAME
+<inbound-endpoint address="${JMS}://${WMQ_EXAMPLE_IN_QUEUE}"
+...
+<outbound-endpoint address="${JMS}://${WMQ_EXAMPLE_OUT_QUEUE}"
 }}}
