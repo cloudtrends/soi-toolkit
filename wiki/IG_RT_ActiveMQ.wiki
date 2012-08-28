@@ -34,21 +34,6 @@ Unpack the distribution with the command:
 $ sudo tar -xvf apache-activemq-5.6.0-bin.tar.gz -C /usr/local
 }}}
 
-*IS THIS EDIT REALLY REQUIRED???*
-
-Edit the file {{{/usr/local/apache-activemq-5.6.0/bin/linux-x86-64/activemq}}}, set:
-{{{
-ACTIVEMQ_HOME=”/usr/local/apache-activemq-5.6.0” (including quotes)
-}}}
-
-*IS THIS EDIT REALLY REQUIRED???*
-
-Edit the file {{{/usr/local/apache-activemq-5.6.0/bin/linux-x86-64/wrapper.conf}}}, set:
-{{{
-set.default.ACTIVEMQ_HOME=/usr/local/apache-activemq-5.6.0
-set.default.ACTIVEMQ_BASE=/usr/local/apache-activemq-5.6.0
-}}}
-
 Create soft-link for the activemq daemon to your daemon init script directory
 {{{
 $ sudo ln -s /usr/local/apache-activemq-5.6.0/bin/linux-x86-64/activemq /etc/init.d/activemq
@@ -74,7 +59,7 @@ You should have a message in the tail output similar to the following: “`INFO 
 
 You should also browse to the a URL similar to the following in you browser to meet the ActiveMQ admin gui: http://localhost:8161/admin/index.jsp
 
-Verify in {{/var/log/boot.log}} that you got the expected startorder!
+Verify in `/var/log/boot.log` that you got the expected startorder!
 
 Some other useful commands:
 
@@ -98,10 +83,6 @@ To uninstall the ActiveMQ service, do the following:
 $ sudo update-rc.d -f activemq remove
 $ sudo rm /etc/init.d/activemq
 }}}
-
-
-For more information see:
- * [http://www.forwardslashbin.com/?p=46]
 
 To run ActiveMQ in the console:
  * Go to the sub folder {{{apache-activemq-5.6.0/bin}}} and execute the command: {{{activemq console}}}.
