@@ -70,7 +70,7 @@ $ sudo reboot
 $ tail /usr/local/apache-activemq-5.6.0/data/wrapper.log -n30
 }}}
 
-You should have a message in the tail output similar to the following: “{{INFO ActiveMQ Message Broker … Started}}”
+You should have a message in the tail output similar to the following: “`INFO | ActiveMQ Message Broker ... Started`”
 
 You should also browse to the a URL similar to the following in you browser to meet the ActiveMQ admin gui: http://10.211.55.10:8161/admin/index.jsp
 
