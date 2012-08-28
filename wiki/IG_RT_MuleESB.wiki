@@ -1,6 +1,6 @@
-#summary Installation Guide for Apache ActiveMQ.
+#summary Installation Guide for Mule ESB.
 
-= Installation Guide for Apache ActiveMQ =
+= Installation Guide for Mule ESB =
 
 *Content*
 <wiki:toc max_depth="4" />
@@ -8,17 +8,8 @@
 == Installation instructions ==
 
 ===On Windows===
- * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2Fc%2Fapache-activemq-5.6.0-bin.zip
 
- * Unzip to some folder, e.g. {{{C:\opt}}}
-
- * Go to the folder {{{C:\opt\apache-activemq-5.6.0\bin\win32}}} and execute the file {{{InstallService.bat}}}.
-
- Active MQ is now registered as a windows service and can be started automatically when the Windows server is started. 
- 
- NOTE: If you prefer to start ActiveMQ manually you can find start script (activemq.bat) in the bin-folder.
-
- Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
+...To Be Described...
 
 ===On Linux (& Unix?)===
 
