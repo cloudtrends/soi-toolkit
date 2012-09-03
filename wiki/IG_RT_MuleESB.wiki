@@ -104,9 +104,16 @@ To run Mule in the console: ???
 
 ==Configuration==
 
-*TBS:*
+===Installing a Mule EE license===
 
- * Mule EE license file
+After installing Mule EE you have a default evaluation license valid for 30 days.
+For instructions on how to install your license read this: [http://www.mulesoft.org/documentation/display/MULE3INSTALL/Installing+a+Commercial+License Installing a Commercial License].
+
+===Controlling Mule startup===  
+
+For instructions on how Mule is started and how it can be customized read this: [http://www.mulesoft.org/documentation/display/MULE3INSTALL/Controlling+Mule+From+Startup Controlling Mule From Startup]
+
+*To Be Described:*
 
  * Env vars in the wrapper script
 /usr/local/mule-standalone-3.1.3/conf/wrapper.conf
