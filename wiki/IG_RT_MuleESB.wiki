@@ -4,6 +4,10 @@
 
 This installation guide describes how to install both the free Community Edition (CE) of Mule ESB and the commercial Enterprise Edition (EE) of Mule ESB. 
 
+The installation guide can be used to install several versions of Mule ESB that executes concurrently on one and the same server.
+
+To be able to achieve this unique names (with regards to version and edition) are suggested for the daemon processes, e.g. "mule_ce_3.3.0".
+
 *Note* that the file name differs slightly for the two editions. In general the file names for the Community Edition are used in the guide.
 
 *Content*
@@ -31,7 +35,7 @@ Unpack the distribution with the command:
 $ sudo tar -xvf mule-standalone-3.3.0.tar.gz -C /usr/local
 }}}
 
-Create soft-link for the activemq daemon to your daemon init script directory
+Create soft-link for the Mule daemon to your daemon init script directory
 {{{
 $ sudo ln -s /usr/local/mule-standalone-3.3.0/bin/mule /etc/init.d/mule_ce_3.3.0
 }}}
@@ -46,7 +50,7 @@ Startup Mule manually:
 $ sudo service mule_ce_3.3.0 start
 }}}
 
-Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in…
+Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in...
 {{{
 $ sudo reboot
 $ tail /usr/local/mule-standalone-3.3.0/logs/mule.log -n50
