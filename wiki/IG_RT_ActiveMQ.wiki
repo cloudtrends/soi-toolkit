@@ -59,9 +59,9 @@ You should have a message in the tail output similar to the following: “`INFO 
 
 You should also browse to the a URL similar to the following in you browser to meet the ActiveMQ admin gui: http://localhost:8161/admin/index.jsp
 
-Verify in `/var/log/boot.log` that you got the expected startorder!
+Verify in `/var/log/boot.log` that you got the expected start order, e.g. that ActiveMQ starts before Mule!
 
-Some other useful commands:
+====Some other useful commands====
 
 To verify if  ActiveMQ is running use the command:
 {{{
