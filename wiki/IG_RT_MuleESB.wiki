@@ -69,30 +69,30 @@ Verify that the startup time is accurate to ensure that you are reading the righ
 
 Verify in `/var/log/boot.log` that you got the expected start order, e.g. that ActiveMQ starts before Mule!
 
-Some other useful commands:
+====Some other useful commands====
 
-To verify if  ActiveMQ is running use the command:
+To verify if Mule is running use the command:
 {{{
-$ sudo service activemq status
+$ sudo service mule_ce_3.3.0 status
+}}
+
+To restart Mule use the command:
+{{{
+$ sudo service mule_ce_3.3.0 restart
 }}}
 
-To restart ActiveMQ use the command:
+To stop Mu ulese the command:
 {{{
-$ sudo service activemq restart
+$ sudo service mule_ce_3.3.0 stop
 }}}
 
-To stop ActiveMQ use the command:
+To uninstall the Mule service, do the following:
 {{{
-$ sudo service activemq stop
+$ sudo update-rc.d -f mule_ce_3.3.0 remove
+$ sudo rm /etc/init.d/mule_ce_3.3.0
 }}}
 
-To uninstall the ActiveMQ service, do the following:
-{{{
-$ sudo update-rc.d -f activemq remove
-$ sudo rm /etc/init.d/activemq
-}}}
-
-To run ActiveMQ in the console:
+To run Mule in the console: ???
  * Go to the sub folder {{{apache-activemq-5.6.0/bin}}} and execute the command: {{{activemq console}}}.
   * *Note:* On Mac OS X go to the sub folder {{{apache-activemq-5.6.0/bin/macosx}}} and execute the command: {{{activemq console}}}.
 
@@ -104,115 +104,24 @@ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInsta
 
 ==Configuration==
 
-An ActiveMQ message broker has a configuration file typically named `${ACTIVEMQ_HOME}/conf/activemq.xml`.
+*TBS:*
 
-Note that the XML elements under the root `<broker>`-element in this file shall be declared in alphabetic order
+* Mule EE license file
 
-The following types of configuration is described below:
+* Env vars in the wrapper script
+/usr/local/mule-standalone-3.1.3/conf/wrapper.conf
+# Location of your application's data storage on disk.
+wrapper.java.additional.4=-Dmule.app.data=/somefolder/mule.app.data
 
- * [#Setup_retry_and_DLQ-handling_policies How to setup retry and DLQ-handling policies]
- * [#Setup_a_network_of_message_brokers How to setup a network of message brokers]
- * [#Setup_master/slaves_message_brokers_for_High_Availability How to setup master/slaves message brokers for High Availability]
- * [#Secure_connections_using_SSL_over_TCP How to secure connections using SSL over TCP]
+* editera filen /usr/local/mule-standalone-3.1.3/bin/mule och skapa:
+# The upper limit on the number of files mule can open
+ulimit -n 10240
 
-=== Setup retry and DLQ-handling policies ===
+* non root user
+Om Mule skall exekvera under en annan user än root:
+1. editera filen /usr/local/mule-standalone-3.1.3/bin/mule och ändra på raden som anger
+RUN_AS_USER t ex till:
+RUN_AS_USER=mule
+2. ändra /usr/local/mule-standalone-3.1.3 ägare till user som exekvera Mule (RUN_AS_USER):
+$sudo chown -R mule:mule /usr/local/mule-standalone-3.1.3
 
-For background information see: 
- * http://activemq.apache.org/failover-transport-reference.html
- * http://activemq.apache.org/message-redelivery-and-dlq-handling.html
-
-* TO BE DESCRIBED *
-
-{{{
-<broker...>
-  <destinationPolicy>
-    <policyMap>
-      <policyEntries>
-        <!-- Set the following policy on all queues using the '>' wildcard -->
-        <policyEntry queue=">">
-          <deadLetterStrategy>
-            <!--
-              Use the prefix 'DLQ.' for the destination name, and make
-              the DLQ a queue rather than a topic
-            -->
-            <individualDeadLetterStrategy
-              queuePrefix="DLQ." useQueueForQueueMessages="true" />
-          </deadLetterStrategy>
-        </policyEntry>
-      </policyEntries>
-    </policyMap>
-  </destinationPolicy>
-  ...
-</broker>
-}}}
-
-=== Setup a network of message brokers ===
-
-For background information see: 
- * http://activemq.apache.org/networks-of-brokers.html
-
-* TO BE DESCRIBED *
-
-=== Setup master/slaves message brokers for High Availability ===
-
-For background information see: 
- * http://activemq.apache.org/shared-file-system-master-slave.html
-
-* TO BE DESCRIBED *
-
-=== Secure connections using SSL over TCP ===
-
-For background information see: 
- * http://activemq.apache.org/ssl-transport-reference.html
- * http://activemq.apache.org/how-do-i-use-ssl.html
-
-Three different XML-element needs to be configured:
- * `<sslContext>` - defines certificates and trust stores to be used.
- * `<transportConnectors>` - defines secure connectors to be used by ActiveMQ - clients.
- * `<networkConnectors>` - defines secure connectors to be used by other ActiveMQ -brokers to establish a secure network of brokers.
-
-*Reference:* [http://activemq.apache.org/ssl-transport-reference.html ActiveMQ-SSL-transport].
-
-==== Configure the `<sslContext>` - element ====
-
-Server certificate and truststore is defined in a traditional Java-style, e.g.:
-
-{{{
-<sslContext>
-    <sslContext 
-	keyStore="file:.../server-cert.jks" keyStorePassword="password" keyStoreType="PKCS12"
-        trustStore="file:.../truststore.jks" trustStorePassword="password"/>
-</sslContext>
-}}}
-
-==== Configure the `<transportConnectors>` - element ====
-
-Add secure-connector to the `<transportConnectors>` - element as required, e.g. one ssl connector for server-only-cert, `ssl1`, and one for mutual-authentication, `ssl2`:
-
-{{{
-<transportConnectors>
-    <transportConnector name="openwire" uri="tcp://0.0.0.0:61616"/>
-    <transportConnector name="ssl1" uri="ssl://0.0.0.0:61617" />
-    <transportConnector name="ssl2" uri="ssl://0.0.0.0:61618?needClientAuth=true" />
-</transportConnectors>
-}}}
-
-If no longer required the pure tcp-connector, called `openwire` in the example above, can be removed to avoid unsecured connections to the broker.
-
-==== Configure the `<networkConnectors>` - element ====
-
-Add secure-connector to other brokers in the `<networkConnectors>` - element as required, e.g.:
-
-{{{
-<networkConnectors>
-    <networkConnector uri="static:(ssl://remote-amq-mb-ip-address:61618)" duplex="true"/>
-</networkConnectors>
-}}}
-
-*Note:* ActiveMQ does not support a mix of multicast network-connectors and ssl according to: [http://activemq.apache.org/ssl-transport-reference.html ActiveMQ-SSL-transport].
-
-This means that any multicast connectors like the one below should be removed:
-
-{{{
-<networkConnector uri="multicast://default"/>
-}}}
