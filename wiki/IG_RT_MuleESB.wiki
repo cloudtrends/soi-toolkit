@@ -2,7 +2,7 @@
 
 = Installation Guide for Mule ESB =
 
-This installation guide describes how to install both the free Community Edition of Mule ESB and the commercial Enterprise Edition of Mule ESB. 
+This installation guide describes how to install both the free Community Edition (CE) of Mule ESB and the commercial Enterprise Edition (EE) of Mule ESB. 
 
 *Note* that the file name differs slightly for the two editions. In general the file names for the Community Edition are used in the guide.
 
