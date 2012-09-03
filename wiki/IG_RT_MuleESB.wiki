@@ -23,7 +23,7 @@ Download the distribution for the Community Edition with the command:
 $ wget http://dist.codehaus.org/mule//distributions//mule-standalone-3.3.0.tar.gz
 }}}
 
-The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like 'mule-ee-distribution-standalone-3.3.0.tar.gz'
+The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.tar.gz`
 
 Unpack the distribution with the command:
 
