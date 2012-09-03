@@ -55,13 +55,9 @@ You should have a message in the tail similar to the following:
 * For more information go to http://www.mulesoft.org                 *
 *                                                                    *
 * Server started: 2012-09-03 08:53                                   *
-* Server ID: vp                                                      *
 * JDK: 1.6.0_24 (mixed mode)                                         *
-* OS encoding: UTF-8, Mule encoding: UTF-8                           *
 * OS: Linux (3.2.0-29-generic, amd64)                                *
 * Host: magnus-MacBookPro (127.0.1.1)                                *
-*                                                                    *
-* Agents Running: None                                               *
 **********************************************************************
 }}}
 
