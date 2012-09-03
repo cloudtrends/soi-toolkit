@@ -16,41 +16,58 @@
 Download the distribution with the command:
 
 {{{
-$ wget http://apache.dataphone.se//activemq/apache-activemq/5.6.0/apache-activemq-5.6.0-bin.tar.gz
+$ wget http://dist.codehaus.org/mule//distributions//mule-standalone-3.3.0.tar.gz
 }}}
 
 Unpack the distribution with the command:
 
 {{{
-$ sudo tar -xvf apache-activemq-5.6.0-bin.tar.gz -C /usr/local
+$ sudo tar -xvf mule-standalone-3.3.0.tar.gz -C /usr/local
 }}}
 
 Create soft-link for the activemq daemon to your daemon init script directory
 {{{
-$ sudo ln -s /usr/local/apache-activemq-5.6.0/bin/linux-x86-64/activemq /etc/init.d/activemq
+$ sudo ln -s /usr/local/mule-standalone-3.3.0/bin/mule /etc/init.d/mule_ce_3.3.0
 }}}
 
-Make ActiveMQ startup at boot-time:
+Make Mule startup at boot-time:
 {{{
-$ sudo update-rc.d activemq start 66 2 3 4 5 . stop 66 0 1 6 .
+$ sudo update-rc.d mule_ce_3.3.0 start 67 2 3 4 5 . stop 67 0 1 6 .
 }}}
 
-Startup ActiveMQ manually:
+Startup Mule manually:
 {{{
-$ sudo service activemq start
+$ sudo service mule_ce_3.3.0 start
 }}}
 
-Lastly, ensure that ActiveMQ starts automatically after rebooting the OS and logging back in…
+Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in…
 {{{
 $ sudo reboot
-$ tail /usr/local/apache-activemq-5.6.0/data/wrapper.log -n30
+$ tail /usr/local/mule-standalone-3.3.0/logs/mule.log -n50
 }}}
 
-You should have a message in the tail output similar to the following: “`INFO | ActiveMQ Message Broker ... Started`”
+You should have a message in the tail similar to the following:
+{{{
+**********************************************************************
+* Mule ESB and Integration Platform                                  *
+* Version: 3.3.0 Build: 24555                                        *
+* MuleSoft, Inc.                                                     *
+* For more information go to http://www.mulesoft.org                 *
+*                                                                    *
+* Server started: 2012-09-03 08:53                                   *
+* Server ID: vp                                                      *
+* JDK: 1.6.0_24 (mixed mode)                                         *
+* OS encoding: UTF-8, Mule encoding: UTF-8                           *
+* OS: Linux (3.2.0-29-generic, amd64)                                *
+* Host: magnus-MacBookPro (127.0.1.1)                                *
+*                                                                    *
+* Agents Running: None                                               *
+**********************************************************************
+}}}
 
-You should also browse to the a URL similar to the following in you browser to meet the ActiveMQ admin gui: http://localhost:8161/admin/index.jsp
+Verify that the startup time is accurate to ensure that you are reading the right log output!
 
-Verify in `/var/log/boot.log` that you got the expected startorder!
+Verify in `/var/log/boot.log` that you got the expected start order, e.g. that ActiveMQ starts before Mule!
 
 Some other useful commands:
 
