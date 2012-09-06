@@ -91,7 +91,7 @@ To restart Mule use the command:
 $ sudo service mule_ce_3.3.0 restart
 }}}
 
-To stop Mu ulese the command:
+To stop Mule use the command:
 {{{
 $ sudo service mule_ce_3.3.0 stop
 }}}
@@ -112,6 +112,15 @@ To run Mule in the console: ???
 
 After installing Mule EE you have a default evaluation license valid for 30 days.
 For instructions on how to install your license read this: [http://www.mulesoft.org/documentation/display/MULE3INSTALL/Installing+a+Commercial+License Installing a Commercial License].
+
+In short:
+{{{
+$ cd /usr/local/mule-enterprise-standalone-3.3.0/bin
+$ sudo cp ...some-folder/mule-ee-license.lic .
+$ sudo ./mule -installLicense mule-ee-license.lic 
+}}}
+
+*Note:* The mule -installLicense command will remove the license-key-file!
 
 ===Controlling Mule startup===  
 
