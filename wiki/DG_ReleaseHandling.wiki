@@ -199,6 +199,19 @@ Perform the following steps:
 
  * Update eclipse plugin version in table in the [InstallationGuide]
 
+=== Manually deploy the eclipse logger-module plugin ===
+
+ * Open a terminal in the module-logger folder
+ * Build update site with the command:
+{{{
+mvn package -Ddevkit.studio.package.skip=false
+}}}
+ * Copy the update site to the test-server:
+{{{
+ftp target/UpdateSite.zip ...
+}}}
+ * Try it out in Mule Studio
+
 === Manually deploy the eclipse plugin - NEW WAY ===
 
 This is currently done manually, mostly since the Eclipse-projects are not yet build with maven :-(
