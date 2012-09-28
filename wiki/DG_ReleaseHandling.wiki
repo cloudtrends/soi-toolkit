@@ -223,8 +223,12 @@ ftp target/UpdateSite.zip ...
 
 This is currently done manually, mostly since the Eclipse-projects are not yet build with maven :-(
 
- * Open a new workspace and import plugin, feature and update project
- * Perform a maven import of the generator-project
+ * get the source of new release
+{{{
+svn up tags
+}}}
+ * Open a new workspace and import plugin, feature and update project from the new tag
+ * Perform a maven import of the generator-project from the tag
  * Edit soi_toolkit_generator_plugin_default_preferences.properties and remove the default value for the root_folder
   * Note: the existing default value is adopted to fit jenkin builds on cloudbees
  * Build generator-project
@@ -233,6 +237,7 @@ This is currently done manually, mostly since the Eclipse-projects are not yet b
  * Perform a "build all" in the update-project 
  * Zip the update-project and name it, soitoolkit-eclipse-plugin-n.n.n.zip
   * Remember to not include any .svn or .DS_Store files!
+  ** E.g.: zip -r foo.zip DIR -x "*/.svn/*"
  * Move the zip-file to the eclipse-update-site - folder
  * Update the wiki page: http://code.google.com/p/soi-toolkit/wiki/InstallationGuide?ts=1325980731&updated=InstallationGuide#Soi-toolkit_Eclipse_plugin
  * Commit all changes (tags + eclipse-update-site - folder)
