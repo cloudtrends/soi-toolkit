@@ -238,7 +238,7 @@ svn up tags
  * Zip the update-project and name it, soitoolkit-eclipse-plugin-n.n.n.zip
   * Remember to not include any .svn or .DS_Store files!
 {{{
-zip -r foo.zip DIR -x "*/.svn/*"
+zip -r soitoolkit-eclipse-plugin-0.6.0.zip org.soitoolkit.generator.update/ -x "*/.svn/*"
 }}}
  * Move the zip-file to the eclipse-update-site - folder
  * Update the wiki page: http://code.google.com/p/soi-toolkit/wiki/InstallationGuide?ts=1325980731&updated=InstallationGuide#Soi-toolkit_Eclipse_plugin
