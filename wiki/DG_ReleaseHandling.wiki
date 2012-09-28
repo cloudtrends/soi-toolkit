@@ -14,6 +14,13 @@ To release a new version of soi-toolkit we use mavens release-plugin.
 
 Perform the following steps:
 
+ * gpg key
+ If you have more that one private gpg key registered you have to specify what key to use as the default key.
+ Edit ~/.gnupg/gpg.conf and add a line like:
+{{{
+default-key nnnnnnnn
+}}}
+
  * Eclipse plugin-check
  Have you added a new source folder since the last release in the plugin?
 
