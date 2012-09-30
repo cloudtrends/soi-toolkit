@@ -60,6 +60,7 @@ firefox https://issues.sonatype.org/
 {{{
     <profile>
       <id>soi-toolkit-sonatype</id>
+
       <repositories> 
         <repository> 
           <id>sonatype-nexus-staging</id> 
@@ -72,7 +73,21 @@ firefox https://issues.sonatype.org/
             <enabled>false</enabled> 
           </snapshots> 
         </repository> 
-      </repositories>       
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>sonatype-nexus-staging-plugin-repository</id> 
+          <name>Sonatype Nexus Staging plugin repository</name>
+          <url>https://oss.sonatype.org/content/repositories/staging/</url>
+          <releases> 
+            <enabled>true</enabled> 
+          </releases> 
+          <snapshots> 
+            <enabled>false</enabled> 
+          </snapshots> 
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
 }}}
  # Install pgp, create key-pair and distribute public key.
