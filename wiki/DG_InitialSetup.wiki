@@ -88,6 +88,7 @@ firefox https://issues.sonatype.org/
           </snapshots> 
         </pluginRepository>
       </pluginRepositories>
+
     </profile>
 }}}
  # Install pgp, create key-pair and distribute public key.
