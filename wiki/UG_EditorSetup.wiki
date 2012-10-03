@@ -1,0 +1,33 @@
+#summary Editor setup for working with Soi-toolkit artifacts
+#sidebar UG_SideBar
+
+*Content*
+<wiki:toc max_depth="2" />
+
+
+=Tabs/spaces=
+Use spaces instead of tabs.
+
+==Eclipse setup==
+For Java files, menu: Preferences/Java/Code Style/Formatter , edit profile, Indentation/Tab policy: "Spaces only".
+For non-Java files, menu: Preferences/General/Editors/Text Editors/Insert spaces for tabs.
+
+==TextMate==
+
+
+=Source encoding=
+Use UTF-8.
+==Maven setup==
+For Maven builds the source encoding is already declared in the parent pom: org.sonatype.oss:oss-parent
+using property:
+{{{
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+}}}
+==Eclipse setup==
+Uses platform encoding by default.
+To set UTF-8 (on a per workspace basis), use menu: Preferences/General/Workspace/Text file encoding.
+
+Note: source encoding can also be set on a per project basis but thats not recommended since we generate eclipse project files using Maven's eclipse-plugin - and the eclipse-plugin (v2.8) doesn't honor the Mvane-defined source-encoding, i.e. re-generating eclipse-project files will drop any project specific settings.
+
+==TextMate==
+UTF-8 is default. See menu: Preferences/Advanced/Saving/File Encoding.
