@@ -25,8 +25,8 @@ The properties above should be placed in the property-file: {{{src/main/resource
 
 {{{
 # Certificate configuration
-SENDERID_PROPERTY=CN
-VALID_SENDERIDS=SOI Toolkit,SenderX
+SENDERID_PROPERTY=<Property>
+VALID_SENDERIDS=<Sender A>,<Sender B>
 }}}
 
 
