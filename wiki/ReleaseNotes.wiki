@@ -12,6 +12,17 @@ This is a feature and maintenance release with 50+ new features and bug fixes.
 
 The most important new features are:
 
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=192 Issue #192, Replace soi-toolkit jaxb transformers with standrad Mule equivalents]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=229 Issue #229, Log connect-problems to ActiveMQ]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=242 Issue #242, Add support for XA transactions]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=243 Issue #243, Add support for Mule 3.3]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=244 Issue #244, Add support for Mule Studio 1.3.1]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=266 Issue #266, Use spring 3.1 bean definition profiles to reduce the number of mule-spring-config-files]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=278 Issue #278, Add support for the HTTPS transport for REST and SOAP services]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=283 Issue #283, Remove JMS and JDBC drivers from standalone deploy files]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=288 Issue #288, Add support of custom WSDL files when creating Service Description Components and also add support for MS .Net WCF]
+
+*Full Release Notes* can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.6.0 Release Notes]
 
 == soi-toolkit v0.5.0 ==
 Release date: January 7 2012
@@ -20,9 +31,9 @@ This is a feature and maintenance release with 63 new features and bug fixes
 
 The most important new features are:
 
- * [http://code.google.com/p/soi-toolkit/issues/detail?id=160 Add support for Mule Studio v1.0]
- * [http://code.google.com/p/soi-toolkit/issues/detail?id=164 Add support for Mule ESB v3.2.1]
- * [http://code.google.com/p/soi-toolkit/issues/detail?id=177 Add support for HornetQ as JMS provider]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=160 Issue #160, Add support for Mule Studio v1.0]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=164 Issue #164, Add support for Mule ESB v3.2.1]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=177 Issue #177, Add support for HornetQ as JMS provider]
 
 *Full Release Notes* can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.5 Release Notes]
 
@@ -35,9 +46,9 @@ The most important new features are:
 
 *Added support for Mule ESB 3.1.2* 
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=145 Issue #145, Add support for Mule ESB v3.1.2]
-  * [http://code.google.com/p/soi-toolkit/issues/detail?id=149 Issue #149, Switch to Mule ESB 3.1.2 as the default version for soi-toolkit]
-  * [http://code.google.com/p/soi-toolkit/issues/detail?id=150 Issue #150, Add support for the restlet-transport added by Mule ESB 3.1.2]
-  * [http://code.google.com/p/soi-toolkit/issues/detail?id=116 Issue #116, Problem with error handling in Mule 3.1, null is returned in exception instead of relevant error info]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=149 Issue #149, Switch to Mule ESB 3.1.2 as the default version for soi-toolkit]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=150 Issue #150, Add support for the restlet-transport added by Mule ESB 3.1.2]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=116 Issue #116, Problem with error handling in Mule 3.1, null is returned in exception instead of relevant error info]
 
 *Removed requirement on using Eclipse*
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=109 Issue #109, Support starting the soi-toolkit generators from the command line]
@@ -46,9 +57,9 @@ The most important new features are:
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=120 Issue #120, Support for REST/HTTP based outbound endpoints for request/response based services]
 
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=58 Issue #58, Support ftp as inbound transport and outbound transport for oneway services]
-  * [http://code.google.com/p/soi-toolkit/issues/detail?id=124 Issue #124, Startup embedded ftp-server in integration tests]
-  * [http://code.google.com/p/soi-toolkit/issues/detail?id=128 Issue #128, Move ftp and sftp username and password info to security-property-file]
-  * [http://code.google.com/p/soi-toolkit/issues/detail?id=141 Issue #141, More than one FTP-test cause an "Address already in use" exception]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=124 Issue #124, Startup embedded ftp-server in integration tests]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=128 Issue #128, Move ftp and sftp username and password info to security-property-file]
+ * [http://code.google.com/p/soi-toolkit/issues/detail?id=141 Issue #141, More than one FTP-test cause an "Address already in use" exception]
 
 *Simplified setting up configuration on test and prod servers*
  * [http://code.google.com/p/soi-toolkit/issues/detail?id=132 Issue #132, Create a config-zip-file for deployable artifacts]
