@@ -5,6 +5,14 @@
 *Content*
 <wiki:toc max_depth="2" />
 
+== soi-toolkit v0.6.0 ==
+Release date: October 3 2012
+
+This is a feature and maintenance release with 50+ new features and bug fixes.
+
+The most important new features are:
+
+
 == soi-toolkit v0.5.0 ==
 Release date: January 7 2012
 
