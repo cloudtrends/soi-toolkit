@@ -55,7 +55,7 @@ This tutorial helps you to create your first service description component.
   * Target folder {{{target}}}
   The runtime files for this component:
    * {{{mySample-schemas-1.0-SNAPSHOT.jar}}} contains the wsdl and xml schema files and the class files for the corresponding generated java source files, typically used by Java based consumers and providers of these service descriptions.
-   * {{{mySample-schemas-1.0-SNAPSHOT-schemas.zip}}} contains only the wsdl and xml schema files, typically used by non Java based consumers and providers of these service descriptions, such as Microsoft .Net based consumers and providers of these service descriptions.
+   * {{{mySample-schemas-1.0-SNAPSHOT-schemas.zip}}} contains the wsdl(s) and xml schema files, typically used by non Java based consumers and providers of these service descriptions, such as Microsoft .NET based consumers and providers of these service descriptions. The zip assembly also includes a script (wcf.bat) in order to generate a WCF client for the .NET based consumers.
 
  * In the filesystem the following folder structure is created for you under the selected root folder:
 
