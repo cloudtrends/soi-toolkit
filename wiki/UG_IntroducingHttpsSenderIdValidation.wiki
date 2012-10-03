@@ -1,8 +1,7 @@
 #summary One-sentence summary of this page.
 
 = Introduction =
-
-In order to minimize 
+TBD  
 
 
 = Details =
@@ -25,7 +24,7 @@ The properties above should be placed in the property-file: {{{src/main/resource
 {{{
 # Certificate configuration
 SENDERID_PROPERTY=CN
-VALID_SENDERIDS=SOI Toolkit
+VALID_SENDERIDS=SOI Toolkit,SenderX
 }}}
 
 
