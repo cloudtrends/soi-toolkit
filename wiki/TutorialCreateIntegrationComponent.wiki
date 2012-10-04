@@ -1,6 +1,7 @@
 #summary Tutorial on how to create an Integration Component.
 
 <font size="5" color="red">*NOTE:* This page is partially outdated.<br/>Work is ongoing to update this page!</font>
+
 =Tutorial: Create an Integration Component=
 
 *Content*
