@@ -83,8 +83,7 @@ If you are using Mule ESB EE you need to manually populate your local maven repo
 
  * Download and unzip Mule ESB EE
  * Define the environment varible MULE_HOME to point to the folde you unzipped Mule ESB EE to
- * Go to the bin folder and run the script {{{populate_m2_repo}}} 
-({{{populate_m2_repo.cmd}}} for Windows) with the location of your local maven repository as input, e.g.:
+ * Go to the bin folder and run the script {{{populate_m2_repo}}} ({{{populate_m2_repo.cmd}}} for Windows) with the location of your local maven repository as input, e.g.:
 
 {{{
 export MULE_HOME=/usr/local/mule-enterprise-standalone-3.3.1
