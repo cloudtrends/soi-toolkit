@@ -52,7 +52,7 @@ mvn test -PrunGeneratorTests
 }}}
 
  * Use the update-tool to update soi-toolkit version to the release version in files not updated by the release plugin.
-  * Update the variable "newVersion" to the new nversion, e.g. "0.4.0"
+  * Update the variable "newVersion" to the new version, e.g. "0.4.0"
   * Set the variable "isSnapshot" to false
   * Run the update-tool.
 
@@ -296,7 +296,10 @@ Perform the following steps:
 
  TODO: Make it possible to run the update-tool as a mvn command (in the same way as for the generator)
 
- * Manually update the soi-toolkit version to the snapshot of the next version in the following files: 
+ * Manually update the soi-toolkit version to the snapshot of the next version in the following files, e.g. 0.6.1-SNAPSHOT: 
+
+*NOTE:* See [DeveloperGuidelines#Publish_snapshots_of_the_Eclipse_plugin] for instructions on how to specify version number for the eclipse plugin!
+
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator/src/main/java/org/soitoolkit/tools/generator/model/impl/DefaultModelImpl.java}}}
   * Bundle version and Bundle-!ClassPath*2 (lib/soitoolkit-generator-n.n.n.jar) in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
   * Soitoolkit-version*2 in bin.includes + jars.extra.classpath in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/build.properties}}}
