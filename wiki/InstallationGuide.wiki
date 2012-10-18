@@ -116,33 +116,9 @@ Install Mule Studio CE according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MuleStudio_M2_REPO_variable.png
 
-==Eclipse==
-
-Install Eclipse according to the following instructions:
-
- * Download  {{{Eclipse IDE for Java EE Developers}}} from http://eclipse.org/downloads/.
- A file named {{{eclipse-jee-helios-SR1-win32.zip}}} is downloaded to your computer.
-
- * Unzip the zip file to the desired installation folder, eg C:\opt.
-
- * Create a shortcut to the file {{{eclipse.exe}}} (eg {{{C:\opt\eclipse\eclipse.exe}}}) in the installation folder to the desktop.
-
- * Verify the installation, start Eclipse through the desktop shortcut.
- Enter the desired workspace folder where requested and click on the "Workbench" icon (top right) when the welcome screen is presented. The the Eclipse workbench should be displayed and look like:
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/EclipseVerifyInstallation.png
-
- * Ensure that you have the classpath variable M2_REPO setup in Eclipse
-  * Goto Eclipse Preferences and select "Java --> Buid Path --> Classpath Variables"
-  * If the variable M2_REPO is not already defined then click on the "New..." button
-  * Enter M2_REPO as the name and click on the "Folder..." button and navigate and select you local Maven repository folder.
-  * Click on "Ok" buttons and accept a full rebuild of your workspace if requested.
-
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Eclipse_M2_REPO_variable.png
-
 ==Soi-toolkit Eclipse plugin==
 
-If you want to be able to start the soi-toolkit source code generators from within Eclipse you should install this Eclipse plugin.
+If you want to be able to start the soi-toolkit source code generators from within Mule Studio you should install this Eclipse plugin.
 
 *NOTE #1*: an alternative is to use Maven to start the source code generators, see [UG_UsingGenerators Using the source code generators].
 
