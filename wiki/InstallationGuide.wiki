@@ -26,7 +26,7 @@ The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
 ||Java SE||6 Update 37||
 ||Maven||3.0.4||
-||Mule Studio CE/EE||1.3.1||
+||Mule Studio||1.3.1||
 ||Soi-toolkit plugin for Eclipse||0.6.0||
 ||soapUI||3.6.1||
 
@@ -75,11 +75,11 @@ Install Maven according to the following instructions:
 
  * For full installation instructions see http://maven.apache.org/download.html#Installation
 
-==Mule ESB EE dependencies==
+===Mule ESB EE dependencies===
 
 If you are using Mule ESB EE you need to manually populate your local maven repository with the Mule ESB EE dependencies.
 
- * Download and unzip Mule ESB EE
+ * Download and unzip Mule ESB EE from MuleSoft Customer Portal
  * Define the environment varible MULE_HOME to point to the folde you unzipped Mule ESB EE to
  * Go to the bin folder and run the script {{{populate_m2_repo}}} ({{{populate_m2_repo.cmd}}} for Windows) with the location of your local maven repository as input, e.g.:
 
@@ -90,6 +90,33 @@ cd $MULE_HOME/bin
 }}}
 
 =Recommended installations=
+
+==Mule Studio==
+
+Mule Studio is available in two flavors in the the same way as Mule ESB, Community Edition (CE) and Enterprise Edition (EE).
+This instruction is for Mule Studio CE but Mule Studio EE can be downloaded from !MuleSoft Customer Portal and used according to the instructions below.
+
+Install Mule Studio CE according to the following instructions:
+
+ * Download {{{Download Mule ESB 3.3 Community Edition (with Mule Studio)}}} from http://www.mulesoft.org/download-mule-esb-community-edition.
+ A file named similar to {{{MuleStudio-CE-for-win-32bit-1.3.1-201209061215.zip}}} is downloaded to your computer.
+
+ * Unzip the zip file to the desired installation folder, eg C:\opt.
+
+ * Create a shortcut to the file {{{MuleStudio.exe}}} (eg {{{C:\opt\mule-studio-ce-1.3.1\MuleStudio.exe}}}) in the installation folder to the desktop.
+
+ * Verify the installation, start !MuleStudio through the desktop shortcut.
+ Enter the desired workspace folder where requested and click on the "Workbench" icon (top right) when the welcome screen is presented. The the !MuleStudio workbench should be displayed and look like:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/EclipseVerifyInstallation.png
+
+ * Ensure that you have the classpath variable M2_REPO setup in Eclipse
+  * Goto Eclipse Preferences and select "Java --> Buid Path --> Classpath Variables"
+  * If the variable M2_REPO is not already defined then click on the "New..." button
+  * Enter M2_REPO as the name and click on the "Folder..." button and navigate and select you local Maven repository folder.
+  * Click on "Ok" buttons and accept a full rebuild of your workspace if requested.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Eclipse_M2_REPO_variable.png
 
 ==Eclipse==
 
