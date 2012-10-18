@@ -1,8 +1,6 @@
 #summary Installation Guide for users of soi-toolkit.
 #labels Featured
 
-<font size="5" color="red">*NOTE:* This page is partially outdated.<br/>Work is ongoing to update this page!</font>
-
 = Installation Guide =
 
 *Content*
