@@ -10,13 +10,13 @@
 
 = Introduction =
 
-To get started with soi-toolkit and Mule ESB you only need to install Java SE and Maven. Mule Studio and the soi-toolkit Eclipse plugin are however recommended as well, see section [#Required_installations  Required installations].
+To get started with soi-toolkit and Mule ESB you only need to install Java SE and Maven. Mule Studio and the soi-toolkit Eclipse plugin are however strongly recommended as well, see section [#Required_installations Required installations].
 
 Mule Studio is the preferred Java IDE for soi-toolkit and soi-toolkit provides a specific Eclipse plugin with functionality not available for other Java IDE's.
 
 Users of other Java IDE's (e.g. !NetBeans or IntelliJ) should however be fine using soi-toolkit's Maven based source code generators that have the same functionality as the Eclipse plugin. see [UG_UsingGenerators Using the source code generators] for more information.
 
-We also recommend using soapUI as a test tool for Web Services (SOAP and REST based), see section [#Recommended_installations  Recommended installations].
+We also recommend using soapUI as a test tool for Web Services (SOAP and REST based), see section [#Recommended_installations Recommended installations].
 
 Depending on your needs you also might want to install some run time products in your development environment such as Mule ESB, ActiveMQ, or setting up PKI - keys for usage with the SFTP transport. See [InstallationGuideRuntime Installing Run time products] for instructions on how to install and configure run time products.
 
@@ -89,8 +89,6 @@ cd $MULE_HOME/bin
 ./populate_m2_repo ~/.m2/repository
 }}}
 
-=Recommended installations=
-
 ==Mule Studio==
 
 Mule Studio is available in two flavors in the the same way as Mule ESB, Community Edition (CE) and Enterprise Edition (EE).
@@ -105,18 +103,18 @@ Install Mule Studio CE according to the following instructions:
 
  * Create a shortcut to the file {{{MuleStudio.exe}}} (eg {{{C:\opt\mule-studio-ce-1.3.1\MuleStudio.exe}}}) in the installation folder to the desktop.
 
- * Verify the installation, start !MuleStudio through the desktop shortcut.
- Enter the desired workspace folder where requested and click on the "Workbench" icon (top right) when the welcome screen is presented. The the !MuleStudio workbench should be displayed and look like:
+ * Verify the installation, start Mule Studio through the desktop shortcut.
+ Enter the desired workspace folder where requested and click on the "Workbench" icon (top right) when the welcome screen is presented. The the Mule Studio workbench should be displayed and look like:
 
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/EclipseVerifyInstallation.png
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MuleStudioVerifyInstallation.png
 
- * Ensure that you have the classpath variable M2_REPO setup in Eclipse
-  * Goto Eclipse Preferences and select "Java --> Buid Path --> Classpath Variables"
+ * Ensure that you have the classpath variable M2_REPO setup in Mule Studio
+  * Goto Mule Studio Preferences and select "Java --> Buid Path --> Classpath Variables"
   * If the variable M2_REPO is not already defined then click on the "New..." button
   * Enter M2_REPO as the name and click on the "Folder..." button and navigate and select you local Maven repository folder.
   * Click on "Ok" buttons and accept a full rebuild of your workspace if requested.
 
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/Eclipse_M2_REPO_variable.png
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MuleStudio_M2_REPO_variable.png
 
 ==Eclipse==
 
@@ -197,6 +195,8 @@ If you want to be able to start the soi-toolkit source code generators from with
 *NOTE:* Regarding the problem with disabled Apply and Ok buttons.
 If, for example, a non existing file or folder is specified in the fields "Maven home folder" or "Default root folder" then the Ok and Apply buttons are disabled. Please verify the correctness of the content in all fields if the Ok and Apply buttons gets disabled.
 
+
+=Recommended installations=
 
 ==soapUI==
 If you want to test a soap-webservice without having to write code for a test, then soapUI is a good tool:
