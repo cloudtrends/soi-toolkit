@@ -58,12 +58,12 @@ Install Java SE according to the following instructions:
 Install Maven according to the following instructions:
 
  * Download Maven from http://maven.apache.org/download.html
- Download the file named {{{apache-maven-2.2.1-bin.zip}}} to your computer.
+ Download the file named {{{apache-maven-3.0.4-bin.zip}}} to your computer.
 
  * Unzip the zip file to the desired installation folder, eg {{{C:\opt}}}.
 
  * Create an environment variable, {{{M2_HOME}}}, in Windows pointing out the installation.
- For example: {{{M2_HOME=C:\opt\apache-maven-2.2.1}}}
+ For example: {{{M2_HOME=C:\opt\apache-maven-3.0.4}}}
 
  * Add Maven's bin folder to the Windows {{{PATH}}} variable.
  For example: {{{PATH=...;%M2_HOME%\bin}}}
@@ -73,7 +73,7 @@ Install Maven according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MavenVerifyInstallation.png
 
- * For full installation instructions see http://maven.apache.org/download.html # Installation
+ * For full installation instructions see http://maven.apache.org/download.html#Installation
 
 ==Mule ESB EE dependencies==
 
