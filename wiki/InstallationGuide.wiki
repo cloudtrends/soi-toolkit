@@ -26,7 +26,7 @@ The following versions (or newer) are recommended:
 ||Maven||3.0.4||
 ||Mule Studio||1.3.1||
 ||Soi-toolkit plugin for Eclipse||0.6.0||
-||soapUI||3.6.1||
+||soapUI||4.5.1||
 
 =Required installations=
 
