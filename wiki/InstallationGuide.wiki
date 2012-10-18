@@ -116,6 +116,7 @@ Install Mule Studio CE according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MuleStudio_M2_REPO_variable.png
 
+
 ==Soi-toolkit Eclipse plugin==
 
 If you want to be able to start the soi-toolkit source code generators from within Mule Studio you should install this Eclipse plugin.
@@ -124,21 +125,21 @@ If you want to be able to start the soi-toolkit source code generators from with
 
 *NOTE #2*: Since soi-toolkit v0.5.0 the eclipse plugins (also for older versions of soi-toolkit) are distributed as a downloadable zip'ed update site that needs to be downloaded and unzipped to the local file system. The reason for this change is improved stability and performance during the installation and update process.
 
-  * Download the zip'ed update site from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
-  * Unzip it to a local folder, we will name this folder as {local-update-site} in the instructions below.
+  * Download the zip'ed update site, {{{soitoolkit-eclipse-plugin-0.6.0.zip}}}, from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
+  * Unzip it to a local folder, we will name this folder as {{{local-update-site}}} in the instructions below.
 
- * Select in the Eclipse menu "Help --> Install New Software..."
+ * Select in the Mule Studio menu "Help --> Install New Software..."
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation1.png
 
  * Click on the "Add..." button to add the soi-toolkit update site
   * Enter "soi-toolkit update site" in the name-field
-  * Click on the "Local..." button and point out the local folder {local-update-site}
+  * Click on the "Local..." button and point out the local folder {{{local-update-site}}}
   * Click on the "Ok" button
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation2.png
 
- * Allow Eclipse to process the update site
+ * Allow Mule Studio to process the update site
 
  * Expand the available selection "soi-toolkit generator" and select the "soi-toolkit generator feature"
 
@@ -156,11 +157,11 @@ If you want to be able to start the soi-toolkit source code generators from with
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation5.png
 
- * Click on the "Restart Now" button when asked to restart Eclipse
+ * Click on the "Restart Now" button when asked to restart Mule Studio
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation6.png
 
- * Configure the plugin by open Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
+ * Configure the plugin by open Mule Studio Preference page in the menu and select the "SOI-Toolkit Generator"
   * Specify the folder where you have Maven installed in the field "*_Maven home folder_*"
   * Specify the default folder where the generator should create files in the field "*_Default root folder_*"
   * You can leave the rest of the fields as they are.
@@ -190,11 +191,11 @@ If you want to test a soap-webservice without having to write code for a test, t
 To update the Soi-toolkit Eclipse plugin do the following:
 
  * First write down the preference-setting you have for the existing version of the Soi-toolkit Eclipse plugin, you will have to reenter them after the upgrade
-  * Open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator"
+  * Open the Mule Studio Preference page in the menu and select the "SOI-Toolkit Generator"
 
- * Download the zip'ed update site from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
- * Unzip it to a local folder, we will name this folder as {local-update-site} in the instructions below.
- * Select in the Eclipse menu "Help --> Install New Software..."
+ * Download the zip'ed update site, {{{soitoolkit-eclipse-plugin-n.n.n.zip}}}, from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
+ * Unzip it to a local folder, we will name this folder as {{{local-update-site}}} in the instructions below.
+ * Select in the Mule Studio menu "Help --> Install New Software..."
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation1.png
 
@@ -212,7 +213,7 @@ To update the Soi-toolkit Eclipse plugin do the following:
 
  * Now follow the instruction from the initial installation of the plugin above.
 
- * After the update is done open the Eclipse Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
+ * After the update is done open the Mule Studio Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
 
 
 =Installing Run time products=
