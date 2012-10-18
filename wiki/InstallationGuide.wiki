@@ -201,7 +201,7 @@ To update the Soi-toolkit Eclipse plugin do the following:
 
  * Click on the link "Available Software Sites"
  * Select "soi-toolkit update site" and click on Edit-button.
- * Update the Location-field to point out the new {local-update-site} folder.
+ * Update the Location-field to point out the new {{{local-update-site}}} folder.
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitUpdate2.png
 
