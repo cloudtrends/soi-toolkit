@@ -75,7 +75,39 @@ Install Maven according to the following instructions:
 
  * For full installation instructions see http://maven.apache.org/download.html#Installation
 
-===Mule ESB EE dependencies===
+
+
+===Optional - Downloading Maven dependencies===
+_*Since: 0.5.0*_
+
+<br>To speed up initial download of dependencies used by soi-toolkit the maven-script described below can be used.
+<br>This step is optional, if not executed then the dependencies will be downloaded the first time the generator is used.
+
+  # Download the script for the version of soi-toolkit you will use from:
+    http://search.maven.org/#search|ga|1|soitoolkit-populate-local-maven-repo
+    <br>Note: groupId: org.soitoolkit.tools, artifactId: soitoolkit-populate-local-maven-repo
+    <br>
+    <br>Save the script as *pom.xml*
+    <br>
+  # Put the script in an empty tmp-dir, for example C:\temp\poprepo, and run the script:
+    {{{
+    cd poprepo
+    mvn install
+    }}}
+    to download dependencies with the default Mule-version for the used Soi-toolkit version.
+    <br>To specify a Mule-version use the "muleVersion" argument like:
+    {{{
+    mvn install -DmuleVersion=3.2.1
+    }}}
+    
+*Note:* if dependencies can not be resolved/downloaded, it may be because your organization is using a Maven repository manager that does not mirror all required repositories.
+  * Verify if that is the case by temporary renaming your $USER_HOME/.m2/settings.xml to $USER_HOME/.m2/settings.xml.nop and re-run the script.
+  * The Maven mirror configuration may alternatively have been entered in: $MAVEN_HOME/conf/settings.xml in which case you need comment out the mirror-settings and test by re-running the script.
+  * If your Maven repository manager does not mirror necessary repositories, you need to configure the repository manager.
+
+
+
+===Optional - Mule ESB EE dependencies===
 
 If you are using Mule ESB EE you need to manually populate your local maven repository with the Mule ESB EE dependencies.
 
@@ -190,7 +222,7 @@ If you want to test a soap-webservice without having to write code for a test, t
 
 To update the Soi-toolkit Eclipse plugin do the following:
 
- * First write down the preference-setting you have for the existing version of the Soi-toolkit Eclipse plugin, you will have to reenter them after the upgrade
+ * First take a snapshot of the preference-setting you have for the existing version of the Soi-toolkit Eclipse plugin, if you need to reenter them after the upgrade. Normally this is not the case but just to be sure.
   * Open the Mule Studio Preference page in the menu and select the "SOI-Toolkit Generator"
 
  * Download the zip'ed update site, {{{soitoolkit-eclipse-plugin-n.n.n.zip}}}, from: http://soi-toolkit.googlecode.com/svn/eclipse-update-site/zip/ 
@@ -213,34 +245,8 @@ To update the Soi-toolkit Eclipse plugin do the following:
 
  * Now follow the instruction from the initial installation of the plugin above.
 
- * After the update is done open the Mule Studio Preference page in the menu and select the "SOI-Toolkit Generator" and reenter your preference-settings that you wrote down in the first step above
+ * After the update is done open the Mule Studio Preference page in the menu and select the "SOI-Toolkit Generator" and verify that your preference-settings are intact or if required reenter them again based on the snapshot you took in the first step above.
 
 
 =Installing Run time products=
 [InstallationGuideRuntime See the following installation instructions].
-
-
-=Downloading Maven dependencies=
-_*Since: 0.5.0*_
-<br>There is a maven-script that downloads all necessary dependencies for a version of Soi-toolkit:
-  # Download the script for the version of Soi-toolkit you will use from:
-    http://search.maven.org/#search|ga|1|soitoolkit-populate-local-maven-repo
-    <br>Note: groupId: org.soitoolkit.tools, artifactId: soitoolkit-populate-local-maven-repo
-    <br>
-    <br>Save the script as *pom.xml*
-    <br>
-  # Put the script in an empty tmp-dir, for example C:\temp\poprepo, and run the script:
-    {{{
-    cd poprepo
-    mvn install
-    }}}
-    to download dependencies with the default Mule-version for the used Soi-toolkit version.
-    <br>To specify a Mule-version use the "muleVersion" argument like:
-    {{{
-    mvn install -DmuleVersion=3.2.1
-    }}}
-    
-*Note:* if dependencies can not be resolved/downloaded, it may be because your organization is using a Maven repository manager that does not mirror all required repositories.
-  * Verify if that is the case by temporary renaming your $USER_HOME/.m2/settings.xml to $USER_HOME/.m2/settings.xml.nop and re-run the script.
-  * The Maven mirror configuration may alternatively have been entered in: $MAVEN_HOME/conf/settings.xml in which case you need comment out the mirror-settings and test by re-running the script.
-  * If your Maven repository manager does not mirror necessary repositories, you need to configure the repository manager.
