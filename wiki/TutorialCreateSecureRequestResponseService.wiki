@@ -9,9 +9,16 @@
 
 *Prerequisites* for this tutorial is that the [InstallationGuide installation guide] is completed, including installing soapUI.
 
-This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response Request/Response service] that is secured by using HTTPS with mutual authentication (*TBS* Add ref to SSL description that I wrote recently, but where???).
+This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response Request/Response service] that is secured by using HTTPS with mutual authentication 
 
-For this tutorial we will create a service that act as a SOAP proxy, i.e. the service:
+<font color="red">(*TBS* Add ref to the SSL description that I wrote recently, but where is it???).</font>
+
+For this tutorial we will create a service that act as a SOAP proxy using HTTPS with mutual authentication
+
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
+
+The service will do the following:
+
  # receives SOAP/HTTPS requests from service consumers 
  # process the request e.g. transform it and create log records regarding the processing
  # invokes a service producer using SOAP /HTTPS, optionally using various kinds of routing
@@ -19,13 +26,10 @@ For this tutorial we will create a service that act as a SOAP proxy, i.e. the se
  # process the response (including errors) e.g. transform it and create log records regarding the processing
  # send back the response to the consumer
 
-This is summarized by the following figure:
-
-http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
 
 The tutorial is divided in the following tasks:
 
- # Creata a new software component
+ # Create a new integration component
  # Create skeleton code for the service
  # Test the service automatically
   * Run generated unit and integrations tests
@@ -34,11 +38,129 @@ The tutorial is divided in the following tasks:
   * Call the service using the generated CXF consumer
   * Call the service using soapUI
 
-=Creata a new software component=
+=Create a new integration component=
+
+First we need to create an [ConceptsAndDefinitions#Core_Concepts integration component], a Maven project for a number of related services and integrations. The maven project creates a Mule App (zip-file) when its package goal is executed so it very easy to create a deployable artifact form an integration component.
+
+Perform the following steps in Mule Studio:
+
+ * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
+ * Select the code generator "Create a new component"
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.1_createIc.png
+
+ * Click on the "Next >" button
+ The wizard "SOI Toolkit - Create a new Component" opens up
+  * Select the component type "Integration Component" in the radio button control named "Type of component"
+  * Specify a proper name of the component in the field "Artifact Id"
+  * Specify a proper group name in the field "Group Id"
+  * Select where you want the files to be created in the field "Root folder"
+  Note: The pre-selected root folder is picked up from the preference page you filled in during the installation of the soi-toolkit plugin.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.2_createIc.png
+
+ * Click on the "Next >" button
+ The wizard now displays a new page where you can perform some initial configuration of the new integration component
+  * In the drop down box called "Mule version" you can select what version of Mule you want the integration component to use.
+     Only v3.3.0 is available for soi-toolkit v0.6.0.
+  * Deselect all transports except JMS, that is used for logging, since we will not need them for this tutorial
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.3_createIc.png
+
+ * Click on the "Finish" button
+
+ The wizard now starts to execute and logs its output to a text area.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.4_createIc.png
+
+ * The following work is performed by the wizard:
+  * Created folders and files according to the input on the previous page.
+  * Launch maven to do a initial build and also create eclipse files
+  * Opens the project in the current Eclipse workspace
+
 =Create skeleton code for the service=
+
+We are now creating the skeleton code for the service:
+
+ * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
+ * Select the code generator "Create a new service"
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.1_createService.png
+
+ * Click on the "Next >" button
+ * The wizard "SOI Toolkit - Create a new service" opens up
+  * Select the message exchange pattern "Request/Response"
+  * Select the inbound transport "SOAP/HTTPS"
+  * Select the outbound transport "SOAP/HTTPS"
+  * Select your service project using the "Browse..." button
+  * Set a proper service-name
+  HINT: Avoid using "{{{service}}}" in the name of the service since the actual Mule service will be suffixed with "{{{-service}}}"
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.2_createService.png
+
+ * Click on the "Finish" button
+  * The wizard now starts to generate files and refresh the workspace.
+
+ * When the wizard is done you can find the files for your new service in the Mule Studio Package Explorer
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-3.png
+
+ The two most important files generated are the Mule flow configuration file and the jUnit based integration test:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/3_service.png
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/4_integrationTest.png
+
+ * Files of interest:
+  * Source folder {{{src/test/java}}}
+  A new package is created for the service {{{org.sample.mysample.soap2jms}}} with the Java-classes:
+   * {{{Soap2JmsServiceIntegrationTest.java}}} contains some integrations tests for the whole service that you can use as a start.
+   * {{{Soap2JmsRequestTransformerTest.java}}} contains some unit tests for the request transformer that you can use as a start.
+   * {{{Soap2JmsResponseTransformerTest.java}}} contains some unit tests for the response transformer that you can use as a start.
+   * {{{Soap2JmsTestConsumer.java}}} contains a test consumer that you can use as a start.
+   * {{{Soap2JmsTestReceiver.java}}} contains a teststub producer that you can use as a start.
+  * Source folder {{{src/test/resources}}}
+  The folder {{{teststub-services}}} contains the file {{{soap2jms-teststub-service.xml}}} that is a teststub producer that you can use as a start.
+  * Source folder {{{src/main/java}}}
+  A new package is created for the service {{{org.sample.mysample.soap2jms}}} with the Java-classes:
+  {{{MySampleJmsServiceTransformer.java}}} contains a sample transformation that you can use as a start.
+   * {{{Soap2JmsRequestTransformer.java}}} contains a sample request transformer that converts the SOAP payload to a CVS format that you can use as a start.
+   * {{{Soap2JmsResponseTransformer.java}}} contains a sample response transformer that converts the CVS formatted response back to a SOAP payload that  you can use as a start.
+  * Source folder {{{src/main/resources}}}
+  The folder {{{services}}} contains the file {{{soap2jms-service.xml}}} that contains the actual definition of the new service. 
+  * Source folder {{{src/environment}}}
+  The configuration file {{{mySample-config.properties}}} has got the following properties added:
+ {{{
+# Properties for service "soap2jms"
+# TODO: Update to reflect your settings
+SOAP2JMS_INBOUND_URL=http://localhost:8081/mySample/services/soap2jms/v1
+SOAP2JMS_REQUEST_QUEUE=MYSAMPLE.SOAP2JMS.REQUEST.QUEUE
+SOAP2JMS_RESPONSE_QUEUE=MYSAMPLE.SOAP2JMS.RESPONSE.QUEUE
+ }}}
+
 =Test the service automatically=
 ==Run generated unit and integrations tests==
+
+ * Run unit tests
+  * Right-click the project {{{mySample-services}}} and select "Run As" --> "JUnit Test"
+  Both integration ans unit tests are executed and its success are reported in the JUnit view:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-4.png
+
+  The Console view displays at the same time log-messages from the execution:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-5.png
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/5_jUnitTestResults.png
+
+  NOTE: Take a look at the unit test code and the transformer code for a better understanding on what is going on :-)
+
 =Test the service manually=
 ==Start Mule ESB with the service and a teststub service for the producer==
 ==Call the service using the generated CXF consumer==
 ==Call the service using soapUI==
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/6.1_soapui_sllSettings.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/6.2_soapui_createProject.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/6.3_soapui_sendRequest.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/6.3_soapui_receiveResponse.png
