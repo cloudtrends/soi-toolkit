@@ -7,6 +7,37 @@
 
 =Introduction=
 
-*Prerequisites* for this tutorial is that the [InstallationGuide installation guide] is completed.
+*Prerequisites* for this tutorial is that the [InstallationGuide installation guide] is completed, including installing soapUI.
 
-This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response Request/Response service] that is secured by using HTTPS with mutual authentication.
+This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response Request/Response service] that is secured by using HTTPS with mutual authentication (*TBS* Add ref to SSL description that I wrote recently, but where???).
+
+For this tutorial we will create a service that act as a SOAP proxy, i.e. the service:
+# receives SOAP/HTTPS requests from service consumers
+# process the request e.g. transform it and create log records regarding the processing
+# invokes a service producer using SOAP /HTTPS, optionally using various kinds of routing
+# waits for the response from the producer, given a configurable timeout period
+# process the response (including errors) e.g. transform it and create log records regarding the processing
+# send back the response to the consumer
+
+This is summarized by the following figure:
+
+http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
+
+The tutorial is divided in the following tasks:
+
+# Creata a new software component
+# Create skeleton code for the service
+# Run generated unit and integrations tests
+# Test the service manually
+## Start Mule ESB with the service and a teststub service for the producer
+## Call the service using the generated CXF consumer
+## Call the service using soapUI
+
+=Creata a new software component=
+=Create skeleton code for the service=
+=Test the service automatically=
+==Run generated unit and integrations tests==
+=Test the service manually=
+==Start Mule ESB with the service and a teststub service for the producer==
+==Call the service using the generated CXF consumer==
+==Call the service using soapUI==
