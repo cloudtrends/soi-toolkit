@@ -3,10 +3,8 @@
 =Tutorial: Create a secure Request/Response Service using HTTPS with mutual authentication=
 
 *Content*
-<wiki:toc max_depth="2" />
+<wiki:toc min_depth="2" max_depth="2" />
 
-=Introduction=
+==Introduction==
 
 *Prerequisites* for this tutorial is that the [InstallationGuide installation guide] is completed.
-
-
