@@ -145,13 +145,8 @@ SOAP2JMS_RESPONSE_QUEUE=MYSAMPLE.SOAP2JMS.RESPONSE.QUEUE
 
  * Run unit tests
   * Right-click the project {{{mySample-services}}} and select "Run As" --> "JUnit Test"
-  Both integration ans unit tests are executed and its success are reported in the JUnit view:
-
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-4.png
-
+  Both integration ans unit tests are executed and its success are reported in the JUnit view.
   The Console view displays at the same time log-messages from the execution:
-
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Create-RequestResponse-Service-5.png
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/5_jUnitTestResults.png
 
