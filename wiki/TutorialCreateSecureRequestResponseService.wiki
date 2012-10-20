@@ -13,9 +13,9 @@ This tutorial will help you get started with creating a [ConceptsAndDefinitions#
 
 <font color="red">(*TBS* Add ref to the SSL description that I wrote recently, but where is it???).</font>
 
-For this tutorial we will create a service that act as a SOAP proxy using HTTPS with mutual authentication
+For this tutorial we will create a service that act as a SOAP proxy between a service consumer and a service producer using HTTPS with mutual authentication to secure the communication.
 
-http://soi-toolkit.googlecode.com/svn/wiki/ConceptsAndDefinitions/EP-RequestResponse-Synchronous.png
+http://soi-toolkit.googlecode.com/svn/wiki/SecureRequestResponseService/0-EP-SecureRequestResponse.png
 
 The service will do the following:
 
