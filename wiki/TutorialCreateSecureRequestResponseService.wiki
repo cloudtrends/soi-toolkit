@@ -26,6 +26,27 @@ The service will do the following:
  # process the response (including errors) e.g. transform it and create log records regarding the processing
  # send back the response to the consumer
 
+The soi-toolkit generator helps you get started by generating the following for a new service:
+ * A Mule service with:
+  * Transformers for both the request and the response, transformers can either be based on Java or Smooks.
+  * Proper error handling, both for error messages from the producer and capturing technical errors, such as timeouts.
+  * Tracing, by default log-events are created when both a request and a response are received and when they are sent.  
+
+ * jUnit based unit-tests for the transformers
+
+ * jUnit based integration-tests for the Mule service
+  * Including a test-consumer and a teststub for the producer.
+  * Generated integration tests cover both a "happy days" scenario and negative tests (invalid input + timeout tests)
+
+ * Configurable properties for settings that needs to be environment specific
+  * E.g. for endpoint adresses and timeouts
+
+The generated source code files are summarized by the following picture:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-SourceFiles.png
+
+*Color schema:* yellow for files that build up the actual service, green for test-classes and grey for classes used by the test-classes.
+
 =Tutorial=
 
 The tutorial is divided in the following tasks:
