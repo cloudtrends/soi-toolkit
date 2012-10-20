@@ -160,10 +160,16 @@ SOAP2JMS_RESPONSE_QUEUE=MYSAMPLE.SOAP2JMS.RESPONSE.QUEUE
 ==Test the service manually==
 ===Start Mule ESB with the service and a teststub service for the producer===
 
-6.1_manualTest.png	6.3_manualTest.png	6.5_manualTest.png
-6.2_manualTest.png	6.4_manualTest.png	6.6_manualTest.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.1_manualTest.png	
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.3_manualTest.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.5_manualTest.png
 
 ===Call the service using the generated CXF consumer===
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.2_manualTest.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.4_manualTest.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.6_manualTest.png
+
 ===Call the service using soapUI===
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.1_soapui_sllSettings.png
