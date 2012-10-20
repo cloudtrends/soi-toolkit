@@ -15,7 +15,7 @@ This tutorial will help you get started with creating a [ConceptsAndDefinitions#
 
 For this tutorial we will create a service that act as a SOAP proxy between a service consumer and a service producer using HTTPS with mutual authentication to secure the communication.
 
-http://soi-toolkit.googlecode.com/svn/wiki/SecureRequestResponseService/0-EP-SecureRequestResponse.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/0-EP-SecureRequestResponse.png
 
 The service will do the following:
 
