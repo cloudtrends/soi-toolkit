@@ -105,7 +105,7 @@ We are now creating the skeleton code for the service:
 
  * When the wizard is done you can find the files for your new service in the Mule Studio Package Explorer
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.3-createService.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.3_createService.png
 
  The two most important files generated are the Mule flow configuration file and the jUnit based integration test:
 
