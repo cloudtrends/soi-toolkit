@@ -149,9 +149,11 @@ We are now creating the skeleton code for the service:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.3_createService.png
 
- The two most important files generated are the Mule flow configuration file, {{{mySample-service.xml}}} and the jUnit based integration test, {{{MySampleIntegrationTest.java}}}:
+ The two most important files generated are the Mule flow configuration file, {{{mySample-service.xml}}}:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/3_service.png
+
+ ...and the jUnit based integration test, {{{MySampleIntegrationTest.java}}}:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/4_integrationTest.png
 
@@ -159,7 +161,7 @@ We are now creating the skeleton code for the service:
 
  * Source folder {{{src/test/java}}}
  Package {{{org.sample.sample1}}} with the Java-classes:
-  * {{{Sample1MuleServer.java}}} is a simple mule launcher to this integration component. It can either be started in Mule Studio or at the command prompt with the command {{{mvn -PmuleServer}}}
+  * {{{Sample1MuleServer.java}}} is a simple mule launcher for this integration component. It can either be started in Mule Studio or at the command prompt with the command {{{mvn -PmuleServer}}}
  Package {{{org.sample.sample1.mysample}}} with the Java-classes:
   * {{{MySampleIntegrationTest.java}}} contains some sample integrations tests.
   * {{{MySampleRequestTransformerTest.java}}} contains some sample unit tests.
@@ -175,24 +177,30 @@ We are now creating the skeleton code for the service:
  Package {{{org.sample.sample1.mysample}}} with the Java-classes:
   * {{{MySampleRequestTransformer.java}}} contains a sample request transformer.
   * {{{MySampleResponseTransformer.java}}} contains a sample response transformer.
- * Source folder {{{src/main/resources}}}
- The folder {{{services}}} contains the file {{{soap2jms-service.xml}}} that contains the actual definition of the new service. 
- * Source folder {{{src/environment}}}
- The configuration file {{{mySample-config.properties}}} has got the following properties added:
- {{{
-# Properties for service "soap2jms"
-# TODO: Update to reflect your settings
-SOAP2JMS_INBOUND_URL=http://localhost:8081/mySample/services/soap2jms/v1
-SOAP2JMS_REQUEST_QUEUE=MYSAMPLE.SOAP2JMS.REQUEST.QUEUE
-SOAP2JMS_RESPONSE_QUEUE=MYSAMPLE.SOAP2JMS.RESPONSE.QUEUE
- }}}
 
+ * Source folder {{{src/main/resources}}}
+  * Configuration files for Log4J, {{{log4j.dtd}}} and {{{log4j.xml}}}
+  * The property file {{{sample1-config.properties}}}
+
+ * Source folder {{{src/main/app}}}
+  * {{{mule-deploy.properties}}} standard Mule ESB file that enumerates what Mule config files to use in the deployed Mule App.
+  * {{{mySample-service.xml}}} that contains the actual definition of the new service. 
+  * {{{sample1-common.xml}}} that contains common definitions shared by all services within this integration component. 
+
+ * Source folder {{{src/test/certs}}}
+ Contain sample certificates and truststore, ONLY to be used during development!
+ 
 ==Test the service automatically==
+
+The integration tests are configured to only reply on embedded resource managers, e.g. messaging, ftp, sftp and/or database servers. This means that Mule will startup these servers inside the JVM during startup of the integration tests reducing the need of pre configured and started resource managers.
+
+All generated tests are based on jUnit and will run when Maven executes it test goal. The tests can also be started by hand within Mule Studio using the default Eclipse support for jUnit as described below. 
+
 ===Run generated unit and integrations tests===
 
  * Run unit tests
-  * Right-click the project {{{mySample-services}}} and select "Run As" --> "JUnit Test"
-  Both integration ans unit tests are executed and its success are reported in the JUnit view.
+  * Right-click the project {{{sample1}}} and select "Run As" --> "JUnit Test"
+  Both integration and unit tests are executed and its success are reported in the JUnit view.
   The Console view displays at the same time log-messages from the execution:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/5_jUnitTestResults.png
@@ -200,17 +208,41 @@ SOAP2JMS_RESPONSE_QUEUE=MYSAMPLE.SOAP2JMS.RESPONSE.QUEUE
   NOTE: Take a look at the unit test code and the transformer code for a better understanding on what is going on :-)
 
 ==Test the service manually==
+
+Writing automated integration tests are a strongly recommended behavior but from time to time it is also valuable to be able to start Mule with services and teststub producer services defined in the integration component directly from within Mule Studio and do some manual tests.
+
 ===Start Mule ESB with the service and a teststub service for the producer===
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.1_manualTest.png	
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.3_manualTest.png
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.5_manualTest.png
+When doing manual tests we normally want to do it agains external pre-started resource managers, such as an external messaging server.
+Since the generated code depends on a Apache ActiveMQ server for sending log-messages you either has to install and start ActiveMQ in your development environment or change the configuration to use an embedded ActiveMQ server. See [http://code.google.com/p/soi-toolkit/wiki/IG_RT_ActiveMQ install ActiveMQ] for instructions or simply change the jms connector in the file {{{src/main/app/sample1-common.xml}}} from:
+
+{{{
+soitoolkit-mule-jms-connector-activemq-external.xml
+}}}
+
+to:
+
+{{{
+soitoolkit-mule-jms-connector-activemq-embedded.xml
+}}}
+
+as visualized in the following screenshot:
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.1_manualTest.png	
+
+Start Mule ESB with the service and its teststub service for the producer by right-click on {{{src/test/java/org/sample/sample1/Sample1MuleServer.java}}} and select "Run As" --> "Java Application".
+
+The following should be written to the console after a few seconds:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.3_manualTest.png
+
+*NOTE:* Currently we can't use the standard Mule Application launcher that comes with Mule Studio since it doesn't work with mule config files outside the {{{src/main/app}}} folder meaning that teststubs for service producers from the {{{src/test/resources}}} folder currently can't be launched using the default Mule Studio launcher.
 
 ===Call the service using the generated CXF consumer===
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.2_manualTest.png
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.4_manualTest.png
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.6_manualTest.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.2_manualTest.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.4_manualTest.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.5_manualTest.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.6_manualTest.png
 
 ===Call the service using soapUI===
 
