@@ -5,7 +5,7 @@
 ==Tutorials==
 *Creating a:*
  * [TutorialCreateIntegrationComponent Integration Component]
- * [TutorialCreateSecureRequestResponseService Secure Req./Resp. service (NEW)] 
+ * [TutorialCreateSecureRequestResponseService  NEW: Secure Req./Resp. service] 
  * [TutorialCreateRequestResponseService Request/Response service]
  * [TutorialCreateOneWayService One-Way service]
  * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
