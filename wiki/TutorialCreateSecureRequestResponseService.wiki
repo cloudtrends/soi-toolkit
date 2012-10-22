@@ -172,6 +172,7 @@ We are now creating the skeleton code for the service:
  * Source folder {{{src/test/resources}}}
   * The folder {{{teststub-services}}} contains the file {{{mySample-teststub-service.xml}}} that is a teststub producer
   * The folder {{{testfiles.mySample}}} contains sample input and expected output messages that the tests classes use to validate the correct behavior. 
+  * {{{cxf-test-consumer-config.xml}}} contains apache cxf settings for the test consumer to be able to handle https with mutual authentication.
 
  * Source folder {{{src/main/java}}}
  Package {{{org.sample.sample1.mysample}}} with the Java-classes:
@@ -260,18 +261,36 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseServic
 If you really want to se the outgoing and incoming soap-payloads you can use soapUI for that.
 
 First you have to configure soapUI with a client certificate since we are using HTTPS with mutual authentication:
+Point out the client-test-certificate as keystore, enter its password ({{{password}}}) and finally enable client authentication by selecting the checkbox.
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.1_soapui_sllSettings.png
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.1_soapui_sllSettings.png
 
-...
+Now create a new project in soapUI (select in the menu: "File" --> "New soapUI Project", enter a project name and point out the wsdl that the mule service expose: {{{https://localhost:8081/sample1/services/mySample/v1?wsdl}}} and hit the OK button.
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.2_soapui_createProject.png
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.3_soapui_sendRequest.png
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.4_soapui_receiveResponse.png
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.5_tcpmon.png
+Note: You can find the url above in the property {{{MYSAMPLE_INBOUND_URL}}} in the property-file {{{src/main/resources/sample1-config.properties}}} 
 
-Note that the actual readable text in the output above are identities of the certificates and from the not actual payload.
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.2_soapui_createProject.png
+
+soapUI will now parse the wsdl and create a sample request for the soap operation in the wsdl.
+Expand the project down to the sample request, Request1, "sampleBinding" --> "sample" --> "Request 1" and open it:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.3_soapui_sendRequest.png
+
+In the "Request 1" - window ckick on the green start button to send the request and see in the Mule Studio console how Mule executes the request and then in the soapUI window for "Request 1" you can see the response:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.4_soapui_receiveResponse.png
+
+So only one main question remains, can anyone else see this traffic?
+If you use some http or tcp sniffer you can see that both the request and response are encrypted. I have used TCPmon to monitor the traffic between the consumer and mule with the following result:
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.5_tcpmon.png
+
+Note that the actual readable text in the output above are identities of the certificates and not from the actual payload!
 
 ===Stop Mule ESB===
+
+Ok, so we are done. The only remaining thing to do is to shut down the mule server running inside Mule Studio.
+
+ * Stop the mule server by setting focus in its console window and hit return, then the server will shutdown and displaying output like:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.6_stopServer.png
