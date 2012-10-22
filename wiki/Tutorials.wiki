@@ -7,6 +7,7 @@
 == Getting started tutorials ==
 
   * [TutorialCreateIntegrationComponent Create an Integration Component]
+  * [TutorialCreateSecureRequestResponseService NEW: Create a Secure Request/Response service]
   * [TutorialCreateRequestResponseService Create a Request/Response service]
   * [TutorialCreateOneWayService Create a One-Way service]
   * [TutorialCreateSftpToSftpService Create a One-Way SFTP to SFTP service with transformation]
