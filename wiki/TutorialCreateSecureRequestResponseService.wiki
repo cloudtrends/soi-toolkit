@@ -9,7 +9,7 @@
 
 *Prerequisites* for this tutorial is that the [InstallationGuide installation guide] is completed, including installing soapUI.
 
-This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response Request/Response service] that is secured by using HTTPS with mutual authentication. Initial setup of HTTPS with mutual authentication can be quit challenging getting all the security pieces in the right places. Typically nothing works until all security pieces are configured correctly making it even more challenging. Getting a fully working skeleton code generated for you service (including test-consumer, test-producer and integration test can therefore be a great time saver!
+This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response request/response service] that is secured by using HTTPS with mutual authentication. Initial setup of HTTPS with mutual authentication can be quite challenging getting all the security pieces in the right places. Typically nothing works until all security pieces are configured correctly making it even more challenging. Getting a fully working skeleton code generated for you service (including test-consumer, test-producer and integration test) can therefore be a great time saver!
 
 Before we jump into the tutorial we will briefly go through:
 
@@ -25,7 +25,7 @@ The initial handshaking is summarized by the following picture:
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/0-SSL-overview.png
 
-For more details see fro example [http://en.wikipedia.org/wiki/Secure_Sockets_Layer#Client-authenticated_TLS_handshake Client-authenticated TLS handshake]
+For more details see fro example [http://en.wikipedia.org/wiki/Secure_Sockets_Layer#Client-authenticated_TLS_handshake client-authenticated TLS handshake]
 
 == Briefly about the service  ==
 
@@ -53,6 +53,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Requ
 In summary the generated files are:
 
  * A Mule service with:
+  * A mule configuration file containing a mule flow for the service. 
   * Transformers for both the request and the response.
   * Proper error handling, both for error messages from the producer and capturing technical errors, such as timeouts.
   * Tracing, by default log-events are created when both a request and a response are received and when they are sent.  
@@ -61,7 +62,7 @@ In summary the generated files are:
 
  * jUnit based integration-tests for the Mule service
   * Including a test-consumer and a teststub for the producer.
-  * Generated integration tests cover both a "happy days" scenario and negative tests (invalid input + timeout tests)
+  * Generated integration tests that cover both a "happy days" scenario and negative tests (invalid input + timeout tests)
 
  * Configurable properties for settings that needs to be environment specific
   * E.g. for endpoint adresses, timeouts and certificate information. 
@@ -167,11 +168,11 @@ We are now creating the skeleton code for the service:
   * {{{MySampleRequestTransformerTest.java}}} contains some sample unit tests.
   * {{{MySampleResponseTransformerTest.java}}} contains some sample unit tests.
   * {{{MySampleTestConsumer.java}}} contains a sample test consumer.
-  * {{{MySampleTestReceiver.java}}} contains a sample teststub producer.
+  * {{{MySampleTestProducer.java}}} contains a sample teststub producer.
 
  * Source folder {{{src/test/resources}}}
   * The folder {{{teststub-services}}} contains the file {{{mySample-teststub-service.xml}}} that is a teststub producer
-  * The folder {{{testfiles.mySample}}} contains sample input and expected output messages that the tests classes use to validate the correct behavior. 
+  * The folder {{{testfiles/mySample}}} contains sample input and expected output messages that the tests classes use to validate the correct behavior. 
   * {{{cxf-test-consumer-config.xml}}} contains apache cxf settings for the test consumer to be able to handle https with mutual authentication.
 
  * Source folder {{{src/main/java}}}
@@ -189,11 +190,11 @@ We are now creating the skeleton code for the service:
   * {{{sample1-common.xml}}} that contains common definitions shared by all services within this integration component. 
 
  * Source folder {{{src/test/certs}}}
- Contain sample certificates and truststore, ONLY to be used during development!
+ Contain sample certificates and truststore, *ONLY* to be used during development!
  
 ==Test the service automatically==
 
-The integration tests are configured to only reply on embedded resource managers, e.g. messaging, ftp, sftp and/or database servers. This means that Mule will startup these servers inside the JVM during startup of the integration tests reducing the need of pre configured and started resource managers.
+The integration tests are configured to only require embedded resource managers, e.g. messaging, ftp, sftp and/or database servers. This means that Mule will startup these servers inside the JVM during startup of the integration tests eliminating the need of pre configured and started resource managers (or mule servers).
 
 All generated tests are based on jUnit and will run when Maven executes it test goal. The tests can also be started by hand within Mule Studio using the default Eclipse support for jUnit as described below. 
 
@@ -210,11 +211,11 @@ All generated tests are based on jUnit and will run when Maven executes it test 
 
 ==Test the service manually==
 
-Writing automated integration tests are a strongly recommended behavior but from time to time it is also valuable to be able to start Mule with services and teststub producer services defined in the integration component directly from within Mule Studio and do some manual tests.
+Writing automated integration tests are a strongly recommended but from time to time it is also valuable to be able to start Mule with services and teststub producer services defined in the integration component directly from within Mule Studio and do some tests manually.
 
 ===Start Mule ESB with the service and a teststub service for the producer===
 
-When doing manual tests we normally want to do it agains external pre-started resource managers, such as an external messaging server.
+When doing manual tests we normally want to do it against external pre-started resource managers, such as an external messaging server.
 Since the generated code depends on a Apache ActiveMQ server for sending log-messages you either has to install and start ActiveMQ in your development environment or change the configuration to use an embedded ActiveMQ server. See [http://code.google.com/p/soi-toolkit/wiki/IG_RT_ActiveMQ install ActiveMQ] for instructions or simply change the jms connector in the file {{{src/main/app/sample1-common.xml}}} from:
 
 {{{
@@ -252,20 +253,19 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseServic
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.5_manualTest.png
 
- * In the Sample1MuleServer console window you can see for log-events for the incoming and outgoing request and for the incoming and outgoing response. You can also see some logging from the test producer ({{{MySampleTestProducer}}}) that confirms that the call reached the test producer and back.
+ * In the !Sample1MuleServer console window you can see four new logEvents. Two for the incoming and outgoing request and two for the incoming and outgoing response. You can also see some logging from the test producer ({{{MySampleTestProducer}}}) that confirms that the call reached the test producer and back.
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.6_manualTest.png
 
 ===Call the service using soapUI===
 
-If you really want to se the outgoing and incoming soap-payloads you can use soapUI for that.
+If you really want to see the request and response soap-payloads you can use soapUI.
 
-First you have to configure soapUI with a client certificate since we are using HTTPS with mutual authentication:
-Point out the client-test-certificate as keystore, enter its password ({{{password}}}) and finally enable client authentication by selecting the checkbox.
+First you have to configure soapUI with a client certificate since we are using HTTPS with mutual authentication. Select in the menu "File" --> "Preferences" and in the preference window select the tab "SLL Settings". Point out the client-test-certificate as keystore, enter its password ({{{password}}}) and finally enable client authentication by selecting the checkbox.
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.1_soapui_sllSettings.png
 
-Now create a new project in soapUI (select in the menu: "File" --> "New soapUI Project", enter a project name and point out the wsdl that the mule service expose: {{{https://localhost:8081/sample1/services/mySample/v1?wsdl}}} and hit the OK button.
+Now create a new project in soapUI (select in the menu "File" --> "New soapUI Project", enter a project name and point out the wsdl that the mule service expose: {{{https://localhost:8081/sample1/services/mySample/v1?wsdl}}} and hit the OK button.
 
 Note: You can find the url above in the property {{{MYSAMPLE_INBOUND_URL}}} in the property-file {{{src/main/resources/sample1-config.properties}}} 
 
@@ -276,14 +276,17 @@ Expand the project down to the sample request, Request1, "sampleBinding" --> "sa
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.3_soapui_sendRequest.png
 
-In the "Request 1" - window ckick on the green start button to send the request and see in the Mule Studio console how Mule executes the request and then in the soapUI window for "Request 1" you can see the response:
+In the "Request 1" - window ckick on the green start button to send the request and see in the Mule Studio console how Mule executes the request and then back in the soapUI window for "Request 1" you can see the response:
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.4_soapui_receiveResponse.png
 
-So only one main question remains, can anyone else see this traffic?
-If you use some http or tcp sniffer you can see that both the request and response are encrypted. I have used TCPmon to monitor the traffic between the consumer and mule with the following result:
+So only one main question remains, can anyone else see this traffic???
+
+If you use some http or tcp package sniffer you can see that both the request and response are encrypted. I have used TCPmon to monitor the traffic between the consumer and mule with the following result:
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.5_tcpmon.png
+
+Both the request and the response are for sure unreadable for someone not in possession of either the consumer or the producer certificate (including its password)!
 
 Note that the actual readable text in the output above are identities of the certificates and not from the actual payload!
 
@@ -291,6 +294,6 @@ Note that the actual readable text in the output above are identities of the cer
 
 Ok, so we are done. The only remaining thing to do is to shut down the mule server running inside Mule Studio.
 
- * Stop the mule server by setting focus in its console window and hit return, then the server will shutdown and displaying output like:
+ * Stop the mule server by setting focus in its console window and hit return, then the server will shutdown gracefully and displaying output like:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.6_stopServer.png
