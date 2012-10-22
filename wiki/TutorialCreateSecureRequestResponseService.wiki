@@ -77,7 +77,7 @@ The tutorial is divided in the following tasks:
   * Run generated unit and integrations tests
  # Test the service manually
   * Start Mule ESB with the service and a teststub service for the producer
-  * Call the service using the generated CXF consumer
+  * Call the service using the generated CXF test consumer
   * Call the service using soapUI
   * Stop the server
 
@@ -229,7 +229,9 @@ soitoolkit-mule-jms-connector-activemq-embedded.xml
 as visualized in the following screenshot:
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.1_manualTest.png	
 
-Start Mule ESB with the service and its teststub service for the producer by right-click on {{{src/test/java/org/sample/sample1/Sample1MuleServer.java}}} and select "Run As" --> "Java Application".
+ * Start Mule ESB with the service and its teststub service for the producer by right-click on {{{src/test/java/org/sample/sample1/Sample1MuleServer.java}}} and select "Run As" --> "Java Application".
+
+http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.2_manualTest.png
 
 The following should be written to the console after a few seconds:
 
@@ -237,16 +239,32 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseServic
 
 *NOTE:* Currently we can't use the standard Mule Application launcher that comes with Mule Studio since it doesn't work with mule config files outside the {{{src/main/app}}} folder meaning that teststubs for service producers from the {{{src/test/resources}}} folder currently can't be launched using the default Mule Studio launcher.
 
-===Call the service using the generated CXF consumer===
+===Call the service using the generated CXF test consumer===
 
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.2_manualTest.png
+The simples way to test the service now running in the Mule instance is using the already existing Apache CXF based test consumer.
+
+ * Start the test consumer by right-click on {{{src/test/java/org/sample/sample1/mysample/MySampleTestConsumer.java}}} and select "Run As" --> "Java Application".
+
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.4_manualTest.png
+
+ * The testconsumer connects to the service, makes a call and print outs some information of the response from the service:
+
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.5_manualTest.png
+
+ * In the Sample1MuleServer console window you can see for log-events for the incoming and outgoing request and for the incoming and outgoing response. You can also see some logging from the test producer ({{{MySampleTestProducer}}}) that confirms that the call reached the test producer and back.
+
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/6.6_manualTest.png
 
 ===Call the service using soapUI===
 
+If you really want to se the outgoing and incoming soap-payloads you can use soapUI for that.
+
+First you have to configure soapUI with a client certificate since we are using HTTPS with mutual authentication:
+
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.1_soapui_sllSettings.png
+
+...
+
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.2_soapui_createProject.png
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.3_soapui_sendRequest.png
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/7.4_soapui_receiveResponse.png
