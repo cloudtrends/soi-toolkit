@@ -19,11 +19,13 @@ Before we jump into the tutorial we will briefly go through:
 
 == Briefly about HTTPS with mutual authentication ==
  
+HTTPS with mutual authentication refers to a client authenticating themselves to a server and that server authenticating itself to the user in such a way that both parties are assured of the others identity using HTTPS, i.e. HTTP on top of the SSL/TLS protocol. Certificates of trusted parties are kept in a trust store and validated against during the initial handshaking.
 
+The initial handshaking is summarized by the following picture:
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/0-SSL-overview.png
 
-For details see [http://en.wikipedia.org/wiki/Secure_Sockets_Layer#Client-authenticated_TLS_handshake Client-authenticated TLS handshake]
+For more details see fro example [http://en.wikipedia.org/wiki/Secure_Sockets_Layer#Client-authenticated_TLS_handshake Client-authenticated TLS handshake]
 
 == Briefly about the service  ==
 
@@ -35,14 +37,14 @@ The service will do the following:
 
  # receives SOAP/HTTPS requests from service consumers 
  # process the request e.g. transform it and create log records regarding the processing
- # invokes a service producer using SOAP /HTTPS, optionally using various kinds of routing
+ # invokes a service producer using SOAP/HTTPS, optionally using various kinds of routing
  # waits for the response from the producer, given a configurable timeout period
  # process the response (including errors) e.g. transform it and create log records regarding the processing
  # send back the response to the consumer
 
 == Briefly about the code generated == 
 
-The soi-toolkit generator helps you get started by generating source code files for a new service illustrated by the following picture:
+The soi-toolkit generator helps you get started by generating skeleton source code files for a new service illustrated by the following picture:
 
 http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-SourceFiles.png
 
@@ -51,7 +53,7 @@ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/Requ
 In summary the generated files are:
 
  * A Mule service with:
-  * Transformers for both the request and the response, transformers can either be based on Java or Smooks.
+  * Transformers for both the request and the response.
   * Proper error handling, both for error messages from the producer and capturing technical errors, such as timeouts.
   * Tracing, by default log-events are created when both a request and a response are received and when they are sent.  
 
@@ -62,7 +64,8 @@ In summary the generated files are:
   * Generated integration tests cover both a "happy days" scenario and negative tests (invalid input + timeout tests)
 
  * Configurable properties for settings that needs to be environment specific
-  * E.g. for endpoint adresses and timeouts
+  * E.g. for endpoint adresses, timeouts and certificate information. 
+  * The property files can be encrypted to secure sensitive information, e.g. regarding certificates, see [http://code.google.com/p/soi-toolkit/wiki/UG_PropertyFile property file configuration and usage] for more information
 
 =Tutorial=
 
@@ -80,12 +83,12 @@ The tutorial is divided in the following tasks:
 
 ==Create a new integration component==
 
-First we need to create an [ConceptsAndDefinitions#Core_Concepts integration component], a Maven project for a number of related services and integrations. The maven project creates a Mule App (zip-file) when its package goal is executed so it very easy to create a deployable artifact form an integration component.
+First we need to create an [ConceptsAndDefinitions#Core_Concepts integration component], i.e. a Maven project for a number of related services and integrations. The Maven project is automatically imported into Mule Studio and creates a Mule App (zip-file) when its package goal is executed so it very easy to create a deployable artifact from an integration component.
 
 Perform the following steps in Mule Studio:
 
  * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
- * Select the code generator "Create a new component"
+ * Select the code generator "Create a new SOI Toolkit component"
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.1_createIc.png
 
@@ -95,7 +98,8 @@ Perform the following steps in Mule Studio:
   * Specify a proper name of the component in the field "Artifact Id"
   * Specify a proper group name in the field "Group Id"
   * Select where you want the files to be created in the field "Root folder"
-  Note: The pre-selected root folder is picked up from the preference page you filled in during the installation of the soi-toolkit plugin.
+ 
+ Note: The pre-selected root folder is picked up from the preference page you filled in during the installation of the soi-toolkit plugin.
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.2_createIc.png
 
@@ -116,7 +120,7 @@ Perform the following steps in Mule Studio:
  * The following work is performed by the wizard:
   * Created folders and files according to the input on the previous page.
   * Launch maven to do a initial build and also create eclipse files
-  * Opens the project in the current Eclipse workspace
+  * Imports the project into the current Mule Studio workspace
 
 ==Create skeleton code for the service==
 
@@ -145,31 +149,36 @@ We are now creating the skeleton code for the service:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.3_createService.png
 
- The two most important files generated are the Mule flow configuration file and the jUnit based integration test:
+ The two most important files generated are the Mule flow configuration file, {{{mySample-service.xml}}} and the jUnit based integration test, {{{MySampleIntegrationTest.java}}}:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/3_service.png
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/4_integrationTest.png
 
- * Files of interest:
-  * Source folder {{{src/test/java}}}
-  A new package is created for the service {{{org.sample.mysample.soap2jms}}} with the Java-classes:
-   * {{{Soap2JmsServiceIntegrationTest.java}}} contains some integrations tests for the whole service that you can use as a start.
-   * {{{Soap2JmsRequestTransformerTest.java}}} contains some unit tests for the request transformer that you can use as a start.
-   * {{{Soap2JmsResponseTransformerTest.java}}} contains some unit tests for the response transformer that you can use as a start.
-   * {{{Soap2JmsTestConsumer.java}}} contains a test consumer that you can use as a start.
-   * {{{Soap2JmsTestReceiver.java}}} contains a teststub producer that you can use as a start.
-  * Source folder {{{src/test/resources}}}
-  The folder {{{teststub-services}}} contains the file {{{soap2jms-teststub-service.xml}}} that is a teststub producer that you can use as a start.
-  * Source folder {{{src/main/java}}}
-  A new package is created for the service {{{org.sample.mysample.soap2jms}}} with the Java-classes:
-  {{{MySampleJmsServiceTransformer.java}}} contains a sample transformation that you can use as a start.
-   * {{{Soap2JmsRequestTransformer.java}}} contains a sample request transformer that converts the SOAP payload to a CVS format that you can use as a start.
-   * {{{Soap2JmsResponseTransformer.java}}} contains a sample response transformer that converts the CVS formatted response back to a SOAP payload that  you can use as a start.
-  * Source folder {{{src/main/resources}}}
-  The folder {{{services}}} contains the file {{{soap2jms-service.xml}}} that contains the actual definition of the new service. 
-  * Source folder {{{src/environment}}}
-  The configuration file {{{mySample-config.properties}}} has got the following properties added:
+===Other files of interest===
+
+ * Source folder {{{src/test/java}}}
+ Package {{{org.sample.sample1}}} with the Java-classes:
+  * {{{Sample1MuleServer.java}}} is a simple mule launcher to this integration component. It can either be started in Mule Studio or at the command prompt with the command {{{mvn -PmuleServer}}}
+ Package {{{org.sample.sample1.mysample}}} with the Java-classes:
+  * {{{MySampleIntegrationTest.java}}} contains some sample integrations tests.
+  * {{{MySampleRequestTransformerTest.java}}} contains some sample unit tests.
+  * {{{MySampleResponseTransformerTest.java}}} contains some sample unit tests.
+  * {{{MySampleTestConsumer.java}}} contains a sample test consumer.
+  * {{{MySampleTestReceiver.java}}} contains a sample teststub producer.
+
+ * Source folder {{{src/test/resources}}}
+  * The folder {{{teststub-services}}} contains the file {{{mySample-teststub-service.xml}}} that is a teststub producer
+  * The folder {{{testfiles.mySample}}} contains sample input and expected output messages that the tests classes use to validate the correct behavior. 
+
+ * Source folder {{{src/main/java}}}
+ Package {{{org.sample.sample1.mysample}}} with the Java-classes:
+  * {{{MySampleRequestTransformer.java}}} contains a sample request transformer.
+  * {{{MySampleResponseTransformer.java}}} contains a sample response transformer.
+ * Source folder {{{src/main/resources}}}
+ The folder {{{services}}} contains the file {{{soap2jms-service.xml}}} that contains the actual definition of the new service. 
+ * Source folder {{{src/environment}}}
+ The configuration file {{{mySample-config.properties}}} has got the following properties added:
  {{{
 # Properties for service "soap2jms"
 # TODO: Update to reflect your settings
