@@ -138,6 +138,8 @@ Install Mule Studio CE according to the following instructions:
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MuleStudioVerifyInstallation.png
 
+ * Ensure that you save your source files in UTF-8 format in your Eclipse workspace as described in [UG_EditorSetup editor setup].
+
  * Ensure that you have the classpath variable M2_REPO setup in Mule Studio
   * Goto Mule Studio Preferences and select "Java --> Buid Path --> Classpath Variables"
   * If the variable M2_REPO is not already defined then click on the "New..." button
