@@ -85,6 +85,32 @@ namespace Soitoolkit.Nms.Impl
             }
         }
 
+        public void SendBytesMessage(byte[] Message)
+        {
+            SendBytesMessage(Message, null);
+        }
+
+        internal void SendBytesMessage(byte[] Message, IQueue queue)
+        {
+            // Create a nms text-message
+            IMessage nmsMsg = producer.CreateBytesMessage(Message);
+
+//            // Copy nsm and custom headers, if any.
+//            ((TextMessage)Message).CopyHeadersToNmsMessage(nmsMsg);
+
+            // Send the message (use the default queue if no queue is specified in the SendMessage call)
+            if (queue == null)
+            {
+                if (log.IsDebugEnabled()) log.Debug("Sending to queue: " + this.queue.QueueName + ", message: " + Message.Length + " bytes");
+                producer.Send(nmsMsg);
+            }
+            else
+            {
+                if (log.IsDebugEnabled()) log.Debug("Sending to queue: " + queue.QueueName + ", message: " + Message.Length + " bytes");
+                producer.Send(queue, nmsMsg);
+            }
+        }
+
         public ITextMessage SendMessageWaitForReplyOnTmpQueue(string TextBody, int timeoutMs)
         {
             TimeSpan    ts    = TimeSpan.FromMilliseconds(timeoutMs);

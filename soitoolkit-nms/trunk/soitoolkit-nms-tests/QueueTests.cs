@@ -219,5 +219,47 @@ namespace Soitoolkit.Nms.Tests
                 }
             }
         }
+
+        ///<Summary>
+        /// Verifies sending and receiving bytes messages...
+        ///</Summary>
+        [TestMethod]
+        public void TestSendAndReceiveBytesWithPollTimeout()
+        {
+            // Create a session to the message broker
+            using (ISession s = SessionFactory.CreateSession(BROKER_URL))
+            {
+                // Send some test messages to the test queue, test bytes message = new byte[] { 1, 2, 3 }
+                SendTestBytesMsg(s, TEST_BYTES_MSG_1);
+
+                // List of received test messages
+                List<byte[]> msgs = new List<byte[]>();
+
+                // Create a receiver for the test queue
+                using (IQueueReceiver qr = s.CreateQueueReceiver(TEST_BYTES_QUEUE))
+                {
+                    byte[] msg = null;
+                    do
+                    {
+                        msg = qr.ReceiveBytesMessage(SHORT_WAIT_TS);
+                        if (msg != null) msgs.Add(msg);
+                    }
+                    while (msg != null);
+                }
+
+                // Verify that the expected messages where received
+                Assert.AreEqual(msgs.Count, 1);
+                byte[] expected = TEST_BYTES_MSG_1;
+                byte[] actual = msgs[0];
+
+                Assert.AreEqual(expected.Length, actual.Length);
+
+                for (int i = 0; i < expected.Length; i++)
+                {
+                    log.Debug(expected[i] + " = " + actual[i] + "?");
+                    Assert.AreEqual(expected[i], actual[i]);
+                }
+            }
+        }
     }
 }

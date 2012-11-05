@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="TCP_HOSTNAME" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">10.211.55.2</Value>
+      <Value Profile="(Default)">MAGNUSLARSSBB6C</Value>
     </Setting>
     <Setting Name="TCP_PORT" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">61616</Value>

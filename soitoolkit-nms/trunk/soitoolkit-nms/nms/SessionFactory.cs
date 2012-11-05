@@ -19,23 +19,38 @@ using Soitoolkit.Nms.Impl;
 
 namespace Soitoolkit.Nms
 {
+    ///<Summary>
+    /// Helper methods for creating a session
+    ///</Summary>
     public class SessionFactory
     {
+        ///<Summary>
+        /// Creates a session using...
+        ///</Summary>
         static public ISession CreateSession(string brokerUrl)
         {
             return new Session(brokerUrl, null, null, null);
         }
 
+        ///<Summary>
+        /// Creates a session using...
+        ///</Summary>
         static public ISession CreateSession(string brokerUrl, string clientId)
         {
             return new Session(brokerUrl, null, null, clientId);
         }
 
+        ///<Summary>
+        /// Creates a session using...
+        ///</Summary>
         static public ISession CreateSession(string brokerUrl, string username, string password)
         {
             return new Session(brokerUrl, username, password, null);
         }
 
+        ///<Summary>
+        /// Creates a session using...
+        ///</Summary>
         static public ISession CreateSession(string brokerUrl, string username, string password, string clientId)
         {
             return new Session(brokerUrl, username, password, clientId);

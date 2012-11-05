@@ -39,6 +39,9 @@ namespace Soitoolkit.Nms.Tests
         protected static readonly string   TEST_MSG_1    = "message 1";
         protected static readonly string   TEST_MSG_2    = "message 2";
 
+        protected static readonly string TEST_BYTES_QUEUE = "my-test-bytes-queue";
+        protected static readonly byte[] TEST_BYTES_MSG_1 = new byte[] { 1, 2, 3 };
+
         protected Soitoolkit.Log.Log log = new Soitoolkit.Log.Log();
 
         protected void DoOneTest()
@@ -101,6 +104,15 @@ namespace Soitoolkit.Nms.Tests
                 {
                     qs.SendMessage(msg);
                 }
+            }
+        }
+
+        protected void SendTestBytesMsg(ISession s, byte[] msg)
+        {
+            // Create a sender and send some test messages to a test queue
+            using (IQueueSender qs = s.CreateQueueSender(TEST_BYTES_QUEUE))
+            {
+                qs.SendBytesMessage(msg);
             }
         }
     }

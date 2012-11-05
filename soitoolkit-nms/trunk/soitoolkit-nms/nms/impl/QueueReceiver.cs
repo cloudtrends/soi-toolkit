@@ -62,6 +62,16 @@ namespace Soitoolkit.Nms.Impl
             return CreateTextMessage(nmsMsg);
         }
 
+        public byte[] ReceiveBytesMessage(TimeSpan timeout)
+        {
+            IMessage nmsMsg = consumer.Receive(timeout);
+            if (nmsMsg == null) return null;
+
+            IBytesMessage nmsBytesMsg = (IBytesMessage)nmsMsg;
+            return nmsBytesMsg.Content;
+        }
+
+
         // Summary:
         //    We don't make this method a part of the public API since (According to the NMS API doc):
         //        Receives the next message if one is immediately available for delivery on the client side otherwise this method returns null. 

@@ -35,5 +35,10 @@ namespace Soitoolkit.Nms
         //    Sends a message and waits for a reply for the given timeout on a response on a temp-reply-queue.
         //    The temp-queue is created by the implementation of this method.
         ITextMessage SendMessageWaitForReplyOnTmpQueue(string TextBody, int timeout);
+
+        // Summary:
+        //    Sends a message based on the supplied bytes-array
+        void SendBytesMessage(byte[] Message);
+
     }
 }
