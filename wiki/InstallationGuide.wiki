@@ -174,10 +174,16 @@ If you want to be able to start the soi-toolkit source code generators from with
 
  * Click on the "Add..." button to add the soi-toolkit update site
   * Enter "soi-toolkit update site" in the name-field
-  * Click on the "Local..." button and point out the local folder {{{local-update-site}}}
+  * Click on the "Local..." button and point out the local folder {{{org.soitoolkit.generator.update}}}
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation2.A.png
+
+  * The folder like {{{file:/C:/Users/magnus/Downloads/soitoolkit-eclipse-plugin-0.6.0/org.soitoolkit.generator.update/}}} should now be selected
   * Click on the "Ok" button
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/SoiToolkitInstallation2.png
+
+  * Click on the "Ok" button
 
  * Allow Mule Studio to process the update site
 
