@@ -8,7 +8,8 @@
 == Installation instructions ==
 
 ===On Windows===
- * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2Fc%2Fapache-activemq-5.6.0-bin.zip
+                          
+ * Download ActiveMQ from http://www.apache.org/dyn/closer.cgi?path=%2Factivemq%2Fapache-activemq%2F5.6.0%2Fapache-activemq-5.6.0-bin.zip
 
  * Unzip to some folder, e.g. {{{C:\opt}}}
 
@@ -36,7 +37,7 @@ $ sudo tar -xvf apache-activemq-5.6.0-bin.tar.gz -C /usr/local
 
 Create soft-link for the activemq daemon to your daemon init script directory
 {{{
-$ sudo ln -s /usr/local/apache-activemq-5.6.0/bin/linux-x86-64/activemq /etc/init.d/activemq
+$ sudo ln -s /usr/local/apache-activemq-5.6.0/bin/activemq /etc/init.d/activemq
 }}}
 
 Make ActiveMQ startup at boot-time:
