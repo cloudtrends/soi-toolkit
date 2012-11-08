@@ -117,7 +117,7 @@ On Windows:
 {{{
 C:\Users\magnus>set MULE_HOME=C:\opt\mule-enterprise-standalone-3.3.1
 C:\Users\magnus>cd %MULE_HOME%\bin
-C:\opt\mule-enterprise-standalone-3.3.1\bin>populate_m2_repo.cmd C:\Users\magnus\AppData\Local\.m2\repository
+C:\opt\mule-enterprise-standalone-3.3.1\bin>populate_m2_repo.cmd C:\Users\magnus\.m2\repository
 }}}
 
 On Linux:
