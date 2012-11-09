@@ -1,6 +1,6 @@
-#summary Tutorial on how to create an Integration Component for separate deploy of Teststub Producers.
+#summary Tutorial on how to create an Integration Component for separate deploy of Test stub Producers.
 
-=Tutorial: Create an Integration Component for separate deploy of Teststub Producers.=
+=Tutorial: Create an Integration Component for separate deploy of Test stub Producers.=
 
 *Content*
 <wiki:toc max_depth="2" />
@@ -9,64 +9,7 @@
 
 *Prerequisites* for this tutorial is that the [TutorialCreateIntegrationComponent Create a new Integration Component] is completed, including installing soapUI.
 
-This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response request/response service] that is secured by using HTTPS with mutual authentication. Initial setup of HTTPS with mutual authentication can be quite challenging getting all the security pieces in the right places. Typically nothing works until all security pieces are configured correctly making it even more challenging. Getting a fully working skeleton code generated for you service (including test-consumer, test-producer and integration test) can therefore be a great time saver!
-
-Before we jump into the tutorial we will briefly go through:
-
- # HTTPS with mutual authentication
- # The functionality in the generated service
- # The code that is generated
-
-== Briefly about HTTPS with mutual authentication ==
- 
-HTTPS with mutual authentication refers to a client authenticating themselves to a server and that server authenticating itself to the user in such a way that both parties are assured of the others identity using HTTPS, i.e. HTTP on top of the SSL/TLS protocol. Certificates of trusted parties are kept in a trust store and validated against during the initial handshaking.
-
-The initial handshaking is summarized by the following picture:
-
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/0-SSL-overview.png
-
-For more details see fro example [http://en.wikipedia.org/wiki/Secure_Sockets_Layer#Client-authenticated_TLS_handshake client-authenticated TLS handshake]
-
-== Briefly about the service  ==
-
-For this tutorial we will create a service that act as a SOAP proxy between a service consumer and a service producer using HTTPS with mutual authentication to secure the communication.
-
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/0-EP-SecureRequestResponse.png
-
-The service will do the following:
-
- # receives SOAP/HTTPS requests from service consumers 
- # process the request e.g. transform it and create log records regarding the processing
- # invokes a service producer using SOAP/HTTPS, optionally using various kinds of routing
- # waits for the response from the producer, given a configurable timeout period
- # process the response (including errors) e.g. transform it and create log records regarding the processing
- # send back the response to the consumer
-
-== Briefly about the code generated == 
-
-The soi-toolkit generator helps you get started by generating skeleton source code files for a new service illustrated by the following picture:
-
-http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/RequestResponseService/RequestResponse-SourceFiles.png
-
-*Color schema:* yellow for files that build up the actual service, green for test-classes and gray for classes used by the test-classes.
-
-In summary the generated files are:
-
- * A Mule service with:
-  * A mule configuration file containing a mule flow for the service. 
-  * Transformers for both the request and the response.
-  * Proper error handling, both for error messages from the producer and capturing technical errors, such as timeouts.
-  * Tracing, by default log-events are created when both a request and a response are received and when they are sent.  
-
- * jUnit based unit-tests for the transformers
-
- * jUnit based integration-tests for the Mule service
-  * Including a test-consumer and a teststub for the producer.
-  * Generated integration tests that cover both a "happy days" scenario and negative tests (invalid input + timeout tests)
-
- * Configurable properties for settings that needs to be environment specific
-  * E.g. for endpoint adresses, timeouts and certificate information. 
-  * The property files can be encrypted to secure sensitive information, e.g. regarding certificates, see [http://code.google.com/p/soi-toolkit/wiki/UG_PropertyFile property file configuration and usage] for more information
+This tutorial will help you get started with creating an [ConceptsAndDefinitions#Definitions integrations component] for [ConceptsAndDefinitions#Definitions service test stub producers] that ...
 
 =Tutorial=
 
