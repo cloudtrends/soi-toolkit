@@ -7,7 +7,7 @@
 
 =Introduction=
 
-*Prerequisites* for this tutorial is that the [InstallationGuide installation guide] is completed, including installing soapUI.
+*Prerequisites* for this tutorial is that the [TutorialCreateIntegrationComponent Create a new Integration Component] is completed, including installing soapUI.
 
 This tutorial will help you get started with creating a [ConceptsAndDefinitions#Request/Response request/response service] that is secured by using HTTPS with mutual authentication. Initial setup of HTTPS with mutual authentication can be quite challenging getting all the security pieces in the right places. Typically nothing works until all security pieces are configured correctly making it even more challenging. Getting a fully working skeleton code generated for you service (including test-consumer, test-producer and integration test) can therefore be a great time saver!
 
