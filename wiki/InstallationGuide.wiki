@@ -1,7 +1,7 @@
-#summary Installation Guide for users of soi-toolkit.
+#summary Installation Guide of the Development environment for users of soi-toolkit.
 #labels Featured
 
-= Installation Guide =
+= Installation Guide - Development environment =
 
 *Content*
 <wiki:toc max_depth="2" />
