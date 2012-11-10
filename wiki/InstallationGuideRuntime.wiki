@@ -1,16 +1,18 @@
-#summary Installation Guide for users of soi-toolkit for runt time-products.
+#summary Installation Guide of the Runtime environment for users of soi-toolkit .
 
-= Installation Guide of Run time products =
+= Installation Guide - Runtime environment =
 
 *Content*
 <wiki:toc max_depth="4" />
 
 = Introduction =
 
-The installation guides below assumes your on a 32 bit Microsoft Windows PC.
-
+The installation guides below assumes your on a 64 bit Linux or Microsoft Windows Server.
+(but it will most likely be easy to follow for other platforms as well)
+ 
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
+||Java SE||6 Update 37||
 ||Mule ESB||3.3.0||
 ||ActiveMQ||5.6.0||
 ||Tomcat||6.0.29||
