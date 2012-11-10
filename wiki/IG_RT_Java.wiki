@@ -21,6 +21,6 @@ Install Java SE according to the following instructions:
 
  * Verify the installation in a command window with the commands {{{java –version}}},  {{{javac –version}}} och {{{set JAVA_HOME}}}. The result should be similar to: 
 
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/JavaSeVerifyInstallation.png
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/JavaSeVerifyInstallationRuntime.png
 
  * For full installation instructions see [http://www.oracle.com/technetwork/java/javase/documentation/install-windows-142126.html Microsoft Windows Installation (64-bit)]
