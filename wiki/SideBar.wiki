@@ -12,9 +12,9 @@
  * [TutorialCreateServiceDescriptionComponent Service Description Component]
 
 ==Other documents===
- * [Installation Guides]
-   * [InstallationGuide Development environment]
-   * [InstallationGuideRuntime Runtime environment]
+  * [Installation Guides]
+    * [InstallationGuide Development environment]
+    * [InstallationGuideRuntime Runtime environment]
  * [ConceptsAndDefinitions Concepts and Definitions]
  * [Overview Overview]
  * [Architecture Architecture]
