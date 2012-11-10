@@ -1,13 +1,13 @@
 #summary Side bar
 
+[http://twitter.com/soitoolkit http://soi-toolkit.googlecode.com/svn/wiki/images/twitter-follow.png] 
+
 Innehållsförteckning.
 
   * [InstallationGuide Installation Guides]
     * [InstallationGuide Development environment]
     * [InstallationGuideRuntime Runtime environment]
 
-
-[http://twitter.com/soitoolkit http://soi-toolkit.googlecode.com/svn/wiki/images/twitter-follow.png] 
 
 ==Tutorials==
 *Creating a:*
