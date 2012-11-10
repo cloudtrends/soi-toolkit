@@ -5,8 +5,8 @@
 Innehållsförteckning.
 
   * [InstallationGuide Installation Guides]
-    * [InstallationGuide Development environment]
-    * [InstallationGuideRuntime Runtime environment]
+    * [InstallationGuide Development]
+    * [InstallationGuideRuntime Runtime]
 
 
 ==Tutorials==
