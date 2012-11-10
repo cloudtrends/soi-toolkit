@@ -7,9 +7,8 @@
 
 = Introduction =
 
-The installation guides below assumes your on a 64 bit Linux or Microsoft Windows Server.<br/>
-(but it will most likely be easy to follow for other platforms as well)
- 
+The installation guides below assumes your on a 64 bit Linux or Microsoft Windows Server.
+
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
 ||Java SE||6 Update 37||
@@ -21,6 +20,8 @@ The following versions (or newer) are recommended:
 ||!FileZilla Server||0.9.37||
 
 = Installation instructions =
+
+ * [IG_RT_Java Installing Java SE]
 
  * [IG_RT_MuleESB Installing Mule ESB]
 
