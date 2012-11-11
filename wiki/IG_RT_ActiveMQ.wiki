@@ -55,7 +55,7 @@ Make ActiveMQ startup at boot-time:
 $ sudo update-rc.d activemq start 66 2 3 4 5 . stop 66 0 1 6 .
 }}}
 
-Startup ActiveMQ manually:
+Startup the ActiveMQ service manually:
 {{{
 $ sudo service activemq start
 }}}
