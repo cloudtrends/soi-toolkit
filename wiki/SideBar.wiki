@@ -2,7 +2,16 @@
 
 [http://twitter.com/soitoolkit http://soi-toolkit.googlecode.com/svn/wiki/images/twitter-follow.png] 
 
-*Innehållsförteckning*
+*Table of Content*
+
+  * [TutorialCreateIntegrationComponent Tutorials ]
+    * [TutorialCreateIntegrationComponent Creating a]
+      * [TutorialCreateIntegrationComponent Integration Component]
+      * [TutorialCreateSecureRequestResponseService  NEW: Secure Req/Resp service] 
+      * [TutorialCreateRequestResponseService Request/Response service]
+      * [TutorialCreateOneWayService One-Way service]
+      * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
+      * [TutorialCreateServiceDescriptionComponent Service Description Component]
 
   * [InstallationGuide Installation Guides]
     * [InstallationGuide Development]
@@ -11,20 +20,6 @@
       * [IG_RT_ActiveMQ ActiveMQ]
       * [IG_RT_MuleESB Mule ESB]
 
-==Tutorials==
-*Creating a:*
- * [TutorialCreateIntegrationComponent Integration Component]
- * [TutorialCreateSecureRequestResponseService  NEW: Secure Req/Resp service] 
- * [TutorialCreateRequestResponseService Request/Response service]
- * [TutorialCreateOneWayService One-Way service]
- * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
- * [TutorialCreateServiceDescriptionComponent Service Description Component]
-
-==Other documents===
-
-  * [InstallationGuide Installation Guides]
-    * [InstallationGuide Development environment]
-    * [InstallationGuideRuntime Runtime environment]
 
  * [ConceptsAndDefinitions Concepts and Definitions]
  * [Overview Overview]
