@@ -31,12 +31,13 @@ The Community Edition of Mule ESB however doesn't contain any version of the Jav
 (The reason for this is that Tanuki Software does not provide a Community Edition of the Java Service Wrapper on 64 bit Windows, see http://wrapper.tanukisoftware.com/doc/english/download.jsp)
 
 Therefore a license of the Java Service Wrapper need to be purchased to be able to use Mule ESB on 64 bit Windows.
- * A license can be purchased from here.
- * A 30 day trial can be downloaded from here.
+ * A license can be purchased from [http://wrapper.tanukisoftware.com/doc/english/requestTrial.jsp here].
+ * A 30 day trial can be downloaded from [http://wrapper.tanukisoftware.com/doc/english/accountLicenses.jsp here].
 
-This guide assume that you have acquired and downloaded either a trial license or a purchased license of the Java Service Wrapper for 64 bit Windows.
+For Mule Community Edition on 64 bit Windows this guide assume that you have acquired and downloaded either a trial license or a purchased license of the Java Service Wrapper for 64 bit Windows.
  * License type: Server license
  * License edition: Standard edition
+ * License filename: wrapper-license.conf
 
 *END OF Note regarding Java Service Wrapper on 64 bit Windows*
 
@@ -49,30 +50,58 @@ This guide assume that you have acquired and downloaded either a trial license o
  
  NOTE: Avoid path names that contain blanks as they can cause problems when using Mule ESB later on.
 
+ * For Mule ESB Community Edition only: Install 64 bit Windows version of Tunaki Software Java Service Wrapper
+  * Download the Java Service Wrapper from: http://wrapper.tanukisoftware.com/download/3.5.15/wrapper-delta-pack-3.5.15-st.zip
+  * Extract the files from the download zip-file to a temp-folder
+  * Remove the following files from the Mule ESB installation:
+    * C:\opt\mule-standalone-3.2.1\lib\boot\wrapper-3.2.3.jar
+    * C:\opt\mule-standalone-3.2.1\lib\boot\wrapper-windows-x86-32.dll
+    * C:\opt\mule-standalone-3.2.1\lib\boot\exec\wrapper-windows-x86-32.exe
+  * Copy the following files from the Java Service wrapper download to the Mule ESB installation:
+    * wrapper.jar and wrapper-windows-x86-64.dll from wrapper-delta-pack-3.5.15-st\lib to C:\opt\mule-standalone-3.2.1\lib\boot\
+    * wrapper-windows-x86-64.exe from wrapper-delta-pack-3.5.15-st\bin to C:\opt\mule-standalone-3.3.0\lib\boot\exec
+  * Copy the license file wrapper-license.conf to the folder C:\opt\mule-standalone-3.3.0\conf
+  * Edit the file C:\opt\mule-standalone-3.3.0\conf\wrapper.conf
+    * Add the following line line directlry after the first line ("#encoding=UTF-8"):
+{{{
+   #include %MULE_BASE%/conf/wrapper-license.conf
+}}}
 
- * Installing 64 bit version of Tunaki Software Java Service Wrapper
+ * Go to the folder {{{C:\opt\mule-standalone-3.2.1\bin}}} and execute the command {{{mule install}}}.
 
-http://wrapper.tanukisoftware.com/download/3.5.15/wrapper-delta-pack-3.5.15-st.zip
-
-wrapper-windows-x86-64.dll
-
-wrapper-delta-pack-3.5.15-st\lib
-C:\opt\mule-standalone-3.3.0\lib\boot
-
-
-wrapper-windows-x86-64.exe
-wrapper-delta-pack-3.5.15-st\bin
-C:\opt\mule-standalone-3.3.0\lib\boot
-C:\opt\mule-standalone-3.3.0\lib\boot\exec
-
-
-
-
- * Go to the folder {{{C:\opt\apache-activemq-5.6.0\bin\win64}}} and execute the file {{{InstallService.bat}}}.
-
- Active MQ is now registered as a windows service and will be started automatically when the Windows server is started. 
+ Mule ESB is now registered as a windows service and will be started automatically when the Windows server is started. 
  
- NOTE: If you prefer to start ActiveMQ manually you can find start script (activemq.bat) in the bin-folder.
+ NOTE: If you prefer to start Mule ESB manually you can do that with the command {{{mule}}}.
+
+
+ * Startup Mule manually:
+{{{
+$ sudo service mule_ce_3.3.0 start
+}}}
+
+Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in...
+{{{
+$ sudo reboot
+$ tail /usr/local/mule-standalone-3.3.0/logs/mule.log -n50
+}}}
+
+You should have a message in the tail similar to the following:
+{{{
+**********************************************************************
+* Mule ESB and Integration Platform                                  *
+* Version: 3.3.0 Build: 24555                                        *
+* MuleSoft, Inc.                                                     *
+* For more information go to http://www.mulesoft.org                 *
+*                                                                    *
+* Server started: 2012-09-03 08:53                                   *
+* JDK: 1.6.0_24 (mixed mode)                                         *
+* OS: Linux (3.2.0-29-generic, amd64)                                *
+* Host: magnus-MacBookPro (127.0.1.1)                                *
+**********************************************************************
+}}}
+
+Verify that the startup time is accurate to ensure that you are reading the right log output!
+
 
  * Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
 
