@@ -21,14 +21,37 @@ Also attention is required to ensure that different Mule instances don't tries t
 
 ===On Windows===
 
-...To Be Described...
+ * Download the distribution for the Community Edition from http://dist.codehaus.org/mule/distributions/mule-standalone-3.3.0.zip
 
-===On Linux (& Unix?)===
+The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.zip`
+
+ * Unzip to some folder, e.g. {{{C:\opt}}}
+ 
+ NOTE: Avoid path names that contain blanks as they can cause problems when using ActiveMQ later on.
+
+ * Go to the folder {{{C:\opt\apache-activemq-5.6.0\bin\win64}}} and execute the file {{{InstallService.bat}}}.
+
+ Active MQ is now registered as a windows service and will be started automatically when the Windows server is started. 
+ 
+ NOTE: If you prefer to start ActiveMQ manually you can find start script (activemq.bat) in the bin-folder.
+
+ * Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Service.png
+
+ Also use the event viewer to verify a successful start of the ActiveMQ service:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Event-Viewer.png
+
+Go to section [#Verify_the_installation verify the installation] for further platform independent verification of that ActiveMQ is running as expected.
+
+
+===On Linux===
 
 Download the distribution for the Community Edition with the command:
 
 {{{
-$ wget http://dist.codehaus.org/mule//distributions//mule-standalone-3.3.0.tar.gz
+$ wget http://dist.codehaus.org/mule/distributions/mule-standalone-3.3.0.tar.gz
 }}}
 
 The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.tar.gz`
