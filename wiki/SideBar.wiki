@@ -37,6 +37,8 @@
         * [IG_RT_Tomcat Tomcat]
         * [IG_RT_Derby Derby]
         * [InstallationGuideCygwinSetup Cygwin (Windows only)]
+        * [InstallationGuideFileZillaServerSetup FileZilla (Windows only)]
+        * [IG_RT_Public_Key_Cryptography Public Key Cryptography]
   * [UserGuidelines User Guidelines]
   * [ReleaseNotes Release Notes]
   * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Downloads]
