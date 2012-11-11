@@ -1,5 +1,4 @@
 #summary User Guidelines - Using the WMQ transport.
-#sidebar UG_SideBar
 
 = Using the WMQ transport (Mule EE only) =
 
