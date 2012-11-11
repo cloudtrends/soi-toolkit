@@ -2,7 +2,7 @@
 
 [http://twitter.com/soitoolkit http://soi-toolkit.googlecode.com/svn/wiki/images/twitter-follow.png] 
 
-*Table of Content*
+*Table of contents*
 
   * [Overview Introduction]
     * [Overview Overview]
