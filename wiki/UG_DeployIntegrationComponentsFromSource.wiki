@@ -1,6 +1,4 @@
 #summary User Guidelines - Deploying an Integration Component from Source Code.
-#sidebar UG_SideBar
-
 
 = Deploying an Integration Component from Source Code =
 
