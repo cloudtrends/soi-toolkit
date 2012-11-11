@@ -107,8 +107,6 @@ A page like the following should now be displayed:
 
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallation.png
 
-http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallationOld.png
-
 ==Configuration==
 
 An ActiveMQ message broker has a configuration file typically named `${ACTIVEMQ_HOME}/conf/activemq.xml`.
