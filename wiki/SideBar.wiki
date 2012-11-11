@@ -8,10 +8,11 @@
     * [TutorialCreateIntegrationComponent Creating a]
       * [TutorialCreateIntegrationComponent Integration Component]
       * [TutorialCreateSecureRequestResponseService  NEW: Secure Req/Resp service] 
-      * [TutorialCreateRequestResponseService Request/Response service]
       * [TutorialCreateOneWayService One-Way service]
-      * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
       * [TutorialCreateServiceDescriptionComponent Service Description Component]
+      * [TutorialCreateIntegrationComponent Old tutorials]
+        * [TutorialCreateRequestResponseService Request/Response service]
+        * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
 
   * [InstallationGuide Installation Guides]
     * [InstallationGuide Development]
