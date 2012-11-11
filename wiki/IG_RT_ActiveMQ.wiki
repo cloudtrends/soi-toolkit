@@ -29,7 +29,7 @@
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Event-Viewer.png
 
-Go to section [#Verify_the_installation] for further platform independent verification of that ActiveMQ is running as expected.
+Go to section [#Verify_the_installation verify the installation] for further platform independent verification of that ActiveMQ is running as expected.
 
 ===On Linux===
 
