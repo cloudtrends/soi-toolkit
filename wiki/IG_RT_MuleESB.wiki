@@ -21,6 +21,8 @@ Also attention is required to ensure that different Mule instances don't tries t
 
 ===On Windows===
 
+http://wrapper.tanukisoftware.com/download/3.5.16/wrapper-windows-x86-64-3.5.16-st.zip
+
  * Download the distribution for the Community Edition from http://dist.codehaus.org/mule/distributions/mule-standalone-3.3.0.zip
 
 The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.zip`
