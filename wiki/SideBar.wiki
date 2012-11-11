@@ -10,7 +10,7 @@
       * [TutorialCreateSecureRequestResponseService  NEW: Secure Req/Resp service] 
       * [TutorialCreateOneWayService One-Way service]
       * [TutorialCreateServiceDescriptionComponent Service Description Component]
-      * [TutorialCreateIntegrationComponent Old tutorials]
+      * [TutorialCreateRequestResponseService Old tutorials]
         * [TutorialCreateRequestResponseService Request/Response service]
         * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
 
