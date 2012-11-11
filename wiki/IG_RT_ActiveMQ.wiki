@@ -21,7 +21,7 @@
  
  NOTE: If you prefer to start ActiveMQ manually you can find start script (activemq.bat) in the bin-folder.
 
- Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
+ * Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
 
 ===On Linux (& Unix?)===
 
