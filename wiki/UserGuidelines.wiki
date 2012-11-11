@@ -38,7 +38,6 @@ The instructions below will evolve over time to support all phases.
 
 
 === Test and Production ===
- * [InstallationGuideRuntime Installation Guide of Run time products]
  * [UG_UsingIntegrationTeststubsComponent Using Integration Teststubs Components]
  * [UG_ReleasingAnIntegrationComponent Releasing an Integration Component]
  * [UG_DeployIntegrationComponents Deploying an Integration Component]
