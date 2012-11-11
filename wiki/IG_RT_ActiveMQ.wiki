@@ -23,6 +23,14 @@
 
  * Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
 
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Service.png
+
+ Also use the event viewer to verify a successful start of the ActiveMQ service:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Event-Viewer.png
+
+Go to section [#Verify_the_installtion] for further platform independent verification of that ActiveMQ is running as expected.
+
 ===On Linux (& Unix?)===
 
 Download the distribution with the command:
@@ -92,10 +100,13 @@ To run ActiveMQ in the console:
   * *Note:* On Mac OS X go to the sub folder {{{apache-activemq-5.6.0/bin/macosx}}} and execute the command: {{{activemq console}}}.
 
 ===Verify the installation===
+
  Open the url http://localhost:8161/admin/index.jsp in a web browser.
 
  A page like the following should now be displayed:
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallation.png
+
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallationOld.png
 
 ==Configuration==
 
