@@ -1,5 +1,4 @@
 #summary User Guidelines - Integration testing.
-#sidebar UG_SideBar
 
 = Integration testing =
 
