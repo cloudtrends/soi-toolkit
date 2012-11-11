@@ -4,6 +4,11 @@
 
 *Table of Content*
 
+  * [Overview Introduction]
+    * [Overview Overview]
+    * [ConceptsAndDefinitions Concepts and Definitions]
+    * [Architecture Architecture]
+    * [PatternCatalog Pattern Catalog]
   * [TutorialCreateIntegrationComponent Tutorials ]
     * [TutorialCreateIntegrationComponent Creating a]
       * [TutorialCreateIntegrationComponent Integration Component]
@@ -19,30 +24,21 @@
       * [IG_RT_Java Java SE]
       * [IG_RT_ActiveMQ ActiveMQ]
       * [IG_RT_MuleESB Mule ESB]
-  * [ConceptsAndDefinitions Concepts and Definitions]
-  * [Overview Overview]
-  * [Architecture Architecture]
-  * [PatternCatalog Pattern Catalog]
   * [UserGuidelines User Guidelines]
   * [ReleaseNotes Release Notes]
   * [Roadmap Roadmap]
-
-==Collaboration==
- * [http://groups.google.com/group/soi-toolkit-user soi-toolkit-user]
- * [http://groups.google.com/group/soi-toolkit-dev soi-toolkit-dev]
- * [http://groups.google.com/group/soi-toolkit-scm soi-toolkit-scm]
-
-==Downloads==
- * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Eclipse Update Site]
- * [http://repo2.maven.org/maven2/org/soitoolkit/commons/  Central Repository]
- * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/ Snapshot Repository]
- * [http://code.google.com/p/soi-toolkit/source/browse/#svn/trunk/refapps Ref Apps (TBS)]
+  * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Downloads]
+    * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Eclipse Update Site]
+    * [http://repo2.maven.org/maven2/org/soitoolkit/commons/ Central Repository]
+    * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/ Snapshot Repository]
+    * [http://code.google.com/p/soi-toolkit/source/browse/#svn/trunk/refapps Ref Apps (TBS)]
+  * [DeveloperGuidelines For soi-toolkit developers]
+    * [DeveloperGuidelines Developer Guidelines]
+    * [https://soi-toolkit.ci.cloudbees.com/ Jenkins@CloudBees]
+    * [http://groups.google.com/group/soi-toolkit-scm soi-toolkit-scm group]
+    * [https://www.google.com/analytics/reporting/?id=37696735 Google Analytics]
+    
 <wiki:comment>
  * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/org/soitoolkit/ Snapshot Repository]
 </wiki:comment>
 
-
-==soi-toolkit developers==
- * [DeveloperGuidelines Developer Guidelines]
- * [https://soi-toolkit.ci.cloudbees.com/ Jenkins@CloudBees]
- * [https://www.google.com/analytics/reporting/?id=37696735 Google Analytics]
