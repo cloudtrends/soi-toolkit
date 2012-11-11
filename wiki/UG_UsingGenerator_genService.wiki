@@ -1,5 +1,4 @@
 #summary How to generate a Service using Maven
-#sidebar UG_SideBar
 
 =Generate a Service using Maven=
 
