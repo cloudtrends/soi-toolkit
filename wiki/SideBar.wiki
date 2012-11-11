@@ -13,12 +13,12 @@
       * [TutorialCreateRequestResponseService Old tutorials]
         * [TutorialCreateRequestResponseService Request/Response service]
         * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
-  * [InstallationGuide Installation Guides]
-   * [InstallationGuide Development]
-   * [InstallationGuideRuntime Runtime]
-    * [IG_RT_Java Java SE]
-    * [IG_RT_ActiveMQ ActiveMQ]
-    * [IG_RT_MuleESB Mule ESB]
+ * [InstallationGuide Installation Guides]
+  * [InstallationGuide Development]
+  * [InstallationGuideRuntime Runtime]
+   * [IG_RT_Java Java SE]
+   * [IG_RT_ActiveMQ ActiveMQ]
+   * [IG_RT_MuleESB Mule ESB]
 
 
  * [ConceptsAndDefinitions Concepts and Definitions]
