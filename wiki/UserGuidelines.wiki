@@ -1,6 +1,5 @@
 #summary User Guidelines for users of soi-toolkit.
 #labels Featured
-#sidebar UG_SideBar
 
 = User Guidelines =
 
