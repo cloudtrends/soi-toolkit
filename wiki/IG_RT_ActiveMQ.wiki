@@ -17,7 +17,7 @@
 
  * Go to the folder {{{C:\opt\apache-activemq-5.6.0\bin\win64}}} and execute the file {{{InstallService.bat}}}.
 
- Active MQ is now registered as a windows service and can be started automatically when the Windows server is started. 
+ Active MQ is now registered as a windows service and will be started automatically when the Windows server is started. 
  
  NOTE: If you prefer to start ActiveMQ manually you can find start script (activemq.bat) in the bin-folder.
 
@@ -29,9 +29,9 @@
 
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Event-Viewer.png
 
-Go to section [#Verify_the_installtion] for further platform independent verification of that ActiveMQ is running as expected.
+Go to section [#Verify_the_installation] for further platform independent verification of that ActiveMQ is running as expected.
 
-===On Linux (& Unix?)===
+===On Linux===
 
 Download the distribution with the command:
 
@@ -101,9 +101,10 @@ To run ActiveMQ in the console:
 
 ===Verify the installation===
 
- Open the url http://localhost:8161/admin/index.jsp in a web browser.
+Open the url http://localhost:8161/admin/index.jsp in a web browser.
 
- A page like the following should now be displayed:
+A page like the following should now be displayed:
+
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallation.png
 
 http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQVerifyInstallationOld.png
