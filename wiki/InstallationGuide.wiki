@@ -260,7 +260,3 @@ To update the Soi-toolkit Eclipse plugin do the following:
  * Now follow the instruction from the initial installation of the plugin above.
 
  * After the update is done open the Mule Studio Preference page in the menu and select the "SOI-Toolkit Generator" and verify that your preference-settings are intact or if required reenter them again based on the snapshot you took in the first step above.
-
-
-=Installing Run time products=
-[InstallationGuideRuntime See the following installation instructions].
