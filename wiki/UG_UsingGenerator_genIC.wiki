@@ -1,5 +1,4 @@
 #summary How to generate an Integration Component using Maven
-#sidebar UG_SideBar
 
 =Generate an Integration Component using Maven=
 
