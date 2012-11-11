@@ -1,5 +1,4 @@
 #summary User Guidelines - Property file configuration and usage.
-#sidebar UG_SideBar
 
 = Property file configuration and usage =
 
