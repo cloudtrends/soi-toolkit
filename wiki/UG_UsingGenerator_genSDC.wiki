@@ -1,5 +1,4 @@
 #summary How to generate an Service Description Component using Maven
-#sidebar UG_SideBar
 
 =Generate an Service Description Component using Maven=
 
