@@ -9,6 +9,7 @@
     * [ConceptsAndDefinitions Concepts and Definitions]
     * [Architecture Architecture]
     * [PatternCatalog Pattern Catalog]
+    * [Roadmap Roadmap]
   * [TutorialCreateIntegrationComponent Tutorials ]
     * [TutorialCreateIntegrationComponent Creating a]
       * [TutorialCreateIntegrationComponent Integration Component]
@@ -26,7 +27,6 @@
       * [IG_RT_MuleESB Mule ESB]
   * [UserGuidelines User Guidelines]
   * [ReleaseNotes Release Notes]
-  * [Roadmap Roadmap]
   * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Downloads]
     * [http://soi-toolkit.googlecode.com/svn/eclipse-update-site/ Eclipse Update Site]
     * [http://repo2.maven.org/maven2/org/soitoolkit/commons/ Central Repository]
@@ -41,4 +41,3 @@
 <wiki:comment>
  * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/org/soitoolkit/ Snapshot Repository]
 </wiki:comment>
-
