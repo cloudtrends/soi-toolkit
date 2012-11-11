@@ -9,6 +9,7 @@
     * [InstallationGuideRuntime Runtime]
       * [IG_RT_Java Java SE]
       * [IG_RT_ActiveMQ ActiveMQ]
+      * [IG_RT_MuleESB Mule ESB]
 
 ==Tutorials==
 *Creating a:*
