@@ -28,13 +28,13 @@ This guide assumes you are using 64 bit Windows server, most of the guide should
 Mule ESB relies on the [http://wrapper.tanukisoftware.com/doc/english/product-overview.html Java Service Wrapper] from Tanuki Software to be able to run as a Windows Service.
 
 The Community Edition of Mule ESB however doesn't contain any version of the Java Service Wrapper for 64 bit Windows.
-(The reason for this is that Tanuki Software does not provide a Community Edition of the Java Service Wrapper on 64 bit Windows, see http://wrapper.tanukisoftware.com/doc/english/download.jsp)
+The reason for this is that Tanuki Software does not provide a Community Edition of the Java Service Wrapper on 64 bit Windows, see http://wrapper.tanukisoftware.com/doc/english/download.jsp
 
-Therefore a license of the Java Service Wrapper need to be purchased to be able to use Mule ESB on 64 bit Windows.
+Therefore a license of the Java Service Wrapper needs to be purchased to be able to use Mule ESB Community Edition on 64 bit Windows.
  * A license can be purchased from [http://wrapper.tanukisoftware.com/doc/english/requestTrial.jsp here].
  * A 30 day trial can be downloaded from [http://wrapper.tanukisoftware.com/doc/english/accountLicenses.jsp here].
 
-For Mule Community Edition on 64 bit Windows this guide assume that you have acquired and downloaded either a trial license or a purchased license of the Java Service Wrapper for 64 bit Windows.
+For Mule ESB Community Edition on 64 bit Windows this guide assume that you have acquired and downloaded either a trial license or a purchased license of the Java Service Wrapper for 64 bit Windows.
  * License type: Server license
  * License edition: Standard edition
  * License filename: wrapper-license.conf
@@ -47,6 +47,7 @@ For Mule Community Edition on 64 bit Windows this guide assume that you have acq
  The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.zip`
 
  * Unzip to some folder, e.g. {{{C:\opt}}}
+ Mule ESB files now exists in the folder C:\opt\mule-standalone-3.3.0 if you unzipped to the folder C:\opt. For the rest of this guide this folder is named MULE_HOME. Note that *no* environment variable with this name is required!
  
  NOTE: Avoid path names that contain blanks as they can cause problems when using Mule ESB later on.
 
@@ -54,65 +55,75 @@ For Mule Community Edition on 64 bit Windows this guide assume that you have acq
   * Download the Java Service Wrapper from: http://wrapper.tanukisoftware.com/download/3.5.15/wrapper-delta-pack-3.5.15-st.zip
   * Extract the files from the download zip-file to a temp-folder
   * Remove the following files from the Mule ESB installation:
-    * C:\opt\mule-standalone-3.2.1\lib\boot\wrapper-3.2.3.jar
-    * C:\opt\mule-standalone-3.2.1\lib\boot\wrapper-windows-x86-32.dll
-    * C:\opt\mule-standalone-3.2.1\lib\boot\exec\wrapper-windows-x86-32.exe
+    * MULE_HOME\lib\boot\wrapper-3.2.3.jar
+    * MULE_HOME\lib\boot\wrapper-windows-x86-32.dll
+    * MULE_HOME\lib\boot\exec\wrapper-windows-x86-32.exe
   * Copy the following files from the Java Service wrapper download to the Mule ESB installation:
-    * wrapper.jar and wrapper-windows-x86-64.dll from wrapper-delta-pack-3.5.15-st\lib to C:\opt\mule-standalone-3.2.1\lib\boot\
-    * wrapper-windows-x86-64.exe from wrapper-delta-pack-3.5.15-st\bin to C:\opt\mule-standalone-3.3.0\lib\boot\exec
-  * Copy the license file wrapper-license.conf to the folder C:\opt\mule-standalone-3.3.0\conf
-  * Edit the file C:\opt\mule-standalone-3.3.0\conf\wrapper.conf
+    * wrapper.jar and wrapper-windows-x86-64.dll from wrapper-delta-pack-3.5.15-st\lib to MULE_HOME\lib\boot\
+    * wrapper-windows-x86-64.exe from wrapper-delta-pack-3.5.15-st\bin to MULE_HOME\lib\boot\exec
+  * Copy the license file wrapper-license.conf to the folder MULE_HOME\conf
+  * Edit the file MULE_HOME\conf\wrapper.conf
     * Add the following line line directlry after the first line ("#encoding=UTF-8"):
 {{{
    #include %MULE_BASE%/conf/wrapper-license.conf
 }}}
 
- * Go to the folder {{{C:\opt\mule-standalone-3.2.1\bin}}} and execute the command {{{mule install}}}.
+ * Install Mule ESB as a windows Service
+  * Go to the folder {{{MULE_HOME\bin}}} and execute the command {{{mule install}}}.
 
- Mule ESB is now registered as a windows service and will be started automatically when the Windows server is started. 
+  Mule ESB is now registered as a windows service and will be started automatically when the Windows server is started. 
  
- NOTE: If you prefer to start Mule ESB manually you can do that with the command {{{mule}}}.
+  NOTE: If you prefer to start Mule ESB manually you can do that with the command {{{mule}}}.
 
 
- * Startup Mule manually:
-{{{
-$ sudo service mule_ce_3.3.0 start
-}}}
+ * Startup Mule ESB Windows Service manually with the command {{{mule start}}}
 
-Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in...
-{{{
-$ sudo reboot
-$ tail /usr/local/mule-standalone-3.3.0/logs/mule.log -n50
-}}}
+ * Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in...
+  * After reboot and login , look in the file MULE_HOME/logs/mule.log (mule_ee.log for Mule ESB Enterprise Edition): 
 
 You should have a message in the tail similar to the following:
 {{{
 **********************************************************************
 * Mule ESB and Integration Platform                                  *
-* Version: 3.3.0 Build: 24555                                        *
+* Version: 3.3.0 Build: 24524                                        *
 * MuleSoft, Inc.                                                     *
 * For more information go to http://www.mulesoft.org                 *
 *                                                                    *
-* Server started: 2012-09-03 08:53                                   *
-* JDK: 1.6.0_24 (mixed mode)                                         *
-* OS: Linux (3.2.0-29-generic, amd64)                                *
-* Host: magnus-MacBookPro (127.0.1.1)                                *
+* Server started: 11/10/12 11:54 PM                                  *
+* JDK: 1.6.0_37 (mixed mode)                                         *
+* OS: Windows Server 2008 R2 - Service Pack 1 (6.1, amd64)           *
+* Host: vagrant-2008R2 (10.0.2.15)                                   *
 **********************************************************************
 }}}
 
 Verify that the startup time is accurate to ensure that you are reading the right log output!
 
+ * Also verify that Mule ESB is running correctly as a windows service.
 
- * Ensure that ActiveMQ is running after the installation and start its windows service if not already running.
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MuleESB-Windows-Service.png
 
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Service.png
+ * Also use the event viewer to verify a successful start of the Mule ESB service:
 
- Also use the event viewer to verify a successful start of the ActiveMQ service:
+ http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/MuleESB-Windows-Event-Viewer.png
 
- http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/ActiveMQ-Windows-Event-Viewer.png
+====Useful commands====
 
-Go to section [#Verify_the_installation verify the installation] for further platform independent verification of that ActiveMQ is running as expected.
+The following commands can be executed from the folder {{{MULE_HOME\bin}}}:
 
+ * To start the Mule ESB Service:
+{{{
+mule start
+}}}
+
+ * To restart the Mule ESB Service:
+{{{
+mule restart
+}}}
+
+ * To stop the Mule ESB Service:
+{{{
+mule stop
+}}}
 
 ===On Linux===
 
@@ -170,7 +181,7 @@ Verify that the startup time is accurate to ensure that you are reading the righ
 
 Verify in `/var/log/boot.log` that you got the expected start order, e.g. that ActiveMQ starts before Mule!
 
-====Some other useful commands====
+====Useful commands====
 
 To verify if Mule is running use the command:
 {{{
