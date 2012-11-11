@@ -1,5 +1,4 @@
 #summary Editor setup for working with Soi-toolkit artifacts
-#sidebar UG_SideBar
 
 *Content*
 <wiki:toc max_depth="2" />
