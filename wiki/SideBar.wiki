@@ -13,7 +13,6 @@
       * [TutorialCreateRequestResponseService Old tutorials]
         * [TutorialCreateRequestResponseService Request/Response service]
         * [TutorialCreateSftpToSftpService  SFTP to SFTP service]
-
   * [InstallationGuide Installation Guides]
     * [InstallationGuide Development]
     * [InstallationGuideRuntime Runtime]
