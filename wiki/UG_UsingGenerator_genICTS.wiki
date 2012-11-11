@@ -1,5 +1,4 @@
 #summary How to generate a Teststub Integration Component using Maven
-#sidebar UG_SideBar
 
 =Generate an Teststub Integration Component using Maven=
 
