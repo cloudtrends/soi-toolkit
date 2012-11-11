@@ -31,9 +31,9 @@ The following versions (or newer) are recommended:
 
 The following installations are optional depending on your usecase of Mule ESB
 
- * [IG_RT_Derby Installing Apache Derby]
-
  * [IG_RT_Tomcat Installing Apache Tomcat]
+
+ * [IG_RT_Derby Installing Apache Derby]
 
  * [InstallationGuideCygwinSetup Installing Cygwin (Windows only)]
  Cygwin is useful for running a local SFTP-server on Windows.
