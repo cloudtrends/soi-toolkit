@@ -76,7 +76,4 @@
     * [https://soi-toolkit.ci.cloudbees.com/ Jenkins@CloudBees]
     * [http://groups.google.com/group/soi-toolkit-scm soi-toolkit-scm group]
     * [https://www.google.com/analytics/reporting/?id=37696735 Google Analytics]
-    
-<wiki:comment>
- * [https://repository-soi-toolkit.forge.cloudbees.com/snapshot/org/soitoolkit/ Snapshot Repository]
-</wiki:comment>
+  * [UG_Soitoolkit_NMS Soi-toolkit NMS]
