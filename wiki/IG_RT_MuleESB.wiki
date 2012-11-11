@@ -21,17 +21,52 @@ Also attention is required to ensure that different Mule instances don't tries t
 
 ===On Windows===
 
-http://wrapper.tanukisoftware.com/download/3.5.15/wrapper-delta-pack-3.5.15-st.zip
+This guide assumes you are using 64 bit Windows server, most of the guide should however be straight forward to use on a 32 bit Windows server.
 
-http://wrapper.tanukisoftware.com/download/3.5.16/wrapper-windows-x86-64-3.5.16-st.zip
+*Note regarding Java Service Wrapper on 64 bit Windows*
+
+Mule ESB relies on the [http://wrapper.tanukisoftware.com/doc/english/product-overview.html Java Service Wrapper] from Tanuki Software to be able to run as a Windows Service.
+
+The Community Edition of Mule ESB however doesn't contain any version of the Java Service Wrapper for 64 bit Windows.
+(The reason for this is that Tanuki Software does not provide a Community Edition of the Java Service Wrapper on 64 bit Windows, see http://wrapper.tanukisoftware.com/doc/english/download.jsp)
+
+Therefore a license of the Java Service Wrapper need to be purchased to be able to use Mule ESB on 64 bit Windows.
+ * A license can be purchased from here.
+ * A 30 day trial can be downloaded from here.
+
+This guide assume that you have acquired and downloaded either a trial license or a purchased license of the Java Service Wrapper for 64 bit Windows.
+ * License type: Server license
+ * License edition: Standard edition
+
+*END OF Note regarding Java Service Wrapper on 64 bit Windows*
+
 
  * Download the distribution for the Community Edition from http://dist.codehaus.org/mule/distributions/mule-standalone-3.3.0.zip
 
-The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.zip`
+ The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.zip`
 
  * Unzip to some folder, e.g. {{{C:\opt}}}
  
- NOTE: Avoid path names that contain blanks as they can cause problems when using ActiveMQ later on.
+ NOTE: Avoid path names that contain blanks as they can cause problems when using Mule ESB later on.
+
+
+ * Installing 64 bit version of Tunaki Software Java Service Wrapper
+
+http://wrapper.tanukisoftware.com/download/3.5.15/wrapper-delta-pack-3.5.15-st.zip
+
+wrapper-windows-x86-64.dll
+
+wrapper-delta-pack-3.5.15-st\lib
+C:\opt\mule-standalone-3.3.0\lib\boot
+
+
+wrapper-windows-x86-64.exe
+wrapper-delta-pack-3.5.15-st\bin
+C:\opt\mule-standalone-3.3.0\lib\boot
+C:\opt\mule-standalone-3.3.0\lib\boot\exec
+
+
+
 
  * Go to the folder {{{C:\opt\apache-activemq-5.6.0\bin\win64}}} and execute the file {{{InstallService.bat}}}.
 
