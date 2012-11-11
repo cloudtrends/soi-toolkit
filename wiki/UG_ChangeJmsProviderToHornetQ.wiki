@@ -1,5 +1,4 @@
 #summary User Guidelines - Change JMS provider to HornetQ (Since v0.5.0).
-#sidebar UG_SideBar
 
 *Content*
 <wiki:toc max_depth="3" />
