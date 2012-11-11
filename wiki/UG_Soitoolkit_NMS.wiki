@@ -1,5 +1,4 @@
 #summary Using soitoolkit-nms to access Apache ActiveMQ from Microsoft .Net
-#sidebar UG_SideBar
 
 =Using Apache ActiveMQ from Microsoft .Net=
 
