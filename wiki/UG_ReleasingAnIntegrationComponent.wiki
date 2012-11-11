@@ -1,5 +1,4 @@
 #summary User Guidelines - Releasing An Integration Component.
-#sidebar UG_SideBar
 
 = Releasing An Integration Component =
 
