@@ -20,7 +20,7 @@ Perform the following steps in Mule Studio:
  * Select the menu "File --> New --> Other" and expand the wizard "SOI Toolkit Code Generator"
  * Select the code generator "Create a new SOI Toolkit component"
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.1_createIc.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateTeststubIntegrationComponent/CreateTsIc-1.png
 
  * Click on the "Next >" button
  The wizard "SOI Toolkit - Create a new Component" opens up
@@ -31,7 +31,7 @@ Perform the following steps in Mule Studio:
  
  Note: The pre-selected root folder is picked up from the preference page you filled in during the installation of the soi-toolkit plugin.
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.2_createIc.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateTeststubIntegrationComponent/CreateTsIc-2.png
 
  * Click on the "Finish" button
 
@@ -39,11 +39,11 @@ Perform the following steps in Mule Studio:
         The wizard now starts to generate files and refresh the workspace. 
 
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.4_createIc.png
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateTeststubIntegrationComponent/CreateTsIc-3.png
 
     When the wizard is done you can find the files for your new component in the Mule Studio Package Explorer:
 
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.3_createService.png 
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/TutorialCreateTeststubIntegrationComponent/CreateTsIc-4.png 
 
  * The following work is performed by the wizard:
   * Created folders and files according to the input on the previous page.
