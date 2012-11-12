@@ -77,6 +77,9 @@ wrapper.ntservice.displayname=%MULE_APP_LONG%-CE-3.3.0
 wrapper.ntservice.description=%MULE_APP_LONG%-CE-3.3.0
 }}}
 
+ * Add common non-Mule ESB jar-files to the MULE_HOME\lib\user - folder
+ To keep the size of Mule-apps down to a minimum (disk and memory) soi-toolkit no longer bundle jdbc-drivers nor jms-providers such as activemq-all-5.6.0.jar, so they needs to be copied manually to the MULE_HOME\lib\user - folder. For details see [http://code.google.com/p/soi-toolkit/issues/detail?id=283 issue #283].
+
  * Install Mule ESB as a Windows Service
   * Go to the folder {{{MULE_HOME\bin}}} and execute the command {{{mule install}}}.
 
@@ -146,42 +149,43 @@ mule stop
 
 ===On Linux===
 
-Download the distribution for the Community Edition with the command:
-
+ * Download the distribution for the Community Edition with the command:
 {{{
 $ wget http://dist.codehaus.org/mule/distributions/mule-standalone-3.3.0.tar.gz
 }}}
 
-The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.tar.gz`
+  * The distribution for the Enterprise Edition is downloaded from the !MuleSoft customer portal and is named like `mule-ee-distribution-standalone-3.3.0.tar.gz`
 
-Unpack the distribution with the command:
-
+ * Unpack the distribution with the command:
 {{{
 $ sudo tar -xvf mule-standalone-3.3.0.tar.gz -C /usr/local
 }}}
 
-Create soft-link for the Mule daemon to your daemon init script directory
+ * Add common non-Mule ESB jar-files to the /usr/local/mule-standalone-3.3.0/lib/user - folder
+ To keep the size of Mule-apps down to a minimum (disk and memory) soi-toolkit no longer bundle jdbc-drivers nor jms-providers such as activemq-all-5.6.0.jar, so they needs to be copied manually to the MULE_HOME/lib/user - folder. For details see [http://code.google.com/p/soi-toolkit/issues/detail?id=283 issue #283].
+
+ * Create soft-link for the Mule daemon to your daemon init script directory
 {{{
 $ sudo ln -s /usr/local/mule-standalone-3.3.0/bin/mule /etc/init.d/mule_ce_3.3.0
 }}}
 
-Make Mule startup at boot-time:
+ * Make Mule startup at boot-time:
 {{{
 $ sudo update-rc.d mule_ce_3.3.0 start 67 2 3 4 5 . stop 67 0 1 6 .
 }}}
 
-Startup Mule manually:
+ * Startup Mule manually:
 {{{
 $ sudo service mule_ce_3.3.0 start
 }}}
 
-Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in...
+ * Lastly, ensure that Mule starts automatically after rebooting the OS and logging back in...
 {{{
 $ sudo reboot
 $ tail /usr/local/mule-standalone-3.3.0/logs/mule.log -n50
 }}}
 
-You should have a message in the tail similar to the following:
+ * You should have a message in the tail similar to the following:
 {{{
 **********************************************************************
 * Mule ESB and Integration Platform                                  *
@@ -196,8 +200,7 @@ You should have a message in the tail similar to the following:
 **********************************************************************
 }}}
 
-Verify that the startup time is accurate to ensure that you are reading the right log output!
-
+ * Verify that the startup time is accurate to ensure that you are reading the right log output!
 Verify in `/var/log/boot.log` that you got the expected start order, e.g. that ActiveMQ starts before Mule!
 
 ====Useful commands====
