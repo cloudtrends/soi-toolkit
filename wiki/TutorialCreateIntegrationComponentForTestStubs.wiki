@@ -7,25 +7,11 @@
 
 =Introduction=
 
-*Prerequisites* for this tutorial is that the [TutorialCreateIntegrationComponent Create a new Integration Component] is completed, including installing soapUI.
+This tutorial will help you get started with creating an [ConceptsAndDefinitions#Definitions integration component] for [ConceptsAndDefinitions#Definitions test stub producers]. This type of integration components can come very handy in a test environment where not all service producers are ready for test. The test stub producers normally used in integration tests can be separately deployed in this type of integration component. An integration component for test stub producers goes in pair with the original integration component that contains the actual code for the test stub producers. This means that an integration component for test stub producers doesn't contain any code of its own but instead have dependencies to the code in the original integration component.
 
-This tutorial will help you get started with creating an [ConceptsAndDefinitions#Definitions integrations component] for [ConceptsAndDefinitions#Definitions service test stub producers] that ...
+*Prerequisites* for this tutorial is that the [TutorialCreateIntegrationComponent Create a new Integration Component] is completed.
 
-=Tutorial=
-
-The tutorial is divided in the following tasks:
-
- # Create a new integration component
- # Create skeleton code for the service
- # Test the service automatically
-  * Run generated unit and integrations tests
- # Test the service manually
-  * Start Mule ESB with the service and a teststub service for the producer
-  * Call the service using the generated CXF test consumer
-  * Call the service using soapUI
-  * Stop the server
-
-==Create a new integration component==
+=Create a new integration component for test stub producers=
 
 First we need to create an [ConceptsAndDefinitions#Core_Concepts integration component], i.e. a Maven project for a number of related services and integrations. The Maven project is automatically imported into Mule Studio and creates a Mule App (zip-file) when its package goal is executed so it very easy to create a deployable artifact from an integration component.
 
