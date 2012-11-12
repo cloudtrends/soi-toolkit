@@ -162,7 +162,7 @@ $ sudo tar -xvf mule-standalone-3.3.0.tar.gz -C /usr/local
 }}}
 
  * Add common non-Mule ESB jar-files to the /usr/local/mule-standalone-3.3.0/lib/user - folder
- To keep the size of Mule-apps down to a minimum (disk and memory) soi-toolkit no longer bundle jdbc-drivers nor jms-providers such as activemq-all-5.6.0.jar, so they needs to be copied manually to the MULE_HOME/lib/user - folder. For details see [http://code.google.com/p/soi-toolkit/issues/detail?id=283 issue #283].
+ To keep the size of Mule-apps down to a minimum (disk and memory) soi-toolkit no longer bundle jdbc-drivers nor jms-providers such as activemq-all-5.6.0.jar, so they needs to be copied manually to the /usr/local/mule-standalone-3.3.0/lib/user - folder. For details see [http://code.google.com/p/soi-toolkit/issues/detail?id=283 issue #283].
 
  * Create soft-link for the Mule daemon to your daemon init script directory
 {{{
