@@ -33,19 +33,17 @@ Perform the following steps in Mule Studio:
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.2_createIc.png
 
- * Click on the "Next >" button
- The wizard now displays a new page where you can perform some initial configuration of the new integration component
-  * In the drop down box called "Mule version" you can select what version of Mule you want the integration component to use.
-     Only v3.3.0 is available for soi-toolkit v0.6.0.
-  * Deselect all transports except JMS, that is used for logging, since we will not need them for this tutorial
-
- http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.3_createIc.png
-
  * Click on the "Finish" button
 
  The wizard now starts to execute and logs its output to a text area.
+        The wizard now starts to generate files and refresh the workspace. 
+
 
  http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/1.4_createIc.png
+
+    When the wizard is done you can find the files for your new component in the Mule Studio Package Explorer:
+
+ http://soi-toolkit.googlecode.com/svn/wiki/Tutorials/SecureRequestResponseService/2.3_createService.png 
 
  * The following work is performed by the wizard:
   * Created folders and files according to the input on the previous page.
