@@ -68,7 +68,16 @@ For Mule ESB Community Edition on 64 bit Windows this guide assume that you have
    #include %MULE_BASE%/conf/wrapper-license.conf
 }}}
 
- * Install Mule ESB as a windows Service
+ * Give the Mule ESB instance a unique Windows Service name
+  * Edit the file MULE_HOME\conf\wrapper.conf
+    Add a proper version-suffix to the three Windows Service name properties such as "-CE-3.3.0"
+{{{
+wrapper.ntservice.name=%MULE_APP%-CE-3.3.0
+wrapper.ntservice.displayname=%MULE_APP_LONG%-CE-3.3.0
+wrapper.ntservice.description=%MULE_APP_LONG%-CE-3.3.0
+}}}
+
+ * Install Mule ESB as a Windows Service
   * Go to the folder {{{MULE_HOME\bin}}} and execute the command {{{mule install}}}.
 
   Mule ESB is now registered as a windows service and will be started automatically when the Windows server is started. 
@@ -109,6 +118,16 @@ Verify that the startup time is accurate to ensure that you are reading the righ
 ====Useful commands====
 
 The following commands can be executed from the folder {{{MULE_HOME\bin}}}:
+
+ * To install the Mule ESB Service:
+{{{
+mule install
+}}}
+
+ * To uninstall the Mule ESB Service:
+{{{
+mule remove
+}}}
 
  * To start the Mule ESB Service:
 {{{
