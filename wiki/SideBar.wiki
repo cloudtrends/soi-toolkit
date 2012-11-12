@@ -20,7 +20,7 @@
         * [InstallationGuide#soapUI soapUI]
       * [InstallationGuide#Updating_the_Soi-toolkit_Eclipse_plugin Updates]
         * [InstallationGuide#Updating_the_Soi-toolkit_Eclipse_plugin Soi-toolkit Eclipse plugin]
-    * [InstallationGuideRuntime Runtime]
+    * [InstallationGuideRuntime Runtime Environment]
       * [IG_RT_Java Java SE]
       * [IG_RT_ActiveMQ ActiveMQ]
       * [IG_RT_MuleESB Mule ESB]
