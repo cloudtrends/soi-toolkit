@@ -70,7 +70,7 @@ For Mule ESB Community Edition on 64 bit Windows this guide assume that you have
 
  * Give the Mule ESB instance a unique Windows Service name
   * Edit the file MULE_HOME\conf\wrapper.conf
-  Add a proper version-suffix to the three Windows Service name properties such as "-CE-3.3.0"
+  Add a proper version-suffix to the three Windows Service name properties such as {{{"-CE-3.3.0"}}}
 {{{
 wrapper.ntservice.name=%MULE_APP%-CE-3.3.0
 wrapper.ntservice.displayname=%MULE_APP_LONG%-CE-3.3.0
