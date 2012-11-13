@@ -2,7 +2,9 @@
 
 = Installation Guide for Java SE =
 
-It it preferred to install the full JDK (Java Development Kit) over the smaller JRE (Java Runtime Environment) since the JDK contains a number of valuable debug tools such as JConsole (JMX console) and Java Visual VM (Java profiler).
+This installation guide assumes your on a 64 bit Microsoft Windows or Linux Server.
+
+It it preferred to install the full JDK (Java Development Kit) over the smaller JRE (Java Runtime Environment) distribution since the JDK contains a number of valuable debug tools such as JConsole (JMX console) and Java Visual VM (Java profiler).
 
 ==On Microsoft Windows==
 
@@ -24,3 +26,7 @@ Install Java SE according to the following instructions:
  http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/JavaSeVerifyInstallationRuntime.png
 
  * For full installation instructions see [http://www.oracle.com/technetwork/java/javase/documentation/install-windows-142126.html Microsoft Windows Installation (64-bit)]
+
+==On Linux==
+
+To be described.
