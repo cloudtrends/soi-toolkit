@@ -11,7 +11,7 @@ It it preferred to install the full JDK (Java Development Kit) over the smaller 
 Install Java SE according to the following instructions:
 
  * Download JDK for Java SE 6 from http://www.oracle.com/technetwork/java/javase/downloads/index.html.
- A file named similar to {{{jdk-6u37-windows-x64.exe}}} is downloaded to your server.
+ Select the JDK download in the section named "Java SE 6 Update nn" and download it to your server. A file named similar to {{{jdk-6u37-windows-x64.exe}}} shold be downloaded.
 
  * Execute the downloaded installation program and use default values for the installation of both the JDK and the JRE.
 
