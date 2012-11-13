@@ -21,7 +21,7 @@ Also attention is required to ensure that different Mule instances don't tries t
 
 ===On Windows===
 
-This guide assumes you are using 64 bit Windows server, most of the guide should however be straight forward to use on a 32 bit Windows server.
+This guide assumes you are using a 64 bit Microsoft Windows server, but most of the guide should however be straight forward to use on a 32 bit Microsoft Windows server as well.
 
 *Note regarding Java Service Wrapper on 64 bit Windows*
 
