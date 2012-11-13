@@ -1,5 +1,4 @@
 #summary Installation Guide of the Development environment for users of soi-toolkit.
-#labels Featured
 
 = Installation Guide - Development environment =
 
