@@ -13,7 +13,7 @@ This type of integration components can come very handy in a test environment wh
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-problem.png
 
-In these cases it has been proven to be very valuable to be able to package the teststub producers created for running local integration tests in separate deploy files and deploy them into the test environment having them taking the role for the systems that can't participate in the systems tests for the moment.
+In these cases it has been proven to be very valuable to be able to package the teststub producers created for running local integration tests in a separate  Mule App and deploy them into the test environment having them taking the role for the systems that can't participate in the systems tests for the moment.
 
 http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-solution.png
 
@@ -25,7 +25,7 @@ An integration component for test stub producers goes in pair with the original 
 
 =Create a new integration component for test stub producers=
 
-First we need to create an [ConceptsAndDefinitions#Core_Concepts integration component], i.e. a Maven project for a number of related services and integrations. The Maven project is automatically imported into Mule Studio and creates a Mule App (zip-file) when its package goal is executed so it very easy to create a deployable artifact from an integration component.
+First we need to create an [ConceptsAndDefinitions#Core_Concepts test stub integration component], i.e. a Mule App as a Maven project for a the test stub producers. The Maven project is automatically imported into Mule Studio and creates a Mule App (zip-file) when its package goal is executed so it very easy to create a deployable artifact from a test stub integration component.
 
 Perform the following steps in Mule Studio:
 
@@ -36,9 +36,9 @@ Perform the following steps in Mule Studio:
 
  * Click on the "Next >" button
  The wizard "SOI Toolkit - Create a new Component" opens up
-  * Select the component type "Integration Component" in the radio button control named "Type of component"
-  * Specify a proper name of the component in the field "Artifact Id"
-  * Specify a proper group name in the field "Group Id"
+  * Select the component type "Integration Teststubs Component" in the radio button control named "Type of component"
+  * Specify a proper name of the component in the field "Artifact Id" SAME AS THE ORIGIN IC!!!!
+  * Specify a proper group name in the field "Group Id" SAME AS THE ORIGIN IC!!!!
   * Select where you want the files to be created in the field "Root folder"
  
  Note: The pre-selected root folder is picked up from the preference page you filled in during the installation of the soi-toolkit plugin.
