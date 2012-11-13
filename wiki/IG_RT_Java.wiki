@@ -2,7 +2,7 @@
 
 = Installation Guide for Java SE =
 
-This installation guide assumes your on a 64 bit Microsoft Windows or Linux Server.
+This installation guide assumes your on a 64 bit Microsoft Windows or Linux Server, but most of the guide should however be straight forward to use on a 32 bit server as well.
 
 It it preferred to install the full JDK (Java Development Kit) over the smaller JRE (Java Runtime Environment) distribution since the JDK contains a number of valuable debug tools such as JConsole (JMX console) and Java Visual VM (Java profiler).
 
