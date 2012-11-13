@@ -7,12 +7,21 @@
 
 =Introduction=
 
-This tutorial will help you get started with creating an [ConceptsAndDefinitions#Definitions integration component] for [ConceptsAndDefinitions#Definitions test stub producers]. This type of integration components can come very handy in a test environment where not all service producers are ready for test. The test stub producers normally used in integration tests can be separately deployed in this type of integration component. For more information regarding this concept see [Architecture#Test_Driven_Development test driven development].
+This tutorial will help you get started with creating an [ConceptsAndDefinitions#Definitions integration component] for [ConceptsAndDefinitions#Definitions test stub producers], called an _Test stub Integration Component_.
 
+This type of integration components can come very handy in a test environment where not all service producers are ready for test.
 
-An integration component for test stub producers goes in pair with the original integration component that contains the actual code for the test stub producers. This means that an integration component for test stub producers doesn't contain any code of its own but instead have dependencies to the code in the original integration component.
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-problem.png
 
-*Prerequisites* for this tutorial is that the [TutorialCreateIntegrationComponent Create a new Integration Component] is completed. This tutorial assumes that you named the integration component "sample1".
+In these cases it has been proven to be very valuable to be able to package the teststub producers created for running local integration tests in separate deploy files and deploy them into the test environment having them taking the role for the systems that can't participate in the systems tests for the moment.
+
+http://soi-toolkit.googlecode.com/svn/wiki/Architecture/system-tests-solution.png
+
+The test stub producers normally used in integration tests can be separately deployed into a test environment using this type of integration component. For more information regarding this concept see [Architecture#Test_Driven_Development test driven development].
+
+An integration component for test stub producers goes in pair with the original integration component that contains the actual code for the test stub producers. This means that an integration component for test stub producers doesn't contain any code of its own but instead have dependencies to the test code in the original integration component.
+
+*Prerequisites* for this tutorial is that the tutorial [TutorialCreateIntegrationComponent Create a new Integration Component] is completed. This tutorial assumes that you named the integration component "sample1".
 
 =Create a new integration component for test stub producers=
 
