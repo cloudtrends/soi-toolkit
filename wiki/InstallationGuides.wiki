@@ -1,4 +1,5 @@
 #summary Installation Guides for Development and Runtime environments for users of soi-toolkit.
+#labels Featured
 
 = Installation Guides =
 
