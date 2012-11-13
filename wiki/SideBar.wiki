@@ -10,7 +10,7 @@
     * [Architecture Architecture]
     * [PatternCatalog Pattern Catalog]
     * [Roadmap Roadmap]
-  * [InstallationGuide Installation Guides]
+  * [InstallationGuides Installation Guides]
     * [InstallationGuide Development]
       * [InstallationGuide#Java_SE Java SE]
       * [InstallationGuide#Maven Maven]
