@@ -7,7 +7,7 @@
 
 = Introduction =
 
-The installation guides below assumes your on a 64 bit Microsoft Windows or Linux Server.
+The installation guides below assumes your on a 64 bit Microsoft Windows or Linux Server, but most of these guides should however be straight forward to use on a 32 bit server as well.
 
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
