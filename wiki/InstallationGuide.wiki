@@ -18,7 +18,7 @@ We also recommend using soapUI as a test tool for Web Services (SOAP and REST ba
 
 Depending on your needs you also might want to install some run time products in your development environment such as Mule ESB, ActiveMQ, or setting up PKI - keys for usage with the SFTP transport. See [InstallationGuideRuntime Installing Run time products] for instructions on how to install and configure run time products.
 
-The installation guides below assumes your on a 32 bit Microsoft Windows PC but are applicable for a Mac OSX or Linux user as well.
+The installation guides below assumes your on a 32 bit Microsoft Windows PC but are for most parts applicable for a Mac OS X or Linux user as well.
 
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
