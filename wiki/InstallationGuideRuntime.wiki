@@ -11,13 +11,17 @@ The installation guides below assumes your on a 64 bit Microsoft Windows or Linu
 
 The following versions (or newer) are recommended:
 || *Tool* || *Version* ||
-||Java SE||6 Update 37||
+||Java SE||6 Update 37, see Note #1||
 ||Mule ESB||3.3.0||
-||ActiveMQ||5.6.0||
+||ActiveMQ||5.6.0, see Note #2||
 ||Tomcat||6.0.29||
 ||Derby||10.7.1.1||
 ||Cygwin||1.7.8||
 ||!FileZilla Server||0.9.37||
+
+*Note #1:* We have noted some problems with Java SE 7 and certificates, see [http://code.google.com/p/soi-toolkit/issues/detail?id=292 issue 292] for more details.
+
+*Note #2:* We have noted some problems with ActiveMQ 5.7.0 and backward compatibility when defining redelivery policies, see [http://code.google.com/p/soi-toolkit/issues/detail?id=311 issue 311] for more details.
 
 = Installation instructions =
 
