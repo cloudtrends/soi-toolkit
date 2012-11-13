@@ -4,7 +4,7 @@
 
 Soi-toolkit provides installation guides for both a local development environment and runtime environments for test, qa and production.
 
-For the local development environment a PC with 32 bit Microsoft Windows is assumed and for runtime environments 64 bit Microsoft Windows and Linux is assumed. 
+For the local development environment a PC with 32 bit Microsoft Windows is assumed and for runtime environments 64 bit Microsoft Windows and Linux are assumed. 
 
 The installation guides are however to most parts applicable also for other environments such as Mac OS X.
 
