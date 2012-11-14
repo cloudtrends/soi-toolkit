@@ -31,6 +31,8 @@ For more details of the api look into the [#The_API api-section] below.
 
 == Store & Forward ==
 
+=== Text Messages ===
+
 To send a text message to a queue you write code like:
 
 {{{
@@ -67,8 +69,7 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
             msg = qr.Receive(MAX_WAITTIME);
             if (msg != null) msgs.Add(msg.TextBody);
         }
-            while (msg != null);
-        }
+        while (msg != null);
     }
 }
 }}}
@@ -103,6 +104,72 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
 *NOTE*: Messages are delivered in a separate thread, i.e. they can be process independently of what is going on in the main thread
 
 For a fully working code example see [http://code.google.com/p/soi-toolkit/source/browse/soitoolkit-nms/trunk/soitoolkit-nms-tests/QueueTests.cs QueueTests.cs].
+
+=== Bytes Messages ===
+
+To send a byte-array message to a queue you write code like:
+
+{{{
+// Message to be sent
+byte[] msg = new byte[] { 1, 2, 3 };;
+
+// Create a session to the message broker
+using (ISession s = SessionFactory.CreateSession(BROKER_URL))
+{
+    // Create a sender and send a message to a queue
+    using (IQueueSender qs = s.CreateQueueSender(QUEUE_NAME))
+    {
+        qs.SendBytesMessage(msg);
+    }
+}
+}}}
+
+To receive byte-array messages from a queue you can pull them using the Receive() -method like:
+
+{{{
+// Create a session to the message broker
+using (ISession s = SessionFactory.CreateSession(BROKER_URL))
+{
+    // List of received messages
+    List<byte[]> msgs = new List<byte[]>();
+
+    // Create a receiver for the queue and receives all messages available,
+    // wait max MAX_WAITTIME for new messages
+    using (IQueueReceiver qr = s.CreateQueueReceiver(QUEUE_NAME))
+    {
+        IBytesMessage msg = null;
+        do
+        {
+            msg = qr.ReceiveBytesMessage(MAX_WAITTIME);
+            if (msg != null) msgs.Add(msg.BytesBody);
+        }
+        while (msg != null);
+    }
+}
+}}}
+
+
+
+== Using message headers ==
+
+A number of standard headers can be set as well as custom headers, for example to send a BytesMessage with a number of custom headers:
+
+{{{
+Dictionary<String,String> headers = new Dictionary<string,string>();
+headers.Add("key1", "value1");
+headers.Add("key2", "value2");
+
+IBytesMessage bytesMsg = s.CreateBytesMessage(byte[] { 1, 2, 3 }, headers);
+qs.SendBytesMessage(bytesMsg);
+}}}
+
+
+To access custom headers from a received message:
+
+{{{
+IBytesMessage msg = qr.ReceiveBytesMessage(SHORT_WAIT_TS);
+Dictionary<String,String> headers = msgs[0].CustomHeaders;
+}}}
 
 == Asynchronous Request/Response ==
 
