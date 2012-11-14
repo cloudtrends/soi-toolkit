@@ -21,28 +21,9 @@ using System.Text;
 
 namespace Soitoolkit.Nms
 {
-    public interface IQueueSender : IDisposable
+    public interface IBytesMessage : IBaseMessage
     {
-        // Summary:
-        //    Sends a message based on the supplied string as text body
-        void SendMessage(string TextBody);
-
-        // Summary:
-        //    Sends a message
-        void SendMessage(ITextMessage Message);
-
-        // Summary:
-        //    Sends a message and waits for a reply for the given timeout on a response on a temp-reply-queue.
-        //    The temp-queue is created by the implementation of this method.
-        ITextMessage SendMessageWaitForReplyOnTmpQueue(string TextBody, int timeout);
-
-        // Summary:
-        //    Sends a message based on the supplied bytes-array
-        void SendBytesMessage(byte[] Message);
-
-        // Summary:
-        //    Sends a message based on the supplied bytes-array
-        void SendBytesMessage(IBytesMessage Message);
-
+        // Message body represented as a simple string
+        byte[] BytesBody { get; set; }
     }
 }

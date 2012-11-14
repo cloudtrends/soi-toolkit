@@ -31,7 +31,7 @@ namespace Soitoolkit.Nms
         //    If a message is available within the timeout duration it is returned otherwise this method returns null
         ITextMessage Receive(TimeSpan timeout);
 
-        byte[] ReceiveBytesMessage(TimeSpan timeout);
+        IBytesMessage ReceiveBytesMessage(TimeSpan timeout);
 
         // Summary:
         //    Register a Message Listerner

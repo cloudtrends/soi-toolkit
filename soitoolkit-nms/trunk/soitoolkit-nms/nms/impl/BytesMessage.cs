@@ -22,31 +22,32 @@ using Apache.NMS;
 
 namespace Soitoolkit.Nms.Impl
 {
-    internal class TextMessage : BaseMessage, ITextMessage
+    internal class BytesMessage : BaseMessage, IBytesMessage
     {
-        // Message body represented as a simple string
-        public string TextBody { get; set; }
+        // Message body represented as a byte array
+        public byte[] BytesBody { get; set; }
 
-        public TextMessage() : this(null, null) { }
+        public BytesMessage() : this(null, null) { }
 
-        public TextMessage(string TextBody) : this(TextBody, null) { }
+        public BytesMessage(byte[] BytesBody) : this(BytesBody, null) { }
 
-        public TextMessage(string TextBody, Dictionary<string, string> CustomHeaders) : base(CustomHeaders)
+        public BytesMessage(byte[] BytesBody, Dictionary<string, string> CustomHeaders) : base(CustomHeaders)
         {
-            this.TextBody = TextBody;
+            this.BytesBody = BytesBody;
         }
 
         /// <summary>Internal method for creating a TextMessage from a ActveMQ NMS TextMessage</summary>
-        internal TextMessage(IMessage nmsMsg)
+        internal BytesMessage(IMessage nmsMsg)
         {
-            Apache.NMS.ITextMessage nmsTxtMsg = nmsMsg as Apache.NMS.ITextMessage;
-            if (nmsTxtMsg == null) throw new InvalidCastException("Unexpected message of type: " + nmsMsg.GetType().Name);
+            Apache.NMS.IBytesMessage nmsBytesMsg = nmsMsg as Apache.NMS.IBytesMessage;
+            if (nmsBytesMsg == null) throw new InvalidCastException("Unexpected message of type: " + nmsMsg.GetType().Name);
 
             // Set the text-boxy
-            string d = nmsTxtMsg.Text;
-            this.TextBody = d;
+            byte[] bArr = nmsBytesMsg.Content;
+            this.BytesBody = bArr;
 
             AddHeadersToBaseMessage(nmsMsg);
+        
         }
     }
 }

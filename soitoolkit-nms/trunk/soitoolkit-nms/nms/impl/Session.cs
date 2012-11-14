@@ -66,6 +66,16 @@ namespace Soitoolkit.Nms.Impl
             return new QueueReceiver(this, QueueName);
         }
 
+        public ITextMessage CreateTextMessage(string Text, Dictionary<string, string> CustomHeaders)
+        {
+            return new TextMessage(Text, CustomHeaders);
+        }
+
+        public IBytesMessage CreateBytesMessage(byte[] BytesArray, Dictionary<string, string> CustomHeaders)
+        {
+            return new BytesMessage(BytesArray, CustomHeaders);
+        }
+
         public void Dispose()
         {
             if (nmsSession != null)

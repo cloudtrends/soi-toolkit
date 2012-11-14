@@ -241,8 +241,8 @@ namespace Soitoolkit.Nms.Tests
                     byte[] msg = null;
                     do
                     {
-                        msg = qr.ReceiveBytesMessage(SHORT_WAIT_TS);
-                        if (msg != null) msgs.Add(msg);
+                        IBytesMessage Message = qr.ReceiveBytesMessage(SHORT_WAIT_TS);
+                        if (Message != null) msgs.Add(Message.BytesBody);
                     }
                     while (msg != null);
                 }
@@ -259,6 +259,75 @@ namespace Soitoolkit.Nms.Tests
                     log.Debug(expected[i] + " = " + actual[i] + "?");
                     Assert.AreEqual(expected[i], actual[i]);
                 }
+            }
+        }
+
+        // Summary:
+        //    Verifies polling receive of messages with custom headers and a receive timeout
+        [TestMethod]
+        public void TestSendAndReceiveWithCustomHeadersAndPollTimeout()
+        {
+            // Create a session to the message broker
+            using (ISession s = SessionFactory.CreateSession(BROKER_URL))
+            {
+                Dictionary<String,String> headers = new Dictionary<string,string>();
+                headers.Add(TEST_HDR_1_KEY, TEST_HDR_1_VALUE);
+                headers.Add(TEST_HDR_2_KEY, TEST_HDR_2_VALUE);
+
+                // Create a sender and send a test message with custom headers to a test queue
+                using (IQueueSender qs = s.CreateQueueSender(TEST_BYTES_QUEUE))
+                {
+                    // Send some test messages to the test queue, test bytes message = new byte[] { 1, 2, 3 }
+                    IBytesMessage bytesMsg = s.CreateBytesMessage(TEST_BYTES_MSG_1, headers);
+                    qs.SendBytesMessage(bytesMsg);
+                }
+
+                // List of received test messages
+                List<IBytesMessage> msgs = new List<IBytesMessage>();
+
+                // Create a receiver for the test queue
+                using (IQueueReceiver qr = s.CreateQueueReceiver(TEST_BYTES_QUEUE))
+                {
+                    IBytesMessage msg = null;
+                    do
+                    {
+                        msg = qr.ReceiveBytesMessage(SHORT_WAIT_TS);
+                        if (msg != null) msgs.Add(msg);
+                    }
+                    while (msg != null);
+                }
+
+                // Verify that the expected messages where received
+                Assert.AreEqual(msgs.Count, 1);
+                byte[] expected = TEST_BYTES_MSG_1;
+                byte[] actual = msgs[0].BytesBody;
+
+                Assert.AreEqual(expected.Length, actual.Length);
+
+                for (int i = 0; i < expected.Length; i++)
+                {
+                    log.Debug("Payload byte #" + i + ": " + expected[i] + " = " + actual[i] + "?");
+                    Assert.AreEqual(expected[i], actual[i]);
+                }
+
+                // Verify that the expected headers are received
+                Dictionary<String,String> expectedHeaders = headers;
+                Dictionary<String,String> actualHeaders = msgs[0].CustomHeaders;
+
+                Assert.AreEqual(expectedHeaders.Count, actualHeaders.Count);
+
+                Dictionary<String, String>.Enumerator e = actualHeaders.GetEnumerator();
+                e.MoveNext();
+                log.Debug("Header key    #1: " + TEST_HDR_1_KEY   + " = " + e.Current.Key + "?");
+                Assert.AreEqual(TEST_HDR_1_KEY, e.Current.Key);
+                log.Debug("Header value #1: " + TEST_HDR_1_VALUE + " = " + e.Current.Value + "?");
+                Assert.AreEqual(TEST_HDR_1_VALUE, e.Current.Value);
+
+                e.MoveNext();
+                log.Debug("Header key    #2: " + TEST_HDR_2_KEY   + " = " + e.Current.Key + "?");
+                Assert.AreEqual(TEST_HDR_2_KEY, e.Current.Key);
+                log.Debug("Header value #2: " + TEST_HDR_2_VALUE + " = " + e.Current.Value + "?");
+                Assert.AreEqual(TEST_HDR_2_VALUE, e.Current.Value);
             }
         }
     }

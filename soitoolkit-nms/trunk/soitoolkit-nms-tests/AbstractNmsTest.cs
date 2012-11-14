@@ -42,6 +42,11 @@ namespace Soitoolkit.Nms.Tests
         protected static readonly string TEST_BYTES_QUEUE = "my-test-bytes-queue";
         protected static readonly byte[] TEST_BYTES_MSG_1 = new byte[] { 1, 2, 3 };
 
+        protected static readonly string   TEST_HDR_1_KEY   = "key 1";
+        protected static readonly string   TEST_HDR_1_VALUE = "value 1";
+        protected static readonly string   TEST_HDR_2_KEY   = "key 2";
+        protected static readonly string   TEST_HDR_2_VALUE = "value 2";
+
         protected Soitoolkit.Log.Log log = new Soitoolkit.Log.Log();
 
         protected void DoOneTest()

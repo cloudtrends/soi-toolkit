@@ -62,13 +62,10 @@ namespace Soitoolkit.Nms.Impl
             return CreateTextMessage(nmsMsg);
         }
 
-        public byte[] ReceiveBytesMessage(TimeSpan timeout)
+        public IBytesMessage ReceiveBytesMessage(TimeSpan timeout)
         {
             IMessage nmsMsg = consumer.Receive(timeout);
-            if (nmsMsg == null) return null;
-
-            IBytesMessage nmsBytesMsg = (IBytesMessage)nmsMsg;
-            return nmsBytesMsg.Content;
+            return CreateBytesMessage(nmsMsg);
         }
 
 
@@ -87,6 +84,13 @@ namespace Soitoolkit.Nms.Impl
         {
             ITextMessage message = (nmsMsg == null) ? null : new TextMessage(nmsMsg);
             if (log.IsDebugEnabled()) log.Debug("Received from queue: " + queue.QueueName + ", message: " + ((nmsMsg == null) ? null : message.TextBody));
+            return message;
+        }
+
+        private IBytesMessage CreateBytesMessage(IMessage nmsMsg)
+        {
+            IBytesMessage message = (nmsMsg == null) ? null : new BytesMessage(nmsMsg);
+            if (log.IsDebugEnabled()) log.Debug("Received from queue: " + queue.QueueName + ", bytes message" + ((nmsMsg == null) ? " is null." : "."));
             return message;
         }
 

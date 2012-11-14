@@ -25,7 +25,7 @@ namespace soitoolkit_nms_tests.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MAGNUSLARSSBB6C")]
+        [global::System.Configuration.DefaultSettingValueAttribute("...your hostname...")]
         public string TCP_HOSTNAME {
             get {
                 return ((string)(this["TCP_HOSTNAME"]));
@@ -79,7 +79,7 @@ namespace soitoolkit_nms_tests.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:/Projects/vgr/amq-adapter-OLD/ActiveMqAdapter/certs/vgas0187_cert1.p12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("...your client cert...")]
         public string SSL_CLIENT_CERT_FILENME {
             get {
                 return ((string)(this["SSL_CLIENT_CERT_FILENME"]));
@@ -88,7 +88,7 @@ namespace soitoolkit_nms_tests.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("rB5nkPY7Uk")]
+        [global::System.Configuration.DefaultSettingValueAttribute("...your client cert password...")]
         public string SSL_CLIENT_CERT_PASSWORD {
             get {
                 return ((string)(this["SSL_CLIENT_CERT_PASSWORD"]));
@@ -97,7 +97,7 @@ namespace soitoolkit_nms_tests.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("vgms0141.vgregion.se")]
+        [global::System.Configuration.DefaultSettingValueAttribute("...your server hostname...")]
         public string SSL_SERVER_CERT_HOSTNAME {
             get {
                 return ((string)(this["SSL_SERVER_CERT_HOSTNAME"]));

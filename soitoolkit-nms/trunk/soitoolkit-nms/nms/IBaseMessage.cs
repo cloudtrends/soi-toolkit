@@ -21,28 +21,39 @@ using System.Text;
 
 namespace Soitoolkit.Nms
 {
-    public interface IQueueSender : IDisposable
+    public enum MsgDeliveryMode
     {
-        // Summary:
-        //    Sends a message based on the supplied string as text body
-        void SendMessage(string TextBody);
+        Persistent = 0,
+        NonPersistent = 1
+    }
 
-        // Summary:
-        //    Sends a message
-        void SendMessage(ITextMessage Message);
+    public enum MsgPriority
+    {
+        Lowest = 0,
+        VeryLow = 1,
+        Low = 2,
+        AboveLow = 3,
+        BelowNormal = 4,
+        Normal = 5,
+        AboveNormal = 6,
+        High = 7,
+        VeryHigh = 8,
+        Highest = 9
+    }
 
-        // Summary:
-        //    Sends a message and waits for a reply for the given timeout on a response on a temp-reply-queue.
-        //    The temp-queue is created by the implementation of this method.
-        ITextMessage SendMessageWaitForReplyOnTmpQueue(string TextBody, int timeout);
+    public interface IBaseMessage
+    {
+        // Relevant NMS headers
+        string          NMSCorrelationID   { get; set; }
+        MsgDeliveryMode NMSDeliveryMode    { get; set; }
+        string          NMSMessageId       { get; }
+        MsgPriority     NMSPriority        { get; set; }
+        bool            NMSRedelivered     { get; }
+        IDestination    NMSReplyTo         { get; }
+        DateTime        NMSTimestamp       { get; }
+        TimeSpan        NMSTimeToLive      { get; set; }
 
-        // Summary:
-        //    Sends a message based on the supplied bytes-array
-        void SendBytesMessage(byte[] Message);
-
-        // Summary:
-        //    Sends a message based on the supplied bytes-array
-        void SendBytesMessage(IBytesMessage Message);
-
+        // Custom headers
+        Dictionary<string, string> CustomHeaders { get; set; }
     }
 }

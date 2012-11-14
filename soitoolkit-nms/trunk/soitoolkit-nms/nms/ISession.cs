@@ -25,5 +25,7 @@ namespace Soitoolkit.Nms
     {
         IQueueSender   CreateQueueSender(string QueueName);
         IQueueReceiver CreateQueueReceiver(string QueueName);
+        ITextMessage   CreateTextMessage(string Text, Dictionary<string, string> CustomHeaders);
+        IBytesMessage  CreateBytesMessage(byte[] BytesArray, Dictionary<string, string> CustomHeaders);
     }
 }

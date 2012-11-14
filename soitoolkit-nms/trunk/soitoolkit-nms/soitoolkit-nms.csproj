@@ -55,7 +55,11 @@
     <Compile Include="log\Log.cs" />
     <Compile Include="log\LogFactory.cs" />
     <Compile Include="log\LogLevelEnum.cs" />
+    <Compile Include="nms\IBytesMessage.cs" />
+    <Compile Include="nms\IBaseMessage.cs" />
     <Compile Include="nms\IDestination.cs" />
+    <Compile Include="nms\impl\BaseMessage.cs" />
+    <Compile Include="nms\impl\BytesMessage.cs" />
     <Compile Include="nms\impl\Destination.cs" />
     <Compile Include="nms\impl\QueueReceiver.cs" />
     <Compile Include="nms\impl\QueueSender.cs" />

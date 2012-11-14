@@ -85,28 +85,34 @@ namespace Soitoolkit.Nms.Impl
             }
         }
 
-        public void SendBytesMessage(byte[] Message)
+        public void SendBytesMessage(byte[] BytesBody)
+        {
+            SendBytesMessage(new BytesMessage(BytesBody, null));
+        }
+
+        public void SendBytesMessage(IBytesMessage Message)
         {
             SendBytesMessage(Message, null);
         }
 
-        internal void SendBytesMessage(byte[] Message, IQueue queue)
+        internal void SendBytesMessage(IBytesMessage Message, IQueue queue)
         {
             // Create a nms text-message
-            IMessage nmsMsg = producer.CreateBytesMessage(Message);
+            byte[] BytesBody = Message.BytesBody;
+            IMessage nmsMsg = producer.CreateBytesMessage(Message.BytesBody);
 
-//            // Copy nsm and custom headers, if any.
-//            ((TextMessage)Message).CopyHeadersToNmsMessage(nmsMsg);
+            // Copy nsm and custom headers, if any.
+            ((BaseMessage)Message).CopyHeadersToNmsMessage(nmsMsg);
 
             // Send the message (use the default queue if no queue is specified in the SendMessage call)
             if (queue == null)
             {
-                if (log.IsDebugEnabled()) log.Debug("Sending to queue: " + this.queue.QueueName + ", message: " + Message.Length + " bytes");
+                if (log.IsDebugEnabled()) log.Debug("Sending to queue: " + this.queue.QueueName + ", message: " + BytesBody.Length + " bytes");
                 producer.Send(nmsMsg);
             }
             else
             {
-                if (log.IsDebugEnabled()) log.Debug("Sending to queue: " + queue.QueueName + ", message: " + Message.Length + " bytes");
+                if (log.IsDebugEnabled()) log.Debug("Sending to queue: " + queue.QueueName + ", message: " + BytesBody.Length + " bytes");
                 producer.Send(queue, nmsMsg);
             }
         }

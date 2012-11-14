@@ -21,42 +21,9 @@ using System.Text;
 
 namespace Soitoolkit.Nms
 {
-    public enum MsgDeliveryMode
-    {
-        Persistent = 0,
-        NonPersistent = 1
-    }
-
-    public enum MsgPriority
-    {
-        Lowest = 0,
-        VeryLow = 1,
-        Low = 2,
-        AboveLow = 3,
-        BelowNormal = 4,
-        Normal = 5,
-        AboveNormal = 6,
-        High = 7,
-        VeryHigh = 8,
-        Highest = 9
-    }
-
-    public interface ITextMessage
+    public interface ITextMessage : IBaseMessage
     {
         // Message body represented as a simple string
         string TextBody { get; set; }
-
-        // Relevant NMS headers
-        string          NMSCorrelationID   { get; set; }
-        MsgDeliveryMode NMSDeliveryMode    { get; set; }
-        string          NMSMessageId       { get; }
-        MsgPriority     NMSPriority        { get; set; }
-        bool            NMSRedelivered     { get; }
-        IDestination    NMSReplyTo         { get; }
-        DateTime        NMSTimestamp       { get; }
-        TimeSpan        NMSTimeToLive      { get; set; }
-
-        // Custom headers
-        Dictionary<string, string> CustomHeaders { get; set; }
     }
 }
