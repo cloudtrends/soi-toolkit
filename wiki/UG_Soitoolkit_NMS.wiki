@@ -31,9 +31,12 @@ For more details of the api look into the [#The_API api-section] below.
 
 == Store & Forward ==
 
-To send a message to a queue you write code like:
+To send a text message to a queue you write code like:
 
 {{{
+// Message to be sent
+string msg = "Message to be sent...";
+
 // Create a session to the message broker
 using (ISession s = SessionFactory.CreateSession(BROKER_URL))
 {
@@ -45,7 +48,7 @@ using (ISession s = SessionFactory.CreateSession(BROKER_URL))
 }
 }}}
 
-To receive messages from a queue you can either pull them using the Receive() -method like:
+To receive text messages from a queue you can either pull them using the Receive() -method like:
 
 {{{
 // Create a session to the message broker
