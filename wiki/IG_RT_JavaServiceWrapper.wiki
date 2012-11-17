@@ -1,0 +1,70 @@
+#summary Configuration of Java Service Wrapper
+
+= Configuration of Java Service Wrapper =
+
+This guide gives recommendations of how to configure Java Service Wrapper.
+
+== Prevent problem with JSW processes that fails to start ==
+
+This problem relates to Java Service Wrapper usage on Windows only.
+
+If a Java Service Wrapper process (e.g. Mule or ActiveMQ) fails to start it can be very hard to shut it down to be able to fix the problem. In worst case a restart of the Windows server might be required, typically very inconvenient...
+
+There is no controlled way to stop a Java SErvice wApper process that hangs during its startup phase and killing the process just results in Java SErvice Wrapper to restart it and it hangs again...
+
+MORE WORK HERE!!!
+
+
+
+As I understand the problems with start / stop / restartn so it boils down to that it's an obvious problem to stop a java process that does not start properly when it runs as a windows service?
+You kill java process so kicks Java Service wrapper started it again, it's like I said its task (ie, as long as the windows service is in the startup mode) so it's nothing strange about it.
+
+I do not how it could be so, but apparently you can in Microsoft Windows will not stop booting a Windows Service?!?
+It is not with the help of services gui't (start / stop buttons are grayed out) or net stop command.
+
+Then a windows service is running well so you can easily stop it with the command:
+
+C: \ Documents and Settings \ iCore> net stop mule
+The mule service is stopping .......
+The mule service was stopped successfully.
+
+But if the windows service hang during boot, you can no longer stop it, but get the error:
+
+C: \ Documents and Settings \ iCore> net stop mule
+The requested pause, continue, or stop is not valid for this service.
+
+More help is available by typing NET helpmsg 2191st
+
+Do not know if it is specific to Java services that started with the help of the Java Service Wrapper or if there is a general Microsoft problem?
+Leif: Do you recognize it from iCore?
+
+
+Well, the component that has the task of restarting the Java process is as I said Java service wrapper and want to temporarily disabla to automatically restart a crashed java process so you just have to add the following line in wrapper.conf file:
+
+wrapper.disable_restarts = TRUE
+
+
+To then get the Java Service wrapper to read about its conf file in the reboot, you have to oxå add the line:
+
+wrapper.restart.reload_configuration = TRUE
+
+
+When you solved the problem with the boot, it is of course very important to set the restart parameter to FALSE again.
+
+wrapper.disable_restarts = FALSE
+
+
+This is posted and tested on pts0047.
+
+
+Finally, the problem with the java process, you should stop, just guessing and aim of Task Manager seems a bit frivolous, to say the least :-)
+
+We've already talked about using Java's standard JMX Console JConsole, to monitor and to some extent influence Mule CE instances of Mule Satellite (starting and stopping of applications and / or endpunkter etc.).
+Mha JConsole can oxå easily see what goes in each Java process. Only by starting jconsole on a server, you get a picture like attachment and can then with a ögnkast determine the process ID, such as a mule process have 6132 in my example.
+Then you can safely stop the mule-procesen in task manager (after you sat on wrapper.disable_restarts to TRUE course), fix the error and restart the mule again. When you verified that everything works concludes by replacing wrapper.disable_restarts to FALSE
+
+I have to go now but will slriva bit more structured about Dettingen on wiki'n tomorrow.
+
+Questions so far?
+
+Do we have any other known problem areas around the start / stop / restart of the muzzle and / or amq to hear from you as soon as possible, I work only in the morning on the VGR before it's time for the holidays!
