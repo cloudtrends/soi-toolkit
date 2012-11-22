@@ -4,7 +4,7 @@
 
 The soi-toolkit project is organized in a way similar to how the Apache Software Foundation organize their projects, see [http://www.apache.org/foundation/how-it-works.html how the Apache Software Foundation works].
 
-The soi-toolkit project is an open source project with a community of Users, Developer and Committer. 
+The soi-toolkit project is an open source project with a community of Users, Developers and Committers. 
 
 The project is managed and governed by a Project Management Board (PMB).
 
