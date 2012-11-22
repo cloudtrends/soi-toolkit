@@ -2,7 +2,7 @@
 
 = How the soi-toolkit project works =
 
-The soi-toolkit project is organized in a way similar to how the Apache Software Foundation organize their projects, see [http://www.apache.org/foundation/how-it-works.html how the Apache Software Foundation works].
+The soi-toolkit project is organized in a way inspired by how the Apache Software Foundation organize their projects, see [http://www.apache.org/foundation/how-it-works.html how the Apache Software Foundation works].
 
 The soi-toolkit project is an open source project with a community of Users, Developers and Committers. 
 
