@@ -232,6 +232,9 @@ To run Mule in the console: ???
 
 ==Configuration==
 
+===Java Service Wrapper===
+Configure the Java Service Wrapper according to [IG_RT_JavaServiceWrapper this instruction].
+
 ===Installing a Mule EE license===
 
 After installing Mule EE you have a default evaluation license valid for 30 days.
