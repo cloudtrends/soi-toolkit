@@ -115,10 +115,14 @@ Note that the XML elements under the root `<broker>`-element in this file shall 
 
 The following types of configuration is described below:
 
+ * [#Java_Service_Wrapper How to configure the Java Service Wrapper]
  * [#Setup_retry_and_DLQ-handling_policies How to setup retry and DLQ-handling policies]
  * [#Setup_a_network_of_message_brokers How to setup a network of message brokers]
  * [#Setup_master/slaves_message_brokers_for_High_Availability How to setup master/slaves message brokers for High Availability]
  * [#Secure_connections_using_SSL_over_TCP How to secure connections using SSL over TCP]
+
+===Java Service Wrapper===
+Configure the Java Service Wrapper according to [IG_RT_JavaServiceWrapper this instruction].
 
 === Setup retry and DLQ-handling policies ===
 
