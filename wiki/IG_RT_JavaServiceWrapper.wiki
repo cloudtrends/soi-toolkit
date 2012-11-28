@@ -17,7 +17,7 @@ There is no controlled way to stop a Java Service Wrapper process that hangs dur
 It seems to be a problem in Microsoft Windows to stop a Windows Service that is initializing during startup. You can't use the User Interface in Services since both start and stop buttons are grayed out and a {{{net stop}}} command fails as well:
 
 {{{
-C: \ Documents and Settings> net stop mule
+C:\> net stop mule
 The requested pause, continue, or stop is not valid for this service.
 
 More help is available by typing NET helpmsg 2191st
@@ -25,7 +25,7 @@ More help is available by typing NET helpmsg 2191st
 
 A started service is however no problem to stop like:
 {{{
-C: \ Documents and Settings> net stop mule
+C:\> net stop mule
 The mule service is stopping .......
 The mule service was stopped successfully.
 }}}
@@ -52,6 +52,8 @@ Now you can kill the failing Java process and the Java Service Wrapper will not 
 wrapper.disable_restarts = FALSE
 }}}
 
-*HINT*: If you are not sure what Java process to kill you can use the JConsole that comes with the Java SE JDK to see what Java process is the one you search for:
+*HINT*: If you are not sure what Java process to kill in the you can use the JConsole that comes with the Java SE JDK to see what Java process is the one you search for:
 
 Finally, the problem with the java process, you should stop, just guessing and aim of Task Manager seems a bit frivolous, to say the least :-)
+
+http://soi-toolkit.googlecode.com/svn/wiki/InstallationGuide/JswConfig/JSW-process-hangs-jconsole-help.png
