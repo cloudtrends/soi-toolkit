@@ -111,3 +111,15 @@ gpg --list-secret-keys
 {{{
 gpg --keyserver hkp://pgp.mit.edu --send-keys nnnnnnnn
 }}}
+
+  * Define the default key
+  If you have more than one private key you can define a default key by editing the configuration file:
+{{{
+mate ~/.gnupg/gpg.conf
+}}}
+  And set the default-key option to your preferred default key:
+{{{
+# If you have more than 1 secret key in your keyring, you may want to
+# uncomment the following option and set your preferred keyid.
+default-key nnnnnnnn
+}}}
