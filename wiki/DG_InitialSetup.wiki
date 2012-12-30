@@ -107,6 +107,13 @@ gpg --gen-key
 gpg --list-keys
 gpg --list-secret-keys
 }}}
+  Keys will be listed in the following format where the key id, `nnnnnnnn`, is the most important
+{{{
+pub   mmmmm/nnnnnnnn date
+uid                  name <email>
+sub   mmmmm/ssssssss date
+}}}
+
   * Distribute public key
 {{{
 gpg --keyserver hkp://pgp.mit.edu --send-keys nnnnnnnn
@@ -117,7 +124,7 @@ gpg --keyserver hkp://pgp.mit.edu --send-keys nnnnnnnn
 {{{
 mate ~/.gnupg/gpg.conf
 }}}
-  And set the default-key option to your preferred default key:
+  And set the `default-key` option to your preferred default key:
 {{{
 # If you have more than 1 secret key in your keyring, you may want to
 # uncomment the following option and set your preferred keyid.
