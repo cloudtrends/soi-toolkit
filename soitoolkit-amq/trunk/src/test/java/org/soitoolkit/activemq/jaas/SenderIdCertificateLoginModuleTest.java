@@ -44,7 +44,7 @@ public class SenderIdCertificateLoginModuleTest {
 	public void setUp() {
 		module = new SenderIdCertificateLoginModule();
 		
-		module.setPropertyName("CN");
+		module.setPropertyName("2.5.4.5");
 		module.setBaseDir(new File("src/test/resources"));
 		module.setUsersFilePathname("users.properties");
 		module.setGroupsFilePathname("groups.properties");
@@ -56,7 +56,7 @@ public class SenderIdCertificateLoginModuleTest {
 		X509Certificate cert = mock(X509Certificate.class);
 		X509Certificate[] x509Certificates = new X509Certificate[] {cert};
 		
-        X500Principal principal = new X500Principal("CN=12345689, OU=JavaSoft, O=Sun Microsystems, C=US");
+        X500Principal principal = new X500Principal("SERIALNUMBER=123456789-1, CN=test, OU=test, O=test, DC=test, DC=test, C=test");
         when(cert.getSubjectX500Principal()).thenReturn(principal);
 		
 		try {
@@ -101,7 +101,7 @@ public class SenderIdCertificateLoginModuleTest {
 		X509Certificate cert = mock(X509Certificate.class);
 		X509Certificate[] x509Certificates = new X509Certificate[] {cert};
 		
-        X500Principal principal = new X500Principal("CN=0, OU=JavaSoft, O=Sun Microsystems, C=US");
+        X500Principal principal = new X500Principal("SERIALNUMBER=123456789-X, CN=test, OU=test, O=test, DC=test, DC=test, C=test");
         when(cert.getSubjectX500Principal()).thenReturn(principal);
 		
 		try {
@@ -128,13 +128,13 @@ public class SenderIdCertificateLoginModuleTest {
 		X509Certificate cert = mock(X509Certificate.class);
 		X509Certificate[] x509Certificates = new X509Certificate[] {cert};
 		
-		X500Principal principal = new X500Principal("CN=12345689, OU=JavaSoft, O=Sun Microsystems, C=US");
+		X500Principal principal = new X500Principal("SERIALNUMBER=123456789-1, CN=test, OU=test, O=test, DC=test, DC=test, C=test");
 		when(cert.getSubjectX500Principal()).thenReturn(principal);
 		
 		String property = module.getPropertyFromX500Principal(x509Certificates);
 		
 		assertNotNull(property);
-		assertEquals("12345689", property);
+		assertEquals("#130b3132333435363738392d31", property);
 	}
 	
 	@Test
@@ -142,7 +142,7 @@ public class SenderIdCertificateLoginModuleTest {
 		X509Certificate cert = mock(X509Certificate.class);
 		X509Certificate[] x509Certificates = new X509Certificate[] {cert};
 		
-		X500Principal principal = new X500Principal("CN=12345689, OU=JavaSoft, O=Sun Microsystems, C=US");
+		X500Principal principal = new X500Principal("SERIALNUMBER=123456789-1, CN=test, OU=test, O=test, DC=test, DC=test, C=test");
 		when(cert.getSubjectX500Principal()).thenReturn(principal);
 		
 		module.setPropertyName("CD");

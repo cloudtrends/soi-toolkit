@@ -119,6 +119,11 @@ public class SenderIdCertificateLoginModule extends
 		
 		log.debug("Sender ID: " + senderId);
 		
+		// Check if this is coded in hex (HCC Funktionscertifikat does that!)
+		if (senderId.startsWith("#")) {
+			senderId = convertFromHexToString(senderId.substring(5));
+		}
+		
 		Properties users = this.getUserProperties();
 		
 		Enumeration<Object> keys = users.keys();
@@ -246,6 +251,16 @@ public class SenderIdCertificateLoginModule extends
 		return null;
 	}
 	
+	protected String convertFromHexToString(String hexString) {
+		byte [] txtInByte = new byte [hexString.length() / 2];
+		int j = 0;
+		for (int i = 0; i < hexString.length(); i += 2)
+		{
+			txtInByte[j++] = Byte.parseByte(hexString.substring(i, i + 2), 16);
+		}
+		return new String(txtInByte);
+	}
+
 	public void setBaseDir(File baseDir) {
 		this.baseDir = baseDir;
 	}
