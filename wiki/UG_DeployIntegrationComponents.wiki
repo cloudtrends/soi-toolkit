@@ -7,6 +7,27 @@
 
 An integration component is deployed based on a released version typically picked up from the internal Maven repository.
 
+= Offline install and upgrade =
+
+# Stop Mule
+# Remove the application folder under $MULE_HOME/apps, if it exists
+# Copy the deploy-file (zip-file) to the folder $MULE_HOME/apps
+# Update, if required, the override-property-file, $MULE_HOME/config/${ic-name}-config-override.properties with new, updated or removed properties that needs to be environment specific (see property-file for default values in the deploy-file (classes/${ic-name}-config.properties)
+# Start Mule again, the deploy-file is now expanded into a folder under $MULE_HOME/apps 
+# Verify in the log-files under $MULE_HOME/logs, mule.log and mule-app-nnn.log, that the startup of mule and the new version of the integration component was successful
+# Perform functional tests to verify that the integration component works and that the output is as expected in the log-file and event-log-queues
+# Update documentation of deploy-configuration
+
+NOTE: Before soi-toolkit v0.6.1 there is an issue with the log4j.xml file in the exploded classes-folder. It is setup for development use and typically use the console appender for output and not a file appender. Until changed this result in that all log output from the integration component is written to mule.log instead of to the integration component specific log-file.
+
+
+= Online install and upgrade =
+
+TO BE DESCRIBED
+
+
+= OLD: Deploy to Tomcat =
+
 Before you can deploy to Tomcat you have to setup a directory structure on the server for holding configuration and log-files for the integration component.
 
 == Initial setup ==
