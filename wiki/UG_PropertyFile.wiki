@@ -43,6 +43,7 @@ Property values that are specific for test/production environments are configure
     The override-file is typically where encrypted values (see next section) are used.
     <br>*Note:* Encrypted values should be avoided in the default property values since decryption requires some environment setup for integration tests to run.
 
+For some more background info see: [http://www.mulesoft.org/documentation/display/MULE3USER/Using+Parameters+in+Your+Configuration+Files MuleSoft on using parameters in your configuration files]
 
 == Encrypted passwords ==
 Passwords in the property file can be encrypted using [http://www.jasypt.org jasypt].
