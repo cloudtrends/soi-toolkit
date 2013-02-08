@@ -12,7 +12,8 @@ An integration component is deployed based on a released version typically picke
  # Stop Mule
  # Remove the application folder under $MULE_HOME/apps, if it exists
  # Copy the deploy-file (zip-file) to the folder $MULE_HOME/apps
- # Update, if required, the override-property-file, $MULE_HOME/config/${ic-name}-config-override.properties with new, updated or removed properties that needs to be environment specific (see property-file for default values in the deploy-file (classes/${ic-name}-config.properties)
+ # Update, if required, the override-property-file, $MULE_HOME/config/${ic-name}-config-override.properties with new, updated or removed properties that needs to be environment specific (see property-file for default values in the deploy-file (classes/${ic-name}-config.properties) 
+ For info regarding use of property files, see: [UG_PropertyFile Property file configuration and usage]
  # Start Mule again, the deploy-file is now expanded into a folder under $MULE_HOME/apps 
  # Verify in the log-files under $MULE_HOME/logs, mule.log and mule-app-nnn.log, that the startup of mule and the new version of the integration component was successful
  # Perform functional tests to verify that the integration component works and that the output is as expected in the log-file and event-log-queues
