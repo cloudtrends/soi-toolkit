@@ -64,6 +64,11 @@ mvn test -PrunGeneratorTests
   * Soitoolkit-version*2 in bin.includes + jars.extra.classpath in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/build.properties}}}
   * Soitoolkit-version*2 in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/.classpath}}}
 
+*NOTE: * If only releasing maven artefacts (e.g. not the eclipse plugin) you need to update only the following by hand:
+ * Manually update the soi-toolkit version to the release version in the following files: 
+  * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator/src/main/java/org/soitoolkit/tools/generator/model/impl/DefaultModelImpl.java}}}
+ * commons/poms/default-parent/pom.xml" --> "/ns:project/ns:properties/ns:soitoolkit.version" 
+
 <wiki:comment>
 OLD STUFF!!!
  * Manually update the soi-toolkit version to the release version in {{{commons/poms/default-parent/pom.xml}}}. 
