@@ -5,6 +5,13 @@
 *Content*
 <wiki:toc max_depth="2" />
 
+== soi-toolkit v0.6.1 - Milestone 2 ==
+Release date: March 18 2013
+
+This is the second milestone release of v0.6.1 adding support for Mule CE 3.3.1 and more, see release notes.
+
+*Release Notes* can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=7&q=Milestone%3DRelease0.6.1-M2 Release Notes]
+
 == soi-toolkit v0.6.1 - Milestone 1 ==
 Release date: January 15 2013
 
