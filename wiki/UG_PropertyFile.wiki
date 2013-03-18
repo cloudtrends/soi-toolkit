@@ -56,10 +56,14 @@ Passwords in the property file can be encrypted using [http://www.jasypt.org jas
 
 *Detailed description for using encrypted passwords*
   # Select _master password_, example: MY_SECRET_MASTER_PASSWORD
-  # Encrypt a password
-    # Download jasypt command line tools http://www.jasypt.org/download.html
-    # Unzip the jasypt-distribution
-    # Encrypt a password:
+  # Encrypt a password, using one of the alternatives:
+    # Using the encryption webapp (added for issue 329), see details in:
+       https://code.google.com/p/soi-toolkit/source/browse/trunk/tools/soitoolkit-encryption-web-tool/README.txt
+       <br><br>_Note: this should be the prefered option since it minimizes the exposure of the master-password._
+    # Using command-line tool
+      # Download jasypt command line tools http://www.jasypt.org/download.html
+      # Unzip the jasypt-distribution
+      # Encrypt a password:
 {{{
 bin $ cd /opt/sf/jasypt-1.8/bin
 bin $ ./encrypt.sh input="PASSWORD_TO_ENCRYPT_FOR_PROPERTY_FILE" password=MY_SECRET_MASTER_PASSWORD
