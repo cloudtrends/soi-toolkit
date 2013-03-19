@@ -28,7 +28,7 @@ The instructions below will evolve over time to support all phases.
  * TBD: Custom handling of log-events
 
 === Development and Maintenance ===
- * [UG_UsingMule Studio Using Mule Studio with soi-toolkit]
+ * [UG_UsingMuleStudio Using Mule Studio with soi-toolkit]
  * [UG_UsingGenerators Using the source code generators]
  * [UG_PropertyFile Property file configuration and usage (Since v0.5.0)]
  * [UG_IntegrationTesting Integration testing]
