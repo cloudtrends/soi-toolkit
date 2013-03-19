@@ -19,9 +19,11 @@ The soi-toolkit Eclipse plugin for the generators is fully compliant with Mule S
 
 However some issues exists using soi-toolkit and Mule Studio together and they are explained in this wiki-page:
 
+* Setup (including link)
+  ** M2_REPO variable
+  ** Disable show errors (not fully support fpr spring et al in MS)
+  
 * Test flows
-
-* Disable show errors (not fully support fpr spring et al in MS)
 
 * flows in the test-classes folder
 
