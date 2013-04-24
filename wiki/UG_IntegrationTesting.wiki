@@ -12,3 +12,15 @@ If an integration test times out too soon (typically if you are debugging) you c
 -Dmule.test.timeoutSecs=XX
 }}}
 in your environment.
+
+Examples:
+
+1. Using Maven in a command window increating the timeout to two minutes:
+
+{{{
+mvn clean test -Dtest=UpdateIntegrationTest -Dmule.test.timeoutSecs=120
+}}}
+
+2. Using Maven in a automated build using Jenkins:
+
+http://soi-toolkit.googlecode.com/svn/wiki/UG_IncreaseTestTimeoutJenkins.png
