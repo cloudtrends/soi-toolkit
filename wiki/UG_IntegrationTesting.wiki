@@ -15,12 +15,12 @@ in your environment.
 
 Examples:
 
-1. Using Maven in a command window increating the timeout to two minutes:
+1. Increasing the timeout to two minutes when using Maven in a command window:
 
 {{{
 mvn clean test -Dtest=UpdateIntegrationTest -Dmule.test.timeoutSecs=120
 }}}
 
-2. Using Maven in a automated build using Jenkins:
+2. Increasing the timeout to two minutes when running Maven builds from Jenkins:
 
 http://soi-toolkit.googlecode.com/svn/wiki/UG_IncreaseTestTimeoutJenkins.png
