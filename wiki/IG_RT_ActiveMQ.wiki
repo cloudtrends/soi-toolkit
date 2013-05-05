@@ -117,6 +117,8 @@ The following types of configuration is described below:
 
  * [#Java_Service_Wrapper How to configure the Java Service Wrapper]
  * [#Setup_retry_and_DLQ-handling_policies How to setup retry and DLQ-handling policies]
+ * [#Configure_broker_for_reliable_message_persistence Configure broker for reliable message persistence]
+ * [#Configure_broker_resource_usage Configure broker resource usage]
  * [#Setup_a_network_of_message_brokers How to setup a network of message brokers]
  * [#Setup_master/slaves_message_brokers_for_High_Availability How to setup master/slaves message brokers for High Availability]
  * [#Secure_connections_using_SSL_over_TCP How to secure connections using SSL over TCP]
@@ -154,6 +156,85 @@ For background information see:
   ...
 </broker>
 }}}
+
+=== Configure broker for reliable message persistence ===
+Change from:
+{{{
+<persistenceAdapter>
+  <kahaDB directory="${activemq.data}/kahadb"/>
+</persistenceAdapter>
+}}}
+to:
+{{{
+<persistenceAdapter>
+  <kahaDB directory="${activemq.data}/kahadb"
+      enableJournalDiskSyncs="true"
+      concurrentStoreAndDispatchQueues="false"
+      concurrentStoreAndDispatchTopics="false"/>
+</persistenceAdapter>
+}}}
+
+Explanation:
+ * enableJournalDiskSyncs="true": default value, configured only to be explicit together with below parameters
+ * concurrentStoreAndDispatchQueues="false": true default, doesn't reliably sync messages to disc before dispatch if "true" (weighted slightly towards throughput performance over reliability)
+ * concurrentStoreAndDispatchTopics="false": false default, configured only to be explicit
+
+References:
+ # http://fusesource.com/docs/broker/5.4/persistence/KahaDB-Concurrent.html
+ # http://activemq.apache.org/kahadb.html
+
+=== Configure broker resource usage ===
+To avoid producer flow-control kicking in frequently when using somewhat larger messages (below configuration tested with AMQ 5.6 and message sizes up to 20Mb (bytesmessages).
+Note that the default config has a very low memory usage setting.
+
+*broker*: add splitSystemUsageForProducersConsumers="true" :
+{{{
+<!--
+By default this will split the broker’s Main memory usage into 60% for the producers and 40% for the consumers. To tune this even further, set the producerSystemUsagePortion and consumerSystemUsagePortion on the main broker element:
+<broker splitSystemUsageForProducersConsumers="true" producerSystemUsagePortion="70" consumerSystemUsagePortion="30">
+-->
+<broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost" dataDirectory="${activemq.data}"
+    splitSystemUsageForProducersConsumers="true">
+}}}
+
+
+*broker/destinationPolicy*: change from:
+{{{
+<policyEntry topic=">" producerFlowControl="true" memoryLimit="1mb">
+<policyEntry queue=">" producerFlowControl="true" memoryLimit="1mb">
+}}}
+to:
+{{{
+<policyEntry topic=">" producerFlowControl="true" memoryLimit="1mb" topicPrefetch="1" durableTopicPrefetch="1">
+<policyEntry queue=">" producerFlowControl="true" memoryLimit="25mb" queuePrefetch="1" reduceMemoryFootprint="true">￼
+}}}
+
+Explanation:
+ * memoryLimit="25mb": the amount of memory that can be bound to a queue
+ * queuePrefetch="1": the number of messages that can be pushed to a client before ACK, can cause out-of-memory with to many (large) messages, AND can cause starvation of consumers (that could otherwise have processed some of the message in parallell)
+ * reduceMemoryFootprint="true": avoid that a copy of a persistent message is stored in memory (for quick dispatch), instead flush directly to disc (to handle load situations and abnormal situations where messages are built up, for example when consumers can't keep up or are absent)
+
+
+*broker/systemUsage*: change memoryUsage limit like (use half the heapsize as value, a rough rule of thumb):
+{{{
+<systemUsage>
+  <systemUsage>
+    <memoryUsage>
+      <!--
+        AMQ 5.5.1 uses 512Mb max heap by default (win32, 64-bit Linux).
+        AMQ 5.6.0 uses 1Gb max heap by default (win32, win64, 64-bit Linux).
+        See bin/linux-x86-64/wrapper.conf:
+          wrapper.java.maxmemory=1024
+      -->
+      <memoryUsage limit="512 mb"/>
+}}}
+
+References:
+ # http://activemq.apache.org/per-destination-policies.html
+ # http://activemq.apache.org/javalangoutofmemory.html
+ # http://fusesource.com/docs/broker/5.5/tuning/front.html
+ # http://www.christianposta.com/blog/?p=273
+
 
 === Setup a network of message brokers ===
 
