@@ -31,6 +31,12 @@ All components in soi-toolkit has one and the same release cycle (i.e. cm scope)
 
 See the wiki page [DG_InitialSetup Initial Setup].
 
+To release software components we use Maven and its [http://maven.apache.org/maven-release/maven-release-plugin/ release-plugin]. To be able to publish released artifacts on [http://repo1.maven.org/maven2/ the central Maven repository] we use [http://www.sonatype.org/central/participate Sonatype OSS Repository Hosting Service].
+
+See [https://docs.sonatype.org/display/repository/sonatype+oss+maven+repository+usage+guide instructions] for more information on what is required for initial setup. 
+
+After a successful registration of an account at Sonatype send the user-id to one of the owners of the soi-toolkit project to get the account associated with the soi-toolkit project at Sonatype, e.g. so that you can perform releases of soi-toolkit components to the central Maven repository.
+
 == Running tests ==
 
 === Maven based tests ===
