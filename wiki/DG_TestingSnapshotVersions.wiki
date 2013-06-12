@@ -87,7 +87,7 @@ mvn org.soitoolkit.tools.generator:soitoolkit-generator-maven-plugin:0.5.1-SNAPS
 
 *Note #3:* the generated code will have a dependency to the corresponding snapshot versions of the soi-toolkit runtime components!
 
-== Test existing code against the snapshot version of ski-toolkit ==
+== Test existing code against the snapshot version of soi-toolkit ==
 
  * Update the soi-toolkit-dependency to the snapshot-release:
  (e.g. change 0.5.0 to 0.5.1-SNAPSHOT)
