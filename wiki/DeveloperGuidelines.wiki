@@ -164,7 +164,7 @@ Bundle-Version: 0.5.0 --> 0.5.1.SNAPSHOT_2012-05-20_0830
  {{{
 /site/feature/@url: features/org.soitoolkit.generator.feature_0.5.0.jar --> features/org.soitoolkit.generator.feature_0.5.1.SNAPSHOT_2012-05-20_0830.jar
  }}}
-  * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xm}}}
+  * {{{trunk/tools/soitoolkit-generator/org.soitoolkit.generator.feature/feature.xml}}}
  {{{
 /feature/@version: 0.5.0 --> 0.5.1.SNAPSHOT_2012-05-20_0830
  }}}
