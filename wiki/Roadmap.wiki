@@ -28,8 +28,8 @@ For details se [ReleaseNotes#soi-toolkit_v0.6.0 Release Notes].
 
 *Planned features:*
 
- * Mule ESB 3.4
- * Mule Studio 3.4, including:
+ * Support for Mule ESB 3.4
+ * Support for Mule Studio 3.4, including:
   * Mule Studio Maven support
   * Mule Studio Flow Debugger
   * Mule Studio Data Mapper (for Mule ESB EE customers)
