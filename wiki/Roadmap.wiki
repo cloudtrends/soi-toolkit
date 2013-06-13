@@ -33,5 +33,5 @@ For details se [ReleaseNotes#soi-toolkit_v0.6.0 Release Notes].
   * Mule Studio Maven support
   * Mule Studio Flow Debugger
   * Mule Studio Data Mapper (for Mule ESB EE customers)
- * Support for robust one-way services with JMS based retry handling and guaranteed delivery + loggin and archiving and more
+ * Support for robust one-way services with JMS based retry handling and guaranteed delivery + logging and archiving and more
  * Custom templates for the soi-toolkit generators
