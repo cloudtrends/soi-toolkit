@@ -170,7 +170,7 @@ Bundle-Version: 0.5.0 --> 0.5.1.SNAPSHOT_2012-05-20_0830
  }}}
 
  * Build the update site in Eclipse (open site.xml and click "Build all")
- * Create a zip-fil of the update site (clean svn zip)
+ * Create a zip-fil of the update site (clean svn zip, or just compress the org.soitoolkit.generator.update projekt)
  * Rename the zip-file to something like soitoolkit_0.5.1.SNAPSHOT_2012-05-20_0830.zip
  * Push the zip-file to http://soi-toolkit.merikan.com/myUpdateSite
  * Update the index.html file on http://soi-toolkit.merikan.com/myUpdateSite
