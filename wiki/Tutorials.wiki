@@ -4,7 +4,7 @@
 *Content*
 <wiki:toc max_depth="2" />
 
-== Getting started tutorials ==
+== Getting started tutorials == 
 
   * [TutorialCreateIntegrationComponent Create an Integration Component]
   * [TutorialCreateSecureRequestResponseService NEW: Create a Secure Request/Response service]
