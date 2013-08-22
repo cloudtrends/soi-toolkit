@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: soi_toolkit_generator_plugin
+Bundle-SymbolicName: soi_toolkit_generator_plugin; singleton:=true
+Bundle-Version: 0.6.1.SNAPSHOT_2013-06-17_2138
+Bundle-Activator: soi_toolkit_generator_plugin.Activator
+Bundle-Vendor: Callista Enterprise AB
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.junit4,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.ui,
+ org.eclipse.jface.text
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/groovy-all-1.7.2.jar,
+ lib/groovy-engine.jar,
+ .,
+ lib/soitoolkit-commons-xml-0.6.1-M3-SNAPSHOT.jar,
+ lib/soitoolkit-generator-0.6.1-M3-SNAPSHOT.jar,
+ lib/jcl-over-slf4j-1.6.1.jar,
+ lib/log4j-1.2.16.jar,
+ lib/slf4j-api-1.6.1.jar,
+ lib/slf4j-log4j12-1.6.1.jar,
+ lib/commons-configuration-1.7.jar,
+ lib/commons-beanutils-1.8.3.jar,
+ lib/commons-collections-3.2.1.jar,
+ lib/commons-digester-1.8.1.jar,
+ lib/commons-lang-2.6.jar,
+ lib/commons-logging-1.1.1.jar
+
