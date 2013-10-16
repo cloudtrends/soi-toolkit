@@ -154,7 +154,7 @@ Install Mule Studio CE according to the following instructions:
  * Ensure that you save your source files in UTF-8 format in your Eclipse workspace as described in [UG_EditorSetup editor setup].
 
  * Ensure that you have the classpath variable M2_REPO setup in Mule Studio
-  * Goto Mule Studio Preferences and select "Java --> Buid Path --> Classpath Variables"
+  * Goto Mule Studio Preferences and select "Java --> Build Path --> Classpath Variables"
   * If the variable M2_REPO is not already defined then click on the "New..." button
   * Enter M2_REPO as the name and click on the "Folder..." button and navigate and select you local Maven repository folder.
   * Click on "Ok" buttons and accept a full rebuild of your workspace if requested.
