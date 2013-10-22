@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the soi-toolkit project under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The soi-toolkit project licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+ 
+      http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+        <groupId>org.soitoolkit</groupId>
+		<artifactId>soitoolkit</artifactId>
+		<version>0.6.1-M4</version>
+        <relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.soitoolkit.commons</groupId>
+	<artifactId>soitoolkit-commons</artifactId>
+	<packaging>pom</packaging>
+	<name>soitoolkit-commons</name>
+    <url>http://soi-toolkit.org</url>
+
+	<modules>
+
+		<module>poms/default-parent</module>
+		<module>poms/assembly-descriptors</module>
+		<module>poms/schemas-jax-ws-dependencies</module>
+		<module>poms/mule-dependencies/mule-3.3.0-dependencies</module>
+		<module>poms/mule-dependencies/mule-3.3.1-dependencies</module>
+		<!--
+		<module>poms/mule-dependencies/mule-ee-3.3.1-dependencies</module>
+		-->
+		<module>poms/mule-dependencies/mule-3.4.0-dependencies</module>
+		<module>poms/test-dependencies</module>
+		
+		<module>components/commons-schemas</module>
+		<module>components/commons-log</module>
+		<module>components/commons-mule</module>
+        <module>components/commons-xml</module>
+
+<!-- TODO: Problems with building on JDK 1.7, require:
+Unresolveable build extension: Plugin org.mule.tools.devkit:mule-devkit-maven-plugin:3.3.1 or one of its dependencies could not be resolved: Could not find artifact com.sun:tools:jar:1.6 at specified path /Library/Java/JavaVirtualMachines/jdk1.7.0_11.jdk/Contents/Home/jre/../Classes/classes.jar
+
+        <module>components/studio-components</module>
+  -->
+		
+	</modules>
+
+</project>
