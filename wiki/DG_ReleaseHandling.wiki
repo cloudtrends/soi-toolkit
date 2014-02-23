@@ -13,8 +13,10 @@ To release a new version of soi-toolkit we use mavens release-plugin.
 == Add release notes ==
 Make sure documentation is up to date when tagging the Subversion repository by:
  * Update the issue list so only issues fixed in the current release are marked as fixed for the current release (move any non-resolved issues to a later milestone)
-* Add release notes to: https://code.google.com/p/soi-toolkit/wiki/ReleaseNotes
-* Add a short update/news note to the landing page: https://code.google.com/p/soi-toolkit/#Latest_releases
+
+ * Add release notes to: https://code.google.com/p/soi-toolkit/wiki/ReleaseNotes
+
+ * Add a short update/news note to the landing page: https://code.google.com/p/soi-toolkit/#Latest_releases
 
 == Prepare ==
 
