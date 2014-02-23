@@ -5,6 +5,13 @@
 *Content*
 <wiki:toc max_depth="2" />
 
+== soi-toolkit v0.6.1 ==
+Release date: February 23 2013
+
+Under work!
+
+*Full Release Notes* can be found here: [http://code.google.com/p/soi-toolkit/issues/list?can=1&q=label:Milestone-Release0.6.1 Release Notes]
+
 == soi-toolkit v0.6.1 - Milestone 2 ==
 Release date: March 18 2013
 
