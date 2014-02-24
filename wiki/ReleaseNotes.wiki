@@ -6,7 +6,7 @@
 <wiki:toc max_depth="2" />
 
 == soi-toolkit v0.6.1 ==
-Release date: February 24 2013
+Release date: February 24 2014
 
 This is a feature and maintenance release with 25+ new features and bug fixes (including changes from 0.6.1 milestones M1, M2, M3, M4).
 
