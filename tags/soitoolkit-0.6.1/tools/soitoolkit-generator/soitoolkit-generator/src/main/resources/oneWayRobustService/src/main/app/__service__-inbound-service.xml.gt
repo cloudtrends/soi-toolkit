@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mule 
+${xmlNamespace.onewayService}
+	<!-- TODO: Add service specific definitions here -->
+
+	<custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer"
+		name="logArchiveIn" doc:name="Log archive events">
+		<spring:property name="logType" value="archive-out"/>
+		<spring:property name="jaxbContext" ref="jaxbContext"/>
+		<spring:property name="extraInfo">
+			<spring:map>
+				<spring:entry key="archiveFilename" value="#[flowVars['archiveFilename']]"/>
+			</spring:map>
+		</spring:property>
+	</custom-transformer>
+
+<% if (serviceXaTransactional) { %>
+    <jbossts:transaction-manager/>
+<% } %>
+
+<% if (inboundTransport=="FILE") { %>
+    <!-- don't use streaming for file inbound (removes file when read) -->
+    <file:connector name="${service}-robust-file-inbound-connector" streaming="false"/>
+<% } %>
+	<!-- use processingStrategy="synchronous" for reliability -->
+	<flow name="${service}-inbound-service" processingStrategy="synchronous">
+<% if (inboundTransport=="VM") { %>
+                <vm:inbound-endpoint connector-ref="soitoolkit-vm-connector" path="${dollarSymbol}{${uppercaseService}_IN_VM_QUEUE}" transformer-refs="createCorrId logMsgIn">
+<% if (serviceTransactional) { %>
+					<vm:transaction action="ALWAYS_BEGIN" />
+<% } %> 
+				</vm:inbound-endpoint>
+
+<% } else if (inboundTransport=="JMS") { %>
+                <jms:inbound-endpoint connector-ref="${jmsInboundConnector}" queue="${dollarSymbol}{${uppercaseService}_IN_QUEUE}" transformer-refs="logMsgIn jmsToStr">
+<% if (serviceXaTransactional) { %>
+                    <xa-transaction action="ALWAYS_BEGIN" />
+<% } else if (serviceTransactional) { %>
+                    <jms:transaction action="ALWAYS_BEGIN" />
+<% } %> 
+				</jms:inbound-endpoint>
+
+<% } else if (inboundTransport=="JDBC") { %> 
+            	<jdbc:inbound-endpoint connector-ref="${jdbcInboundConnector}" queryKey="${lowercaseJavaService}-export-query" transformer-refs="logMsgIn">
+<% if (serviceXaTransactional) { %>
+                    <xa-transaction action="ALWAYS_BEGIN" />
+<% } else if (serviceTransactional) { %>
+					<jdbc:transaction action="ALWAYS_BEGIN" />
+<% } %> 
+            	</jdbc:inbound-endpoint>
+                <custom-transformer doc:name="transform-from-db" class="${javaPackage}.${lowercaseJavaService}.${capitalizedJavaService}ExportFromDbTransformer"/>
+
+<% } else if (inboundTransport=="SERVLET" || inboundTransport=="HTTP") { %> 
+				<inbound-endpoint 
+                    connector-ref="soitoolkit-http-connector"
+				    address="${dollarSymbol}{${uppercaseService}_INBOUND_URL}"
+					exchange-pattern="request-response"
+					transformer-refs="createCorrId logMsgIn mimeToStr"
+					responseTransformer-refs="logRespOut">
+			    
+			        <response>
+				        <scripting:transformer>
+				            <scripting:script engine="groovy">
+				            	return "OK"
+				            </scripting:script>
+				        </scripting:transformer>
+			        </response>
+				</inbound-endpoint>
+
+<% } else if (inboundTransport=="FILE") { %> 
+				<file:inbound-endpoint
+					connector-ref="${service}-robust-file-inbound-connector"
+					path="${dollarSymbol}{${uppercaseService}_INBOUND_FOLDER}"
+					pollingFrequency="${dollarSymbol}{${uppercaseService}_INBOUND_POLLING_MS}"
+					fileAge="${dollarSymbol}{${uppercaseService}_INBOUND_FILE_AGE_MS}"
+					transformer-refs="createCorrId logMsgIn" doc:name="File">
+					<file:filename-wildcard-filter pattern="*.*"/>
+				</file:inbound-endpoint>
+
+<% } else if (inboundTransport=="FTP") { %> 
+				<ftp:inbound-endpoint 
+					name="${service}-inbound-endpoint"
+                    connector-ref="soitoolkit-ftp-connector"
+					address="ftp://${dollarSymbol}{${uppercaseService}_INBOUND_FOLDER}"
+					pollingFrequency="${dollarSymbol}{${uppercaseService}_INBOUND_POLLING_MS}"
+					binary="true"
+					passive="true"
+					transformer-refs="createCorrId logMsgIn">
+					<file:filename-wildcard-filter pattern="*.*"/>
+				</ftp:inbound-endpoint>			
+
+<% } else if (inboundTransport=="SFTP") { %> 
+				<sftp:inbound-endpoint
+					name="${service}-inbound-endpoint"
+					connector-ref="soitoolkit-sftp-connector"
+					address="sftp://${dollarSymbol}{${uppercaseService}_INBOUND_SFTP_FOLDER}"
+					pollingFrequency="${dollarSymbol}{${uppercaseService}_INBOUND_SFTP_POLLING_MS}"
+					sizeCheckWaitTime="${dollarSymbol}{${uppercaseService}_INBOUND_SFTP_SIZECHECK_MS}"
+					tempDir="sending"
+					useTempFileTimestampSuffix="true"
+					archiveDir="${dollarSymbol}{${uppercaseService}_ARCHIVE_FOLDER}"
+					archiveTempReceivingDir="receiving"
+					archiveTempSendingDir="sending"
+					transformer-refs="objToStr logMsgIn">
+					<file:filename-wildcard-filter pattern="*.*"/>
+				</sftp:inbound-endpoint>			
+
+<% } else if (inboundTransport=="POP3") { %> 
+				<pop3:inbound-endpoint 
+					host="${dollarSymbol}{${uppercaseService}_POP3_HOST}" 
+					port="${dollarSymbol}{${uppercaseService}_POP3_PORT}"
+					user="${dollarSymbol}{${uppercaseService}_POP3_USR}" 
+					password="${dollarSymbol}{${uppercaseService}_POP3_PWD}" 
+					transformer-refs="logMsgIn">
+					<email:email-to-string-transformer/>
+				</pop3:inbound-endpoint>		
+
+<% } else if (inboundTransport=="IMAP") { %> 
+				<imap:inbound-endpoint 
+					host="${dollarSymbol}{${uppercaseService}_IMAP_HOST}" 
+					port="${dollarSymbol}{${uppercaseService}_IMAP_PORT}"
+					user="${dollarSymbol}{${uppercaseService}_IMAP_USR}" 
+					password="${dollarSymbol}{${uppercaseService}_IMAP_PWD}" 
+					transformer-refs="logMsgIn">
+					<email:email-to-string-transformer/>
+				</imap:inbound-endpoint>		
+<% } %> 
+
+            <set-property propertyName="#[org.soitoolkit.commons.mule.core.PropertyNames.SOITOOLKIT_CORRELATION_ID]"
+                value="#[sessionVars[org.soitoolkit.commons.mule.core.PropertyNames.SOITOOLKIT_CORRELATION_ID]]"
+                doc:name="Propagate correlation Id to outbound" />            
+            <copy-properties propertyName="#[org.mule.transport.file.FileConnector.PROPERTY_ORIGINAL_FILENAME]"
+                doc:name="Propagate originalFilename to outbound" />
+
+            <set-variable variableName="archiveFilename" value="${dollarSymbol}{${uppercaseService}_ARCHIVE_FILENAME_IN}" doc:name="Set archive file name"/>
+            <file:outbound-endpoint
+                connector-ref="soitoolkit-file-connector"
+                path="${dollarSymbol}{${uppercaseService}_ARCHIVE_FOLDER_IN}"
+                transformer-refs="logArchiveIn"
+                outputPattern="#[flowVars['archiveFilename']]" doc:name="Archive inbound file"/>
+
+            <jms:outbound-endpoint
+                connector-ref="${jmsOutboundConnector}"
+                queue="${dollarSymbol}{${uppercaseService}_IN_QUEUE}" 
+                transformer-refs="logMsgOut" doc:name="JMS">
+            </jms:outbound-endpoint>
+
+			<custom-exception-strategy class="org.soitoolkit.commons.mule.error.ServiceExceptionStrategy"/>
+
+	</flow>
+
+</mule>
