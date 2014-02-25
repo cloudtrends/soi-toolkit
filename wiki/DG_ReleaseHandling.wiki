@@ -71,11 +71,13 @@ mvn test -PrunGeneratorTests
   * Bundle version and Bundle-!ClassPath*2 (lib/soitoolkit-generator-n.n.n.jar) in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/META-INF/MANIFEST.MF}}}
   * Soitoolkit-version*2 in bin.includes + jars.extra.classpath in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/build.properties}}}
   * Soitoolkit-version*2 in {{{tools/soitoolkit-generator/soitoolkit-generator-plugin/.classpath}}}
+  * Make sure the default Mule version for the Maven-generator plugin is among valid version in {{{tools/soitoolkit-generator/soitoolkit-generator-maven-plugin/src/main/java/org/soitoolkit/tools/generator/maven/GenIntegrationComponentMojo.java}}}
 
 *NOTE: * If only releasing maven artefacts (e.g. not the eclipse plugin) you need to update only the following by hand:
  * Manually update the soi-toolkit version to the release version in the following files: 
   * Constant {{{SOITOOLKIT_VERSION}}} in {{{tools/soitoolkit-generator/soitoolkit-generator/src/main/java/org/soitoolkit/tools/generator/model/impl/DefaultModelImpl.java}}}
  * commons/poms/default-parent/pom.xml" --> "/ns:project/ns:properties/ns:soitoolkit.version" 
+ * Make sure the default Mule version for the Maven-generator plugin is among valid version in {{{tools/soitoolkit-generator/soitoolkit-generator-maven-plugin/src/main/java/org/soitoolkit/tools/generator/maven/GenIntegrationComponentMojo.java}}}
 
 *END NOTE*
 
