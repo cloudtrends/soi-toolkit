@@ -1,0 +1,11 @@
+soitoolkit-eclipse-plugin-0.6.1.X_README.txt
+=============================================
+Only difference between 0.6.1.X and 0.6.1 is that the eclipse-plugin version
+has been changed to 0.6.1.X to workaround issue 372, which prevents
+installation of 0.6.1 on top of a previously installed version
+0.6.1.SNAPSHOT_2013-10-22_0158.
+
+For installation/upgrade without a previously installed version
+0.6.1.SNAPSHOT_2013-10-22_0158, both 0.6.1 and 0.6.1.X will work.
+
+Refer to: https://code.google.com/p/soi-toolkit/issues/detail?id=372
