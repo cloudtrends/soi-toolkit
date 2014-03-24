@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mule 
+${xmlNamespace.onewayService}
+  <!-- TODO: Add service specific definitions here -->
+  
+	<custom-transformer class="org.soitoolkit.commons.mule.log.LogTransformer"
+		name="logArchiveOut" doc:name="Log archive events">
+		<spring:property name="logType" value="archive-out"/>
+		<spring:property name="jaxbContext" ref="jaxbContext"/>
+		<spring:property name="extraInfo">
+			<spring:map>
+				<spring:entry key="archiveFilename" value="#[flowVars['archiveFilename']]"/>
+			</spring:map>
+		</spring:property>
+	</custom-transformer>
+    
+  <flow name="${service}-process-service" doc:name="${service}-process-service">
+    <jms:inbound-endpoint connector-ref="${jmsInboundConnector}"
+        queue="${dollarSymbol}{${uppercaseService}_IN_QUEUE}"
+        transformer-refs="logMsgIn" doc:name="JMS in">
+      <jms:transaction action="ALWAYS_BEGIN"/>
+    </jms:inbound-endpoint>
+    
+    <copy-properties propertyName="#[org.soitoolkit.commons.mule.core.PropertyNames.SOITOOLKIT_CORRELATION_ID]"
+        doc:name="Propagate correlation Id to outbound" />    
+    <copy-properties propertyName="#[org.mule.transport.file.FileConnector.PROPERTY_ORIGINAL_FILENAME]"
+        doc:name="Propagate originalFilename to outbound" />
+
+    <!--
+    Note: Aim for the transformer to explicitly handle any character encoding
+    from/to binary (byte[]) format and let the rest of the flow handle binary
+    payload only to avoid encoding issues (like having automatic conversion from
+    String to default encoding).
+    -->
+    <custom-transformer doc:name="Transform message"
+        class="${javaPackage}.${lowercaseJavaService}.process.${capitalizedJavaService}Transformer"/>
+
+    <set-variable variableName="archiveFilename" value="${dollarSymbol}{${uppercaseService}_ARCHIVE_FILENAME_OUT}" doc:name="Set archive file name"/>
+    <file:outbound-endpoint
+        connector-ref="soitoolkit-file-connector"
+        path="${dollarSymbol}{${uppercaseService}_ARCHIVE_FOLDER_OUT}"
+        transformer-refs="logArchiveOut"
+        outputPattern="#[flowVars['archiveFilename']]" doc:name="Archive outbound file"/>        
+    
+    <jms:outbound-endpoint connector-ref="${jmsOutboundConnector}"
+        queue="${dollarSymbol}{${uppercaseService}_OUT_QUEUE}"
+        transformer-refs="logMsgOut" doc:name="JMS out">
+      <jms:transaction action="ALWAYS_JOIN"/>
+    </jms:outbound-endpoint>
+    
+
+    <custom-exception-strategy class="org.soitoolkit.commons.mule.error.ServiceExceptionStrategy"/>
+    
+  </flow>
+
+</mule>
