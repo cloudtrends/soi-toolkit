@@ -56,7 +56,7 @@ Use Eclipse to run all tests in the project {{{soitoolkit-generator-plugin}}} or
 
 {{{
 cd tools/soitoolkit-generator/soitoolkit-generator
-mvn test -PrunGenertorTests
+mvn test -PrunGeneratorTests
 }}}
 
 == Running the code generator as a eclipse wizard from source ==
