@@ -52,7 +52,12 @@ mvn clean install
 
 The generator is for now both tested and built manually using the built in support in Eclipse for building Eclipse-plugins.
 
-Use Eclipse to run all tests in the project {{{soitoolkit-generator-plugin}}}.
+Use Eclipse to run all tests in the project {{{soitoolkit-generator-plugin}}} or perform:
+
+{{{
+cd tools/soitoolkit-generator/soitoolkit-generator
+mvn test -PrunGenertorTests
+}}}
 
 == Running the code generator as a eclipse wizard from source ==
 If you want to try out the code generator based on the source code in trunk you can do the following:
