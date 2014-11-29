@@ -59,6 +59,8 @@ mvn clean test
 mvn test -PrunGeneratorTests
 }}}
 
+*TODO 141129:* Update-tool outdated, move to mvn + jdk1.7, updates files are a mess, eclipse - plugin files should not need updates from this tool anymore. Update <soitoolkit.version> in soitoolkit-default-parent-pom by hand for now!
+
  * Use the update-tool to update soi-toolkit version to the release version in files not updated by the release plugin.
   * Update the variable "newVersion" to the new version, e.g. "0.4.0"
   * Set the variable "isSnapshot" to false
